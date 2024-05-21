@@ -1,0 +1,13 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp:132:5:touchgfx::Bitmap::Bitmap(touchgfx::BitmapId)	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:525:10:void touchgfx::Drawable::setTouchable(bool)	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	16	static
+../TouchGFX/gui/include/gui/main_screen/MainView.hpp:11:5:MainView::~MainView()	16	static
+../TouchGFX/gui/include/gui/main_screen/MainView.hpp:11:5:virtual MainView::~MainView()	16	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:8:1:MainView::MainView()	16	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:10:6:virtual void MainView::setupScreen()	16	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:15:6:virtual void MainView::increaseValue()	16	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:21:6:virtual void MainView::decreaseValue()	16	static
+../TouchGFX/gui/src/main_screen/MainView.cpp:27:6:void MainView::updateGFXElements()	56	static

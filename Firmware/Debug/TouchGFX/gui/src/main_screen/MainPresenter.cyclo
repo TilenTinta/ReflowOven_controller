@@ -1,0 +1,13 @@
+../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:37:18:virtual void touchgfx::Presenter::activate()	1
+../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:47:18:virtual void touchgfx::Presenter::deactivate()	1
+../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:52:13:touchgfx::Presenter::~Presenter()	1
+../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:52:13:virtual touchgfx::Presenter::~Presenter()	1
+../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:58:5:touchgfx::Presenter::Presenter()	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:18:5:ModelListener::ModelListener()	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:13:ModelListener::~ModelListener()	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:13:virtual ModelListener::~ModelListener()	1
+../TouchGFX/gui/include/gui/main_screen/MainPresenter.hpp:28:13:MainPresenter::~MainPresenter()	1
+../TouchGFX/gui/include/gui/main_screen/MainPresenter.hpp:28:13:virtual MainPresenter::~MainPresenter()	1
+../TouchGFX/gui/src/main_screen/MainPresenter.cpp:4:1:MainPresenter::MainPresenter(MainView&)	1
+../TouchGFX/gui/src/main_screen/MainPresenter.cpp:9:6:virtual void MainPresenter::activate()	1
+../TouchGFX/gui/src/main_screen/MainPresenter.cpp:13:6:virtual void MainPresenter::deactivate()	1
