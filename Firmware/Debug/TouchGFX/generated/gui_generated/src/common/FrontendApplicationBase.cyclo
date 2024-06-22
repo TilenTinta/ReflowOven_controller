@@ -28,28 +28,58 @@ C:\ST\STM32CubeIDE_1.10.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:47:5:touchgfx::MVPApplication::MVPApplication()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:59:18:virtual void touchgfx::MVPApplication::handlePendingScreenTransition()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:73:10:void touchgfx::MVPApplication::evaluatePendingScreenTransition()	4
-../TouchGFX/gui/include/gui/model/Model.hpp:31:10:void Model::bind(ModelListener*)	1
+../TouchGFX/gui/include/gui/model/Model.hpp:11:10:void Model::bind(ModelListener*)	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:43:7:touchgfx::MVPApplication::~MVPApplication()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:43:7:virtual touchgfx::MVPApplication::~MVPApplication()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:16:13:FrontendApplicationBase::~FrontendApplicationBase()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:16:13:virtual FrontendApplicationBase::~FrontendApplicationBase()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:18:18:virtual void FrontendApplicationBase::changeToStartScreen()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/NoTransition.hpp:35:18:virtual void touchgfx::NoTransition::handleTickEvent()	1
-../TouchGFX/gui/include/gui/model/ModelListener.hpp:26:10:void ModelListener::bind(Model*)	1
-../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:17:1:FrontendApplicationBase::FrontendApplicationBase(Model&, FrontendHeap&)	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:13:10:void ModelListener::bind(Model*)	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:36:1:FrontendApplicationBase::FrontendApplicationBase(Model&, FrontendHeap&)	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:175:7:constexpr touchgfx::GenericCallback<void>& touchgfx::GenericCallback<void>::operator=(const touchgfx::GenericCallback<void>&)	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:424:8:constexpr touchgfx::Callback<FrontendApplicationBase>& touchgfx::Callback<FrontendApplicationBase>::operator=(touchgfx::Callback<FrontendApplicationBase>&&)	1
-../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:35:6:void FrontendApplicationBase::gotoMainScreenNoTransition()	1
-../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:41:6:void FrontendApplicationBase::gotoMainScreenNoTransitionImpl()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:60:6:void FrontendApplicationBase::gotoStartUpScreenNoTransition()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:66:6:void FrontendApplicationBase::gotoStartUpScreenNoTransitionImpl()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:73:6:void FrontendApplicationBase::gotoHomeReflowScreenNoTransition()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:79:6:void FrontendApplicationBase::gotoHomeReflowScreenNoTransitionImpl()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:86:6:void FrontendApplicationBase::gotoMenuScreenNoTransition()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:92:6:void FrontendApplicationBase::gotoMenuScreenNoTransitionImpl()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:99:6:void FrontendApplicationBase::gotoSettingsScreenNoTransition()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:105:6:void FrontendApplicationBase::gotoSettingsScreenNoTransitionImpl()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:112:6:void FrontendApplicationBase::gotoDrySetupScreenNoTransition()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:118:6:void FrontendApplicationBase::gotoDrySetupScreenNoTransitionImpl()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:125:6:void FrontendApplicationBase::gotoReflowSetupScreenNoTransition()	1
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:131:6:void FrontendApplicationBase::gotoReflowSetupScreenNoTransitionImpl()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:175:7:constexpr touchgfx::GenericCallback<void>::GenericCallback()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:427:5:touchgfx::Callback<dest_type, void, void, void>::Callback() [with dest_type = FrontendApplicationBase]	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:440:5:touchgfx::Callback<dest_type, void, void, void>::Callback(dest_type*, void (dest_type::*)()) [with dest_type = FrontendApplicationBase]	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/NoTransition.hpp:31:7:touchgfx::NoTransition::NoTransition()	1
-../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:161:16:PresenterType* touchgfx::makeTransition(touchgfx::Screen**, touchgfx::Presenter**, touchgfx::MVPHeap&, touchgfx::Transition**, ModelType*) [with ScreenType = MainView; PresenterType = MainPresenter; TransType = touchgfx::NoTransition; ModelType = Model]	8
+../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:161:16:PresenterType* touchgfx::makeTransition(touchgfx::Screen**, touchgfx::Presenter**, touchgfx::MVPHeap&, touchgfx::Transition**, ModelType*) [with ScreenType = StartUpView; PresenterType = StartUpPresenter; TransType = touchgfx::NoTransition; ModelType = Model]	8
+../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:161:16:PresenterType* touchgfx::makeTransition(touchgfx::Screen**, touchgfx::Presenter**, touchgfx::MVPHeap&, touchgfx::Transition**, ModelType*) [with ScreenType = HomeReflowView; PresenterType = HomeReflowPresenter; TransType = touchgfx::NoTransition; ModelType = Model]	8
+../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:161:16:PresenterType* touchgfx::makeTransition(touchgfx::Screen**, touchgfx::Presenter**, touchgfx::MVPHeap&, touchgfx::Transition**, ModelType*) [with ScreenType = MenuView; PresenterType = MenuPresenter; TransType = touchgfx::NoTransition; ModelType = Model]	8
+../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:161:16:PresenterType* touchgfx::makeTransition(touchgfx::Screen**, touchgfx::Presenter**, touchgfx::MVPHeap&, touchgfx::Transition**, ModelType*) [with ScreenType = SettingsView; PresenterType = SettingsPresenter; TransType = touchgfx::NoTransition; ModelType = Model]	8
+../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:161:16:PresenterType* touchgfx::makeTransition(touchgfx::Screen**, touchgfx::Presenter**, touchgfx::MVPHeap&, touchgfx::Transition**, ModelType*) [with ScreenType = DrySetupView; PresenterType = DrySetupPresenter; TransType = touchgfx::NoTransition; ModelType = Model]	8
+../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:161:16:PresenterType* touchgfx::makeTransition(touchgfx::Screen**, touchgfx::Presenter**, touchgfx::MVPHeap&, touchgfx::Transition**, ModelType*) [with ScreenType = ReflowSetupView; PresenterType = ReflowSetupPresenter; TransType = touchgfx::NoTransition; ModelType = Model]	8
 ../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = touchgfx::NoTransition]	1
-../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = MainView]	1
-../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = MainPresenter]	1
-../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:50:10:void touchgfx::View<T>::bind(T&) [with T = MainPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = StartUpView]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = StartUpPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:50:10:void touchgfx::View<T>::bind(T&) [with T = StartUpPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = HomeReflowView]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = HomeReflowPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:50:10:void touchgfx::View<T>::bind(T&) [with T = HomeReflowPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = MenuView]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = MenuPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:50:10:void touchgfx::View<T>::bind(T&) [with T = MenuPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = SettingsView]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = SettingsPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:50:10:void touchgfx::View<T>::bind(T&) [with T = SettingsPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = DrySetupView]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = DrySetupPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:50:10:void touchgfx::View<T>::bind(T&) [with T = DrySetupPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = ReflowSetupView]	1
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = ReflowSetupPresenter]	1
+../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:50:10:void touchgfx::View<T>::bind(T&) [with T = ReflowSetupPresenter]	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/NoTransition.hpp:31:7:touchgfx::NoTransition::~NoTransition()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/NoTransition.hpp:31:7:virtual touchgfx::NoTransition::~NoTransition()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:424:8:touchgfx::Callback<FrontendApplicationBase>::~Callback()	1

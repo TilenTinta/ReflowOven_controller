@@ -51,22 +51,63 @@ TouchGFX/target/generated/TouchGFXConfiguration.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FrameBufferAllocator.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Gestures.hpp \
  ../TouchGFX/gui/include/gui/model/Model.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp \
- ../TouchGFX/gui/include/gui/main_screen/MainView.hpp \
- ../TouchGFX/generated/gui_generated/include/gui_generated/main_screen/MainViewBase.hpp \
+ ../TouchGFX/gui/include/gui/startup_screen/StartUpView.hpp \
+ ../TouchGFX/generated/gui_generated/include/gui_generated/startup_screen/StartUpViewBase.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp \
- ../TouchGFX/gui/include/gui/main_screen/MainPresenter.hpp \
+ ../TouchGFX/gui/include/gui/startup_screen/StartUpPresenter.hpp \
  ../TouchGFX/gui/include/gui/model/ModelListener.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ScalableImage.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp \
+ ../TouchGFX/gui/include/gui/error_screen/ErrorView.hpp \
+ ../TouchGFX/generated/gui_generated/include/gui_generated/error_screen/ErrorViewBase.hpp \
+ ../TouchGFX/gui/include/gui/error_screen/ErrorPresenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
- ../TouchGFX/generated/images/include/BitmapDatabase.hpp \
- ../TouchGFX/generated/images/include/images/BitmapDatabase.hpp \
+ ../TouchGFX/gui/include/gui/homereflow_screen/HomeReflowView.hpp \
+ ../TouchGFX/generated/gui_generated/include/gui_generated/homereflow_screen/HomeReflowViewBase.hpp \
+ ../TouchGFX/gui/include/gui/homereflow_screen/HomeReflowPresenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CWRUtil.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Rasterizer.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Outline.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Cell.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/transforms/DisplayTransformation.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphLabels.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Canvas.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CanvasWidget.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB565.hpp \
  ../Middlewares/ST/touchgfx/framework/include/platform/driver/lcd/LCD16bpp.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/lcd/LCD16DebugPrinter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB565.hpp \
+ ../TouchGFX/gui/include/gui/homedry_screen/HomeDryView.hpp \
+ ../TouchGFX/generated/gui_generated/include/gui_generated/homedry_screen/HomeDryViewBase.hpp \
+ ../TouchGFX/gui/include/gui/homedry_screen/HomeDryPresenter.hpp \
+ ../TouchGFX/gui/include/gui/menu_screen/MenuView.hpp \
+ ../TouchGFX/generated/gui_generated/include/gui_generated/menu_screen/MenuViewBase.hpp \
+ ../TouchGFX/gui/include/gui/menu_screen/MenuPresenter.hpp \
+ ../TouchGFX/gui/include/gui/settings_screen/SettingsView.hpp \
+ ../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp \
+ ../TouchGFX/gui/include/gui/settings_screen/SettingsPresenter.hpp \
+ ../TouchGFX/gui/include/gui/drysetup_screen/DrySetupView.hpp \
+ ../TouchGFX/generated/gui_generated/include/gui_generated/drysetup_screen/DrySetupViewBase.hpp \
+ ../TouchGFX/gui/include/gui/drysetup_screen/DrySetupPresenter.hpp \
+ ../TouchGFX/gui/include/gui/reflowsetup_screen/ReflowSetupView.hpp \
+ ../TouchGFX/generated/gui_generated/include/gui_generated/reflowsetup_screen/ReflowSetupViewBase.hpp \
+ ../TouchGFX/gui/include/gui/reflowsetup_screen/ReflowSetupPresenter.hpp \
+ ../TouchGFX/generated/images/include/BitmapDatabase.hpp \
+ ../TouchGFX/generated/images/include/images/BitmapDatabase.hpp \
+ ../TouchGFX/target/TouchGFXDataReader.hpp \
+ ../TouchGFX/target/generated/TouchGFXGeneratedDataReader.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FlashDataReader.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/platform/driver/lcd/LCD16bppSerialFlash.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/OSWrappers.hpp \
  ../TouchGFX/target/generated/STM32DMA.hpp \
  ../TouchGFX/target/TouchGFXHAL.hpp \
@@ -99,6 +140,8 @@ TouchGFX/target/generated/TouchGFXConfiguration.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
@@ -154,22 +197,63 @@ TouchGFX/target/generated/TouchGFXConfiguration.o: \
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FrameBufferAllocator.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Gestures.hpp:
 ../TouchGFX/gui/include/gui/model/Model.hpp:
-../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp:
-../TouchGFX/gui/include/gui/main_screen/MainView.hpp:
-../TouchGFX/generated/gui_generated/include/gui_generated/main_screen/MainViewBase.hpp:
+../TouchGFX/gui/include/gui/startup_screen/StartUpView.hpp:
+../TouchGFX/generated/gui_generated/include/gui_generated/startup_screen/StartUpViewBase.hpp:
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:
-../TouchGFX/gui/include/gui/main_screen/MainPresenter.hpp:
+../TouchGFX/gui/include/gui/startup_screen/StartUpPresenter.hpp:
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ScalableImage.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp:
+../TouchGFX/gui/include/gui/error_screen/ErrorView.hpp:
+../TouchGFX/generated/gui_generated/include/gui_generated/error_screen/ErrorViewBase.hpp:
+../TouchGFX/gui/include/gui/error_screen/ErrorPresenter.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
-../TouchGFX/generated/images/include/BitmapDatabase.hpp:
-../TouchGFX/generated/images/include/images/BitmapDatabase.hpp:
+../TouchGFX/gui/include/gui/homereflow_screen/HomeReflowView.hpp:
+../TouchGFX/generated/gui_generated/include/gui_generated/homereflow_screen/HomeReflowViewBase.hpp:
+../TouchGFX/gui/include/gui/homereflow_screen/HomeReflowPresenter.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CWRUtil.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Rasterizer.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Outline.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Cell.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainter.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/transforms/DisplayTransformation.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphLabels.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Canvas.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CanvasWidget.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB565.hpp:
 ../Middlewares/ST/touchgfx/framework/include/platform/driver/lcd/LCD16bpp.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/lcd/LCD16DebugPrinter.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB565.hpp:
+../TouchGFX/gui/include/gui/homedry_screen/HomeDryView.hpp:
+../TouchGFX/generated/gui_generated/include/gui_generated/homedry_screen/HomeDryViewBase.hpp:
+../TouchGFX/gui/include/gui/homedry_screen/HomeDryPresenter.hpp:
+../TouchGFX/gui/include/gui/menu_screen/MenuView.hpp:
+../TouchGFX/generated/gui_generated/include/gui_generated/menu_screen/MenuViewBase.hpp:
+../TouchGFX/gui/include/gui/menu_screen/MenuPresenter.hpp:
+../TouchGFX/gui/include/gui/settings_screen/SettingsView.hpp:
+../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:
+../TouchGFX/gui/include/gui/settings_screen/SettingsPresenter.hpp:
+../TouchGFX/gui/include/gui/drysetup_screen/DrySetupView.hpp:
+../TouchGFX/generated/gui_generated/include/gui_generated/drysetup_screen/DrySetupViewBase.hpp:
+../TouchGFX/gui/include/gui/drysetup_screen/DrySetupPresenter.hpp:
+../TouchGFX/gui/include/gui/reflowsetup_screen/ReflowSetupView.hpp:
+../TouchGFX/generated/gui_generated/include/gui_generated/reflowsetup_screen/ReflowSetupViewBase.hpp:
+../TouchGFX/gui/include/gui/reflowsetup_screen/ReflowSetupPresenter.hpp:
+../TouchGFX/generated/images/include/BitmapDatabase.hpp:
+../TouchGFX/generated/images/include/images/BitmapDatabase.hpp:
+../TouchGFX/target/TouchGFXDataReader.hpp:
+../TouchGFX/target/generated/TouchGFXGeneratedDataReader.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FlashDataReader.hpp:
+../Middlewares/ST/touchgfx/framework/include/platform/driver/lcd/LCD16bppSerialFlash.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/OSWrappers.hpp:
 ../TouchGFX/target/generated/STM32DMA.hpp:
 ../TouchGFX/target/TouchGFXHAL.hpp:
@@ -202,6 +286,8 @@ TouchGFX/target/generated/TouchGFXConfiguration.o: \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h:

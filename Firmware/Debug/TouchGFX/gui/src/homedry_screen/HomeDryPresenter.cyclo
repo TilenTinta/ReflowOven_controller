@@ -1,0 +1,13 @@
+../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:37:18:virtual void touchgfx::Presenter::activate()	1
+../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:47:18:virtual void touchgfx::Presenter::deactivate()	1
+../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:52:13:touchgfx::Presenter::~Presenter()	1
+../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:52:13:virtual touchgfx::Presenter::~Presenter()	1
+../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:58:5:touchgfx::Presenter::Presenter()	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:9:5:ModelListener::ModelListener()	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:11:13:ModelListener::~ModelListener()	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:11:13:virtual ModelListener::~ModelListener()	1
+../TouchGFX/gui/include/gui/homedry_screen/HomeDryPresenter.hpp:28:13:HomeDryPresenter::~HomeDryPresenter()	1
+../TouchGFX/gui/include/gui/homedry_screen/HomeDryPresenter.hpp:28:13:virtual HomeDryPresenter::~HomeDryPresenter()	1
+../TouchGFX/gui/src/homedry_screen/HomeDryPresenter.cpp:4:1:HomeDryPresenter::HomeDryPresenter(HomeDryView&)	1
+../TouchGFX/gui/src/homedry_screen/HomeDryPresenter.cpp:10:6:virtual void HomeDryPresenter::activate()	1
+../TouchGFX/gui/src/homedry_screen/HomeDryPresenter.cpp:15:6:virtual void HomeDryPresenter::deactivate()	1

@@ -26,10 +26,17 @@ Core/Src/MAX31855.o: ../Core/Src/MAX31855.c ../Core/Inc/MAX31855.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h \
+ C:/DATA/Projects/Reflow_oven/ReflowOven_controller/Firmware/Core/Inc/LCD/fonts.h \
+ C:/DATA/Projects/Reflow_oven/ReflowOven_controller/Firmware/Core/Inc/LCD/z_displ_ILI9XXX.h \
+ C:/DATA/Projects/Reflow_oven/ReflowOven_controller/Firmware/Core/Inc/LCD/z_touch_XPT2046.h \
+ C:/DATA/Projects/Reflow_oven/ReflowOven_controller/Firmware/Core/Inc/FLASH/z_flash_W25QXXX.h \
+ ../Core/Inc/MAX31855.h
 ../Core/Inc/MAX31855.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -59,7 +66,14 @@ Core/Src/MAX31855.o: ../Core/Src/MAX31855.c ../Core/Inc/MAX31855.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h:
+C:/DATA/Projects/Reflow_oven/ReflowOven_controller/Firmware/Core/Inc/LCD/fonts.h:
+C:/DATA/Projects/Reflow_oven/ReflowOven_controller/Firmware/Core/Inc/LCD/z_displ_ILI9XXX.h:
+C:/DATA/Projects/Reflow_oven/ReflowOven_controller/Firmware/Core/Inc/LCD/z_touch_XPT2046.h:
+C:/DATA/Projects/Reflow_oven/ReflowOven_controller/Firmware/Core/Inc/FLASH/z_flash_W25QXXX.h:
+../Core/Inc/MAX31855.h:

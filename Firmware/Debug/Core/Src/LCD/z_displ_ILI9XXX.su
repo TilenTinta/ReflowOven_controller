@@ -1,0 +1,16 @@
+../Core/Src/LCD/z_displ_ILI9XXX.c:53:6:Displ_Select	8	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:64:6:Displ_UnSelect	8	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:81:6:Displ_Transmit	32	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:146:6:Displ_WriteCommand	16	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:159:6:Displ_WriteData	24	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:171:6:ILI9XXX_Init	8	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:262:6:Displ_SetAddressWindow	24	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:282:6:Displ_Init	16	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:306:6:Displ_Orientation	16	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:338:6:HAL_SPI_ErrorCallback	16	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:349:6:HAL_SPI_TxCpltCallback	16	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:369:6:Displ_FillArea	56	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:1097:11:Displ_BackLight	16	static,ignoring_inline_asm
+../Core/Src/LCD/z_displ_ILI9XXX.c:1166:5:touchgfxDisplayDriverTransmitActive	4	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:1180:6:touchgfxDisplayDriverTransmitBlock	32	static
+../Core/Src/LCD/z_displ_ILI9XXX.c:1196:6:HAL_TIM_PeriodElapsedCallback	16	static

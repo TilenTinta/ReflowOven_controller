@@ -4,16 +4,97 @@
     <Language Id="GB" />
   </Languages>
   <Texts>
-    <TextGroup Id="Group1">
-      <Text Id="TextId1" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">&lt;number&gt;</Translation>
+    <TextGroup Id="Group1" />
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_SU98" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">PID - D:</Translation>
       </Text>
-      <Text Id="__SingleUse_OR1H" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">0</Translation>
+      <Text Id="__SingleUse_JGZL" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">PID - I:</Translation>
+      </Text>
+      <Text Id="__SingleUse_9TUL" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">PID - P:</Translation>
+      </Text>
+      <Text Id="__SingleUse_3JHM" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">PID:</Translation>
+      </Text>
+      <Text Id="__SingleUse_7NDL" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Units:</Translation>
+      </Text>
+      <Text Id="__SingleUse_WKYU" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">No. of SSRs:</Translation>
+      </Text>
+      <Text Id="__SingleUse_CXVP" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">No. of probes:</Translation>
+      </Text>
+      <Text Id="__SingleUse_BFXQ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Reflow oven settings</Translation>
+      </Text>
+      <Text Id="__SingleUse_1IIV" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">Warnings!</Translation>
+      </Text>
+      <Text Id="__SingleUse_SIQW" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">OK</Translation>
+      </Text>
+      <Text Id="__SingleUse_PRAA" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Back</Translation>
+      </Text>
+      <Text Id="__SingleUse_D3O5" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Back</Translation>
+      </Text>
+      <Text Id="__SingleUse_6FU6" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Back</Translation>
+      </Text>
+      <Text Id="__SingleUse_FOWT" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">Reflow Oven&#10;Controller</Translation>
+      </Text>
+      <Text Id="__SingleUse_5D4Z" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Back</Translation>
+      </Text>
+      <Text Id="__SingleUse_V0B8" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Settings</Translation>
+      </Text>
+      <Text Id="__SingleUse_IPL2" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Dry setup</Translation>
+      </Text>
+      <Text Id="__SingleUse_6EW8" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Reflow setup</Translation>
+      </Text>
+      <Text Id="__SingleUse_9X79" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Time</Translation>
+      </Text>
+      <Text Id="__SingleUse_R5Q8" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">Temperature</Translation>
+      </Text>
+      <Text Id="__SingleUse_NZ0E" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Menu</Translation>
+      </Text>
+      <Text Id="__SingleUse_JAFQ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Stop</Translation>
+      </Text>
+      <Text Id="__SingleUse_PMI7" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Start</Translation>
+      </Text>
+      <Text Id="__SingleUse_23R0" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Start</Translation>
+      </Text>
+      <Text Id="__SingleUse_OR7I" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Stop</Translation>
+      </Text>
+      <Text Id="__SingleUse_FZEQ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Menu</Translation>
+      </Text>
+      <Text Id="__SingleUse_89CF" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">by TintaT</Translation>
+      </Text>
+      <Text Id="__SingleUse_G1MH" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">Reflow Oven&#10;Controller</Translation>
       </Text>
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="Asap-Regular.ttf" Size="80" Bpp="4" IsVector="no" Direction="LTR" WildcardCharacterRanges="0-9" />
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="-., 0123456789" />
+    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
 </TextDatabase>

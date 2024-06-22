@@ -12,8 +12,22 @@
 #include <gui/common/FrontendApplication.hpp>
 #include <gui/model/Model.hpp>
 
-#include <gui/main_screen/MainView.hpp>
-#include <gui/main_screen/MainPresenter.hpp>
+#include <gui/startup_screen/StartUpView.hpp>
+#include <gui/startup_screen/StartUpPresenter.hpp>
+#include <gui/error_screen/ErrorView.hpp>
+#include <gui/error_screen/ErrorPresenter.hpp>
+#include <gui/homereflow_screen/HomeReflowView.hpp>
+#include <gui/homereflow_screen/HomeReflowPresenter.hpp>
+#include <gui/homedry_screen/HomeDryView.hpp>
+#include <gui/homedry_screen/HomeDryPresenter.hpp>
+#include <gui/menu_screen/MenuView.hpp>
+#include <gui/menu_screen/MenuPresenter.hpp>
+#include <gui/settings_screen/SettingsView.hpp>
+#include <gui/settings_screen/SettingsPresenter.hpp>
+#include <gui/drysetup_screen/DrySetupView.hpp>
+#include <gui/drysetup_screen/DrySetupPresenter.hpp>
+#include <gui/reflowsetup_screen/ReflowSetupView.hpp>
+#include <gui/reflowsetup_screen/ReflowSetupPresenter.hpp>
 
 
 /**
@@ -36,8 +50,15 @@ public:
      * A list of all view types. Must end with meta::Nil.
      * @note All view types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< MainView,
-            touchgfx::meta::Nil
+    typedef touchgfx::meta::TypeList< StartUpView,
+            touchgfx::meta::TypeList< ErrorView,
+            touchgfx::meta::TypeList< HomeReflowView,
+            touchgfx::meta::TypeList< HomeDryView,
+            touchgfx::meta::TypeList< MenuView,
+            touchgfx::meta::TypeList< SettingsView,
+            touchgfx::meta::TypeList< DrySetupView,
+            touchgfx::meta::TypeList< ReflowSetupView,
+            touchgfx::meta::Nil > > > > > > >
             > GeneratedViewTypes;
 
     /**
@@ -49,8 +70,15 @@ public:
      * A list of all presenter types. Must end with meta::Nil.
      * @note All presenter types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< MainPresenter,
-            touchgfx::meta::Nil
+    typedef touchgfx::meta::TypeList< StartUpPresenter,
+            touchgfx::meta::TypeList< ErrorPresenter,
+            touchgfx::meta::TypeList< HomeReflowPresenter,
+            touchgfx::meta::TypeList< HomeDryPresenter,
+            touchgfx::meta::TypeList< MenuPresenter,
+            touchgfx::meta::TypeList< SettingsPresenter,
+            touchgfx::meta::TypeList< DrySetupPresenter,
+            touchgfx::meta::TypeList< ReflowSetupPresenter,
+            touchgfx::meta::Nil > > > > > > >
             > GeneratedPresenterTypes;
 
     /**
@@ -73,7 +101,7 @@ public:
 
     virtual void gotoStartScreen(FrontendApplication& app)
     {
-        app.gotoMainScreenNoTransition();
+        app.gotoStartUpScreenNoTransition();
     }
 protected:
     FrontendHeapBase(touchgfx::AbstractPartition& presenters, touchgfx::AbstractPartition& views, touchgfx::AbstractPartition& transitions, FrontendApplication& app)

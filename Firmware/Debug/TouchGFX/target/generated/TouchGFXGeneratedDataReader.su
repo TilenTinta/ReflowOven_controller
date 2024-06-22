@@ -1,0 +1,8 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FlashDataReader.hpp:34:13:touchgfx::FlashDataReader::~FlashDataReader()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FlashDataReader.hpp:34:13:virtual touchgfx::FlashDataReader::~FlashDataReader()	16	static
+../TouchGFX/target/generated/TouchGFXGeneratedDataReader.hpp:36:13:TouchGFXGeneratedDataReader::~TouchGFXGeneratedDataReader()	16	static
+../TouchGFX/target/generated/TouchGFXGeneratedDataReader.hpp:36:13:virtual TouchGFXGeneratedDataReader::~TouchGFXGeneratedDataReader()	16	static
+../TouchGFX/target/generated/TouchGFXGeneratedDataReader.cpp:31:6:virtual bool TouchGFXGeneratedDataReader::addressIsAddressable(const void*)	16	static
+../TouchGFX/target/generated/TouchGFXGeneratedDataReader.cpp:41:6:virtual void TouchGFXGeneratedDataReader::copyData(const void*, void*, uint32_t)	24	static
+../TouchGFX/target/generated/TouchGFXGeneratedDataReader.cpp:63:6:virtual void TouchGFXGeneratedDataReader::startFlashLineRead(const void*, uint32_t)	24	static
+../TouchGFX/target/generated/TouchGFXGeneratedDataReader.cpp:69:16:virtual const uint8_t* TouchGFXGeneratedDataReader::waitFlashReadComplete()	24	static

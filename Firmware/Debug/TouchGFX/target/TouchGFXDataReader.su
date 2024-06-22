@@ -1,0 +1,13 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FlashDataReader.hpp:34:13:touchgfx::FlashDataReader::~FlashDataReader()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FlashDataReader.hpp:34:13:virtual touchgfx::FlashDataReader::~FlashDataReader()	16	static
+../TouchGFX/target/generated/TouchGFXGeneratedDataReader.hpp:36:13:TouchGFXGeneratedDataReader::~TouchGFXGeneratedDataReader()	16	static
+../TouchGFX/target/generated/TouchGFXGeneratedDataReader.hpp:36:13:virtual TouchGFXGeneratedDataReader::~TouchGFXGeneratedDataReader()	16	static
+../TouchGFX/target/TouchGFXDataReader.hpp:39:13:TouchGFXDataReader::~TouchGFXDataReader()	16	static
+../TouchGFX/target/TouchGFXDataReader.hpp:39:13:virtual TouchGFXDataReader::~TouchGFXDataReader()	16	static
+../TouchGFX/target/TouchGFXDataReader.cpp:27:6:virtual bool TouchGFXDataReader::addressIsAddressable(const void*)	16	static
+../TouchGFX/target/TouchGFXDataReader.cpp:37:6:virtual void TouchGFXDataReader::copyData(const void*, void*, uint32_t)	24	static
+../TouchGFX/target/TouchGFXDataReader.cpp:47:6:virtual void TouchGFXDataReader::startFlashLineRead(const void*, uint32_t)	24	static
+../TouchGFX/target/TouchGFXDataReader.cpp:57:16:virtual const uint8_t* TouchGFXDataReader::waitFlashReadComplete()	16	static
+../TouchGFX/target/TouchGFXDataReader.cpp:84:32:void DataReader_WaitForReceiveDone()	4	static
+../TouchGFX/target/TouchGFXDataReader.cpp:90:32:void DataReader_ReadData(uint32_t, uint8_t*, uint32_t)	24	static
+../TouchGFX/target/TouchGFXDataReader.cpp:96:32:void DataReader_StartDMAReadData(uint32_t, uint8_t*, uint32_t)	24	static

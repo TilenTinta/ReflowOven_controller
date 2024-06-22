@@ -11,30 +11,62 @@ RM := rm -rf
 -include sources.mk
 -include TouchGFX/target/generated/subdir.mk
 -include TouchGFX/target/subdir.mk
+-include TouchGFX/gui/src/startup_screen/subdir.mk
+-include TouchGFX/gui/src/settings_screen/subdir.mk
+-include TouchGFX/gui/src/reflowsetup_screen/subdir.mk
 -include TouchGFX/gui/src/model/subdir.mk
--include TouchGFX/gui/src/main_screen/subdir.mk
+-include TouchGFX/gui/src/menu_screen/subdir.mk
+-include TouchGFX/gui/src/homereflow_screen/subdir.mk
+-include TouchGFX/gui/src/homedry_screen/subdir.mk
+-include TouchGFX/gui/src/error_screen/subdir.mk
+-include TouchGFX/gui/src/drysetup_screen/subdir.mk
 -include TouchGFX/gui/src/common/subdir.mk
 -include TouchGFX/generated/texts/src/subdir.mk
+-include TouchGFX/generated/images/src/__generated/subdir.mk
 -include TouchGFX/generated/images/src/subdir.mk
--include TouchGFX/generated/gui_generated/src/main_screen/subdir.mk
+-include TouchGFX/generated/gui_generated/src/startup_screen/subdir.mk
+-include TouchGFX/generated/gui_generated/src/settings_screen/subdir.mk
+-include TouchGFX/generated/gui_generated/src/reflowsetup_screen/subdir.mk
+-include TouchGFX/generated/gui_generated/src/menu_screen/subdir.mk
+-include TouchGFX/generated/gui_generated/src/homereflow_screen/subdir.mk
+-include TouchGFX/generated/gui_generated/src/homedry_screen/subdir.mk
+-include TouchGFX/generated/gui_generated/src/error_screen/subdir.mk
+-include TouchGFX/generated/gui_generated/src/drysetup_screen/subdir.mk
 -include TouchGFX/generated/gui_generated/src/common/subdir.mk
 -include TouchGFX/generated/fonts/src/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/touchgfx/framework/source/platform/hal/simulator/sdl2/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/touchgfx/framework/source/platform/driver/touch/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/simulator/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/gui/src/startup_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/gui/src/settings_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/gui/src/reflowsetup_screen/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/gui/src/model/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/main_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/gui/src/menu_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/gui/src/homereflow_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/gui/src/homedry_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/gui/src/error_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/gui/src/drysetup_screen/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/gui/src/common/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/generated/texts/src/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/generated/simulator/src/video/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/generated/simulator/src/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/generated/images/src/__generated/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/generated/images/src/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/main_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/startup_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/settings_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/reflowsetup_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/menu_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/homereflow_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/homedry_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/error_screen/subdir.mk
+-include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/drysetup_screen/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/common/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/subdir.mk
 -include TouchGFX/App/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
+-include Core/Src/LCD/subdir.mk
+-include Core/Src/FLASH/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
 
@@ -108,8 +140,8 @@ all: main-build
 main-build: ReflowOven_firmware.elf secondary-outputs
 
 # Tool invocations
-ReflowOven_firmware.elf ReflowOven_firmware.map: $(OBJS) $(USER_OBJS) C:\DATA\Projects\Reflow_oven\Firmware\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "ReflowOven_firmware.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\DATA\Projects\Reflow_oven\Firmware\STM32F411CEUX_FLASH.ld" -Wl,-Map="ReflowOven_firmware.map" -Wl,--gc-sections -static -L"C:\DATA\Projects\Reflow_oven\Firmware\Middlewares\ST\touchgfx\lib\core\cortex_m4f\gcc" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+ReflowOven_firmware.elf ReflowOven_firmware.map: $(OBJS) $(USER_OBJS) C:\DATA\Projects\Reflow_oven\ReflowOven_controller\Firmware\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "ReflowOven_firmware.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\DATA\Projects\Reflow_oven\ReflowOven_controller\Firmware\STM32F411CEUX_FLASH.ld" -Wl,-Map="ReflowOven_firmware.map" -Wl,--gc-sections -static -L"C:\DATA\Projects\Reflow_oven\ReflowOven_controller\Firmware\Middlewares\ST\touchgfx\lib\core\cortex_m4f\gcc" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

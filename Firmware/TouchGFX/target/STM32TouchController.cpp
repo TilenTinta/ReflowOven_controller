@@ -3,7 +3,7 @@
   ******************************************************************************
   * File Name          : STM32TouchController.cpp
   ******************************************************************************
-  * This file was created by TouchGFX Generator 4.23.0. This file is only
+  * This file was created by TouchGFX Generator 4.23.2. This file is only
   * generated once! Delete this file from your project and re-generate code
   * using STM32CubeMX or change this file manually to update it.
   ******************************************************************************
@@ -23,6 +23,7 @@
 /* USER CODE BEGIN STM32TouchController */
 
 #include <STM32TouchController.hpp>
+#include "main.h"
 
 void STM32TouchController::init()
 {
@@ -44,7 +45,7 @@ bool STM32TouchController::sampleTouch(int32_t& x, int32_t& y)
      * By default sampleTouch is called every tick, this can be adjusted by HAL::setTouchSampleRate(int8_t);
      *
      */
-    return false;
+	return ((bool) Touch_TouchGFXSampleTouch(&x, &y));
 }
 
 /* USER CODE END STM32TouchController */

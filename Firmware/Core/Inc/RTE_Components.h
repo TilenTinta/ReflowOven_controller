@@ -22,7 +22,7 @@
 #define  __RTE_COMPONENTS_H__
 
 /* Defines ------------------------------------------------------------------*/
-/* STMicroelectronics.X-CUBE-TOUCHGFX.4.23.0 */
+/* STMicroelectronics.X-CUBE-TOUCHGFX.4.23.2 */
 #define TOUCHGFX_APP
 
 #endif /* __RTE_COMPONENTS_H__ */

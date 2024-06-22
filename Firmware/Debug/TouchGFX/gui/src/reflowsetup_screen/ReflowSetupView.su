@@ -1,0 +1,9 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	16	static
+../TouchGFX/gui/include/gui/reflowsetup_screen/ReflowSetupView.hpp:11:13:ReflowSetupView::~ReflowSetupView()	16	static
+../TouchGFX/gui/include/gui/reflowsetup_screen/ReflowSetupView.hpp:11:13:virtual ReflowSetupView::~ReflowSetupView()	16	static
+../TouchGFX/gui/src/reflowsetup_screen/ReflowSetupView.cpp:3:1:ReflowSetupView::ReflowSetupView()	16	static
+../TouchGFX/gui/src/reflowsetup_screen/ReflowSetupView.cpp:8:6:virtual void ReflowSetupView::setupScreen()	16	static
+../TouchGFX/gui/src/reflowsetup_screen/ReflowSetupView.cpp:13:6:virtual void ReflowSetupView::tearDownScreen()	16	static

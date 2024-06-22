@@ -66,6 +66,7 @@
       "drc_exclusions": [
         "shorting_items|201255000|72400000|eb3d10dc-9c0f-410a-a231-994b2a41e48c|e55b46bf-f447-466a-915b-bfd447b1c177",
         "shorting_items|201255000|77200000|24933ac1-9ad2-4a42-abf3-d205d9df3e2c|28832132-68aa-46fa-af0d-d632ff741a7f",
+        "silk_overlap|129750000|98661667|1282a9f2-c1fe-4091-94d1-1a52cfaa1672|604561ff-29fe-45d4-9c26-11ab40b6f0a5",
         "solder_mask_bridge|201255000|72400000|eb3d10dc-9c0f-410a-a231-994b2a41e48c|e55b46bf-f447-466a-915b-bfd447b1c177",
         "solder_mask_bridge|201255000|77200000|24933ac1-9ad2-4a42-abf3-d205d9df3e2c|28832132-68aa-46fa-af0d-d632ff741a7f"
       ],
@@ -501,7 +502,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "Gerbers/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",

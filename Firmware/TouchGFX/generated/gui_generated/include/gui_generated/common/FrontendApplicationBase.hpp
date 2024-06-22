@@ -17,19 +17,49 @@ public:
 
     virtual void changeToStartScreen()
     {
-        gotoMainScreenNoTransition();
+        gotoStartUpScreenNoTransition();
     }
 
-    // Main
-    void gotoMainScreenNoTransition();
+    // StartUp
+    void gotoStartUpScreenNoTransition();
+
+    // HomeReflow
+    void gotoHomeReflowScreenNoTransition();
+
+    // Menu
+    void gotoMenuScreenNoTransition();
+
+    // Settings
+    void gotoSettingsScreenNoTransition();
+
+    // DrySetup
+    void gotoDrySetupScreenNoTransition();
+
+    // ReflowSetup
+    void gotoReflowSetupScreenNoTransition();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
     Model& model;
 
-    // Main
-    void gotoMainScreenNoTransitionImpl();
+    // StartUp
+    void gotoStartUpScreenNoTransitionImpl();
+
+    // HomeReflow
+    void gotoHomeReflowScreenNoTransitionImpl();
+
+    // Menu
+    void gotoMenuScreenNoTransitionImpl();
+
+    // Settings
+    void gotoSettingsScreenNoTransitionImpl();
+
+    // DrySetup
+    void gotoDrySetupScreenNoTransitionImpl();
+
+    // ReflowSetup
+    void gotoReflowSetupScreenNoTransitionImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

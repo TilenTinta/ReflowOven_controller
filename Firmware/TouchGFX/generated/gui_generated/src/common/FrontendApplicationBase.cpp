@@ -8,9 +8,28 @@
 #include <texts/TextKeysAndLanguages.hpp>
 #include <touchgfx/Texts.hpp>
 #include <touchgfx/hal/HAL.hpp>
+#ifndef SIMULATOR
+#include <platform/driver/lcd/LCD16bppSerialFlash.hpp>
+#endif
+#ifdef SIMULATOR
 #include <platform/driver/lcd/LCD16bpp.hpp>
-#include <gui/main_screen/MainView.hpp>
-#include <gui/main_screen/MainPresenter.hpp>
+#endif
+#include <gui/startup_screen/StartUpView.hpp>
+#include <gui/startup_screen/StartUpPresenter.hpp>
+#include <gui/error_screen/ErrorView.hpp>
+#include <gui/error_screen/ErrorPresenter.hpp>
+#include <gui/homereflow_screen/HomeReflowView.hpp>
+#include <gui/homereflow_screen/HomeReflowPresenter.hpp>
+#include <gui/homedry_screen/HomeDryView.hpp>
+#include <gui/homedry_screen/HomeDryPresenter.hpp>
+#include <gui/menu_screen/MenuView.hpp>
+#include <gui/menu_screen/MenuPresenter.hpp>
+#include <gui/settings_screen/SettingsView.hpp>
+#include <gui/settings_screen/SettingsPresenter.hpp>
+#include <gui/drysetup_screen/DrySetupView.hpp>
+#include <gui/drysetup_screen/DrySetupPresenter.hpp>
+#include <gui/reflowsetup_screen/ReflowSetupView.hpp>
+#include <gui/reflowsetup_screen/ReflowSetupPresenter.hpp>
 
 using namespace touchgfx;
 
@@ -20,25 +39,96 @@ FrontendApplicationBase::FrontendApplicationBase(Model& m, FrontendHeap& heap)
       frontendHeap(heap),
       model(m)
 {
-    touchgfx::HAL::getInstance()->setDisplayOrientation(touchgfx::ORIENTATION_LANDSCAPE);
+    touchgfx::HAL::getInstance()->setDisplayOrientation(touchgfx::ORIENTATION_PORTRAIT);
     touchgfx::Texts::setLanguage(GB);
+#ifndef SIMULATOR
+    reinterpret_cast<touchgfx::LCD16bppSerialFlash&>(touchgfx::HAL::lcd()).enableTextureMapperAll();
+    reinterpret_cast<touchgfx::LCD16bppSerialFlash&>(touchgfx::HAL::lcd()).enableDecompressorL8_All();
+#endif
+#ifdef SIMULATOR
     reinterpret_cast<touchgfx::LCD16bpp&>(touchgfx::HAL::lcd()).enableTextureMapperAll();
     reinterpret_cast<touchgfx::LCD16bpp&>(touchgfx::HAL::lcd()).enableDecompressorL8_All();
+#endif
 }
 
 /*
  * Screen Transition Declarations
  */
 
-// Main
+// StartUp
 
-void FrontendApplicationBase::gotoMainScreenNoTransition()
+void FrontendApplicationBase::gotoStartUpScreenNoTransition()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoMainScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoStartUpScreenNoTransitionImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoMainScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoStartUpScreenNoTransitionImpl()
 {
-    touchgfx::makeTransition<MainView, MainPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<StartUpView, StartUpPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// HomeReflow
+
+void FrontendApplicationBase::gotoHomeReflowScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoHomeReflowScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoHomeReflowScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<HomeReflowView, HomeReflowPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// Menu
+
+void FrontendApplicationBase::gotoMenuScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoMenuScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoMenuScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<MenuView, MenuPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// Settings
+
+void FrontendApplicationBase::gotoSettingsScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoSettingsScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoSettingsScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<SettingsView, SettingsPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// DrySetup
+
+void FrontendApplicationBase::gotoDrySetupScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoDrySetupScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoDrySetupScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<DrySetupView, DrySetupPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// ReflowSetup
+
+void FrontendApplicationBase::gotoReflowSetupScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoReflowSetupScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoReflowSetupScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<ReflowSetupView, ReflowSetupPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

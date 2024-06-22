@@ -14,9 +14,11 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:1162:18:virtual void touchgfx::HAL::performDisplayOrientationChange()	4
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:1189:18:virtual void touchgfx::HAL::InvalidateCache()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:1199:18:virtual void touchgfx::HAL::FlushCache()	1
-../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:106:18:virtual void TouchGFXGeneratedHAL::flushFrameBuffer()	1
-../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:30:7:TouchGFXGeneratedHAL::~TouchGFXGeneratedHAL()	1
-../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:30:7:virtual TouchGFXGeneratedHAL::~TouchGFXGeneratedHAL()	1
+../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:108:18:virtual void TouchGFXGeneratedHAL::flushFrameBuffer()	1
+../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:136:18:virtual void TouchGFXGeneratedHAL::setDataReader(touchgfx::FlashDataReader*)	1
+../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:149:40:virtual touchgfx::FlashDataReader* TouchGFXGeneratedHAL::getDataReader()	1
+../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:31:7:TouchGFXGeneratedHAL::~TouchGFXGeneratedHAL()	1
+../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:31:7:virtual TouchGFXGeneratedHAL::~TouchGFXGeneratedHAL()	1
 ../TouchGFX/target/TouchGFXHAL.hpp:108:18:virtual void TouchGFXHAL::flushFrameBuffer()	1
 ../TouchGFX/target/TouchGFXHAL.cpp:29:6:virtual void TouchGFXHAL::initialize()	1
 ../TouchGFX/target/TouchGFXHAL.cpp:45:11:virtual uint16_t* TouchGFXHAL::getTFTFrameBuffer() const	1

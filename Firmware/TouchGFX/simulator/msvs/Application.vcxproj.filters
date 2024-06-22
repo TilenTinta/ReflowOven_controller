@@ -131,58 +131,142 @@
       <UniqueIdentifier>{C07B02B9-A55E-47AA-AD61-59A6AAD754E6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\gui">
-      <UniqueIdentifier>30E1914F-A31E-A48E-21E5-D4AAE5202AC5</UniqueIdentifier>
+      <UniqueIdentifier>39B49D82-A8E3-239E-4F96-BEEFDBB95427</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\gui">
-      <UniqueIdentifier>A34A92B4-4827-2620-9251-D71C5A1CAFA4</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\gui\main_screen">
-      <UniqueIdentifier>417AC89A-EFAF-60DC-EF09-CE3FC7B5E688</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\generated\gui_generated">
-      <UniqueIdentifier>E5470865-3592-3E38-7131-C2FBF5B7D29D</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\generated\gui_generated">
-      <UniqueIdentifier>1056C8AE-9E9C-1280-382B-F3E090F1EC9D</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\gui\main_screen">
-      <UniqueIdentifier>E1AB7280-6D4D-57BE-09BD-DB22C54EF6B3</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\gui\common">
-      <UniqueIdentifier>DFAAEAA6-BFFE-5C71-4DAC-1362CA039667</UniqueIdentifier>
+      <UniqueIdentifier>A3F67E4A-36A3-9CBE-6CEC-10F105F6E233</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\gui\model">
-      <UniqueIdentifier>7F9ABFB4-4016-3E6C-0617-49B5F66EC60D</UniqueIdentifier>
+      <UniqueIdentifier>D7470C6D-834B-952A-39A7-7C7C0DA9757E</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\gui\model">
-      <UniqueIdentifier>FAC2DF4F-6EDC-AA23-1A41-238C021A5A23</UniqueIdentifier>
+      <UniqueIdentifier>85F3A20D-134A-2760-31A9-8D95D84E47D1</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated">
+      <UniqueIdentifier>D679C6F8-CFBC-9ECA-5BD1-1A398C4264FF</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\common">
+      <UniqueIdentifier>6830987E-31D6-A852-B5FB-46A70C0D7D44</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated">
+      <UniqueIdentifier>4D552316-C029-1D91-1603-F4BC3507CADC</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\gui\common">
-      <UniqueIdentifier>634A5D15-45C8-66B3-7EB4-CF6F6C9BE072</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\generated\gui_generated\common">
-      <UniqueIdentifier>969FF023-8E11-26D0-9E69-89CFAEB8F56A</UniqueIdentifier>
+      <UniqueIdentifier>259D9B49-70FC-9675-F750-01D39A64AEF9</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\generated\simulator\include">
-      <UniqueIdentifier>F3E638E5-6023-2416-5827-C510803E7CDD</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\generated\gui_generated\main_screen">
-      <UniqueIdentifier>03E1BE77-D8C5-732E-D580-F849379CEB9C</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\generated\gui_generated\main_screen">
-      <UniqueIdentifier>C6414FCE-7768-B96D-EEA5-A3E7CC44BC3B</UniqueIdentifier>
+      <UniqueIdentifier>3E13E89B-ED19-6333-D3B6-2D2101C8F967</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\generated\gui_generated\common">
-      <UniqueIdentifier>AB537143-FD67-B9D9-7669-C3BECF68AC45</UniqueIdentifier>
+      <UniqueIdentifier>434894EE-EC40-13F0-3443-0256CEECB470</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\common">
+      <UniqueIdentifier>5E6298F7-D82B-18D1-9A6E-B7DB0EAE2BF0</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\generated\simulator\video">
-      <UniqueIdentifier>6E4C9DB0-042B-FF48-D79E-4E873180F8BF</UniqueIdentifier>
+      <UniqueIdentifier>9A07E8AA-7970-ADF4-69AC-693A63999DFD</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\generated\simulator\include\simulator">
-      <UniqueIdentifier>202AA0FF-BE38-76BE-6E80-E13DF6AF7068</UniqueIdentifier>
+      <UniqueIdentifier>4C934FDD-7F96-CC46-DC9A-1A0AF6267FFD</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\generated\simulator\include\simulator\video">
-      <UniqueIdentifier>D3A71158-6DB8-153A-CE81-06664FD3E2FA</UniqueIdentifier>
+      <UniqueIdentifier>DEE3DF16-D6EB-657F-BA7C-48CEF4ED94AE</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\menu_screen">
+      <UniqueIdentifier>4888244B-432A-EC10-3286-4D16A45DB326</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\menu_screen">
+      <UniqueIdentifier>5FEB6485-AEA9-AF3A-1376-A25BD89980D3</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\startup_screen">
+      <UniqueIdentifier>B3E95BD6-3BD6-CE90-25D6-39168F6AF3F0</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\homereflow_screen">
+      <UniqueIdentifier>BD6CA2FF-4338-14B1-66E5-BB54FA63C55D</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\startup_screen">
+      <UniqueIdentifier>1BE064C4-E917-5CDF-2EBA-2DF6346815E7</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\homereflow_screen">
+      <UniqueIdentifier>CD2F2612-A556-877C-6F42-7AFDA90D1A66</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\homedry_screen">
+      <UniqueIdentifier>63A7B196-601E-C3CB-FD0D-F86FFC6FE41E</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\homedry_screen">
+      <UniqueIdentifier>23345C49-38BC-8C3E-C647-ACDAFF730951</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\startup_screen">
+      <UniqueIdentifier>522BF904-AF29-435A-CDBA-1BB212D8EB6C</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\homereflow_screen">
+      <UniqueIdentifier>4ECDC29E-14D5-A197-7242-7C75A8A9EC3B</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\homedry_screen">
+      <UniqueIdentifier>C363835B-A3F7-2722-7769-B0CC3C511315</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\homedry_screen">
+      <UniqueIdentifier>76B9E37F-FF77-B08A-B8A2-3FC651FC4AA3</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\menu_screen">
+      <UniqueIdentifier>AD116B37-0396-8A8C-3F25-E43935FE270B</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\homereflow_screen">
+      <UniqueIdentifier>21E2C41C-3E0A-61BA-80AD-72FCBBF78DAA</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\menu_screen">
+      <UniqueIdentifier>42F6A559-F7A5-CF82-EBCA-9CC4B6E1A63F</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\startup_screen">
+      <UniqueIdentifier>4ECEC106-92B9-DF47-0ECB-F5E14F158C40</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\reflowsetup_screen">
+      <UniqueIdentifier>46B1488A-A1CC-4380-6FEB-3F41DDAF8715</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\reflowsetup_screen">
+      <UniqueIdentifier>44DD6143-4936-FC57-8B95-62C54ABC1977</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\settings_screen">
+      <UniqueIdentifier>8C94C96E-682C-D58B-96C5-E4A3B9E1026F</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\settings_screen">
+      <UniqueIdentifier>25494DFF-883C-C0DE-F7BE-4CA2C3F90767</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\drysetup_screen">
+      <UniqueIdentifier>4ADD6C13-4DEB-2687-ED72-35B72DE364AB</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\drysetup_screen">
+      <UniqueIdentifier>35701528-9A1F-6278-D5BF-0E26221B6CEB</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\settings_screen">
+      <UniqueIdentifier>111CC9A7-8DB6-9C69-97EB-A75EBCBE1B94</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\settings_screen">
+      <UniqueIdentifier>4F8DE413-40B0-0D59-DE4B-9E318DDB3ACF</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\reflowsetup_screen">
+      <UniqueIdentifier>E87A27F4-9BB0-4188-41B7-0BEB940E64C4</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\reflowsetup_screen">
+      <UniqueIdentifier>C5804DAD-48AE-AC67-0624-1C009FBFD3FA</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\drysetup_screen">
+      <UniqueIdentifier>DA9773CF-2F98-F3EF-62E1-409E9440BF58</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\drysetup_screen">
+      <UniqueIdentifier>CF128150-05DB-4C30-3CD3-E502B0535488</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\error_screen">
+      <UniqueIdentifier>121FA7CD-94AA-8923-B942-0EAF7F69B015</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\error_screen">
+      <UniqueIdentifier>ACAE93EA-257B-740E-44B5-1ADF90CE26BC</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\error_screen">
+      <UniqueIdentifier>359D8187-D80B-E1F4-2EBA-396FA5D40BE2</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\error_screen">
+      <UniqueIdentifier>02A17050-C387-FB58-42BB-16D8ED3970BD</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -210,20 +294,83 @@
     <ClCompile Include="..\..\generated\gui_generated\src\common\FrontendApplicationBase.cpp">
       <Filter>Source Files\generated\gui_generated\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\gui\src\main_screen\MainPresenter.cpp">
-      <Filter>Source Files\gui\main_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\gui\src\main_screen\MainView.cpp">
-      <Filter>Source Files\gui\main_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\generated\gui_generated\src\main_screen\MainViewBase.cpp">
-      <Filter>Source Files\generated\gui_generated\main_screen</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\gui\src\model\Model.cpp">
       <Filter>Source Files\gui\model</Filter>
     </ClCompile>
     <ClCompile Include="..\..\generated\simulator\src\video\SoftwareMJPEGDecoder.cpp">
       <Filter>Source Files\generated\simulator\video</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\homedry_screen\HomeDryPresenter.cpp">
+      <Filter>Source Files\gui\homedry_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\homedry_screen\HomeDryView.cpp">
+      <Filter>Source Files\gui\homedry_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\homedry_screen\HomeDryViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\homedry_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\homereflow_screen\HomeReflowPresenter.cpp">
+      <Filter>Source Files\gui\homereflow_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\homereflow_screen\HomeReflowView.cpp">
+      <Filter>Source Files\gui\homereflow_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\homereflow_screen\HomeReflowViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\homereflow_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\menu_screen\MenuPresenter.cpp">
+      <Filter>Source Files\gui\menu_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\menu_screen\MenuView.cpp">
+      <Filter>Source Files\gui\menu_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\menu_screen\MenuViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\menu_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\startup_screen\StartUpPresenter.cpp">
+      <Filter>Source Files\gui\startup_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\startup_screen\StartUpView.cpp">
+      <Filter>Source Files\gui\startup_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\startup_screen\StartUpViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\startup_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\drysetup_screen\DrySetupPresenter.cpp">
+      <Filter>Source Files\gui\drysetup_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\drysetup_screen\DrySetupView.cpp">
+      <Filter>Source Files\gui\drysetup_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\drysetup_screen\DrySetupViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\drysetup_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\reflowsetup_screen\ReflowSetupPresenter.cpp">
+      <Filter>Source Files\gui\reflowsetup_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\reflowsetup_screen\ReflowSetupView.cpp">
+      <Filter>Source Files\gui\reflowsetup_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\reflowsetup_screen\ReflowSetupViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\reflowsetup_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settings_screen\SettingsPresenter.cpp">
+      <Filter>Source Files\gui\settings_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settings_screen\SettingsView.cpp">
+      <Filter>Source Files\gui\settings_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\settings_screen\SettingsViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\settings_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\error_screen\ErrorPresenter.cpp">
+      <Filter>Source Files\gui\error_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\error_screen\ErrorView.cpp">
+      <Filter>Source Files\gui\error_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\error_screen\ErrorViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\error_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -652,15 +799,6 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\FrontendHeapBase.hpp">
       <Filter>Header Files\generated\gui_generated\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\main_screen\MainPresenter.hpp">
-      <Filter>Header Files\gui\main_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\main_screen\MainView.hpp">
-      <Filter>Header Files\gui\main_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\main_screen\MainViewBase.hpp">
-      <Filter>Header Files\generated\gui_generated\main_screen</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\generated\simulator\include\simulator\video\MJPEGDecoder.hpp">
       <Filter>Header Files\generated\simulator\include\simulator\video</Filter>
     </ClInclude>
@@ -675,6 +813,78 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\simulator\include\simulator\video\SoftwareMJPEGDecoder.hpp">
       <Filter>Header Files\generated\simulator\include\simulator\video</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\homedry_screen\HomeDryPresenter.hpp">
+      <Filter>Header Files\gui\homedry_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\homedry_screen\HomeDryView.hpp">
+      <Filter>Header Files\gui\homedry_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\homedry_screen\HomeDryViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\homedry_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\homereflow_screen\HomeReflowPresenter.hpp">
+      <Filter>Header Files\gui\homereflow_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\homereflow_screen\HomeReflowView.hpp">
+      <Filter>Header Files\gui\homereflow_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\homereflow_screen\HomeReflowViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\homereflow_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\menu_screen\MenuPresenter.hpp">
+      <Filter>Header Files\gui\menu_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\menu_screen\MenuView.hpp">
+      <Filter>Header Files\gui\menu_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\menu_screen\MenuViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\menu_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\startup_screen\StartUpPresenter.hpp">
+      <Filter>Header Files\gui\startup_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\startup_screen\StartUpView.hpp">
+      <Filter>Header Files\gui\startup_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\startup_screen\StartUpViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\startup_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\drysetup_screen\DrySetupPresenter.hpp">
+      <Filter>Header Files\gui\drysetup_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\drysetup_screen\DrySetupView.hpp">
+      <Filter>Header Files\gui\drysetup_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\drysetup_screen\DrySetupViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\drysetup_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\reflowsetup_screen\ReflowSetupPresenter.hpp">
+      <Filter>Header Files\gui\reflowsetup_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\reflowsetup_screen\ReflowSetupView.hpp">
+      <Filter>Header Files\gui\reflowsetup_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\reflowsetup_screen\ReflowSetupViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\reflowsetup_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settings_screen\SettingsPresenter.hpp">
+      <Filter>Header Files\gui\settings_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settings_screen\SettingsView.hpp">
+      <Filter>Header Files\gui\settings_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\settings_screen\SettingsViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\settings_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\error_screen\ErrorPresenter.hpp">
+      <Filter>Header Files\gui\error_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\error_screen\ErrorView.hpp">
+      <Filter>Header Files\gui\error_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\error_screen\ErrorViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\error_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

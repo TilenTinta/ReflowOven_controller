@@ -1,0 +1,14 @@
+../Core/Src/LCD/z_touch_XPT2046.c:29:6:Touch_HandlePenDownInterrupt	2
+../Core/Src/LCD/z_touch_XPT2046.c:37:6:HAL_GPIO_EXTI_Callback	2
+../Core/Src/LCD/z_touch_XPT2046.c:45:6:HAL_GPIO_EXTI_Falling_Callback	1
+../Core/Src/LCD/z_touch_XPT2046.c:49:6:HAL_GPIO_EXTI_Rising_Callback	1
+../Core/Src/LCD/z_touch_XPT2046.c:60:6:Touch_Select	3
+../Core/Src/LCD/z_touch_XPT2046.c:76:6:Touch_UnSelect	1
+../Core/Src/LCD/z_touch_XPT2046.c:93:10:Touch_PollAxis	2
+../Core/Src/LCD/z_touch_XPT2046.c:136:9:Touch_PollTouch	2
+../Core/Src/LCD/z_touch_XPT2046.c:161:6:Touch_GetXYtouch	10
+../Core/Src/LCD/z_touch_XPT2046.c:243:9:Touch_WaitForTouch	4
+../Core/Src/LCD/z_touch_XPT2046.c:266:9:Touch_WaitForUntouch	6
+../Core/Src/LCD/z_touch_XPT2046.c:301:9:Touch_In_XY_area	6
+../Core/Src/LCD/z_touch_XPT2046.c:332:9:Touch_GotATouch	4
+../Core/Src/LCD/z_touch_XPT2046.c:365:9:Touch_TouchGFXSampleTouch	8
