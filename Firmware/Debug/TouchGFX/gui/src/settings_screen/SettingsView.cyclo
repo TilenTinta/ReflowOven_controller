@@ -2,6 +2,11 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	1
+../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:28:18:virtual void SettingsViewBase::ProbesNoSelect()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:32:18:virtual void SettingsViewBase::SSRNoSelect()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:36:18:virtual void SettingsViewBase::CFSelect()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:40:18:virtual void SettingsViewBase::outputAUX1()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:44:18:virtual void SettingsViewBase::outputAUX2()	1
 ../TouchGFX/gui/include/gui/settings_screen/SettingsView.hpp:11:13:SettingsView::~SettingsView()	1
 ../TouchGFX/gui/include/gui/settings_screen/SettingsView.hpp:11:13:virtual SettingsView::~SettingsView()	1
 ../TouchGFX/gui/src/settings_screen/SettingsView.cpp:3:1:SettingsView::SettingsView()	1

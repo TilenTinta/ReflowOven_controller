@@ -8,7 +8,8 @@
 #include <mvp/View.hpp>
 #include <gui/error_screen/ErrorPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/ScalableImage.hpp>
+#include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 
@@ -28,9 +29,25 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::ScalableImage scalableImage1;
+    touchgfx::Image image1;
+    touchgfx::TextAreaWithOneWildcard txtErrADC12V;
+    touchgfx::TextAreaWithOneWildcard txtErrADC3V3;
+    touchgfx::TextAreaWithOneWildcard txtErrTC1;
+    touchgfx::TextAreaWithOneWildcard txtErrTC2;
     touchgfx::TextArea txtStart_1;
     touchgfx::ButtonWithLabel btnOK;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t TXTERRADC12V_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar txtErrADC12VBuffer[TXTERRADC12V_SIZE];
+    static const uint16_t TXTERRADC3V3_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar txtErrADC3V3Buffer[TXTERRADC3V3_SIZE];
+    static const uint16_t TXTERRTC1_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar txtErrTC1Buffer[TXTERRTC1_SIZE];
+    static const uint16_t TXTERRTC2_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar txtErrTC2Buffer[TXTERRTC2_SIZE];
 
 private:
 

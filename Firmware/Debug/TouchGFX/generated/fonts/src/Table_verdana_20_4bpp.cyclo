@@ -1,6 +1,6 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp:169:13:touchgfx::Font::~Font()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp:169:13:virtual touchgfx::Font::~Font()	1
-../TouchGFX/generated/fonts/src/Table_verdana_20_4bpp.cpp:124:200:void __tcf_0()	1
-../TouchGFX/generated/fonts/src/Table_verdana_20_4bpp.cpp:122:29:touchgfx::UnmappedDataFont& getFont_verdana_20_4bpp()	3
+../TouchGFX/generated/fonts/src/Table_verdana_20_4bpp.cpp:166:200:void __tcf_0()	1
+../TouchGFX/generated/fonts/src/Table_verdana_20_4bpp.cpp:164:29:touchgfx::UnmappedDataFont& getFont_verdana_20_4bpp()	3
 ../TouchGFX/generated/fonts/include/fonts/UnmappedDataFont.hpp:19:7:touchgfx::UnmappedDataFont::~UnmappedDataFont()	1
 ../TouchGFX/generated/fonts/include/fonts/UnmappedDataFont.hpp:19:7:virtual touchgfx::UnmappedDataFont::~UnmappedDataFont()	1

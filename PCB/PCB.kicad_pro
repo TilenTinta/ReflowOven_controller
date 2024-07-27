@@ -66,9 +66,14 @@
       "drc_exclusions": [
         "shorting_items|201255000|72400000|eb3d10dc-9c0f-410a-a231-994b2a41e48c|e55b46bf-f447-466a-915b-bfd447b1c177",
         "shorting_items|201255000|77200000|24933ac1-9ad2-4a42-abf3-d205d9df3e2c|28832132-68aa-46fa-af0d-d632ff741a7f",
-        "silk_overlap|129750000|98661667|1282a9f2-c1fe-4091-94d1-1a52cfaa1672|604561ff-29fe-45d4-9c26-11ab40b6f0a5",
+        "silk_overlap|129750000|98661667|604561ff-29fe-45d4-9c26-11ab40b6f0a5|1282a9f2-c1fe-4091-94d1-1a52cfaa1672",
+        "silk_overlap|198220000|82887500|705403b1-bdc3-4382-8e18-5752a52cfc36|f293f7ca-bd60-49bb-92fa-6c8dbb16b13a",
+        "silk_overlap|198220000|83932500|705403b1-bdc3-4382-8e18-5752a52cfc36|16bacfd8-451b-4ffc-baa3-04d3e7933764",
+        "silk_overlap|198220000|84707500|705403b1-bdc3-4382-8e18-5752a52cfc36|1515ab73-45e5-400c-b395-bba292b234b7",
+        "silk_overlap|198220000|85752500|705403b1-bdc3-4382-8e18-5752a52cfc36|a501d0ea-4447-4c74-bbbe-b270a1649e42",
         "solder_mask_bridge|201255000|72400000|eb3d10dc-9c0f-410a-a231-994b2a41e48c|e55b46bf-f447-466a-915b-bfd447b1c177",
-        "solder_mask_bridge|201255000|77200000|24933ac1-9ad2-4a42-abf3-d205d9df3e2c|28832132-68aa-46fa-af0d-d632ff741a7f"
+        "solder_mask_bridge|201255000|77200000|24933ac1-9ad2-4a42-abf3-d205d9df3e2c|28832132-68aa-46fa-af0d-d632ff741a7f",
+        "text_thickness|188010000|70360000|4c86a00c-9790-47dd-a9e0-870f7b4eca89|00000000-0000-0000-0000-000000000000"
       ],
       "meta": {
         "version": 2
@@ -195,6 +200,7 @@
         0.3,
         0.4,
         0.5,
+        0.6,
         0.8,
         1.0,
         1.2
@@ -505,7 +511,7 @@
       "plot": "Gerbers/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "../3D_Model/PCB.step",
       "svg": "",
       "vrml": ""
     },

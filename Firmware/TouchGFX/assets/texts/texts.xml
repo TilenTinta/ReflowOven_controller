@@ -6,6 +6,348 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_HHQM" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">°C</Translation>
+      </Text>
+      <Text Id="__SingleUse_IS5U" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">s</Translation>
+      </Text>
+      <Text Id="__SingleUse_9GLV" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Current:</Translation>
+      </Text>
+      <Text Id="__SingleUse_R8R2" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_3VVQ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_9TCV" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_GFB4" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_BDI3" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_SK7V" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_NKDT" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_QPHQ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_7JEL" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_6SCS" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_XE7M" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_NIKA" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_U00L" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_6051" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_UZEA" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_R1SW" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_IFMN" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_ERP2" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_XYMC" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_40OG" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_XXJG" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_VAMM" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_R3D3" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_PLNJ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_T7SN" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">h&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_GGH7" Alignment="Center" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_OCCZ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set</Translation>
+      </Text>
+      <Text Id="__SingleUse_79XX" Alignment="Center" TypographyId="Custom1">
+        <Translation Language="GB">Dry mode</Translation>
+      </Text>
+      <Text Id="__SingleUse_IE8S" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">s</Translation>
+      </Text>
+      <Text Id="__SingleUse_RYJ7" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">s</Translation>
+      </Text>
+      <Text Id="__SingleUse_DT8T" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">s</Translation>
+      </Text>
+      <Text Id="__SingleUse_R6N5" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">s</Translation>
+      </Text>
+      <Text Id="__SingleUse_GM9M" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">s</Translation>
+      </Text>
+      <Text Id="__SingleUse_QOLU" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">°C</Translation>
+      </Text>
+      <Text Id="__SingleUse_V3GJ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">°C</Translation>
+      </Text>
+      <Text Id="__SingleUse_9WHW" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">°C</Translation>
+      </Text>
+      <Text Id="__SingleUse_ES50" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">°C</Translation>
+      </Text>
+      <Text Id="__SingleUse_388Q" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">°C</Translation>
+      </Text>
+      <Text Id="__SingleUse_Y4M8" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Ramp 1:</Translation>
+      </Text>
+      <Text Id="__SingleUse_4SCU" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Ramp 2:</Translation>
+      </Text>
+      <Text Id="__SingleUse_ULB0" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Reflow:</Translation>
+      </Text>
+      <Text Id="__SingleUse_DDBL" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Cooling:</Translation>
+      </Text>
+      <Text Id="__SingleUse_CHGK" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Soak:</Translation>
+      </Text>
+      <Text Id="__SingleUse_9KHO" Alignment="Center" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_XLJP" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">°C</Translation>
+      </Text>
+      <Text Id="__SingleUse_21EX" Alignment="Right" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_WLV9" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">min</Translation>
+      </Text>
+      <Text Id="__SingleUse_FZGI" Alignment="Right" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_0T7G" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">h&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_P6QV" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Time left:</Translation>
+      </Text>
+      <Text Id="__SingleUse_7B6F" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Temp.:</Translation>
+      </Text>
+      <Text Id="__SingleUse_TDVF" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">OK</Translation>
+      </Text>
+      <Text Id="__SingleUse_4FFA" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">Thermo c2: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_35U0" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">OK</Translation>
+      </Text>
+      <Text Id="__SingleUse_KTK8" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">Thermo c1: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_X7GM" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">OK</Translation>
+      </Text>
+      <Text Id="__SingleUse_9ULV" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">ADC 3.3V: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_DP3C" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">OK</Translation>
+      </Text>
+      <Text Id="__SingleUse_U862" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">ADC 12V: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_X45E" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">Time</Translation>
+      </Text>
+      <Text Id="__SingleUse_8J8S" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">Temperature</Translation>
+      </Text>
+      <Text Id="__SingleUse_0WB8" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">Temperature</Translation>
+      </Text>
+      <Text Id="__SingleUse_6P3Z" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">Time</Translation>
+      </Text>
+      <Text Id="__SingleUse_SU0X" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">New Text</Translation>
+      </Text>
+      <Text Id="__SingleUse_7GCV" Alignment="Left" TypographyId="Typography2">
+        <Translation Language="GB">1</Translation>
+      </Text>
+      <Text Id="__SingleUse_W911" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Save</Translation>
+      </Text>
+      <Text Id="__SingleUse_0WFI" Alignment="Right" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_0M6R" Alignment="Right" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_65EO" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Back</Translation>
+      </Text>
+      <Text Id="__SingleUse_NMV8" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">sec</Translation>
+      </Text>
+      <Text Id="__SingleUse_I3CG" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">°C</Translation>
+      </Text>
+      <Text Id="__SingleUse_B0IJ" Alignment="Center" TypographyId="Typography2">
+        <Translation Language="GB">Edit: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_1J5Z" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set</Translation>
+      </Text>
+      <Text Id="__SingleUse_JP05" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set</Translation>
+      </Text>
+      <Text Id="__SingleUse_89GE" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set</Translation>
+      </Text>
+      <Text Id="__SingleUse_7D4M" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set</Translation>
+      </Text>
+      <Text Id="__SingleUse_STN0" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set</Translation>
+      </Text>
+      <Text Id="__SingleUse_U55Q" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Cooling:</Translation>
+      </Text>
+      <Text Id="__SingleUse_T680" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Reflow:</Translation>
+      </Text>
+      <Text Id="__SingleUse_YZWN" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Ramp 2:</Translation>
+      </Text>
+      <Text Id="__SingleUse_SWM5" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Soak:</Translation>
+      </Text>
+      <Text Id="__SingleUse_EGXS" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Ramp 1:</Translation>
+      </Text>
+      <Text Id="__SingleUse_3GL1" Alignment="Right" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_8RKX" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">h&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_2C47" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set time.:</Translation>
+      </Text>
+      <Text Id="__SingleUse_EGXO" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set temp.:</Translation>
+      </Text>
+      <Text Id="__SingleUse_6ZGJ" Alignment="Center" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_JK8W" Alignment="Center" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_7W37" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">min</Translation>
+      </Text>
+      <Text Id="__SingleUse_05N8" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">°C</Translation>
+      </Text>
+      <Text Id="__SingleUse_L2J1" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set</Translation>
+      </Text>
+      <Text Id="__SingleUse_JCXV" Alignment="Center" TypographyId="Typography2">
+        <Translation Language="GB">Profile &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_LMNM" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">°C</Translation>
+      </Text>
+      <Text Id="__SingleUse_DXSX" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Select</Translation>
+      </Text>
+      <Text Id="__SingleUse_RQ6S" Alignment="Center" TypographyId="Custom1">
+        <Translation Language="GB">Reflow setup</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZOKV" Alignment="Center" TypographyId="Custom1">
+        <Translation Language="GB">Dry program setup</Translation>
+      </Text>
+      <Text Id="__SingleUse_QXVA" Alignment="Left" TypographyId="Custom1">
+        <Translation Language="GB">min</Translation>
+      </Text>
+      <Text Id="__SingleUse_GG4Z" Alignment="Right" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_GGM4" Alignment="Right" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="0" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">10</Translation>
+      </Text>
+      <Text Id="__SingleUse_TYNP" Alignment="Center" TypographyId="Typography1">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_Y32V" Alignment="Center" TypographyId="Custom1">
+        <Translation Language="GB">PID - &lt;value&gt; value</Translation>
+      </Text>
+      <Text Id="__SingleUse_YO4Y" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Back</Translation>
+      </Text>
+      <Text Id="__SingleUse_43I4" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set</Translation>
+      </Text>
+      <Text Id="__SingleUse_Y2F6" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set</Translation>
+      </Text>
+      <Text Id="__SingleUse_MUVI" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Set</Translation>
+      </Text>
+      <Text Id="__SingleUse_GHJK" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Save</Translation>
+      </Text>
+      <Text Id="__SingleUse_JZSY" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">AUX2:</Translation>
+      </Text>
+      <Text Id="__SingleUse_E97L" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">AUX1:</Translation>
+      </Text>
+      <Text Id="__SingleUse_HGP5" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">C</Translation>
+      </Text>
+      <Text Id="__SingleUse_3BWI" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">F</Translation>
+      </Text>
       <Text Id="__SingleUse_SU98" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">PID - D:</Translation>
       </Text>
@@ -15,19 +357,16 @@
       <Text Id="__SingleUse_9TUL" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">PID - P:</Translation>
       </Text>
-      <Text Id="__SingleUse_3JHM" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">PID:</Translation>
-      </Text>
       <Text Id="__SingleUse_7NDL" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Units:</Translation>
       </Text>
       <Text Id="__SingleUse_WKYU" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">No. of SSRs:</Translation>
+        <Translation Language="GB">Dual SSRs:</Translation>
       </Text>
       <Text Id="__SingleUse_CXVP" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">No. of probes:</Translation>
+        <Translation Language="GB">Dual probes:</Translation>
       </Text>
-      <Text Id="__SingleUse_BFXQ" Alignment="Center" TypographyId="Default">
+      <Text Id="__SingleUse_BFXQ" Alignment="Center" TypographyId="Custom1">
         <Translation Language="GB">Reflow oven settings</Translation>
       </Text>
       <Text Id="__SingleUse_1IIV" Alignment="Center" TypographyId="Large">
@@ -85,7 +424,7 @@
         <Translation Language="GB">Menu</Translation>
       </Text>
       <Text Id="__SingleUse_89CF" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">by TintaT</Translation>
+        <Translation Language="GB">- by TintaT</Translation>
       </Text>
       <Text Id="__SingleUse_G1MH" Alignment="Center" TypographyId="Large">
         <Translation Language="GB">Reflow Oven&#10;Controller</Translation>
@@ -93,8 +432,12 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="-., 0123456789" />
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="-., 0123456789" WildcardCharacterRanges="0-9" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Custom1" Font="verdana.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography1" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters=".," WildcardCharacterRanges="0-9" />
+    <Typography Id="Typography2" Font="verdana.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="., " WildcardCharacterRanges="0-9,A-Z,a-z" />
+    <Typography Id="Typography3" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="., " WildcardCharacterRanges="0-9,A-Z,a-z" />
   </Typographies>
 </TextDatabase>

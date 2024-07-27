@@ -23,8 +23,11 @@ public:
     // StartUp
     void gotoStartUpScreenNoTransition();
 
-    // HomeReflow
-    void gotoHomeReflowScreenNoTransition();
+    // Home_Reflow
+    void gotoHome_ReflowScreenNoTransition();
+
+    // Home_Dry
+    void gotoHome_DryScreenNoTransition();
 
     // Menu
     void gotoMenuScreenNoTransition();
@@ -32,11 +35,17 @@ public:
     // Settings
     void gotoSettingsScreenNoTransition();
 
-    // DrySetup
-    void gotoDrySetupScreenNoTransition();
+    // Setup_Pid
+    void gotoSetup_PidScreenNoTransition();
 
-    // ReflowSetup
-    void gotoReflowSetupScreenNoTransition();
+    // Dry_Setup
+    void gotoDry_SetupScreenNoTransition();
+
+    // Reflow_Setup
+    void gotoReflow_SetupScreenNoTransition();
+
+    // Reflow_Setup_Edit
+    void gotoReflow_Setup_EditScreenNoTransition();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
@@ -46,8 +55,11 @@ protected:
     // StartUp
     void gotoStartUpScreenNoTransitionImpl();
 
-    // HomeReflow
-    void gotoHomeReflowScreenNoTransitionImpl();
+    // Home_Reflow
+    void gotoHome_ReflowScreenNoTransitionImpl();
+
+    // Home_Dry
+    void gotoHome_DryScreenNoTransitionImpl();
 
     // Menu
     void gotoMenuScreenNoTransitionImpl();
@@ -55,11 +67,17 @@ protected:
     // Settings
     void gotoSettingsScreenNoTransitionImpl();
 
-    // DrySetup
-    void gotoDrySetupScreenNoTransitionImpl();
+    // Setup_Pid
+    void gotoSetup_PidScreenNoTransitionImpl();
 
-    // ReflowSetup
-    void gotoReflowSetupScreenNoTransitionImpl();
+    // Dry_Setup
+    void gotoDry_SetupScreenNoTransitionImpl();
+
+    // Reflow_Setup
+    void gotoReflow_SetupScreenNoTransitionImpl();
+
+    // Reflow_Setup_Edit
+    void gotoReflow_Setup_EditScreenNoTransitionImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

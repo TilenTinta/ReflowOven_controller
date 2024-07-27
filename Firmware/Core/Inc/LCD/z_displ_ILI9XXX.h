@@ -98,7 +98,8 @@
  * let timer clock to be higher than COUNTER PERIOD * 100 Hz.
  * Set all other defines below 
  ***************************************************/
-#define DISPLAY_DIMMING_MODE						// uncomment this define to enable dimming function otherwise there is an on/off switching function
+// Function is commented becouse of unknown reason (on test circuit with black pill it works)
+//#define DISPLAY_DIMMING_MODE						// uncomment this define to enable dimming function otherwise there is an on/off switching function
 #define BKLIT_TIMER 				TIM2			//timer used (PWMming DISPL_LED pin)
 #define BKLIT_T 					htim2			//timer used
 #define BKLIT_CHANNEL				TIM_CHANNEL_3	//channel used

@@ -18,18 +18,22 @@
 #include <gui/startup_screen/StartUpPresenter.hpp>
 #include <gui/error_screen/ErrorView.hpp>
 #include <gui/error_screen/ErrorPresenter.hpp>
-#include <gui/homereflow_screen/HomeReflowView.hpp>
-#include <gui/homereflow_screen/HomeReflowPresenter.hpp>
-#include <gui/homedry_screen/HomeDryView.hpp>
-#include <gui/homedry_screen/HomeDryPresenter.hpp>
+#include <gui/home_reflow_screen/Home_ReflowView.hpp>
+#include <gui/home_reflow_screen/Home_ReflowPresenter.hpp>
+#include <gui/home_dry_screen/Home_DryView.hpp>
+#include <gui/home_dry_screen/Home_DryPresenter.hpp>
 #include <gui/menu_screen/MenuView.hpp>
 #include <gui/menu_screen/MenuPresenter.hpp>
 #include <gui/settings_screen/SettingsView.hpp>
 #include <gui/settings_screen/SettingsPresenter.hpp>
-#include <gui/drysetup_screen/DrySetupView.hpp>
-#include <gui/drysetup_screen/DrySetupPresenter.hpp>
-#include <gui/reflowsetup_screen/ReflowSetupView.hpp>
-#include <gui/reflowsetup_screen/ReflowSetupPresenter.hpp>
+#include <gui/setup_pid_screen/Setup_PidView.hpp>
+#include <gui/setup_pid_screen/Setup_PidPresenter.hpp>
+#include <gui/dry_setup_screen/Dry_SetupView.hpp>
+#include <gui/dry_setup_screen/Dry_SetupPresenter.hpp>
+#include <gui/reflow_setup_screen/Reflow_SetupView.hpp>
+#include <gui/reflow_setup_screen/Reflow_SetupPresenter.hpp>
+#include <gui/reflow_setup_edit_screen/Reflow_Setup_EditView.hpp>
+#include <gui/reflow_setup_edit_screen/Reflow_Setup_EditPresenter.hpp>
 
 using namespace touchgfx;
 
@@ -68,17 +72,30 @@ void FrontendApplicationBase::gotoStartUpScreenNoTransitionImpl()
     touchgfx::makeTransition<StartUpView, StartUpPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
-// HomeReflow
+// Home_Reflow
 
-void FrontendApplicationBase::gotoHomeReflowScreenNoTransition()
+void FrontendApplicationBase::gotoHome_ReflowScreenNoTransition()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoHomeReflowScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoHome_ReflowScreenNoTransitionImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoHomeReflowScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoHome_ReflowScreenNoTransitionImpl()
 {
-    touchgfx::makeTransition<HomeReflowView, HomeReflowPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<Home_ReflowView, Home_ReflowPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// Home_Dry
+
+void FrontendApplicationBase::gotoHome_DryScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoHome_DryScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoHome_DryScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<Home_DryView, Home_DryPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
 // Menu
@@ -107,28 +124,54 @@ void FrontendApplicationBase::gotoSettingsScreenNoTransitionImpl()
     touchgfx::makeTransition<SettingsView, SettingsPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
-// DrySetup
+// Setup_Pid
 
-void FrontendApplicationBase::gotoDrySetupScreenNoTransition()
+void FrontendApplicationBase::gotoSetup_PidScreenNoTransition()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoDrySetupScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoSetup_PidScreenNoTransitionImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoDrySetupScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoSetup_PidScreenNoTransitionImpl()
 {
-    touchgfx::makeTransition<DrySetupView, DrySetupPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<Setup_PidView, Setup_PidPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
-// ReflowSetup
+// Dry_Setup
 
-void FrontendApplicationBase::gotoReflowSetupScreenNoTransition()
+void FrontendApplicationBase::gotoDry_SetupScreenNoTransition()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoReflowSetupScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoDry_SetupScreenNoTransitionImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoReflowSetupScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoDry_SetupScreenNoTransitionImpl()
 {
-    touchgfx::makeTransition<ReflowSetupView, ReflowSetupPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<Dry_SetupView, Dry_SetupPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// Reflow_Setup
+
+void FrontendApplicationBase::gotoReflow_SetupScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoReflow_SetupScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoReflow_SetupScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<Reflow_SetupView, Reflow_SetupPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// Reflow_Setup_Edit
+
+void FrontendApplicationBase::gotoReflow_Setup_EditScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoReflow_Setup_EditScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoReflow_Setup_EditScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<Reflow_Setup_EditView, Reflow_Setup_EditPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

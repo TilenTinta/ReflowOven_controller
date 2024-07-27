@@ -83,19 +83,19 @@ extern "C" {
 
     __attribute__((weak)) void DataReader_WaitForReceiveDone()
     {
-//#warning "weak defined implementation for void DataReader_WaitForReveiceDone().\
+#warning "weak defined implementation for void DataReader_WaitForReveiceDone().\
 Implement functionality here or create void DataReader_WaitForReveiceDone() togeher with DataReader driver code."
     }
 
     __attribute__((weak)) void DataReader_ReadData(uint32_t address24, uint8_t* buffer, uint32_t length)
     {
-//#warning "weak defined implementation for void DataReader_ReadData(uint32_t address24, uint8_t* buffer, uint32_t length).\
+#warning "weak defined implementation for void DataReader_ReadData(uint32_t address24, uint8_t* buffer, uint32_t length).\
 Implement functionality here or create void DataReader_ReadData(uint32_t address24, uint8_t* buffer, uint32_t length) togeher with DataReader driver code."
     }
 
     __attribute__((weak)) void DataReader_StartDMAReadData(uint32_t address24, uint8_t* buffer, uint32_t length)
     {
-//#warning "weak defined implementation for void DataReader_StartDMAReadData(uint32_t address24, uint8_t* buffer, uint32_t length).\
+#warning "weak defined implementation for void DataReader_StartDMAReadData(uint32_t address24, uint8_t* buffer, uint32_t length).\
 Implement functionality here or create void DataReader_StartDMAReadData(uint32_t address24, uint8_t* buffer, uint32_t length) togeher with DataReader driver code."
     }
 }

@@ -7,15 +7,15 @@
 
 #include "MAX31855.h"
 
-void ReadThermocoupleTemp(Thermocouple *dev, SPI_HandleTypeDef *SPIHandle)
+void ReadThermocoupleTemp(Thermocouple *dev, SPI_HandleTypeDef *SPIHandle, GPIO_TypeDef *GPIO_Port, uint16_t pin)
 {
 	dev -> SPIHandle = SPIHandle;
 
 	uint8_t regData[4];
 
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIO_Port, pin, GPIO_PIN_RESET);
 	HAL_SPI_Receive(dev -> SPIHandle, (uint8_t*)&regData, 4, 1000);
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIO_Port, pin, GPIO_PIN_SET);
 
 	// Check for fault
 	dev -> fault = regData[1] & 0x01;
@@ -65,13 +65,15 @@ void ReadThermocoupleTemp(Thermocouple *dev, SPI_HandleTypeDef *SPIHandle)
 }
 
 
-void CheckThermocouple(Thermocouple *dev, SPI_HandleTypeDef *SPIHandle)
+void CheckThermocouple(Thermocouple *dev, SPI_HandleTypeDef *SPIHandle, GPIO_TypeDef *GPIO_Port, uint16_t pin)
 {
 	dev -> SPIHandle = SPIHandle;
 
 	uint8_t regData[4];
 
+	HAL_GPIO_WritePin(GPIO_Port, pin, GPIO_PIN_RESET);
 	HAL_SPI_Receive(dev -> SPIHandle, (uint8_t*)&regData, 4, 1000);
+	HAL_GPIO_WritePin(GPIO_Port, pin, GPIO_PIN_SET);
 
 	// Check for fault
 	dev -> fault = regData[1] & 0x01;

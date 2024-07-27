@@ -8,7 +8,7 @@
 #include <mvp/View.hpp>
 #include <gui/startup_screen/StartUpPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/ScalableImage.hpp>
+#include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 
 class StartUpViewBase : public touchgfx::View<StartUpPresenter>
@@ -28,7 +28,7 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::ScalableImage scalableImage1;
+    touchgfx::Image image1;
     touchgfx::TextArea txtStart;
     touchgfx::TextArea txtStart_1;
     touchgfx::TextArea txtTintaT;

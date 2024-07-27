@@ -13,12 +13,11 @@ MenuViewBase::MenuViewBase() :
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    scalableImage1.setBitmap(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_BACKGROUNDS_240X240_SHATTERED_RAIN_DARK_ID));
-    scalableImage1.setPosition(0, 0, 320, 480);
-    scalableImage1.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
-    add(scalableImage1);
+    image1.setXY(0, 0);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_RESIZED_IMAGE_320X480_ID));
+    add(image1);
 
-    btnBack.setXY(26, 413);
+    btnBack.setXY(26, 423);
     btnBack.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
     btnBack.setLabelText(touchgfx::TypedText(T___SINGLEUSE_5D4Z));
     btnBack.setLabelColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -66,23 +65,23 @@ void MenuViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
     if (&src == &btnBack)
     {
         //MenuToMainScreen
-        //When btnBack clicked change screen to HomeReflow
-        //Go to HomeReflow with no screen transition
-        application().gotoHomeReflowScreenNoTransition();
+        //When btnBack clicked change screen to Home_Reflow
+        //Go to Home_Reflow with no screen transition
+        application().gotoHome_ReflowScreenNoTransition();
     }
     if (&src == &btnReflowSetup)
     {
         //MenuToReflowSetup
-        //When btnReflowSetup clicked change screen to ReflowSetup
-        //Go to ReflowSetup with no screen transition
-        application().gotoReflowSetupScreenNoTransition();
+        //When btnReflowSetup clicked change screen to Reflow_Setup
+        //Go to Reflow_Setup with no screen transition
+        application().gotoReflow_SetupScreenNoTransition();
     }
     if (&src == &btnDrySetup)
     {
         //MenuToDrySetup
-        //When btnDrySetup clicked change screen to DrySetup
-        //Go to DrySetup with no screen transition
-        application().gotoDrySetupScreenNoTransition();
+        //When btnDrySetup clicked change screen to Dry_Setup
+        //Go to Dry_Setup with no screen transition
+        application().gotoDry_SetupScreenNoTransition();
     }
     if (&src == &btnSettings)
     {

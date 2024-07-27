@@ -31,7 +31,7 @@ typedef struct {
 
 
 /* FUNCTIONS */
-void ReadThermocoupleTemp(Thermocouple *dev, SPI_HandleTypeDef *SPIHandle);
-void CheckThermocouple(Thermocouple *dev, SPI_HandleTypeDef *SPIHandle);
+void ReadThermocoupleTemp(Thermocouple *dev, SPI_HandleTypeDef *SPIHandle, GPIO_TypeDef *GPIO_Port, uint16_t pin);
+void CheckThermocouple(Thermocouple *dev, SPI_HandleTypeDef *SPIHandle, GPIO_TypeDef *GPIO_Port, uint16_t pin);
 
 #endif /* MAX31855_H_ */

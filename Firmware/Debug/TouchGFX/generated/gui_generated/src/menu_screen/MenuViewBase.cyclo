@@ -37,6 +37,7 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp:36:7:virtual touchgfx::Widget::~Widget()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:33:5:touchgfx::Box::Box()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:62:10:void touchgfx::Box::setColor(touchgfx::colortype)	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:50:5:touchgfx::Image::Image(const touchgfx::Bitmap&)	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:59:5:touchgfx::TypedText::TypedText(touchgfx::TypedTextId)	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:65:13:touchgfx::TypedText::~TypedText()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:65:13:virtual touchgfx::TypedText::~TypedText()	1
@@ -52,10 +53,10 @@
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:touchgfx::View<MenuPresenter>::~View()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:virtual touchgfx::View<MenuPresenter>::~View()	1
 ../TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp:9:1:MenuViewBase::MenuViewBase()	1
-../TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp:54:1:MenuViewBase::~MenuViewBase()	1
-../TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp:54:1:virtual MenuViewBase::~MenuViewBase()	1
-../TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp:59:6:virtual void MenuViewBase::setupScreen()	1
-../TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp:64:6:void MenuViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	5
+../TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp:53:1:MenuViewBase::~MenuViewBase()	1
+../TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp:53:1:virtual MenuViewBase::~MenuViewBase()	1
+../TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp:58:6:virtual void MenuViewBase::setupScreen()	1
+../TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp:63:6:void MenuViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	5
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:39:5:touchgfx::View<T>::View() [with T = MenuPresenter]	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:134:7:constexpr touchgfx::GenericCallback<const touchgfx::AbstractButton&>::GenericCallback()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:373:5:touchgfx::Callback<dest_type, T1, void, void>::Callback(dest_type*, void (dest_type::*)(T1)) [with dest_type = MenuViewBase; T1 = const touchgfx::AbstractButton&]	1
@@ -69,8 +70,6 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:29:7:virtual touchgfx::Box::~Box()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:38:7:touchgfx::Image::~Image()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:38:7:virtual touchgfx::Image::~Image()	1
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ScalableImage.hpp:35:7:touchgfx::ScalableImage::~ScalableImage()	1
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ScalableImage.hpp:35:7:virtual touchgfx::ScalableImage::~ScalableImage()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:31:7:touchgfx::Button::~Button()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:31:7:virtual touchgfx::Button::~Button()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:38:7:touchgfx::ButtonWithLabel::~ButtonWithLabel()	1

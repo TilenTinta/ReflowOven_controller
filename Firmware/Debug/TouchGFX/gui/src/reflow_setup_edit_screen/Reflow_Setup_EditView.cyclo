@@ -1,0 +1,14 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	1
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_edit_screen/Reflow_Setup_EditViewBase.hpp:29:18:virtual void Reflow_Setup_EditViewBase::saveSetValue()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_edit_screen/Reflow_Setup_EditViewBase.hpp:33:18:virtual void Reflow_Setup_EditViewBase::tempUp()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_edit_screen/Reflow_Setup_EditViewBase.hpp:37:18:virtual void Reflow_Setup_EditViewBase::tempDn()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_edit_screen/Reflow_Setup_EditViewBase.hpp:41:18:virtual void Reflow_Setup_EditViewBase::timeUp()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_edit_screen/Reflow_Setup_EditViewBase.hpp:45:18:virtual void Reflow_Setup_EditViewBase::timeDn()	1
+../TouchGFX/gui/include/gui/reflow_setup_edit_screen/Reflow_Setup_EditView.hpp:11:13:Reflow_Setup_EditView::~Reflow_Setup_EditView()	1
+../TouchGFX/gui/include/gui/reflow_setup_edit_screen/Reflow_Setup_EditView.hpp:11:13:virtual Reflow_Setup_EditView::~Reflow_Setup_EditView()	1
+../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:3:1:Reflow_Setup_EditView::Reflow_Setup_EditView()	1
+../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:8:6:virtual void Reflow_Setup_EditView::setupScreen()	1
+../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:13:6:virtual void Reflow_Setup_EditView::tearDownScreen()	1

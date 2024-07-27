@@ -45,13 +45,12 @@ CRC_HandleTypeDef hcrc;
 
 SPI_HandleTypeDef hspi1;
 SPI_HandleTypeDef hspi2;
+DMA_HandleTypeDef hdma_spi1_tx;
 
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
 UART_HandleTypeDef huart1;
-
-PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
 
@@ -60,7 +59,7 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_USB_OTG_FS_PCD_Init(void);
+static void MX_DMA_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_CRC_Init(void);
@@ -68,11 +67,78 @@ static void MX_SPI2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
+// Define structs
+Thermocouple thermocouple1;
+Thermocouple thermocouple2;
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+// variables init
+float AN_V_12V = 0;				// Measured 12V voltage
+float AN_V_3V3 = 0;				// Measured 3.3V voltage
+uint8_t INHIBIT = 0;			// enable 12V bus
+
+uint8_t deviceState = 0;		// state machine var
+uint8_t saveToFlash = 0;		// protect writing to flash every time (connected with KEEP_FLASH_DATA)
+uint8_t actionTick = 0;			// triggers read and data refresh
+
+
+// Default values for oven preset
+OvenParameters ovenParameters = {
+
+		.startStop = 0,
+		.initEnd = 0,
+		.lastUsedMode = 0,
+		.tempNTC = 0.0f,
+		.PID_P = 1.0f,
+		.PID_I = 1.0f,
+		.PID_D = 1.0f,
+		.dualProbes = 0,
+		.dualSSRs = 0,
+		.units = 0,
+		.AUX1 = 0,
+		.AUX2 = 0,
+		.profileNoSelected = 1,
+		.profileSetupStep = 0,
+		.pidSetupStep = 0
+};
+
+// Default values for profiles
+ReflowProfiles reflowProfiles = {
+		.profile1Temp = {150, 180, 255, 255, 0},
+		.profile1Time = {60, 180, 200, 215, 300},
+
+		.profile2Temp = {150, 180, 255, 255, 0},
+		.profile2Time = {60, 180, 200, 215, 300},
+
+		.profile3Temp = {150, 180, 255, 255, 0},
+		.profile3Time = {60, 180, 200, 215, 300},
+
+		.profile4Temp = {150, 180, 255, 255, 0},
+		.profile4Time = {60, 180, 200, 215, 300},
+
+		.profile5Temp = {150, 180, 255, 255, 0},
+		.profile5Time = {60, 180, 200, 215, 300}
+};
+
+// Default values for drying
+DryPreset dryPreset = {
+		.dryTemp = 60,
+		.dryTime = 90
+};
+
+// Default values for error codes
+OvenErrorCodes ovenErrorCodes = {
+		.ADC12V = 0,
+		.ADC3V3 = 0,
+		.NTCErr = 0,
+		.thermoCouple1Err = 0,
+		.thermoCouple2Err = 0
+};
+
 
 /* USER CODE END 0 */
 
@@ -104,7 +170,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USB_OTG_FS_PCD_Init();
+  MX_DMA_Init();
   MX_USART1_UART_Init();
   MX_SPI1_Init();
   MX_CRC_Init();
@@ -114,10 +180,17 @@ int main(void)
   MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
 
-  // Set default state of CS pins
+  // Set default state of CS and other pins
   HAL_GPIO_WritePin(TOUCH_CS_GPIO_Port, TOUCH_CS_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(DISPL_CS_GPIO_Port, DISPL_CS_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(FLASH_CS_GPIO_Port, FLASH_CS_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(TERMO1_CS_GPIO_Port, TERMO1_CS_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(TERMO2_CS_GPIO_Port, TERMO2_CS_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(AUX_OUT1_GPIO_Port, AUX_OUT1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(AUX_OUT2_GPIO_Port, AUX_OUT2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(SSR1_GPIO_Port, SSR1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(SSR2_GPIO_Port, SSR2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(DISPL_LED_GPIO_Port, DISPL_LED_Pin, GPIO_PIN_SET);
 
   Displ_Init(Displ_Orientat_90);			// initialize display controller - set orientation parameter as per TouchGFX setup
   Displ_BackLight('I');  					// initialize backlight
@@ -130,6 +203,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   /*
+  // CLEAR, WRITE AND READ FROM SFASH
   if (!Flash_Init()){
 	  while(1){}
   }
@@ -154,6 +228,115 @@ int main(void)
 
   MX_TouchGFX_Process();
     /* USER CODE BEGIN 3 */
+
+
+	  ///////////// STATE MACHINE /////////////
+	  switch(deviceState)
+	  {
+	  case STATE_INIT:
+
+		  uint8_t err = 0; // error counter
+
+		  HAL_Delay(1000); // wait for 1 second for all devices to power on
+
+
+		  // Check input voltage //
+		  //	if (AN_V_12V < MIN_IN_VOLTAGE) err++;
+
+
+		  // Check buck output voltage //
+		  //	if (AN_V_3V3 < MIN_BUCK_VOLTAGE) err++;
+
+
+		  // Check thermocouples //
+		  // Probe 1
+		  if (PROBE_NO == 1)
+		  {
+			  ovenParameters.dualProbes = 0;
+
+			  CheckThermocouple(&thermocouple1, &hspi2, TERMO1_CS_GPIO_Port, TERMO1_CS_Pin);
+			  if (thermocouple1.fault == 1)
+			  {
+				  ovenErrorCodes.thermoCouple1Err = 1;
+				  err++;
+			  }
+		  }
+
+		  // Probe 2
+		  if (PROBE_NO == 2)
+		  {
+			  ovenParameters.dualProbes = 1;
+
+			  CheckThermocouple(&thermocouple1, &hspi2, TERMO1_CS_GPIO_Port, TERMO1_CS_Pin);
+			  if (thermocouple1.fault == 1)
+			  {
+				  ovenErrorCodes.thermoCouple1Err = 1;
+				  err++;
+			  }
+
+			  CheckThermocouple(&thermocouple2, &hspi2, TERMO2_CS_GPIO_Port, TERMO2_CS_Pin);
+			  if (thermocouple2.fault == 1)
+			  {
+				  ovenErrorCodes.thermoCouple2Err = 1;
+				  err++;
+			  }
+		  }
+
+
+		  // NTC temperature //
+		  // ...
+		  //	if (ovenParameters.tempNTC > NTC_MAX_TEMP) err++;
+
+		  // Check error situation //
+		  if (err > 0)
+		  {
+			 deviceState = STATE_ERROR; // Send device to error state
+			 HAL_Delay(2000);
+			 // change screen
+
+		  }
+		  else
+		  {
+			  // continue in reflow mode
+			  if (ovenParameters.lastUsedMode == 0)
+			  {
+				  HAL_Delay(2000);
+				  deviceState = STATE_REFLOW;
+
+				  ovenParameters.initEnd = 1;
+			  }
+
+			  // continue in drying mode
+			  if (ovenParameters.lastUsedMode == 1)
+			  {
+				  HAL_Delay(2000);
+				  deviceState = STATE_DRY;
+				  ovenParameters.initEnd = 1;
+			  }
+
+			  HAL_GPIO_WritePin(INHIBIT_GPIO_Port, INHIBIT_Pin, GPIO_PIN_SET); // Enable inhibit
+			  // change screen
+		  }
+
+		  break;
+
+
+	  case STATE_ERROR:
+		  break;
+
+	  case STATE_REFLOW:
+		  break;
+
+	  case STATE_DRY:
+		  break;
+
+	  default:
+		  break;
+
+	  }
+
+
+
   }
   /* USER CODE END 3 */
 }
@@ -179,9 +362,9 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 12;
-  RCC_OscInitStruct.PLL.PLLN = 384;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
+  RCC_OscInitStruct.PLL.PLLM = 6;
+  RCC_OscInitStruct.PLL.PLLN = 100;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 8;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -317,8 +500,8 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 0 */
 
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_OC_InitTypeDef sConfigOC = {0};
 
   /* USER CODE BEGIN TIM2_Init 1 */
 
@@ -328,8 +511,13 @@ static void MX_TIM2_Init(void)
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim2.Init.Period = 32548;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
-  if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -339,18 +527,9 @@ static void MX_TIM2_Init(void)
   {
     Error_Handler();
   }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
-  {
-    Error_Handler();
-  }
   /* USER CODE BEGIN TIM2_Init 2 */
 
   /* USER CODE END TIM2_Init 2 */
-  HAL_TIM_MspPostInit(&htim2);
 
 }
 
@@ -433,37 +612,18 @@ static void MX_USART1_UART_Init(void)
 }
 
 /**
-  * @brief USB_OTG_FS Initialization Function
-  * @param None
-  * @retval None
+  * Enable DMA controller clock
   */
-static void MX_USB_OTG_FS_PCD_Init(void)
+static void MX_DMA_Init(void)
 {
 
-  /* USER CODE BEGIN USB_OTG_FS_Init 0 */
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA2_CLK_ENABLE();
 
-  /* USER CODE END USB_OTG_FS_Init 0 */
-
-  /* USER CODE BEGIN USB_OTG_FS_Init 1 */
-
-  /* USER CODE END USB_OTG_FS_Init 1 */
-  hpcd_USB_OTG_FS.Instance = USB_OTG_FS;
-  hpcd_USB_OTG_FS.Init.dev_endpoints = 4;
-  hpcd_USB_OTG_FS.Init.speed = PCD_SPEED_FULL;
-  hpcd_USB_OTG_FS.Init.dma_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.phy_itface = PCD_PHY_EMBEDDED;
-  hpcd_USB_OTG_FS.Init.Sof_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.low_power_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.lpm_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.vbus_sensing_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.use_dedicated_ep1 = DISABLE;
-  if (HAL_PCD_Init(&hpcd_USB_OTG_FS) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USB_OTG_FS_Init 2 */
-
-  /* USER CODE END USB_OTG_FS_Init 2 */
+  /* DMA interrupt init */
+  /* DMA2_Stream2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
 
 }
 
@@ -491,7 +651,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, TOUCH_CS_Pin|FLASH_CS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(DISPL_DC_GPIO_Port, DISPL_DC_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, DISPL_LED_Pin|DISPL_DC_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, DISPL_RST_Pin|AUX_OUT2_Pin|AUX_OUT1_Pin|SSR2_Pin
@@ -516,22 +676,22 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : TOUCH_INT_Pin */
   GPIO_InitStruct.Pin = TOUCH_INT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(TOUCH_INT_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : TOUCH_CS_Pin */
   GPIO_InitStruct.Pin = TOUCH_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(TOUCH_CS_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : DISPL_DC_Pin */
-  GPIO_InitStruct.Pin = DISPL_DC_Pin;
+  /*Configure GPIO pins : DISPL_LED_Pin DISPL_DC_Pin FLASH_CS_Pin */
+  GPIO_InitStruct.Pin = DISPL_LED_Pin|DISPL_DC_Pin|FLASH_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(DISPL_DC_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : DISPL_RST_Pin */
   GPIO_InitStruct.Pin = DISPL_RST_Pin;
@@ -543,7 +703,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : DISPL_CS_Pin */
   GPIO_InitStruct.Pin = DISPL_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(DISPL_CS_GPIO_Port, &GPIO_InitStruct);
 
@@ -567,13 +727,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(AN_T1_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : FLASH_CS_Pin */
-  GPIO_InitStruct.Pin = FLASH_CS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
-  HAL_GPIO_Init(FLASH_CS_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);

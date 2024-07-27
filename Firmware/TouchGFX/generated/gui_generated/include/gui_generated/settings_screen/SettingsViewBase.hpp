@@ -8,9 +8,12 @@
 #include <mvp/View.hpp>
 #include <gui/settings_screen/SettingsPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/ScalableImage.hpp>
+#include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
+#include <touchgfx/widgets/ToggleButton.hpp>
+#include <touchgfx/widgets/canvas/Line.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 
 class SettingsViewBase : public touchgfx::View<SettingsPresenter>
 {
@@ -18,6 +21,30 @@ public:
     SettingsViewBase();
     virtual ~SettingsViewBase();
     virtual void setupScreen();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void ProbesNoSelect()
+    {
+        // Override and implement this function in Settings
+    }
+    virtual void SSRNoSelect()
+    {
+        // Override and implement this function in Settings
+    }
+    virtual void CFSelect()
+    {
+        // Override and implement this function in Settings
+    }
+    virtual void outputAUX1()
+    {
+        // Override and implement this function in Settings
+    }
+    virtual void outputAUX2()
+    {
+        // Override and implement this function in Settings
+    }
 
 protected:
     FrontendApplication& application() {
@@ -28,18 +55,38 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::ScalableImage scalableImage1;
+    touchgfx::Image image1;
     touchgfx::TextArea txt;
     touchgfx::TextArea txt_1;
+    touchgfx::TextArea txt_1_2;
+    touchgfx::TextArea txt_1_2_1;
     touchgfx::TextArea txt_1_1;
     touchgfx::TextArea txt_1_1_1;
-    touchgfx::TextArea txt_1_1_1_1;
+    touchgfx::TextArea txt_1_1_1_2;
+    touchgfx::TextArea txt_1_1_1_2_1;
     touchgfx::TextArea txt_1_1_1_1_1;
     touchgfx::TextArea txt_1_1_1_1_1_1;
     touchgfx::TextArea txt_1_1_1_1_1_1_1;
     touchgfx::ButtonWithLabel btnBack;
+    touchgfx::ButtonWithLabel btnSave;
+    touchgfx::ButtonWithLabel btnSetPidP;
+    touchgfx::ButtonWithLabel btnSetPidI;
+    touchgfx::ButtonWithLabel btnSetPidD;
+    touchgfx::ToggleButton toggleBtnProbes;
+    touchgfx::ToggleButton toggleBtnSSR;
+    touchgfx::ToggleButton toggleBtnCF;
+    touchgfx::ToggleButton toggleBtnAUX1;
+    touchgfx::ToggleButton toggleBtnAUX2;
+    touchgfx::Line line1;
+    touchgfx::PainterRGB565 line1Painter;
 
 private:
+
+    /*
+     * Canvas Buffer Size
+     */
+    static const uint32_t CANVAS_BUFFER_SIZE = 4800;
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
     /*
      * Callback Declarations

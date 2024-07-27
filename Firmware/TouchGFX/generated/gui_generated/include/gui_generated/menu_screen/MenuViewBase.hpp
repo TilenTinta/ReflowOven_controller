@@ -8,7 +8,7 @@
 #include <mvp/View.hpp>
 #include <gui/menu_screen/MenuPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/ScalableImage.hpp>
+#include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 
 class MenuViewBase : public touchgfx::View<MenuPresenter>
@@ -27,7 +27,7 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::ScalableImage scalableImage1;
+    touchgfx::Image image1;
     touchgfx::ButtonWithLabel btnBack;
     touchgfx::ButtonWithLabel btnSettings;
     touchgfx::ButtonWithLabel btnDrySetup;

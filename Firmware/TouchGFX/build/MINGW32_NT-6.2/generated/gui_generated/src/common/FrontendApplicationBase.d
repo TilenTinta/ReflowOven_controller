@@ -51,7 +51,6 @@ build/MINGW32_NT-6.2/generated/gui_generated/src/common/FrontendApplicationBase.
  gui/include/gui/startup_screen/StartUpPresenter.hpp \
  gui/include/gui/model/ModelListener.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ScalableImage.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
@@ -59,14 +58,14 @@ build/MINGW32_NT-6.2/generated/gui_generated/src/common/FrontendApplicationBase.
  gui/include/gui/error_screen/ErrorView.hpp \
  generated/gui_generated/include/gui_generated/error_screen/ErrorViewBase.hpp \
  gui/include/gui/error_screen/ErrorPresenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
- gui/include/gui/homereflow_screen/HomeReflowView.hpp \
- generated/gui_generated/include/gui_generated/homereflow_screen/HomeReflowViewBase.hpp \
- gui/include/gui/homereflow_screen/HomeReflowPresenter.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp \
+ gui/include/gui/home_reflow_screen/Home_ReflowView.hpp \
+ generated/gui_generated/include/gui_generated/home_reflow_screen/Home_ReflowViewBase.hpp \
+ gui/include/gui/home_reflow_screen/Home_ReflowPresenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Line.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CWRUtil.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Rasterizer.hpp \
@@ -74,30 +73,46 @@ build/MINGW32_NT-6.2/generated/gui_generated/src/common/FrontendApplicationBase.
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Cell.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainter.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/transforms/DisplayTransformation.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphLabels.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Canvas.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CanvasWidget.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB565.hpp \
  ../Middlewares/ST/touchgfx/framework/include/platform/driver/lcd/LCD16bpp.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/lcd/LCD16DebugPrinter.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB565.hpp \
- gui/include/gui/homedry_screen/HomeDryView.hpp \
- generated/gui_generated/include/gui_generated/homedry_screen/HomeDryViewBase.hpp \
- gui/include/gui/homedry_screen/HomeDryPresenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Canvas.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphLabels.hpp \
+ gui/include/gui/home_dry_screen/Home_DryView.hpp \
+ generated/gui_generated/include/gui_generated/home_dry_screen/Home_DryViewBase.hpp \
+ gui/include/gui/home_dry_screen/Home_DryPresenter.hpp \
  gui/include/gui/menu_screen/MenuView.hpp \
  generated/gui_generated/include/gui_generated/menu_screen/MenuViewBase.hpp \
  gui/include/gui/menu_screen/MenuPresenter.hpp \
  gui/include/gui/settings_screen/SettingsView.hpp \
  generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp \
  gui/include/gui/settings_screen/SettingsPresenter.hpp \
- gui/include/gui/drysetup_screen/DrySetupView.hpp \
- generated/gui_generated/include/gui_generated/drysetup_screen/DrySetupViewBase.hpp \
- gui/include/gui/drysetup_screen/DrySetupPresenter.hpp \
- gui/include/gui/reflowsetup_screen/ReflowSetupView.hpp \
- generated/gui_generated/include/gui_generated/reflowsetup_screen/ReflowSetupViewBase.hpp \
- gui/include/gui/reflowsetup_screen/ReflowSetupPresenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ToggleButton.hpp \
+ gui/include/gui/setup_pid_p_screen/Setup_Pid_PView.hpp \
+ generated/gui_generated/include/gui_generated/setup_pid_p_screen/Setup_Pid_PViewBase.hpp \
+ gui/include/gui/setup_pid_p_screen/Setup_Pid_PPresenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithIcon.hpp \
+ gui/include/gui/setup_pid_i_screen/Setup_Pid_IView.hpp \
+ generated/gui_generated/include/gui_generated/setup_pid_i_screen/Setup_Pid_IViewBase.hpp \
+ gui/include/gui/setup_pid_i_screen/Setup_Pid_IPresenter.hpp \
+ gui/include/gui/setup_pid_d_screen/Setup_Pid_DView.hpp \
+ generated/gui_generated/include/gui_generated/setup_pid_d_screen/Setup_Pid_DViewBase.hpp \
+ gui/include/gui/setup_pid_d_screen/Setup_Pid_DPresenter.hpp \
+ gui/include/gui/dry_setup_screen/Dry_SetupView.hpp \
+ generated/gui_generated/include/gui_generated/dry_setup_screen/Dry_SetupViewBase.hpp \
+ gui/include/gui/dry_setup_screen/Dry_SetupPresenter.hpp \
+ gui/include/gui/reflow_setup_screen/Reflow_SetupView.hpp \
+ generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp \
+ gui/include/gui/reflow_setup_screen/Reflow_SetupPresenter.hpp \
+ gui/include/gui/reflow_setup_edit_screen/Reflow_Setup_EditView.hpp \
+ generated/gui_generated/include/gui_generated/reflow_setup_edit_screen/Reflow_Setup_EditViewBase.hpp \
+ gui/include/gui/reflow_setup_edit_screen/Reflow_Setup_EditPresenter.hpp \
  generated/texts/include/texts/TextKeysAndLanguages.hpp
 
 generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:
@@ -204,8 +219,6 @@ gui/include/gui/model/ModelListener.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:
 
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ScalableImage.hpp:
-
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp:
@@ -220,21 +233,21 @@ generated/gui_generated/include/gui_generated/error_screen/ErrorViewBase.hpp:
 
 gui/include/gui/error_screen/ErrorPresenter.hpp:
 
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
+
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
 
-gui/include/gui/homereflow_screen/HomeReflowView.hpp:
+gui/include/gui/home_reflow_screen/Home_ReflowView.hpp:
 
-generated/gui_generated/include/gui_generated/homereflow_screen/HomeReflowViewBase.hpp:
+generated/gui_generated/include/gui_generated/home_reflow_screen/Home_ReflowViewBase.hpp:
 
-gui/include/gui/homereflow_screen/HomeReflowPresenter.hpp:
+gui/include/gui/home_reflow_screen/Home_ReflowPresenter.hpp:
 
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Line.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CWRUtil.hpp:
 
@@ -250,12 +263,6 @@ gui/include/gui/homereflow_screen/HomeReflowPresenter.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/transforms/DisplayTransformation.hpp:
 
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphLabels.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Canvas.hpp:
-
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CanvasWidget.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB565.hpp:
@@ -268,11 +275,21 @@ gui/include/gui/homereflow_screen/HomeReflowPresenter.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB565.hpp:
 
-gui/include/gui/homedry_screen/HomeDryView.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp:
 
-generated/gui_generated/include/gui_generated/homedry_screen/HomeDryViewBase.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp:
 
-gui/include/gui/homedry_screen/HomeDryPresenter.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Canvas.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphLabels.hpp:
+
+gui/include/gui/home_dry_screen/Home_DryView.hpp:
+
+generated/gui_generated/include/gui_generated/home_dry_screen/Home_DryViewBase.hpp:
+
+gui/include/gui/home_dry_screen/Home_DryPresenter.hpp:
 
 gui/include/gui/menu_screen/MenuView.hpp:
 
@@ -286,16 +303,44 @@ generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.h
 
 gui/include/gui/settings_screen/SettingsPresenter.hpp:
 
-gui/include/gui/drysetup_screen/DrySetupView.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ToggleButton.hpp:
 
-generated/gui_generated/include/gui_generated/drysetup_screen/DrySetupViewBase.hpp:
+gui/include/gui/setup_pid_p_screen/Setup_Pid_PView.hpp:
 
-gui/include/gui/drysetup_screen/DrySetupPresenter.hpp:
+generated/gui_generated/include/gui_generated/setup_pid_p_screen/Setup_Pid_PViewBase.hpp:
 
-gui/include/gui/reflowsetup_screen/ReflowSetupView.hpp:
+gui/include/gui/setup_pid_p_screen/Setup_Pid_PPresenter.hpp:
 
-generated/gui_generated/include/gui_generated/reflowsetup_screen/ReflowSetupViewBase.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithIcon.hpp:
 
-gui/include/gui/reflowsetup_screen/ReflowSetupPresenter.hpp:
+gui/include/gui/setup_pid_i_screen/Setup_Pid_IView.hpp:
+
+generated/gui_generated/include/gui_generated/setup_pid_i_screen/Setup_Pid_IViewBase.hpp:
+
+gui/include/gui/setup_pid_i_screen/Setup_Pid_IPresenter.hpp:
+
+gui/include/gui/setup_pid_d_screen/Setup_Pid_DView.hpp:
+
+generated/gui_generated/include/gui_generated/setup_pid_d_screen/Setup_Pid_DViewBase.hpp:
+
+gui/include/gui/setup_pid_d_screen/Setup_Pid_DPresenter.hpp:
+
+gui/include/gui/dry_setup_screen/Dry_SetupView.hpp:
+
+generated/gui_generated/include/gui_generated/dry_setup_screen/Dry_SetupViewBase.hpp:
+
+gui/include/gui/dry_setup_screen/Dry_SetupPresenter.hpp:
+
+gui/include/gui/reflow_setup_screen/Reflow_SetupView.hpp:
+
+generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:
+
+gui/include/gui/reflow_setup_screen/Reflow_SetupPresenter.hpp:
+
+gui/include/gui/reflow_setup_edit_screen/Reflow_Setup_EditView.hpp:
+
+generated/gui_generated/include/gui_generated/reflow_setup_edit_screen/Reflow_Setup_EditViewBase.hpp:
+
+gui/include/gui/reflow_setup_edit_screen/Reflow_Setup_EditPresenter.hpp:
 
 generated/texts/include/texts/TextKeysAndLanguages.hpp:

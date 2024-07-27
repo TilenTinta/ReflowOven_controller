@@ -1,0 +1,17 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	16	static
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:29:18:virtual void Reflow_SetupViewBase::selectSoak()	16	static
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:33:18:virtual void Reflow_SetupViewBase::selectRamp2()	16	static
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:37:18:virtual void Reflow_SetupViewBase::selectReflow()	16	static
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:41:18:virtual void Reflow_SetupViewBase::selectCooling()	16	static
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:45:18:virtual void Reflow_SetupViewBase::nextProfile()	16	static
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:49:18:virtual void Reflow_SetupViewBase::prevProfile()	16	static
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:53:18:virtual void Reflow_SetupViewBase::selectRamp1()	16	static
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:57:18:virtual void Reflow_SetupViewBase::selectCurrProfile()	16	static
+../TouchGFX/gui/include/gui/reflow_setup_screen/Reflow_SetupView.hpp:11:13:Reflow_SetupView::~Reflow_SetupView()	16	static
+../TouchGFX/gui/include/gui/reflow_setup_screen/Reflow_SetupView.hpp:11:13:virtual Reflow_SetupView::~Reflow_SetupView()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:3:1:Reflow_SetupView::Reflow_SetupView()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:8:6:virtual void Reflow_SetupView::setupScreen()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:13:6:virtual void Reflow_SetupView::tearDownScreen()	16	static

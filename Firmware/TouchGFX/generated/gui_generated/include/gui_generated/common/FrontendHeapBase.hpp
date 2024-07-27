@@ -16,18 +16,22 @@
 #include <gui/startup_screen/StartUpPresenter.hpp>
 #include <gui/error_screen/ErrorView.hpp>
 #include <gui/error_screen/ErrorPresenter.hpp>
-#include <gui/homereflow_screen/HomeReflowView.hpp>
-#include <gui/homereflow_screen/HomeReflowPresenter.hpp>
-#include <gui/homedry_screen/HomeDryView.hpp>
-#include <gui/homedry_screen/HomeDryPresenter.hpp>
+#include <gui/home_reflow_screen/Home_ReflowView.hpp>
+#include <gui/home_reflow_screen/Home_ReflowPresenter.hpp>
+#include <gui/home_dry_screen/Home_DryView.hpp>
+#include <gui/home_dry_screen/Home_DryPresenter.hpp>
 #include <gui/menu_screen/MenuView.hpp>
 #include <gui/menu_screen/MenuPresenter.hpp>
 #include <gui/settings_screen/SettingsView.hpp>
 #include <gui/settings_screen/SettingsPresenter.hpp>
-#include <gui/drysetup_screen/DrySetupView.hpp>
-#include <gui/drysetup_screen/DrySetupPresenter.hpp>
-#include <gui/reflowsetup_screen/ReflowSetupView.hpp>
-#include <gui/reflowsetup_screen/ReflowSetupPresenter.hpp>
+#include <gui/setup_pid_screen/Setup_PidView.hpp>
+#include <gui/setup_pid_screen/Setup_PidPresenter.hpp>
+#include <gui/dry_setup_screen/Dry_SetupView.hpp>
+#include <gui/dry_setup_screen/Dry_SetupPresenter.hpp>
+#include <gui/reflow_setup_screen/Reflow_SetupView.hpp>
+#include <gui/reflow_setup_screen/Reflow_SetupPresenter.hpp>
+#include <gui/reflow_setup_edit_screen/Reflow_Setup_EditView.hpp>
+#include <gui/reflow_setup_edit_screen/Reflow_Setup_EditPresenter.hpp>
 
 
 /**
@@ -52,13 +56,15 @@ public:
      */
     typedef touchgfx::meta::TypeList< StartUpView,
             touchgfx::meta::TypeList< ErrorView,
-            touchgfx::meta::TypeList< HomeReflowView,
-            touchgfx::meta::TypeList< HomeDryView,
+            touchgfx::meta::TypeList< Home_ReflowView,
+            touchgfx::meta::TypeList< Home_DryView,
             touchgfx::meta::TypeList< MenuView,
             touchgfx::meta::TypeList< SettingsView,
-            touchgfx::meta::TypeList< DrySetupView,
-            touchgfx::meta::TypeList< ReflowSetupView,
-            touchgfx::meta::Nil > > > > > > >
+            touchgfx::meta::TypeList< Setup_PidView,
+            touchgfx::meta::TypeList< Dry_SetupView,
+            touchgfx::meta::TypeList< Reflow_SetupView,
+            touchgfx::meta::TypeList< Reflow_Setup_EditView,
+            touchgfx::meta::Nil > > > > > > > > >
             > GeneratedViewTypes;
 
     /**
@@ -72,13 +78,15 @@ public:
      */
     typedef touchgfx::meta::TypeList< StartUpPresenter,
             touchgfx::meta::TypeList< ErrorPresenter,
-            touchgfx::meta::TypeList< HomeReflowPresenter,
-            touchgfx::meta::TypeList< HomeDryPresenter,
+            touchgfx::meta::TypeList< Home_ReflowPresenter,
+            touchgfx::meta::TypeList< Home_DryPresenter,
             touchgfx::meta::TypeList< MenuPresenter,
             touchgfx::meta::TypeList< SettingsPresenter,
-            touchgfx::meta::TypeList< DrySetupPresenter,
-            touchgfx::meta::TypeList< ReflowSetupPresenter,
-            touchgfx::meta::Nil > > > > > > >
+            touchgfx::meta::TypeList< Setup_PidPresenter,
+            touchgfx::meta::TypeList< Dry_SetupPresenter,
+            touchgfx::meta::TypeList< Reflow_SetupPresenter,
+            touchgfx::meta::TypeList< Reflow_Setup_EditPresenter,
+            touchgfx::meta::Nil > > > > > > > > >
             > GeneratedPresenterTypes;
 
     /**

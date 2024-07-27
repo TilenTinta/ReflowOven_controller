@@ -12,10 +12,9 @@ StartUpViewBase::StartUpViewBase()
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    scalableImage1.setBitmap(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_BACKGROUNDS_240X240_SHATTERED_RAIN_DARK_ID));
-    scalableImage1.setPosition(0, 0, 320, 480);
-    scalableImage1.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
-    add(scalableImage1);
+    image1.setXY(0, 0);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_RESIZED_IMAGE_320X480_ID));
+    add(image1);
 
     txtStart.setXY(24, 150);
     txtStart.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -48,8 +47,8 @@ void StartUpViewBase::setupScreen()
 
 void StartUpViewBase::handleTickEvent()
 {
-    //ChangeToHome
-    //When every N tick change screen to HomeReflow
-    //Go to HomeReflow with no screen transition
-    application().gotoHomeReflowScreenNoTransition();
+    //Interaction1
+    //When every N tick change screen to Home_Reflow
+    //Go to Home_Reflow with no screen transition
+    application().gotoHome_ReflowScreenNoTransition();
 }

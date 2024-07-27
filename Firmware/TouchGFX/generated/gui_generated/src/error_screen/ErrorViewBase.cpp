@@ -12,10 +12,41 @@ ErrorViewBase::ErrorViewBase()
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    scalableImage1.setBitmap(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_BACKGROUNDS_240X240_SHATTERED_RAIN_DARK_ID));
-    scalableImage1.setPosition(0, 0, 320, 480);
-    scalableImage1.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
-    add(scalableImage1);
+    image1.setXY(0, 0);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_RESIZED_IMAGE_320X480_ID));
+    add(image1);
+
+    txtErrADC12V.setPosition(16, 85, 254, 28);
+    txtErrADC12V.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txtErrADC12V.setLinespacing(0);
+    Unicode::snprintf(txtErrADC12VBuffer, TXTERRADC12V_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_DP3C).getText());
+    txtErrADC12V.setWildcard(txtErrADC12VBuffer);
+    txtErrADC12V.setTypedText(touchgfx::TypedText(T___SINGLEUSE_U862));
+    add(txtErrADC12V);
+
+    txtErrADC3V3.setPosition(16, 113, 254, 28);
+    txtErrADC3V3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txtErrADC3V3.setLinespacing(0);
+    Unicode::snprintf(txtErrADC3V3Buffer, TXTERRADC3V3_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_X7GM).getText());
+    txtErrADC3V3.setWildcard(txtErrADC3V3Buffer);
+    txtErrADC3V3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9ULV));
+    add(txtErrADC3V3);
+
+    txtErrTC1.setPosition(16, 141, 254, 28);
+    txtErrTC1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txtErrTC1.setLinespacing(0);
+    Unicode::snprintf(txtErrTC1Buffer, TXTERRTC1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_35U0).getText());
+    txtErrTC1.setWildcard(txtErrTC1Buffer);
+    txtErrTC1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KTK8));
+    add(txtErrTC1);
+
+    txtErrTC2.setPosition(16, 169, 254, 28);
+    txtErrTC2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txtErrTC2.setLinespacing(0);
+    Unicode::snprintf(txtErrTC2Buffer, TXTERRTC2_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_TDVF).getText());
+    txtErrTC2.setWildcard(txtErrTC2Buffer);
+    txtErrTC2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4FFA));
+    add(txtErrTC2);
 
     txtStart_1.setXY(59, 16);
     txtStart_1.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));

@@ -23,7 +23,6 @@
 /* USER CODE BEGIN STM32TouchController */
 
 #include <STM32TouchController.hpp>
-#include "main.h"
 
 void STM32TouchController::init()
 {
@@ -45,7 +44,7 @@ bool STM32TouchController::sampleTouch(int32_t& x, int32_t& y)
      * By default sampleTouch is called every tick, this can be adjusted by HAL::setTouchSampleRate(int8_t);
      *
      */
-	return ((bool) Touch_TouchGFXSampleTouch(&x, &y));
+    return false;
 }
 
 /* USER CODE END STM32TouchController */
