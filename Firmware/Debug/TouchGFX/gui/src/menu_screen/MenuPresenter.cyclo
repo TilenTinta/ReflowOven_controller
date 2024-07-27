@@ -3,9 +3,10 @@
 ../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:52:13:touchgfx::Presenter::~Presenter()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:52:13:virtual touchgfx::Presenter::~Presenter()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:58:5:touchgfx::Presenter::Presenter()	1
-../TouchGFX/gui/include/gui/model/ModelListener.hpp:9:5:ModelListener::ModelListener()	1
-../TouchGFX/gui/include/gui/model/ModelListener.hpp:11:13:ModelListener::~ModelListener()	1
-../TouchGFX/gui/include/gui/model/ModelListener.hpp:11:13:virtual ModelListener::~ModelListener()	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:10:5:ModelListener::ModelListener()	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:ModelListener::~ModelListener()	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:virtual ModelListener::~ModelListener()	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:19:18:virtual void ModelListener::setTEMP(float)	1
 ../TouchGFX/gui/include/gui/menu_screen/MenuPresenter.hpp:28:13:MenuPresenter::~MenuPresenter()	1
 ../TouchGFX/gui/include/gui/menu_screen/MenuPresenter.hpp:28:13:virtual MenuPresenter::~MenuPresenter()	1
 ../TouchGFX/gui/src/menu_screen/MenuPresenter.cpp:4:1:MenuPresenter::MenuPresenter(MenuView&)	1

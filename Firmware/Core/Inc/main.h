@@ -122,6 +122,7 @@ void Error_Handler(void);
 
 
 /////////// Do not change whats follows ///////////
+#define tickInSec				5
 #define secInMin 				60
 #define minInH 					60
 
@@ -150,12 +151,17 @@ void Error_Handler(void);
 typedef struct {
 
 	// Device values
-	float tempThermo1;			// Temperature from thermocouple 1
-	float tempThermo2;			// Temperature from thermocouple 2
+	float tempThermo;			// Temperature from thermocouple
 	float tempNTC;				// Temperature from NTC on PCB
-	uint16_t timeElapsed;		// Elapsed time for drying or reflowing
 	uint8_t startStop;			// start/stop variable
-	uint8_t initEnd;
+	uint8_t initEnd;			// End of initialization rutine
+	uint8_t actionTick;			// trigger to read and data refresh
+
+	// Device time value
+	uint8_t cntTimerTick;		// timer triggers counter
+	uint8_t cntSecond;			// seconds counter
+	uint8_t cntMinute;			// minutes counter
+	uint8_t cntHour;			// hours conter
 
 	// Device settings
 	float PID_P;				// PID P value
@@ -215,6 +221,8 @@ typedef struct {
 
 extern DryPreset dryPreset;
 
+
+/*** Structure of error codes ***/
 typedef struct {
 
 	uint8_t thermoCouple1Err;
@@ -231,6 +239,19 @@ typedef struct {
 
 extern OvenErrorCodes ovenErrorCodes;
 
+
+/*** Structure of PID values ***/
+typedef struct {
+
+	float tempAVGThermo1;		// Average temp 1
+	float tempAVGThermo2;		// Average temp 2
+	uint8_t tempDelta;			// value of change between each setpoint
+	uint8_t tempSetPoint;		// current temperature set point
+
+
+} PIDvalues;
+
+extern PIDvalues pidValues;
 
 
 /* USER CODE END Private defines */

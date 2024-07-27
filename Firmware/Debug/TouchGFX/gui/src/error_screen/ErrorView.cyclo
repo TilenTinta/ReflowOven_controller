@@ -2,8 +2,8 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	1
-../TouchGFX/gui/include/gui/error_screen/ErrorView.hpp:11:13:ErrorView::~ErrorView()	1
-../TouchGFX/gui/include/gui/error_screen/ErrorView.hpp:11:13:virtual ErrorView::~ErrorView()	1
+../TouchGFX/gui/include/gui/error_screen/ErrorView.hpp:12:13:ErrorView::~ErrorView()	1
+../TouchGFX/gui/include/gui/error_screen/ErrorView.hpp:12:13:virtual ErrorView::~ErrorView()	1
 ../TouchGFX/gui/src/error_screen/ErrorView.cpp:3:1:ErrorView::ErrorView()	1
-../TouchGFX/gui/src/error_screen/ErrorView.cpp:8:6:virtual void ErrorView::setupScreen()	1
-../TouchGFX/gui/src/error_screen/ErrorView.cpp:13:6:virtual void ErrorView::tearDownScreen()	1
+../TouchGFX/gui/src/error_screen/ErrorView.cpp:8:6:virtual void ErrorView::setupScreen()	6
+../TouchGFX/gui/src/error_screen/ErrorView.cpp:75:6:virtual void ErrorView::tearDownScreen()	1

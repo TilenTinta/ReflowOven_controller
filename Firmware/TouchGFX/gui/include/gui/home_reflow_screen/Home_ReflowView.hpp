@@ -12,6 +12,9 @@ public:
     virtual ~Home_ReflowView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
+    virtual void setTEMP (float temperature); // virtual function - temperature
+
 protected:
 };
 

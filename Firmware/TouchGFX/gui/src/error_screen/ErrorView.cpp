@@ -7,6 +7,68 @@ ErrorView::ErrorView()
 
 void ErrorView::setupScreen()
 {
+	/* Set error report */
+
+	// 12V input
+	if (ovenErrorCodes.ADC12V == 1)
+	{
+		Unicode::snprintf(txtErrADC12VBuffer, TXTERRTC2_SIZE, "%s", "NOK");
+		txtErrADC12V.invalidate();
+	}
+	else
+	{
+		Unicode::snprintf(txtErrADC12VBuffer, TXTERRTC2_SIZE, "%s", "OK");
+		txtErrADC12V.invalidate();
+	}
+
+	// 3.3V Output
+	if (ovenErrorCodes.ADC3V3 == 1)
+	{
+		Unicode::snprintf(txtErrADC3V3Buffer, TXTERRTC2_SIZE, "%s", "NOK");
+		txtErrADC3V3.invalidate();
+	}
+	else
+	{
+		Unicode::snprintf(txtErrADC3V3Buffer, TXTERRTC2_SIZE, "%s", "OK");
+		txtErrADC3V3.invalidate();
+	}
+
+	// Thermocouple 1
+	if (ovenErrorCodes.thermoCouple1Err == 1)
+	{
+		Unicode::snprintf(txtErrTC1Buffer, TXTERRTC2_SIZE, "%s", "NOK");
+		txtErrTC1.invalidate();
+	}
+	else
+	{
+		Unicode::snprintf(txtErrTC1Buffer, TXTERRTC2_SIZE, "%s", "OK");
+		txtErrTC1.invalidate();
+	}
+
+	// Thermocouple 2
+	if (ovenErrorCodes.thermoCouple2Err == 1)
+	{
+		Unicode::snprintf(txtErrTC2Buffer, TXTERRTC2_SIZE, "%s", "NOK");
+		txtErrTC2.invalidate();
+	}
+	else
+	{
+		Unicode::snprintf(txtErrTC2Buffer, TXTERRTC2_SIZE, "%s", "OK");
+		txtErrTC2.invalidate();
+	}
+
+	// NTC
+	if (ovenErrorCodes.NTCErr == 1)
+	{
+		Unicode::snprintf(txtErrNTCBuffer, TXTERRTC2_SIZE, "%s", "NOK");
+		txtErrNTC.invalidate();
+	}
+	else
+	{
+		Unicode::snprintf(txtErrNTCBuffer, TXTERRTC2_SIZE, "%s", "OK");
+		txtErrNTC.invalidate();
+	}
+
     ErrorViewBase::setupScreen();
 }
 

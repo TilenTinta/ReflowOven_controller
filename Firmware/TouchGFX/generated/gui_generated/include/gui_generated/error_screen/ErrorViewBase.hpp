@@ -30,6 +30,7 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Image image1;
+    touchgfx::TextAreaWithOneWildcard txtErrNTC;
     touchgfx::TextAreaWithOneWildcard txtErrADC12V;
     touchgfx::TextAreaWithOneWildcard txtErrADC3V3;
     touchgfx::TextAreaWithOneWildcard txtErrTC1;
@@ -40,6 +41,8 @@ protected:
     /*
      * Wildcard Buffers
      */
+    static const uint16_t TXTERRNTC_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar txtErrNTCBuffer[TXTERRNTC_SIZE];
     static const uint16_t TXTERRADC12V_SIZE = 4;
     touchgfx::Unicode::UnicodeChar txtErrADC12VBuffer[TXTERRADC12V_SIZE];
     static const uint16_t TXTERRADC3V3_SIZE = 4;

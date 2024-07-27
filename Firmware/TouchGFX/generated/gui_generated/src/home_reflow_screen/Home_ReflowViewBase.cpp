@@ -129,7 +129,7 @@ Home_ReflowViewBase::Home_ReflowViewBase() :
     txt_1_1_1_1_1_3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9GLV));
     add(txt_1_1_1_1_1_3);
 
-    txtCurrentTempSet.setPosition(110, 216, 62, 24);
+    txtCurrentTempSet.setPosition(101, 216, 71, 24);
     txtCurrentTempSet.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txtCurrentTempSet.setLinespacing(0);
     Unicode::snprintf(txtCurrentTempSetBuffer, TXTCURRENTTEMPSET_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_R8R2).getText());

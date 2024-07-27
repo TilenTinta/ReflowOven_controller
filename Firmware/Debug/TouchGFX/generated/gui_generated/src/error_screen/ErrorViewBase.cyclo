@@ -73,9 +73,9 @@
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:touchgfx::View<ErrorPresenter>::~View()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:virtual touchgfx::View<ErrorPresenter>::~View()	1
 ../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:9:1:ErrorViewBase::ErrorViewBase()	1
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:65:1:ErrorViewBase::~ErrorViewBase()	1
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:65:1:virtual ErrorViewBase::~ErrorViewBase()	1
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:70:6:virtual void ErrorViewBase::setupScreen()	1
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:73:1:ErrorViewBase::~ErrorViewBase()	1
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:73:1:virtual ErrorViewBase::~ErrorViewBase()	1
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:78:6:virtual void ErrorViewBase::setupScreen()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:39:5:touchgfx::View<T>::View() [with T = ErrorPresenter]	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:62:7:touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:62:7:virtual touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	1

@@ -87,6 +87,26 @@
           },
           {
             "Type": "TextArea",
+            "Name": "txtErrNTC",
+            "X": 16,
+            "Y": 197,
+            "Width": 254,
+            "Height": 28,
+            "TextId": "__SingleUse_AMF1",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_GA7H",
+              "UseBuffer": true,
+              "BufferSize": 4
+            }
+          },
+          {
+            "Type": "TextArea",
             "Name": "txtErrADC12V",
             "X": 16,
             "Y": 85,
@@ -497,9 +517,9 @@
           {
             "Type": "TextArea",
             "Name": "txtCurrentTempSet",
-            "X": 110,
+            "X": 101,
             "Y": 216,
-            "Width": 62,
+            "Width": 71,
             "Height": 24,
             "TextId": "__SingleUse_3VVQ",
             "TextRotation": "0",
@@ -511,7 +531,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_R8R2",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 10
             }
           },
           {

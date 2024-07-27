@@ -3,9 +3,10 @@
 ../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:52:13:touchgfx::Presenter::~Presenter()	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:52:13:virtual touchgfx::Presenter::~Presenter()	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:58:5:touchgfx::Presenter::Presenter()	16	static
-../TouchGFX/gui/include/gui/model/ModelListener.hpp:9:5:ModelListener::ModelListener()	16	static
-../TouchGFX/gui/include/gui/model/ModelListener.hpp:11:13:ModelListener::~ModelListener()	16	static
-../TouchGFX/gui/include/gui/model/ModelListener.hpp:11:13:virtual ModelListener::~ModelListener()	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:10:5:ModelListener::ModelListener()	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:ModelListener::~ModelListener()	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:virtual ModelListener::~ModelListener()	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:19:18:virtual void ModelListener::setTEMP(float)	16	static
 ../TouchGFX/gui/include/gui/dry_setup_screen/Dry_SetupPresenter.hpp:28:13:Dry_SetupPresenter::~Dry_SetupPresenter()	16	static
 ../TouchGFX/gui/include/gui/dry_setup_screen/Dry_SetupPresenter.hpp:28:13:virtual Dry_SetupPresenter::~Dry_SetupPresenter()	16	static
 ../TouchGFX/gui/src/dry_setup_screen/Dry_SetupPresenter.cpp:4:1:Dry_SetupPresenter::Dry_SetupPresenter(Dry_SetupView&)	16	static

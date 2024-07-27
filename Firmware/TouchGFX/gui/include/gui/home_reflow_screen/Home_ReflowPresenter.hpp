@@ -27,6 +27,8 @@ public:
 
     virtual ~Home_ReflowPresenter() {}
 
+    virtual void setTEMP (float temperature); // virtual function - temperature
+
 private:
     Home_ReflowPresenter();
 

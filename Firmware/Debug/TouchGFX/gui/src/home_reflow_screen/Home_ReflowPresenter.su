@@ -3,11 +3,13 @@
 ../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:52:13:touchgfx::Presenter::~Presenter()	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:52:13:virtual touchgfx::Presenter::~Presenter()	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:58:5:touchgfx::Presenter::Presenter()	16	static
-../TouchGFX/gui/include/gui/model/ModelListener.hpp:9:5:ModelListener::ModelListener()	16	static
-../TouchGFX/gui/include/gui/model/ModelListener.hpp:11:13:ModelListener::~ModelListener()	16	static
-../TouchGFX/gui/include/gui/model/ModelListener.hpp:11:13:virtual ModelListener::~ModelListener()	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:10:5:ModelListener::ModelListener()	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:ModelListener::~ModelListener()	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:virtual ModelListener::~ModelListener()	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:19:18:virtual void ModelListener::setTEMP(float)	16	static
 ../TouchGFX/gui/include/gui/home_reflow_screen/Home_ReflowPresenter.hpp:28:13:Home_ReflowPresenter::~Home_ReflowPresenter()	16	static
 ../TouchGFX/gui/include/gui/home_reflow_screen/Home_ReflowPresenter.hpp:28:13:virtual Home_ReflowPresenter::~Home_ReflowPresenter()	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowPresenter.cpp:4:1:Home_ReflowPresenter::Home_ReflowPresenter(Home_ReflowView&)	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowPresenter.cpp:10:6:virtual void Home_ReflowPresenter::activate()	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowPresenter.cpp:15:6:virtual void Home_ReflowPresenter::deactivate()	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowPresenter.cpp:21:6:virtual void Home_ReflowPresenter::setTEMP(float)	16	static

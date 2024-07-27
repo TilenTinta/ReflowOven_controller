@@ -72,10 +72,10 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:132:10:void touchgfx::ButtonWithLabel::updateTextPosition()	56	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:touchgfx::View<ErrorPresenter>::~View()	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:virtual touchgfx::View<ErrorPresenter>::~View()	16	static
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:9:1:ErrorViewBase::ErrorViewBase()	304	static
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:65:1:ErrorViewBase::~ErrorViewBase()	16	static
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:65:1:virtual ErrorViewBase::~ErrorViewBase()	16	static
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:70:6:virtual void ErrorViewBase::setupScreen()	16	static
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:9:1:ErrorViewBase::ErrorViewBase()	352	static
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:73:1:ErrorViewBase::~ErrorViewBase()	16	static
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:73:1:virtual ErrorViewBase::~ErrorViewBase()	16	static
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:78:6:virtual void ErrorViewBase::setupScreen()	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:39:5:touchgfx::View<T>::View() [with T = ErrorPresenter]	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:62:7:touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:62:7:virtual touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	16	static

@@ -2,6 +2,7 @@
 #define MODELLISTENER_HPP
 
 #include <gui/model/Model.hpp>
+#include "main.h"
 
 class ModelListener
 {
@@ -14,6 +15,9 @@ public:
     {
         model = m;
     }
+
+    virtual void setTEMP (float temperature) {}; // virtual function - temperature
+
 protected:
     Model* model;
 };

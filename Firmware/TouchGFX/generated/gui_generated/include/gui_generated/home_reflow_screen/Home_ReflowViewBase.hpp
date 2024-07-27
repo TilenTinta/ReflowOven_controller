@@ -99,7 +99,7 @@ protected:
     touchgfx::Unicode::UnicodeChar txtRamp1TempSetBuffer[TXTRAMP1TEMPSET_SIZE];
     static const uint16_t TXTRAMP1TIMESET_SIZE = 4;
     touchgfx::Unicode::UnicodeChar txtRamp1TimeSetBuffer[TXTRAMP1TIMESET_SIZE];
-    static const uint16_t TXTCURRENTTEMPSET_SIZE = 4;
+    static const uint16_t TXTCURRENTTEMPSET_SIZE = 10;
     touchgfx::Unicode::UnicodeChar txtCurrentTempSetBuffer[TXTCURRENTTEMPSET_SIZE];
     static const uint16_t TXTCURRENTTIMESET_SIZE = 4;
     touchgfx::Unicode::UnicodeChar txtCurrentTimeSetBuffer[TXTCURRENTTIMESET_SIZE];

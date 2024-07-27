@@ -83,16 +83,26 @@ uint8_t INHIBIT = 0;			// enable 12V bus
 
 uint8_t deviceState = 0;		// state machine var
 uint8_t saveToFlash = 0;		// protect writing to flash every time (connected with KEEP_FLASH_DATA)
-uint8_t actionTick = 0;			// triggers read and data refresh
+float tempAVG1[5] = {};			// values of temp from thermocouple 1 in one second to calculate average value
+float tempAVG2[5] = {};			// values of temp from thermocouple 2 in one second to calculate average value
+uint8_t cntTempArray = 0;		// counter for temperature array
+
 
 
 // Default values for oven preset
 OvenParameters ovenParameters = {
 
-		.startStop = 0,
+		// device operating variables
 		.initEnd = 0,
-		.lastUsedMode = 0,
+		.profileNoSelected = 1,
+		.profileSetupStep = 0,
+		.pidSetupStep = 0,
 		.tempNTC = 0.0f,
+		.tempThermo = 0.0f,
+
+		// retentive variables
+		.profileNoSelected = 1,
+		.lastUsedMode = 0,
 		.PID_P = 1.0f,
 		.PID_I = 1.0f,
 		.PID_D = 1.0f,
@@ -101,9 +111,14 @@ OvenParameters ovenParameters = {
 		.units = 0,
 		.AUX1 = 0,
 		.AUX2 = 0,
-		.profileNoSelected = 1,
-		.profileSetupStep = 0,
-		.pidSetupStep = 0
+
+		// device runing variables
+		.startStop = 0,
+		.actionTick = 0,
+		.cntTimerTick = 0,
+		.cntSecond = 0,
+		.cntMinute = 0,
+		.cntHour = 0
 };
 
 // Default values for profiles
@@ -137,6 +152,12 @@ OvenErrorCodes ovenErrorCodes = {
 		.NTCErr = 0,
 		.thermoCouple1Err = 0,
 		.thermoCouple2Err = 0
+};
+
+// Default values for pid
+PIDvalues pidValues = {
+		.tempAVGThermo1 = 0.0f,
+		.tempAVGThermo2 = 0.0f
 };
 
 
@@ -203,12 +224,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   /*
-  // CLEAR, WRITE AND READ FROM SFASH
+  // CLEAR, WRITE AND READ FROM FLASH
   if (!Flash_Init()){
 	  while(1){}
   }
 
-  Flash_ChipErase();
+  //Flash_ChipErase();
   uint8_t msg[20];
   strcpy((char*)msg, "test message");
 
@@ -226,8 +247,108 @@ int main(void)
 		  touchgfxSignalVSync();
     /* USER CODE END WHILE */
 
-  MX_TouchGFX_Process();
+	  MX_TouchGFX_Process();
     /* USER CODE BEGIN 3 */
+
+	  // Timer interrupt trigger (5Hz)
+	  if (ovenParameters.actionTick == 1)
+	  {
+
+		  // To start timer the device must be in run mode (startStop = 1)
+		  if (ovenParameters.startStop == 1)
+		  {
+			  // Get time elapsed value
+			  ovenParameters.cntTimerTick ++;
+
+			  // Ticks to seconds
+			  if (ovenParameters.cntTimerTick >= tickInSec)
+			  {
+				  ovenParameters.cntTimerTick = 0;
+				  ovenParameters.cntSecond ++;
+			  }
+
+			  // Seconds to minutes
+			  if (ovenParameters.cntSecond >= secInMin)
+			  {
+				  ovenParameters.cntSecond = 0;
+				  ovenParameters.cntMinute ++;
+			  }
+
+			  // Minutes to hours
+			  if (ovenParameters.cntMinute >= minInH)
+			  {
+				  ovenParameters.cntMinute = 0;
+				  ovenParameters.cntHour ++;
+			  }
+		  }
+
+		  // Calculate average temperatures used for regulation
+		  if (cntTempArray >= tickInSec)
+		  {
+
+			  pidValues.tempAVGThermo1 = 0;
+			  pidValues.tempAVGThermo2 = 0;
+
+			  if (ovenParameters.dualProbes == 0)
+			  {
+				  for (int i = 0; i < tickInSec; i++)
+				  {
+					  pidValues.tempAVGThermo1 += tempAVG1[i];
+				  }
+
+				  pidValues.tempAVGThermo1 = pidValues.tempAVGThermo1 / tickInSec;
+			  }
+
+			  if (ovenParameters.dualProbes == 1)
+			  {
+				  for (int i = 0; i < tickInSec; i++)
+				  {
+					  pidValues.tempAVGThermo1 += tempAVG1[i];
+					  pidValues.tempAVGThermo2 += tempAVG2[i];
+				  }
+
+				  pidValues.tempAVGThermo1 = pidValues.tempAVGThermo1 / tickInSec;
+				  pidValues.tempAVGThermo2 = pidValues.tempAVGThermo2 / tickInSec;
+			  }
+
+			  // Clear array
+			  for (int i = 0; i < tickInSec; i++)
+			  {
+				  tempAVG1[i] = 0;
+				  tempAVG2[i] = 0;
+			  }
+
+			  cntTempArray = 0;
+		  }
+
+
+		  // Read thermocouple 1
+		  if (ovenParameters.dualProbes == 0)
+		  {
+			  ReadThermocoupleTemp(&thermocouple1, &hspi2, TERMO1_CS_GPIO_Port, TERMO1_CS_Pin);
+			  tempAVG1[cntTempArray] = thermocouple1.temperature_C;
+
+			  ovenParameters.tempThermo = thermocouple1.temperature_C; // get temp to show on screen
+		  }
+
+		  // Read thermocouple 1 and thermocouple 2
+		  if (ovenParameters.dualProbes == 1)
+		  {
+			  ReadThermocoupleTemp(&thermocouple1, &hspi2, TERMO1_CS_GPIO_Port, TERMO1_CS_Pin);
+			  tempAVG1[cntTempArray] = thermocouple1.temperature_C;
+
+			  ReadThermocoupleTemp(&thermocouple2, &hspi2, TERMO2_CS_GPIO_Port, TERMO2_CS_Pin);
+			  tempAVG2[cntTempArray] = thermocouple2.temperature_C;
+
+			  ovenParameters.tempThermo = thermocouple1.temperature_C;
+			  ovenParameters.tempThermo += thermocouple2.temperature_C;
+			  ovenParameters.tempThermo = ovenParameters.tempThermo / 2; // get average temp from both probes to show on screen
+		  }
+
+		  cntTempArray ++;
+
+	  }
+
 
 
 	  ///////////// STATE MACHINE /////////////
@@ -237,7 +358,7 @@ int main(void)
 
 		  uint8_t err = 0; // error counter
 
-		  HAL_Delay(1000); // wait for 1 second for all devices to power on
+		  HAL_Delay(1000); // wait 1 second for all devices to power on
 
 
 		  // Check input voltage //
@@ -287,12 +408,15 @@ int main(void)
 		  // ...
 		  //	if (ovenParameters.tempNTC > NTC_MAX_TEMP) err++;
 
-		  // Check error situation //
+
+		  // Check error counter //
 		  if (err > 0)
 		  {
 			 deviceState = STATE_ERROR; // Send device to error state
 			 HAL_Delay(2000);
 			 // change screen
+
+			 ovenParameters.initEnd = 1;
 
 		  }
 		  else
@@ -302,8 +426,6 @@ int main(void)
 			  {
 				  HAL_Delay(2000);
 				  deviceState = STATE_REFLOW;
-
-				  ovenParameters.initEnd = 1;
 			  }
 
 			  // continue in drying mode
@@ -311,29 +433,35 @@ int main(void)
 			  {
 				  HAL_Delay(2000);
 				  deviceState = STATE_DRY;
-				  ovenParameters.initEnd = 1;
 			  }
 
 			  HAL_GPIO_WritePin(INHIBIT_GPIO_Port, INHIBIT_Pin, GPIO_PIN_SET); // Enable inhibit
+			  ovenParameters.initEnd = 1;
 			  // change screen
 		  }
 
 		  break;
 
-
 	  case STATE_ERROR:
+		  // DO NOTHING, INVESTIGATE THE PROBLEM
 		  break;
 
 	  case STATE_REFLOW:
 		  break;
 
 	  case STATE_DRY:
+
+
+
 		  break;
 
 	  default:
 		  break;
 
 	  }
+
+	  // RESET TIMER - timer callback declared in z_displ_ILI9XXX.h file
+	  ovenParameters.actionTick = 0;
 
 
 
@@ -507,9 +635,9 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 50;
+  htim2.Init.Prescaler = 999;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 32548;
+  htim2.Init.Period = 20001;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)

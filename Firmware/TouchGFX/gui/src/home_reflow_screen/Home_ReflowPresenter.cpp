@@ -16,3 +16,9 @@ void Home_ReflowPresenter::deactivate()
 {
 
 }
+
+// Live update value - temperature
+void Home_ReflowPresenter::setTEMP (float temperature)
+{
+	view.setTEMP(temperature);
+}

@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_GA7H" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">OK</Translation>
+      </Text>
+      <Text Id="__SingleUse_AMF1" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">PCB NTC: &lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_HHQM" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">°C</Translation>
       </Text>
@@ -432,7 +438,7 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="-., 0123456789" WildcardCharacterRanges="0-9" />
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters=",." WidgetWildcardCharacters="-., 0123456789" WildcardCharacterRanges="0-9" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Custom1" Font="verdana.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />

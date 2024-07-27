@@ -16,6 +16,8 @@ public:
     void tick();
 protected:
     ModelListener* modelListener;
+
+    float temperature; // temperature data
 };
 
 #endif // MODEL_HPP

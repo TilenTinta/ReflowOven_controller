@@ -1,3 +1,4 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp:404:25:static touchgfx::Unicode::UnicodeChar* touchgfx::Unicode::snprintfFloat(touchgfx::Unicode::UnicodeChar*, uint16_t, const char*, float)	24	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	16	static
@@ -8,4 +9,5 @@
 ../TouchGFX/gui/include/gui/home_reflow_screen/Home_ReflowView.hpp:12:13:virtual Home_ReflowView::~Home_ReflowView()	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:3:1:Home_ReflowView::Home_ReflowView()	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:8:6:virtual void Home_ReflowView::setupScreen()	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:56:6:virtual void Home_ReflowView::tearDownScreen()	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:155:6:virtual void Home_ReflowView::tearDownScreen()	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:161:6:virtual void Home_ReflowView::setTEMP(float)	16	static

@@ -3,6 +3,7 @@
 
 #include <gui_generated/error_screen/ErrorViewBase.hpp>
 #include <gui/error_screen/ErrorPresenter.hpp>
+#include "main.h"
 
 class ErrorView : public ErrorViewBase
 {

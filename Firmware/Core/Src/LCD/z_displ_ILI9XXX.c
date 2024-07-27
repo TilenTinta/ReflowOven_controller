@@ -1197,5 +1197,11 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 	if (htim==&TGFX_T){
 		  touchgfxSignalVSync();
 	}
+
+	/* TIMER 2 - 5Hz (Read sensors and use for seconds count) */
+	if (htim->Instance == TIM2){
+		ovenParameters.actionTick = 1;
+	}
+
 }
 #endif //DISPLAY_USING_TOUCHGFX

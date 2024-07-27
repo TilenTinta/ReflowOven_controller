@@ -16,6 +16,14 @@ ErrorViewBase::ErrorViewBase()
     image1.setBitmap(touchgfx::Bitmap(BITMAP_RESIZED_IMAGE_320X480_ID));
     add(image1);
 
+    txtErrNTC.setPosition(16, 197, 254, 28);
+    txtErrNTC.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txtErrNTC.setLinespacing(0);
+    Unicode::snprintf(txtErrNTCBuffer, TXTERRNTC_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_GA7H).getText());
+    txtErrNTC.setWildcard(txtErrNTCBuffer);
+    txtErrNTC.setTypedText(touchgfx::TypedText(T___SINGLEUSE_AMF1));
+    add(txtErrNTC);
+
     txtErrADC12V.setPosition(16, 85, 254, 28);
     txtErrADC12V.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txtErrADC12V.setLinespacing(0);
