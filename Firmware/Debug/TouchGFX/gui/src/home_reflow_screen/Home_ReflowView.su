@@ -11,3 +11,4 @@
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:8:6:virtual void Home_ReflowView::setupScreen()	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:155:6:virtual void Home_ReflowView::tearDownScreen()	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:161:6:virtual void Home_ReflowView::setTEMP(float)	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:168:6:virtual void Home_ReflowView::setTIME(int)	16	static

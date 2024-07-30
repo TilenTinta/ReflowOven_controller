@@ -27,6 +27,8 @@ public:
 
     virtual ~StartUpPresenter() {}
 
+    virtual void setPAGE(int page);
+
 private:
     StartUpPresenter();
 

@@ -4,6 +4,7 @@
 #include <gui_generated/home_dry_screen/Home_DryViewBase.hpp>
 #include <gui/home_dry_screen/Home_DryPresenter.hpp>
 #include "main.h"
+#include "math.h"
 
 class Home_DryView : public Home_DryViewBase
 {
@@ -12,6 +13,10 @@ public:
     virtual ~Home_DryView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
+    virtual void setTEMP (float temperatureProbe); 	// virtual function - temperature
+    virtual void setTIMELEFT (int time);			// virtual function - time left
+
 protected:
 };
 

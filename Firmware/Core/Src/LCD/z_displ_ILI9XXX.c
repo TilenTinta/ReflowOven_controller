@@ -1193,14 +1193,33 @@ void touchgfxDisplayDriverTransmitBlock(const uint8_t* pixels, uint16_t x, uint1
  * 			the tick timer for TouchGFX
  *********************************************************/
 #ifdef DISPLAY_USING_TOUCHGFX
-void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
-	if (htim==&TGFX_T){
-		  touchgfxSignalVSync();
+void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim)
+{
+	if (htim==&TGFX_T)
+	{
+		touchgfxSignalVSync();
 	}
 
-	/* TIMER 2 - 5Hz (Read sensors and use for seconds count) */
-	if (htim->Instance == TIM2){
+	/* TIMER 2 - 5Hz (Read sensors and use for seconds count)
+	 * ticks to seconds implemented in callback to get correct resolution
+	 *  */
+	if (htim->Instance == TIM2)
+	{
 		ovenParameters.actionTick = 1;
+
+		if (ovenParameters.startStop == 1)
+		{
+			// Ticks to seconds
+			if (ovenParameters.cntTimerTick >= tickInSec)
+			{
+			  ovenParameters.cntTimerTick = 0;
+			  ovenParameters.cntSecond ++;
+			  pid.PID_trig = 1; // triger pid calculation
+			}
+
+			// Increase ticks
+			ovenParameters.cntTimerTick ++;
+		}
 	}
 
 }

@@ -72,6 +72,19 @@ void FrontendApplicationBase::gotoStartUpScreenNoTransitionImpl()
     touchgfx::makeTransition<StartUpView, StartUpPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
+// Error
+
+void FrontendApplicationBase::gotoErrorScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoErrorScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoErrorScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<ErrorView, ErrorPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
 // Home_Reflow
 
 void FrontendApplicationBase::gotoHome_ReflowScreenNoTransition()

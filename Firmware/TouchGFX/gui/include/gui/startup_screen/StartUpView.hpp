@@ -3,6 +3,7 @@
 
 #include <gui_generated/startup_screen/StartUpViewBase.hpp>
 #include <gui/startup_screen/StartUpPresenter.hpp>
+#include "main.h"
 
 class StartUpView : public StartUpViewBase
 {
@@ -11,6 +12,9 @@ public:
     virtual ~StartUpView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
+    virtual void setPAGE(int page);
+
 protected:
 };
 

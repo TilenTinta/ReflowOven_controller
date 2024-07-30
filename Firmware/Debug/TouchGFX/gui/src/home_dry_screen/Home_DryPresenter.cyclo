@@ -7,8 +7,13 @@
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:ModelListener::~ModelListener()	1
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:virtual ModelListener::~ModelListener()	1
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:19:18:virtual void ModelListener::setTEMP(float)	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:18:virtual void ModelListener::setTIME(int)	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:21:18:virtual void ModelListener::setPAGE(int)	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:22:18:virtual void ModelListener::setTIMELEFT(int)	1
 ../TouchGFX/gui/include/gui/home_dry_screen/Home_DryPresenter.hpp:28:13:Home_DryPresenter::~Home_DryPresenter()	1
 ../TouchGFX/gui/include/gui/home_dry_screen/Home_DryPresenter.hpp:28:13:virtual Home_DryPresenter::~Home_DryPresenter()	1
 ../TouchGFX/gui/src/home_dry_screen/Home_DryPresenter.cpp:4:1:Home_DryPresenter::Home_DryPresenter(Home_DryView&)	1
 ../TouchGFX/gui/src/home_dry_screen/Home_DryPresenter.cpp:10:6:virtual void Home_DryPresenter::activate()	1
 ../TouchGFX/gui/src/home_dry_screen/Home_DryPresenter.cpp:15:6:virtual void Home_DryPresenter::deactivate()	1
+../TouchGFX/gui/src/home_dry_screen/Home_DryPresenter.cpp:21:6:virtual void Home_DryPresenter::setTEMP(float)	1
+../TouchGFX/gui/src/home_dry_screen/Home_DryPresenter.cpp:27:6:virtual void Home_DryPresenter::setTIMELEFT(int)	1

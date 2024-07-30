@@ -18,7 +18,14 @@ void Home_ReflowPresenter::deactivate()
 }
 
 // Live update value - temperature
-void Home_ReflowPresenter::setTEMP (float temperature)
+void Home_ReflowPresenter::setTEMP (float temperatureProbe)
 {
-	view.setTEMP(temperature);
+	view.setTEMP(temperatureProbe);
+}
+
+
+// Live update value - time elapsed
+void Home_ReflowPresenter::setTIME (int timeSeconds)
+{
+	view.setTIME(timeSeconds);
 }

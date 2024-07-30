@@ -20,7 +20,7 @@ Home_DryViewBase::Home_DryViewBase() :
     image1.setBitmap(touchgfx::Bitmap(BITMAP_RESIZED_IMAGE_320X480_ID));
     add(image1);
 
-    txtTimeMinLeft.setPosition(193, 175, 59, 45);
+    txtTimeMinLeft.setPosition(203, 175, 52, 45);
     txtTimeMinLeft.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txtTimeMinLeft.setLinespacing(0);
     Unicode::snprintf(txtTimeMinLeftBuffer, TXTTIMEMINLEFT_SIZE, "%s", touchgfx::TypedText(T_0).getText());
@@ -28,7 +28,7 @@ Home_DryViewBase::Home_DryViewBase() :
     txtTimeMinLeft.setTypedText(touchgfx::TypedText(T___SINGLEUSE_21EX));
     add(txtTimeMinLeft);
 
-    textMin.setPosition(253, 190, 47, 30);
+    textMin.setPosition(258, 190, 47, 30);
     textMin.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textMin.setLinespacing(0);
     textMin.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WLV9));
@@ -54,7 +54,7 @@ Home_DryViewBase::Home_DryViewBase() :
     textH_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_T7SN));
     add(textH_1);
 
-    txt_1.setXY(20, 296);
+    txt_1.setXY(13, 296);
     txt_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txt_1.setLinespacing(0);
     txt_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EGXO));
@@ -102,7 +102,7 @@ Home_DryViewBase::Home_DryViewBase() :
     line1_1.setLineEndingStyle(touchgfx::Line::SQUARE_CAP_ENDING);
     add(line1_1);
 
-    txtDryTempSet.setPosition(148, 276, 101, 44);
+    txtDryTempSet.setPosition(123, 276, 126, 44);
     txtDryTempSet.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txtDryTempSet.setLinespacing(0);
     Unicode::snprintf(txtDryTempSetBuffer, TXTDRYTEMPSET_SIZE, "%s", touchgfx::TypedText(T_0).getText());
@@ -138,7 +138,7 @@ Home_DryViewBase::Home_DryViewBase() :
     textArea1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_05N8));
     add(textArea1_1);
 
-    txtCurTemp.setPosition(144, 101, 101, 44);
+    txtCurTemp.setPosition(117, 101, 132, 44);
     txtCurTemp.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txtCurTemp.setLinespacing(0);
     Unicode::snprintf(txtCurTempBuffer, TXTCURTEMP_SIZE, "%s", touchgfx::TypedText(T_0).getText());
@@ -146,7 +146,7 @@ Home_DryViewBase::Home_DryViewBase() :
     txtCurTemp.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9KHO));
     add(txtCurTemp);
 
-    textArea1_1_1.setXY(251, 115);
+    textArea1_1_1.setXY(255, 115);
     textArea1_1_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea1_1_1.setLinespacing(0);
     textArea1_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XLJP));

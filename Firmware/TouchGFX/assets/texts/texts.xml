@@ -6,8 +6,14 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_GA7H" Alignment="Left" TypographyId="Typography3">
+      <Text Id="__SingleUse_OKEP" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_9N7C" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">OK</Translation>
+      </Text>
+      <Text Id="__SingleUse_GA7H" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">val</Translation>
       </Text>
       <Text Id="__SingleUse_AMF1" Alignment="Left" TypographyId="Typography3">
         <Translation Language="GB">PCB NTC: &lt;value&gt;</Translation>
@@ -175,25 +181,22 @@
         <Translation Language="GB">Temp.:</Translation>
       </Text>
       <Text Id="__SingleUse_TDVF" Alignment="Left" TypographyId="Typography3">
-        <Translation Language="GB">OK</Translation>
+        <Translation Language="GB">val</Translation>
       </Text>
       <Text Id="__SingleUse_4FFA" Alignment="Left" TypographyId="Typography3">
         <Translation Language="GB">Thermo c2: &lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_35U0" Alignment="Left" TypographyId="Typography3">
-        <Translation Language="GB">OK</Translation>
+        <Translation Language="GB">val</Translation>
       </Text>
       <Text Id="__SingleUse_KTK8" Alignment="Left" TypographyId="Typography3">
         <Translation Language="GB">Thermo c1: &lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_X7GM" Alignment="Left" TypographyId="Typography3">
-        <Translation Language="GB">OK</Translation>
+        <Translation Language="GB">val</Translation>
       </Text>
       <Text Id="__SingleUse_9ULV" Alignment="Left" TypographyId="Typography3">
         <Translation Language="GB">ADC 3.3V: &lt;value&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_DP3C" Alignment="Left" TypographyId="Typography3">
-        <Translation Language="GB">OK</Translation>
       </Text>
       <Text Id="__SingleUse_U862" Alignment="Left" TypographyId="Typography3">
         <Translation Language="GB">ADC 12V: &lt;value&gt;</Translation>
@@ -274,7 +277,7 @@
         <Translation Language="GB">h&#10;</Translation>
       </Text>
       <Text Id="__SingleUse_2C47" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Set time.:</Translation>
+        <Translation Language="GB">Set time:</Translation>
       </Text>
       <Text Id="__SingleUse_EGXO" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Set temp.:</Translation>
@@ -325,7 +328,7 @@
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_Y32V" Alignment="Center" TypographyId="Custom1">
-        <Translation Language="GB">PID - &lt;value&gt; value</Translation>
+        <Translation Language="GB">PID - &lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_YO4Y" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Back</Translation>

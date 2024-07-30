@@ -23,6 +23,9 @@ public:
     // StartUp
     void gotoStartUpScreenNoTransition();
 
+    // Error
+    void gotoErrorScreenNoTransition();
+
     // Home_Reflow
     void gotoHome_ReflowScreenNoTransition();
 
@@ -54,6 +57,9 @@ protected:
 
     // StartUp
     void gotoStartUpScreenNoTransitionImpl();
+
+    // Error
+    void gotoErrorScreenNoTransitionImpl();
 
     // Home_Reflow
     void gotoHome_ReflowScreenNoTransitionImpl();

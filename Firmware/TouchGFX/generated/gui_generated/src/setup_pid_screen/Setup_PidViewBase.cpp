@@ -45,7 +45,7 @@ Setup_PidViewBase::Setup_PidViewBase() :
     btnPID_P_DN.setAction(buttonCallback);
     add(btnPID_P_DN);
 
-    txtPID_P.setPosition(89, 141, 137, 48);
+    txtPID_P.setPosition(89, 151, 137, 48);
     txtPID_P.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txtPID_P.setLinespacing(0);
     Unicode::snprintf(txtPID_PBuffer, TXTPID_P_SIZE, "%s", touchgfx::TypedText(T_0).getText());
@@ -53,7 +53,7 @@ Setup_PidViewBase::Setup_PidViewBase() :
     txtPID_P.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TYNP));
     add(txtPID_P);
 
-    txt.setXY(31, 56);
+    txt.setPosition(81, 64, 159, 33);
     txt.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txt.setLinespacing(0);
     txt.setTypedText(touchgfx::TypedText(T___SINGLEUSE_Y32V));

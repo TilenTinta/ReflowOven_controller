@@ -76,24 +76,12 @@ Thermocouple thermocouple2;
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-// variables init
-float AN_V_12V = 0;				// Measured 12V voltage
-float AN_V_3V3 = 0;				// Measured 3.3V voltage
-uint8_t INHIBIT = 0;			// enable 12V bus
-
-uint8_t deviceState = 0;		// state machine var
-uint8_t saveToFlash = 0;		// protect writing to flash every time (connected with KEEP_FLASH_DATA)
-float tempAVG1[5] = {};			// values of temp from thermocouple 1 in one second to calculate average value
-float tempAVG2[5] = {};			// values of temp from thermocouple 2 in one second to calculate average value
-uint8_t cntTempArray = 0;		// counter for temperature array
-
-
-
 // Default values for oven preset
 OvenParameters ovenParameters = {
 
 		// device operating variables
 		.initEnd = 0,
+		.pageChageNo = 0,
 		.profileNoSelected = 1,
 		.profileSetupStep = 0,
 		.pidSetupStep = 0,
@@ -102,10 +90,7 @@ OvenParameters ovenParameters = {
 
 		// retentive variables
 		.profileNoSelected = 1,
-		.lastUsedMode = 0,
-		.PID_P = 1.0f,
-		.PID_I = 1.0f,
-		.PID_D = 1.0f,
+		.lastUsedMode = 1,
 		.dualProbes = 0,
 		.dualSSRs = 0,
 		.units = 0,
@@ -142,7 +127,7 @@ ReflowProfiles reflowProfiles = {
 // Default values for drying
 DryPreset dryPreset = {
 		.dryTemp = 60,
-		.dryTime = 90
+		.dryTime = 15
 };
 
 // Default values for error codes
@@ -154,11 +139,24 @@ OvenErrorCodes ovenErrorCodes = {
 		.thermoCouple2Err = 0
 };
 
-// Default values for pid
-PIDvalues pidValues = {
-		.tempAVGThermo1 = 0.0f,
-		.tempAVGThermo2 = 0.0f
+// Default values for PID
+PID pid = {
+		// all values are defined from function
 };
+
+
+// variables init
+float AN_V_12V = 0;				// Measured 12V voltage
+float AN_V_3V3 = 0;				// Measured 3.3V voltage
+uint8_t INHIBIT = 0;			// enable 12V bus
+
+uint8_t deviceState = 0;		// state machine var
+uint8_t saveToFlash = 0;		// protect writing to flash every time (connected with KEEP_FLASH_DATA)
+float tempAVG1[5] = {};			// values of temp from thermocouple 1 in one second to calculate average value
+float tempAVG2[5] = {};			// values of temp from thermocouple 2 in one second to calculate average value
+uint8_t cntTempArray = 0;		// counter for temperature array
+uint8_t endOfCycle = 0;			// flag to indicate the end of drying or reflow
+uint16_t* reflowTimeSeconds;	// time of entire reflow cycle
 
 
 /* USER CODE END 0 */
@@ -171,6 +169,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 
+  PIDInit();
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -247,25 +246,17 @@ int main(void)
 		  touchgfxSignalVSync();
     /* USER CODE END WHILE */
 
-	  MX_TouchGFX_Process();
+  MX_TouchGFX_Process();
     /* USER CODE BEGIN 3 */
 
 	  // Timer interrupt trigger (5Hz)
 	  if (ovenParameters.actionTick == 1)
 	  {
-
 		  // To start timer the device must be in run mode (startStop = 1)
 		  if (ovenParameters.startStop == 1)
 		  {
-			  // Get time elapsed value
-			  ovenParameters.cntTimerTick ++;
-
 			  // Ticks to seconds
-			  if (ovenParameters.cntTimerTick >= tickInSec)
-			  {
-				  ovenParameters.cntTimerTick = 0;
-				  ovenParameters.cntSecond ++;
-			  }
+			  // that part of code is implemented in interrupt routine becouse of precision
 
 			  // Seconds to minutes
 			  if (ovenParameters.cntSecond >= secInMin)
@@ -280,35 +271,52 @@ int main(void)
 				  ovenParameters.cntMinute = 0;
 				  ovenParameters.cntHour ++;
 			  }
+
+			  if (deviceState == STATE_DRY)
+			  {
+				  uint32_t timeDryEst = dryPreset.dryTime - (ovenParameters.cntHour * 60 + ovenParameters.cntMinute);
+				  if (timeDryEst == 0) endOfCycle = 1;
+			  }
+			  else if (deviceState == STATE_REFLOW)
+			  {
+				  uint32_t timeDryEst = *reflowTimeSeconds - (ovenParameters.cntMinute * 60 + ovenParameters.cntSecond);
+				  if (timeDryEst == 0) endOfCycle = 1;
+			  }
+
+		  }
+		  else
+		  {
+			  ovenParameters.cntHour = 0;
+			  ovenParameters.cntMinute = 0;
+			  ovenParameters.cntSecond = 0;
 		  }
 
 		  // Calculate average temperatures used for regulation
 		  if (cntTempArray >= tickInSec)
 		  {
-
-			  pidValues.tempAVGThermo1 = 0;
-			  pidValues.tempAVGThermo2 = 0;
+			  pid.tempAVGThermo1 = 0;
+			  pid.tempAVGThermo2 = 0;
 
 			  if (ovenParameters.dualProbes == 0)
 			  {
 				  for (int i = 0; i < tickInSec; i++)
 				  {
-					  pidValues.tempAVGThermo1 += tempAVG1[i];
+					  pid.tempAVGThermo1 += tempAVG1[i];
 				  }
 
-				  pidValues.tempAVGThermo1 = pidValues.tempAVGThermo1 / tickInSec;
+				  pid.tempAVGThermo1 = pid.tempAVGThermo1 / tickInSec;
 			  }
 
 			  if (ovenParameters.dualProbes == 1)
 			  {
 				  for (int i = 0; i < tickInSec; i++)
 				  {
-					  pidValues.tempAVGThermo1 += tempAVG1[i];
-					  pidValues.tempAVGThermo2 += tempAVG2[i];
+					  pid.tempAVGThermo1 += tempAVG1[i];
+					  pid.tempAVGThermo2 += tempAVG2[i];
 				  }
 
-				  pidValues.tempAVGThermo1 = pidValues.tempAVGThermo1 / tickInSec;
-				  pidValues.tempAVGThermo2 = pidValues.tempAVGThermo2 / tickInSec;
+				  pid.tempAVGThermo1 = pid.tempAVGThermo1 / tickInSec;
+				  pid.tempAVGThermo2 = pid.tempAVGThermo2 / tickInSec;
 			  }
 
 			  // Clear array
@@ -323,6 +331,7 @@ int main(void)
 
 
 		  // Read thermocouple 1
+		  // TODO: add fault check
 		  if (ovenParameters.dualProbes == 0)
 		  {
 			  ReadThermocoupleTemp(&thermocouple1, &hspi2, TERMO1_CS_GPIO_Port, TERMO1_CS_Pin);
@@ -360,7 +369,7 @@ int main(void)
 
 		  HAL_Delay(1000); // wait 1 second for all devices to power on
 
-
+		  // TODO:
 		  // Check input voltage //
 		  //	if (AN_V_12V < MIN_IN_VOLTAGE) err++;
 
@@ -414,18 +423,23 @@ int main(void)
 		  {
 			 deviceState = STATE_ERROR; // Send device to error state
 			 HAL_Delay(2000);
-			 // change screen
 
 			 ovenParameters.initEnd = 1;
-
+			 // change screen
+			 ovenParameters.pageChageNo = 3; // Error
 		  }
 		  else
 		  {
+			  HAL_GPIO_WritePin(INHIBIT_GPIO_Port, INHIBIT_Pin, GPIO_PIN_SET); // Enable inhibit
+			  ovenParameters.initEnd = 1;
+
 			  // continue in reflow mode
 			  if (ovenParameters.lastUsedMode == 0)
 			  {
 				  HAL_Delay(2000);
 				  deviceState = STATE_REFLOW;
+				  // change screen
+				  ovenParameters.pageChageNo = 1; // Reflow
 			  }
 
 			  // continue in drying mode
@@ -433,11 +447,12 @@ int main(void)
 			  {
 				  HAL_Delay(2000);
 				  deviceState = STATE_DRY;
+				  // change screen
+				  ovenParameters.pageChageNo = 2; // Dry
 			  }
 
-			  HAL_GPIO_WritePin(INHIBIT_GPIO_Port, INHIBIT_Pin, GPIO_PIN_SET); // Enable inhibit
-			  ovenParameters.initEnd = 1;
-			  // change screen
+			  ovenParameters.startStop = 1; // BRIŠI!!!!!
+
 		  }
 
 		  break;
@@ -447,11 +462,43 @@ int main(void)
 		  break;
 
 	  case STATE_REFLOW:
+
+		  if (endOfCycle == 1) ovenParameters.startStop = 0; // end of reflow
+
+		  switch(ovenParameters.profileNoSelected)
+		  {
+			  case 1:
+				  reflowTimeSeconds = &reflowProfiles.profile1Time[4];
+				  break;
+
+			  case 2:
+				  reflowTimeSeconds = &reflowProfiles.profile2Time[4];
+				  break;
+
+			  case 3:
+				  reflowTimeSeconds = &reflowProfiles.profile3Time[4];
+				  break;
+
+			  case 4:
+				  reflowTimeSeconds = &reflowProfiles.profile4Time[4];
+				  break;
+
+			  case 5:
+				  reflowTimeSeconds = &reflowProfiles.profile5Time[4];
+				  break;
+		  }
+
 		  break;
 
 	  case STATE_DRY:
 
+		  if (endOfCycle == 1) ovenParameters.startStop = 0; // end of drying
 
+		  if (pid.PID_trig == 1)
+		  {
+			  TIM4->CCR2 = PIDcalculation(&dryPreset.dryTemp); // set SSR1 Duty (Timer 4 channel 2)
+			  pid.PID_trig = 0; // reset pid calculate flag
+		  }
 
 		  break;
 
@@ -462,8 +509,6 @@ int main(void)
 
 	  // RESET TIMER - timer callback declared in z_displ_ILI9XXX.h file
 	  ovenParameters.actionTick = 0;
-
-
 
   }
   /* USER CODE END 3 */
@@ -635,9 +680,9 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 999;
+  htim2.Init.Prescaler = 4999;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 20001;
+  htim2.Init.Period = 4000;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -865,6 +910,68 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void PIDInit()
+{
+	pid.Kp = 1.0f;
+	pid.Ki = 1.0f;
+	pid.Kd = 1.0f;
+	pid.N = 5;
+	pid.Ts = 0.2;
+	pid.tempAVGThermo1 = 0.0f;
+	pid.tempAVGThermo2 = 0.0f;
+	pid.PID_trig = 0;
+	pid.e0 = 0;
+	pid.e1 = 0;
+	pid.e2 = 0;
+	pid.tempDelta = 0.2f;
+	pid.outputMax = 100;
+	pid.outputMin = 0;
+
+	pid.output = 0;
+	pid.A0 = pid.Kp + pid.Ki * pid.Ts;
+	pid.A1 = -pid.Kp;
+	pid.A0d = pid.Kd / pid.Ts;
+	pid.A1d = -2.0 * pid.Kd / pid.Ts;
+	pid.A2d = pid.Kd / pid.Ts;
+	pid.tau = pid.Kd / (pid.Kp * pid.N); // IIR filter time constant
+	pid.alpha = pid.Ts / (2 * pid.tau);
+	pid.d0 = 0;
+	pid.d1 = 0;
+	pid.fd0 = 0;
+	pid.fd1 = 0;
+}
+
+uint8_t PIDcalculation(uint8_t* setPoint)
+{
+	// Implemented only with one thermocouple
+	pid.e2 = pid.e1;
+	pid.e1 = pid.e0;
+	pid.e0 = *setPoint - pid.tempAVGThermo1;
+
+	// PI
+	pid.output = pid.output + pid.A0 * pid.e0 + pid.A1 * pid.e1;
+
+	// Filtered D
+	pid.d1 = pid.d0;
+	pid.d0 = pid.A0d * pid.e0 + pid.A1d * pid.e1 + pid.A2d * pid.e2;
+	pid.fd1 = pid.fd0;
+	pid.fd0 = ((pid.alpha)/(pid.alpha + 1)) * (pid.d0 + pid.d1) - ((pid.alpha - 1) / (pid.alpha + 1)) * pid.fd1;
+
+	// End output
+	pid.output = pid.output + pid.fd0;
+
+	// Limit output value
+	if (pid.output >= pid.outputMax)
+	{
+		pid.output = pid.outputMax;
+	}
+	else if (pid.output <= pid.outputMin)
+	{
+		pid.output = pid.outputMax;
+	}
+
+	return pid.output;
+}
 
 /* USER CODE END 4 */
 

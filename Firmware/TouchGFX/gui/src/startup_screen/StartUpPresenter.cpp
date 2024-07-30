@@ -16,3 +16,8 @@ void StartUpPresenter::deactivate()
 {
 
 }
+
+void StartUpPresenter::setPAGE(int page)
+{
+	view.setPAGE(page);
+}

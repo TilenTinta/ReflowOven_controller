@@ -13,7 +13,8 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 
-    virtual void setTEMP (float temperature); // virtual function - temperature
+    virtual void setTEMP (float temperatureProbe); 	// virtual function - temperature
+    virtual void setTIME (int timeSeconds); 		// virtual function - time
 
 protected:
 };

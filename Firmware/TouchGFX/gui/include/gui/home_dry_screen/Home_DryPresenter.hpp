@@ -27,6 +27,9 @@ public:
 
     virtual ~Home_DryPresenter() {}
 
+    virtual void setTEMP (float temperatureProbe); 	// virtual function - temperature
+    virtual void setTIMELEFT (int time);			// virtual function - time left
+
 private:
     Home_DryPresenter();
 

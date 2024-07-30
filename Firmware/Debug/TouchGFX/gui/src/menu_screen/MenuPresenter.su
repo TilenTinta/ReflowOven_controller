@@ -7,6 +7,9 @@
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:ModelListener::~ModelListener()	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:virtual ModelListener::~ModelListener()	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:19:18:virtual void ModelListener::setTEMP(float)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:18:virtual void ModelListener::setTIME(int)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:21:18:virtual void ModelListener::setPAGE(int)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:22:18:virtual void ModelListener::setTIMELEFT(int)	16	static
 ../TouchGFX/gui/include/gui/menu_screen/MenuPresenter.hpp:28:13:MenuPresenter::~MenuPresenter()	16	static
 ../TouchGFX/gui/include/gui/menu_screen/MenuPresenter.hpp:28:13:virtual MenuPresenter::~MenuPresenter()	16	static
 ../TouchGFX/gui/src/menu_screen/MenuPresenter.cpp:4:1:MenuPresenter::MenuPresenter(MenuView&)	16	static

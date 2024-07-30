@@ -5,6 +5,25 @@
         "Name": "StartUp",
         "Components": [
           {
+            "Type": "ButtonWithLabel",
+            "Name": "btnStart",
+            "X": 110,
+            "Y": 423,
+            "Width": 100,
+            "Height": 36,
+            "Visible": false,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png",
+            "TextId": "__SingleUse_9N7C",
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\tiny_round_action.json"
+          },
+          {
             "Type": "Image",
             "Name": "image1",
             "Width": 320,
@@ -62,15 +81,36 @@
         ],
         "Interactions": [
           {
-            "InteractionName": "Interaction1",
+            "InteractionName": "nextScreen1",
             "Trigger": {
-              "Type": "TriggerOnEveryTick",
-              "TickCount": 1
+              "Type": "TriggerNone"
             },
             "Action": {
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "Home_Reflow"
+            }
+          },
+          {
+            "InteractionName": "nextScreen2",
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Error"
+            }
+          },
+          {
+            "InteractionName": "nextScreen3",
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Error"
             }
           }
         ]
@@ -102,7 +142,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_GA7H",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 8
             }
           },
           {
@@ -120,9 +160,9 @@
               "Blue": 255
             },
             "Wildcard1": {
-              "TextId": "__SingleUse_DP3C",
+              "TextId": "__SingleUse_OKEP",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 10
             }
           },
           {
@@ -142,7 +182,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_X7GM",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 8
             }
           },
           {
@@ -162,7 +202,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_35U0",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 8
             }
           },
           {
@@ -182,7 +222,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_TDVF",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 8
             }
           },
           {
@@ -218,7 +258,20 @@
             "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\tiny_round_action.json"
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "WarrningToSettings",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnOK"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Settings"
+            }
+          }
+        ]
       },
       {
         "Name": "Home_Reflow",
@@ -971,9 +1024,9 @@
           {
             "Type": "TextArea",
             "Name": "txtTimeMinLeft",
-            "X": 193,
+            "X": 203,
             "Y": 175,
-            "Width": 59,
+            "Width": 52,
             "Height": 45,
             "TextId": "__SingleUse_21EX",
             "TextRotation": "0",
@@ -991,7 +1044,7 @@
           {
             "Type": "TextArea",
             "Name": "textMin",
-            "X": 253,
+            "X": 258,
             "Y": 190,
             "Width": 47,
             "Height": 30,
@@ -1056,7 +1109,7 @@
           {
             "Type": "TextArea",
             "Name": "txt_1",
-            "X": 20,
+            "X": 13,
             "Y": 296,
             "Width": 108,
             "Height": 24,
@@ -1122,7 +1175,7 @@
             "Name": "txt_1_1",
             "X": 17,
             "Y": 358,
-            "Width": 101,
+            "Width": 94,
             "Height": 24,
             "TextId": "__SingleUse_2C47",
             "TextRotation": "0",
@@ -1174,9 +1227,9 @@
           {
             "Type": "TextArea",
             "Name": "txtDryTempSet",
-            "X": 148,
+            "X": 123,
             "Y": 276,
-            "Width": 101,
+            "Width": 126,
             "Height": 44,
             "TextId": "__SingleUse_6ZGJ",
             "TextRotation": "0",
@@ -1265,9 +1318,9 @@
           {
             "Type": "TextArea",
             "Name": "txtCurTemp",
-            "X": 144,
+            "X": 117,
             "Y": 101,
-            "Width": 101,
+            "Width": 132,
             "Height": 44,
             "TextId": "__SingleUse_9KHO",
             "TextRotation": "0",
@@ -1279,13 +1332,13 @@
             "Wildcard1": {
               "TextId": "0",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 10
             }
           },
           {
             "Type": "TextArea",
             "Name": "textArea1_1_1",
-            "X": 251,
+            "X": 255,
             "Y": 115,
             "Width": 31,
             "Height": 30,
@@ -2056,7 +2109,7 @@
             "Type": "TextArea",
             "Name": "txtPID_P",
             "X": 89,
-            "Y": 141,
+            "Y": 151,
             "Width": 137,
             "Height": 48,
             "TextId": "__SingleUse_TYNP",
@@ -2075,10 +2128,10 @@
           {
             "Type": "TextArea",
             "Name": "txt",
-            "X": 31,
-            "Y": 56,
-            "Width": 151,
-            "Height": 30,
+            "X": 81,
+            "Y": 64,
+            "Width": 159,
+            "Height": 33,
             "TextId": "__SingleUse_Y32V",
             "TextRotation": "0",
             "Color": {
@@ -2086,7 +2139,6 @@
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true,
             "Wildcard1": {}
           }
         ],

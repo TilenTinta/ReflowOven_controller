@@ -16,7 +16,11 @@ public:
         model = m;
     }
 
-    virtual void setTEMP (float temperature) {}; // virtual function - temperature
+    virtual void setTEMP (float temperatureProbe) {}; 	// virtual function - temperature
+    virtual void setTIME (int timeSeconds) {};		 	// virtual function - time
+    virtual void setPAGE (int page) {};		 			// virtual function - time
+    virtual void setTIMELEFT (int time) {};		 		// virtual function - time
+
 
 protected:
     Model* model;

@@ -41,18 +41,28 @@ protected:
     /*
      * Wildcard Buffers
      */
-    static const uint16_t TXTERRNTC_SIZE = 4;
+    static const uint16_t TXTERRNTC_SIZE = 8;
     touchgfx::Unicode::UnicodeChar txtErrNTCBuffer[TXTERRNTC_SIZE];
-    static const uint16_t TXTERRADC12V_SIZE = 4;
+    static const uint16_t TXTERRADC12V_SIZE = 10;
     touchgfx::Unicode::UnicodeChar txtErrADC12VBuffer[TXTERRADC12V_SIZE];
-    static const uint16_t TXTERRADC3V3_SIZE = 4;
+    static const uint16_t TXTERRADC3V3_SIZE = 8;
     touchgfx::Unicode::UnicodeChar txtErrADC3V3Buffer[TXTERRADC3V3_SIZE];
-    static const uint16_t TXTERRTC1_SIZE = 4;
+    static const uint16_t TXTERRTC1_SIZE = 8;
     touchgfx::Unicode::UnicodeChar txtErrTC1Buffer[TXTERRTC1_SIZE];
-    static const uint16_t TXTERRTC2_SIZE = 4;
+    static const uint16_t TXTERRTC2_SIZE = 8;
     touchgfx::Unicode::UnicodeChar txtErrTC2Buffer[TXTERRTC2_SIZE];
 
 private:
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<ErrorViewBase, const touchgfx::AbstractButton&> buttonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
 };
 

@@ -92,15 +92,15 @@ TouchGFX/target/generated/TouchGFXConfiguration.o: \
  C:/DATA/Projects/Reflow_oven/ReflowOven_controller/Firmware/Core/Inc/FLASH/z_flash_W25QXXX.h \
  ../Core/Inc/MAX31855.h ../Core/Inc/main.h \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp \
  ../TouchGFX/gui/include/gui/error_screen/ErrorView.hpp \
  ../TouchGFX/generated/gui_generated/include/gui_generated/error_screen/ErrorViewBase.hpp \
  ../TouchGFX/gui/include/gui/error_screen/ErrorPresenter.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
  ../TouchGFX/gui/include/gui/home_reflow_screen/Home_ReflowView.hpp \
  ../TouchGFX/generated/gui_generated/include/gui_generated/home_reflow_screen/Home_ReflowViewBase.hpp \
  ../TouchGFX/gui/include/gui/home_reflow_screen/Home_ReflowPresenter.hpp \
@@ -251,15 +251,15 @@ C:/DATA/Projects/Reflow_oven/ReflowOven_controller/Firmware/Core/Inc/FLASH/z_fla
 ../Core/Inc/MAX31855.h:
 ../Core/Inc/main.h:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp:
 ../TouchGFX/gui/include/gui/error_screen/ErrorView.hpp:
 ../TouchGFX/generated/gui_generated/include/gui_generated/error_screen/ErrorViewBase.hpp:
 ../TouchGFX/gui/include/gui/error_screen/ErrorPresenter.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
 ../TouchGFX/gui/include/gui/home_reflow_screen/Home_ReflowView.hpp:
 ../TouchGFX/generated/gui_generated/include/gui_generated/home_reflow_screen/Home_ReflowViewBase.hpp:
 ../TouchGFX/gui/include/gui/home_reflow_screen/Home_ReflowPresenter.hpp:

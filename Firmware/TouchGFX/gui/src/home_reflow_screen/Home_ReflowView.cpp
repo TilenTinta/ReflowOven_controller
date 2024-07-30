@@ -158,11 +158,18 @@ void Home_ReflowView::tearDownScreen()
 }
 
 
-void Home_ReflowView::setTEMP(float temperature)
+void Home_ReflowView::setTEMP(float temperatureProbe)
 {
 	// Show temperature on display
-	Unicode::snprintfFloat(txtCurrentTempSetBuffer, TXTCURRENTTEMPSET_SIZE, "%.2f", float(temperature));
+	Unicode::snprintfFloat(txtCurrentTempSetBuffer, TXTCURRENTTEMPSET_SIZE, "%.2f", float(temperatureProbe));
 	txtCurrentTempSet.invalidate();
+}
+
+void Home_ReflowView::setTIME(int timeSeconds)
+{
+	// Show temperature on display
+	Unicode::snprintf(txtCurrentTimeSetBuffer, TXTCURRENTTIMESET_SIZE, "%d", timeSeconds);
+	txtCurrentTimeSet.invalidate();
 }
 
 

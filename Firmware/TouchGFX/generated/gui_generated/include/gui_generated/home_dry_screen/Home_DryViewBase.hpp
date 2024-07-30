@@ -82,7 +82,7 @@ protected:
     touchgfx::Unicode::UnicodeChar txtDryTimeMinSetBuffer[TXTDRYTIMEMINSET_SIZE];
     static const uint16_t TXTDRYTIMEHSET_SIZE = 4;
     touchgfx::Unicode::UnicodeChar txtDryTimeHSetBuffer[TXTDRYTIMEHSET_SIZE];
-    static const uint16_t TXTCURTEMP_SIZE = 4;
+    static const uint16_t TXTCURTEMP_SIZE = 10;
     touchgfx::Unicode::UnicodeChar txtCurTempBuffer[TXTCURTEMP_SIZE];
 
 private:

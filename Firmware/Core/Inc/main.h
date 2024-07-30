@@ -147,14 +147,16 @@ void Error_Handler(void);
 
 #define KEEP_FLASH_DATA			0		// when firmware is reuploaded do you want to reset data in flash (profiles, settings...)
 
+
 /*** Structure of device settings ***/
 typedef struct {
 
 	// Device values
-	float tempThermo;			// Temperature from thermocouple
+	float tempThermo;			// Temperature from thermocouple (display)
 	float tempNTC;				// Temperature from NTC on PCB
 	uint8_t startStop;			// start/stop variable
 	uint8_t initEnd;			// End of initialization rutine
+	uint8_t pageChageNo;		// number of changed page: 0 - startup, 1 - reflow, 2 - dry, 3 - error
 	uint8_t actionTick;			// trigger to read and data refresh
 
 	// Device time value
@@ -164,9 +166,6 @@ typedef struct {
 	uint8_t cntHour;			// hours conter
 
 	// Device settings
-	float PID_P;				// PID P value
-	float PID_I;				// PID I value
-	float PID_D;				// PID D value
 	uint8_t lastUsedMode;		// mode that was last used, 0 - reflow, 1 - dry
 	uint8_t dualProbes; 		// 0 - disable, 1 - enable
 	uint8_t dualSSRs; 			// 0 - disable, 1 - enable
@@ -226,13 +225,9 @@ extern DryPreset dryPreset;
 typedef struct {
 
 	uint8_t thermoCouple1Err;
-
 	uint8_t thermoCouple2Err;
-
 	uint8_t NTCErr;
-
 	uint8_t ADC3V3;
-
 	uint8_t ADC12V;
 
 } OvenErrorCodes;
@@ -243,16 +238,43 @@ extern OvenErrorCodes ovenErrorCodes;
 /*** Structure of PID values ***/
 typedef struct {
 
+	float Kp;					// PID P value
+	float Ki;					// PID I value
+	float Kd;					// PID D value
+	uint8_t N;					// PID filtering value
+	float Ts;					// PID sample time
+
 	float tempAVGThermo1;		// Average temp 1
 	float tempAVGThermo2;		// Average temp 2
+	uint8_t PID_trig;			// flag to triger pid calculation
 	uint8_t tempDelta;			// value of change between each setpoint
-	uint8_t tempSetPoint;		// current temperature set point
+	uint8_t *SetPoint;			// current temperature set point
+	float e0;					// error k
+	float e1;					// error k-1
+	float e2;					// error k-2
+	uint8_t outputMax;			// Max output value
+	uint8_t outputMin;			// Min output value
 
+	float output;
+	float A0;
+	float A1;
+	float A0d;
+	float A1d;
+	float A2d;
+	float tau;
+	float alpha;
+	float d0;
+	float d1;
+	float fd0;
+	float fd1;
 
-} PIDvalues;
+} PID;
 
-extern PIDvalues pidValues;
+extern PID pid;
 
+// Functions
+void PIDInit();
+uint8_t PIDcalculation(uint8_t* setPoint);
 
 /* USER CODE END Private defines */
 

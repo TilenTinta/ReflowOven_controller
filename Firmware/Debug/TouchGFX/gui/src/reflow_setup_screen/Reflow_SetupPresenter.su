@@ -7,6 +7,9 @@
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:ModelListener::~ModelListener()	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:12:13:virtual ModelListener::~ModelListener()	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:19:18:virtual void ModelListener::setTEMP(float)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:18:virtual void ModelListener::setTIME(int)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:21:18:virtual void ModelListener::setPAGE(int)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:22:18:virtual void ModelListener::setTIMELEFT(int)	16	static
 ../TouchGFX/gui/include/gui/reflow_setup_screen/Reflow_SetupPresenter.hpp:28:13:Reflow_SetupPresenter::~Reflow_SetupPresenter()	16	static
 ../TouchGFX/gui/include/gui/reflow_setup_screen/Reflow_SetupPresenter.hpp:28:13:virtual Reflow_SetupPresenter::~Reflow_SetupPresenter()	16	static
 ../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupPresenter.cpp:4:1:Reflow_SetupPresenter::Reflow_SetupPresenter(Reflow_SetupView&)	16	static

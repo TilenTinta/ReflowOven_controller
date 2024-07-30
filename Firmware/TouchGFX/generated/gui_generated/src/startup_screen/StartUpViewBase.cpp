@@ -12,6 +12,14 @@ StartUpViewBase::StartUpViewBase()
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
+    btnStart.setXY(110, 423);
+    btnStart.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
+    btnStart.setLabelText(touchgfx::TypedText(T___SINGLEUSE_9N7C));
+    btnStart.setLabelColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    btnStart.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    btnStart.setVisible(false);
+    add(btnStart);
+
     image1.setXY(0, 0);
     image1.setBitmap(touchgfx::Bitmap(BITMAP_RESIZED_IMAGE_320X480_ID));
     add(image1);
@@ -43,12 +51,4 @@ StartUpViewBase::~StartUpViewBase()
 void StartUpViewBase::setupScreen()
 {
 
-}
-
-void StartUpViewBase::handleTickEvent()
-{
-    //Interaction1
-    //When every N tick change screen to Home_Reflow
-    //Go to Home_Reflow with no screen transition
-    application().gotoHome_ReflowScreenNoTransition();
 }

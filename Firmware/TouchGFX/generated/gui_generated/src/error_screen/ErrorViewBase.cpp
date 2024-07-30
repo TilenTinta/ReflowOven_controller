@@ -6,7 +6,8 @@
 #include <images/BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 
-ErrorViewBase::ErrorViewBase()
+ErrorViewBase::ErrorViewBase() :
+    buttonCallback(this, &ErrorViewBase::buttonCallbackHandler)
 {
     __background.setPosition(0, 0, 320, 480);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -27,7 +28,7 @@ ErrorViewBase::ErrorViewBase()
     txtErrADC12V.setPosition(16, 85, 254, 28);
     txtErrADC12V.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txtErrADC12V.setLinespacing(0);
-    Unicode::snprintf(txtErrADC12VBuffer, TXTERRADC12V_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_DP3C).getText());
+    Unicode::snprintf(txtErrADC12VBuffer, TXTERRADC12V_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_OKEP).getText());
     txtErrADC12V.setWildcard(txtErrADC12VBuffer);
     txtErrADC12V.setTypedText(touchgfx::TypedText(T___SINGLEUSE_U862));
     add(txtErrADC12V);
@@ -67,6 +68,7 @@ ErrorViewBase::ErrorViewBase()
     btnOK.setLabelText(touchgfx::TypedText(T___SINGLEUSE_SIQW));
     btnOK.setLabelColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     btnOK.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    btnOK.setAction(buttonCallback);
     add(btnOK);
 }
 
@@ -78,4 +80,15 @@ ErrorViewBase::~ErrorViewBase()
 void ErrorViewBase::setupScreen()
 {
 
+}
+
+void ErrorViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &btnOK)
+    {
+        //WarrningToSettings
+        //When btnOK clicked change screen to Settings
+        //Go to Settings with no screen transition
+        application().gotoSettingsScreenNoTransition();
+    }
 }

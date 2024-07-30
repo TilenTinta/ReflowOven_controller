@@ -5,7 +5,7 @@
 #ifndef SIMULATOR
 #endif
 
-Model::Model() : modelListener(0), temperature(0)
+Model::Model() : modelListener(0)//, temperatureProbe(0)
 {
 
 }
@@ -14,9 +14,18 @@ void Model::tick()
 {
 	#ifndef SIMULATOR // block function in simulator mode
 
-		temperature = ovenParameters.tempThermo; // convert temperature
+	temperatureProbe = ovenParameters.tempThermo; // convert temperature
+
+	timeSecReflow = ovenParameters.cntMinute * 60 + ovenParameters.cntSecond; // get time in seconds to display on screen - reflow
+
+	timeMinDry = dryPreset.dryTime - (ovenParameters.cntHour * 60 + ovenParameters.cntMinute); // get the time till the end of drying (oven timer)
+
+	page = ovenParameters.pageChageNo; // number of next page
 
 	#endif
 
-		modelListener -> setTEMP(temperature); // send data to listener
+		modelListener -> setTEMP(temperatureProbe); 	// send data to listener
+		modelListener -> setTIME(timeSecReflow); 		// send data to listener
+		modelListener -> setPAGE(page);					// send data to listener
+		modelListener -> setTIMELEFT(timeMinDry);		// send data to listener
 }

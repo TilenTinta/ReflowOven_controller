@@ -8,6 +8,7 @@
 #include <mvp/View.hpp>
 #include <gui/startup_screen/StartUpPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/ButtonWithLabel.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 
@@ -17,7 +18,6 @@ public:
     StartUpViewBase();
     virtual ~StartUpViewBase();
     virtual void setupScreen();
-    virtual void handleTickEvent();
 
 protected:
     FrontendApplication& application() {
@@ -28,6 +28,7 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
+    touchgfx::ButtonWithLabel btnStart;
     touchgfx::Image image1;
     touchgfx::TextArea txtStart;
     touchgfx::TextArea txtStart_1;

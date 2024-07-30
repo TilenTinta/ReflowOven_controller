@@ -17,7 +17,10 @@ public:
 protected:
     ModelListener* modelListener;
 
-    float temperature; // temperature data
+    float temperatureProbe; 	// temperature data
+    int timeSecReflow; 			// time in seconds for reflow page
+    int timeMinDry; 			// time in minutes for dry page
+    int page;					// value of page
 };
 
 #endif // MODEL_HPP
