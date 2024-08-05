@@ -138,7 +138,7 @@ Home_DryViewBase::Home_DryViewBase() :
     textArea1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_05N8));
     add(textArea1_1);
 
-    txtCurTemp.setPosition(117, 101, 132, 44);
+    txtCurTemp.setPosition(117, 101, 149, 44);
     txtCurTemp.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txtCurTemp.setLinespacing(0);
     Unicode::snprintf(txtCurTempBuffer, TXTCURTEMP_SIZE, "%s", touchgfx::TypedText(T_0).getText());
@@ -146,7 +146,7 @@ Home_DryViewBase::Home_DryViewBase() :
     txtCurTemp.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9KHO));
     add(txtCurTemp);
 
-    textArea1_1_1.setXY(255, 115);
+    textArea1_1_1.setXY(266, 115);
     textArea1_1_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea1_1_1.setLinespacing(0);
     textArea1_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XLJP));

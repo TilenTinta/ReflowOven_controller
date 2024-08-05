@@ -2,16 +2,17 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	1
-../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:29:18:virtual void Reflow_SetupViewBase::selectSoak()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:33:18:virtual void Reflow_SetupViewBase::selectRamp2()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:37:18:virtual void Reflow_SetupViewBase::selectReflow()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:41:18:virtual void Reflow_SetupViewBase::selectCooling()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:45:18:virtual void Reflow_SetupViewBase::nextProfile()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:49:18:virtual void Reflow_SetupViewBase::prevProfile()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:53:18:virtual void Reflow_SetupViewBase::selectRamp1()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:63:26:FrontendApplication& Reflow_SetupViewBase::application()	1
 ../TouchGFX/gui/include/gui/reflow_setup_screen/Reflow_SetupView.hpp:11:13:Reflow_SetupView::~Reflow_SetupView()	1
 ../TouchGFX/gui/include/gui/reflow_setup_screen/Reflow_SetupView.hpp:11:13:virtual Reflow_SetupView::~Reflow_SetupView()	1
 ../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:3:1:Reflow_SetupView::Reflow_SetupView()	1
 ../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:8:6:virtual void Reflow_SetupView::setupScreen()	1
 ../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:13:6:virtual void Reflow_SetupView::tearDownScreen()	1
-../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:19:6:virtual void Reflow_SetupView::selectCurrProfile()	1
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:19:6:virtual void Reflow_SetupView::nextProfile()	2
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:35:6:virtual void Reflow_SetupView::prevProfile()	2
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:51:6:virtual void Reflow_SetupView::selectRamp1()	1
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:58:6:virtual void Reflow_SetupView::selectSoak()	1
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:65:6:virtual void Reflow_SetupView::selectRamp2()	1
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:72:6:virtual void Reflow_SetupView::selectReflow()	1
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:79:6:virtual void Reflow_SetupView::selectCooling()	1
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:86:6:virtual void Reflow_SetupView::selectCurrProfile()	1

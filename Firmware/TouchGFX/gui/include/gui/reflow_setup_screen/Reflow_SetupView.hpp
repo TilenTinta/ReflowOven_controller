@@ -13,9 +13,16 @@ public:
     virtual void tearDownScreen();
 
     // Added functions
-    //..
+    virtual void selectSoak();
+    virtual void selectRamp2();
+    virtual void selectReflow();
+    virtual void selectCooling();
+    virtual void selectRamp1();
+    virtual void nextProfile();
+    virtual void prevProfile();
     virtual void selectCurrProfile();
 protected:
+    uint8_t profileNo = 0;
 };
 
 #endif // REFLOW_SETUPVIEW_HPP

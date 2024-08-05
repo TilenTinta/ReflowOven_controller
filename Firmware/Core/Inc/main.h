@@ -182,7 +182,7 @@ typedef struct {
 	uint8_t AUX1; 				// 0 - disable, 1 - enable
 	uint8_t AUX2; 				// 0 - disable, 1 - enable
 	uint8_t profileNoSelected; 	// current selected reflow profile
-	uint8_t profileSetupStep; 	// selected reflow step in profile setup, 0 - default meni
+	uint8_t reflowSetupStep; 	// selected reflow step in profile setup, 0 - default meni
 	uint8_t pidSetupStep;		// selected pid setting, 0 - default meni, 1 - P, 2 - I, 3 - D
 
 } OvenParameters;

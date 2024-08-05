@@ -49,7 +49,7 @@ void Dry_SetupView::TempDn()
 // Increase drying time
 void Dry_SetupView::TimeUp()
 {
-	if (dryPreset.dryTime < 65536) dryPreset.dryTime =+ 15;
+	if (dryPreset.dryTime < 7200) dryPreset.dryTime += 15; // in minutes (max. 5 days)
 
 	uint8_t hours = floor(dryPreset.dryTime / 60);
 	Unicode::snprintf(txtDryTimeHBuffer, TXTDRYTIMEH_SIZE, "%d", hours);
@@ -63,7 +63,7 @@ void Dry_SetupView::TimeUp()
 // Decrease drying time
 void Dry_SetupView::TimeDn()
 {
-	if (dryPreset.dryTime > 15) dryPreset.dryTime =- 15;
+	if (dryPreset.dryTime > 15) dryPreset.dryTime -= 15;
 
 	uint8_t hours = floor(dryPreset.dryTime / 60);
 	Unicode::snprintf(txtDryTimeHBuffer, TXTDRYTIMEH_SIZE, "%d", hours);

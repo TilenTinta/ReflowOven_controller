@@ -1038,7 +1038,7 @@
             "Wildcard1": {
               "TextId": "0",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 8
             }
           },
           {
@@ -1073,7 +1073,7 @@
             "Wildcard1": {
               "TextId": "0",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 8
             }
           },
           {
@@ -1261,7 +1261,7 @@
             "Wildcard1": {
               "TextId": "0",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 8
             }
           },
           {
@@ -1281,7 +1281,7 @@
             "Wildcard1": {
               "TextId": "0",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 8
             }
           },
           {
@@ -1320,7 +1320,7 @@
             "Name": "txtCurTemp",
             "X": 117,
             "Y": 101,
-            "Width": 132,
+            "Width": 149,
             "Height": 44,
             "TextId": "__SingleUse_9KHO",
             "TextRotation": "0",
@@ -1338,7 +1338,7 @@
           {
             "Type": "TextArea",
             "Name": "textArea1_1_1",
-            "X": 255,
+            "X": 266,
             "Y": 115,
             "Width": 31,
             "Height": 30,
@@ -2155,7 +2155,7 @@
             "Wildcard1": {
               "TextId": "0",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 10
             }
           },
           {
@@ -2455,7 +2455,7 @@
             "Wildcard1": {
               "TextId": "0",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 8
             }
           },
           {
@@ -2508,7 +2508,7 @@
             "Wildcard1": {
               "TextId": "0",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 8
             }
           },
           {
@@ -3048,7 +3048,7 @@
             }
           },
           {
-            "InteractionName": "DefaultToEdit",
+            "InteractionName": "EditReflowPage_Dummy",
             "Trigger": {
               "Type": "TriggerClicked",
               "TriggerComponent": "btnSetRamp1"

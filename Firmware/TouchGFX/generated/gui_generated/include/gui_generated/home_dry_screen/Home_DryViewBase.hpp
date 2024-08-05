@@ -72,15 +72,15 @@ protected:
     /*
      * Wildcard Buffers
      */
-    static const uint16_t TXTTIMEMINLEFT_SIZE = 4;
+    static const uint16_t TXTTIMEMINLEFT_SIZE = 8;
     touchgfx::Unicode::UnicodeChar txtTimeMinLeftBuffer[TXTTIMEMINLEFT_SIZE];
-    static const uint16_t TXTTIMEHLEFT_SIZE = 4;
+    static const uint16_t TXTTIMEHLEFT_SIZE = 8;
     touchgfx::Unicode::UnicodeChar txtTimeHLeftBuffer[TXTTIMEHLEFT_SIZE];
     static const uint16_t TXTDRYTEMPSET_SIZE = 4;
     touchgfx::Unicode::UnicodeChar txtDryTempSetBuffer[TXTDRYTEMPSET_SIZE];
-    static const uint16_t TXTDRYTIMEMINSET_SIZE = 4;
+    static const uint16_t TXTDRYTIMEMINSET_SIZE = 8;
     touchgfx::Unicode::UnicodeChar txtDryTimeMinSetBuffer[TXTDRYTIMEMINSET_SIZE];
-    static const uint16_t TXTDRYTIMEHSET_SIZE = 4;
+    static const uint16_t TXTDRYTIMEHSET_SIZE = 8;
     touchgfx::Unicode::UnicodeChar txtDryTimeHSetBuffer[TXTDRYTIMEHSET_SIZE];
     static const uint16_t TXTCURTEMP_SIZE = 10;
     touchgfx::Unicode::UnicodeChar txtCurTempBuffer[TXTCURTEMP_SIZE];

@@ -23,6 +23,9 @@ void ReadThermocoupleTemp(Thermocouple *dev, SPI_HandleTypeDef *SPIHandle, GPIO_
 	// If fault is not detected continue
 	if(dev -> fault == 0){
 
+		// Fault clear
+		dev->cntFault = 0;
+
 		// Calculate temperature (hot junction) with compensation
 		int8_t sign = regData[0] >> 7; // 1 = minus, 0 = plus
 
@@ -61,6 +64,11 @@ void ReadThermocoupleTemp(Thermocouple *dev, SPI_HandleTypeDef *SPIHandle, GPIO_
 		    dev -> temperatureCJ_C = -(float)temp * 0.0625f;
 
 		}
+	}
+	else
+	{
+		// Fault detected
+		dev->cntFault ++;
 	}
 }
 

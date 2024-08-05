@@ -209,7 +209,7 @@ void Reflow_SetupViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&
         //When btnSetRamp1 clicked call virtual function
         //Call selectRamp1
         selectRamp1();
-        //DefaultToEdit
+        //EditReflowPage_Dummy
         //When btnSetRamp1 clicked change screen to Reflow_Setup_Edit
         //Go to Reflow_Setup_Edit with no screen transition
         application().gotoReflow_Setup_EditScreenNoTransition();

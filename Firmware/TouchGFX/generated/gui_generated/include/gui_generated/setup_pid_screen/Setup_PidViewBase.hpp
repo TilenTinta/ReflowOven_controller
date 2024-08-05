@@ -64,7 +64,7 @@ protected:
     /*
      * Wildcard Buffers
      */
-    static const uint16_t TXTPID_VAL_SIZE = 4;
+    static const uint16_t TXTPID_VAL_SIZE = 10;
     touchgfx::Unicode::UnicodeChar txtPID_valBuffer[TXTPID_VAL_SIZE];
     static const uint16_t TXTPID_LBL_SIZE = 10;
     touchgfx::Unicode::UnicodeChar txtPID_lblBuffer[TXTPID_LBL_SIZE];

@@ -1,2 +1,2 @@
 ../Core/Src/MAX31855.c:10:6:ReadThermocoupleTemp	32	static
-../Core/Src/MAX31855.c:68:6:CheckThermocouple	32	static
+../Core/Src/MAX31855.c:76:6:CheckThermocouple	32	static

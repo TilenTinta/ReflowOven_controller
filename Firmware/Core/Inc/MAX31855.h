@@ -27,6 +27,8 @@ typedef struct {
 
 	uint8_t OCFault;				// 0 - OK, 1 - NOK (open / probe problem)
 
+	uint8_t cntFault;				// counter for failed reads
+
 } Thermocouple;
 
 

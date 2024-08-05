@@ -84,16 +84,16 @@ OvenParameters ovenParameters = {
 		// device operating variables
 		.initEnd = 0,
 		.pageChageNo = 0,
-		.profileSetupStep = 0,
+		.reflowSetupStep = 0,
 		.pidSetupStep = 0,
 		.tempNTC = 0.0f,
 		.tempThermo = 0.0f,
 		.PID_trig = 0,
 
 		// retentive variables
-		.Kp = 3.96f,
-		.Ki = 0.078f,
-		.Kd = 49.5f,
+		.Kp = 10.0f,	// 3.96
+		.Ki = 0.1f,	// 0.078
+		.Kd = 4.5f,		// 49.5
 		.profileNoSelected = 1,
 		.lastUsedMode = 1,
 		.dualProbes = 1,
@@ -157,7 +157,6 @@ float tempAVG2[5] = {};			// values of temp from thermocouple 2 in one second to
 uint8_t cntTempArray = 0;		// counter for temperature array
 uint8_t endOfCycle = 0;			// flag to indicate the end of drying or reflow
 uint16_t* reflowTimeSeconds;	// time of entire reflow cycle
-
 
 /* USER CODE END 0 */
 
@@ -291,6 +290,8 @@ int main(void)
 			  ovenParameters.cntHour = 0;
 			  ovenParameters.cntMinute = 0;
 			  ovenParameters.cntSecond = 0;
+			  TIM4->CCR2 = 0;
+			  TIM4->CCR1 = 0;
 		  }
 
 		  // Calculate average temperatures used for regulation
@@ -333,10 +334,15 @@ int main(void)
 
 
 		  // Read thermocouple 1
-		  // TODO: add fault check
 		  if (ovenParameters.dualProbes == 0)
 		  {
 			  ReadThermocoupleTemp(&thermocouple1, &hspi2, TERMO1_CS_GPIO_Port, TERMO1_CS_Pin);
+			  if (thermocouple1.cntFault == 5)
+			  {
+				  deviceState = STATE_ERROR;
+				  ovenErrorCodes.thermoCouple1Err = 1;
+			  }
+
 			  tempAVG1[cntTempArray] = thermocouple1.temperature_C;
 
 			  ovenParameters.tempThermo = thermocouple1.temperature_C; // get temp to show on screen
@@ -346,9 +352,21 @@ int main(void)
 		  if (ovenParameters.dualProbes == 1)
 		  {
 			  ReadThermocoupleTemp(&thermocouple1, &hspi2, TERMO1_CS_GPIO_Port, TERMO1_CS_Pin);
+			  if (thermocouple1.cntFault == 5)
+			  {
+				  deviceState = STATE_ERROR;
+				  ovenErrorCodes.thermoCouple1Err = 1;
+			  }
+
 			  tempAVG1[cntTempArray] = thermocouple1.temperature_C;
 
 			  ReadThermocoupleTemp(&thermocouple2, &hspi2, TERMO2_CS_GPIO_Port, TERMO2_CS_Pin);
+			  if (thermocouple2.cntFault == 5)
+			  {
+				  deviceState = STATE_ERROR;
+				  ovenErrorCodes.thermoCouple2Err = 1;
+			  }
+
 			  tempAVG2[cntTempArray] = thermocouple2.temperature_C;
 
 			  ovenParameters.tempThermo = thermocouple1.temperature_C;
@@ -385,12 +403,22 @@ int main(void)
 		  HAL_Delay(1000); // wait 1 second for all devices to power on
 
 		  // TODO:
+		  // ... read
+		  AN_V_12V = 12; // DELETE
+		  AN_V_3V3 = 3.3; // DELETE
 		  // Check input voltage //
-		  //	if (AN_V_12V < MIN_IN_VOLTAGE) err++;
-
+		  if (AN_V_12V < MIN_IN_VOLTAGE)
+		  {
+			  err++;
+			  ovenErrorCodes.ADC12V = 1;
+		  }
 
 		  // Check buck output voltage //
-		  //	if (AN_V_3V3 < MIN_BUCK_VOLTAGE) err++;
+		  if (AN_V_3V3 < MIN_BUCK_VOLTAGE)
+		  {
+			  err++;
+			  ovenErrorCodes.ADC3V3 = 1;
+		  }
 
 
 		  // Check thermocouples //
@@ -429,8 +457,14 @@ int main(void)
 
 
 		  // NTC temperature //
-		  // ...
-		  //	if (ovenParameters.tempNTC > NTC_MAX_TEMP) err++;
+		  // ... read
+		  ovenParameters.tempNTC = 30; // DELETE
+
+		  if (ovenParameters.tempNTC > NTC_MAX_TEMP)
+		  {
+			  err++;
+			  ovenErrorCodes.NTCErr = 1;
+		  }
 
 
 		  // Check error counter //
@@ -458,8 +492,8 @@ int main(void)
 			  if (ovenParameters.lastUsedMode == 0)
 			  {
 				  HAL_Delay(2000);
-				  deviceState = STATE_REFLOW;
 				  // change screen
+				  deviceState = STATE_REFLOW;
 				  ovenParameters.pageChageNo = 1; // Reflow
 			  }
 
@@ -467,8 +501,8 @@ int main(void)
 			  if (ovenParameters.lastUsedMode == 1)
 			  {
 				  HAL_Delay(2000);
-				  deviceState = STATE_DRY;
 				  // change screen
+				  deviceState = STATE_DRY;
 				  ovenParameters.pageChageNo = 2; // Dry
 			  }
 
@@ -482,7 +516,18 @@ int main(void)
 
 	  case STATE_REFLOW:
 
-		  if (endOfCycle == 1) ovenParameters.startStop = 0; // end of reflow
+		  if (endOfCycle == 1)
+		  {
+			  ovenParameters.startStop = 0; // end of reflow
+			  TIM4->CCR2;
+			  endOfCycle = 0;
+		  }
+
+		  if (ovenParameters.PID_trig == 1)
+		  {
+			  TIM4->CCR2 =  PIDcalculation(&pid ,&dryPreset.dryTemp); // set SSR1 Duty (Timer 4 channel 2)
+			  ovenParameters.PID_trig = 0; // reset pid calculate flag
+		  }
 
 		  switch(ovenParameters.profileNoSelected)
 		  {
@@ -511,7 +556,12 @@ int main(void)
 
 	  case STATE_DRY:
 
-		  if (endOfCycle == 1) ovenParameters.startStop = 0; // end of drying
+		  if (endOfCycle == 1)
+		  {
+			  TIM4->CCR2;
+			  ovenParameters.startStop = 0; // end of drying
+			  endOfCycle = 0;
+		  }
 
 		  if (ovenParameters.PID_trig == 1)
 		  {
@@ -813,7 +863,7 @@ static void MX_TIM4_Init(void)
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
   sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_LOW;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
   {
@@ -988,8 +1038,8 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void PIDInit(PID *pid)
 {
-	pid->N = 5;
-	pid->Ts = 0.2;
+	// basic variables
+	pid->Ts = 0.2f;
 	pid->tempAVGThermo1 = 0.0f;
 	pid->tempAVGThermo2 = 0.0f;
 	pid->e0 = 0;
@@ -998,8 +1048,10 @@ void PIDInit(PID *pid)
 	pid->tempDelta = 0.2f;
 	pid->outputMax = 100;
 	pid->outputMin = 0;
-
 	pid->output = 0;
+
+	// fancy pid (overkill for process that slow)
+	pid->N = 0;
 	pid->A0 = ovenParameters.Kp + ovenParameters.Ki * pid->Ts;
 	pid->A1 = -ovenParameters.Kp;
 	pid->A0d = ovenParameters.Kd / pid->Ts;
@@ -1013,9 +1065,12 @@ void PIDInit(PID *pid)
 	pid->fd1 = 0;
 }
 
-// PID with IIR
+
 uint32_t PIDcalculation(PID *pid, uint8_t* setPoint)
 {
+
+	// PID with IIR //
+	/*
 	// Implemented only with one thermocouple
 	pid->e2 = pid->e1;
 	pid->e1 = pid->e0;
@@ -1032,6 +1087,25 @@ uint32_t PIDcalculation(PID *pid, uint8_t* setPoint)
 
 	// End output
 	pid->output = pid->output + pid->fd0;
+	*/
+
+	// Clasic PID //
+
+	// Error
+	pid->e0 = *setPoint - pid->tempAVGThermo1;
+
+	float pid_P = ovenParameters.Kp * pid->e0 ;		// P
+
+	pid->e1 += pid->e0 * pid->Ts;					// I
+	float pid_I = ovenParameters.Ki * pid->e1;
+
+	float pid_d1 = (pid->e0 - pid->e1) / pid->Ts;	// D
+	float pid_D = ovenParameters.Kd * pid_d1;
+
+	pid->output = pid_P + pid_I + pid_D;
+
+	pid->e1 = pid->e0;
+
 
 	// Limit output value
 	if (pid->output >= pid->outputMax)
@@ -1040,7 +1114,7 @@ uint32_t PIDcalculation(PID *pid, uint8_t* setPoint)
 	}
 	else if (pid->output <= pid->outputMin)
 	{
-		pid->output = pid->outputMax;
+		pid->output = pid->outputMin;
 	}
 
 	// Duty cycle to CCR2
