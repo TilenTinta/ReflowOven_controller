@@ -11,6 +11,10 @@ public:
     virtual ~Reflow_SetupView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
+    // Added functions
+    //..
+    virtual void selectCurrProfile();
 protected:
 };
 

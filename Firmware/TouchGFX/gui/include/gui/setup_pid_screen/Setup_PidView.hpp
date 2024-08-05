@@ -11,7 +11,15 @@ public:
     virtual ~Setup_PidView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
+    // added functions
+    virtual void PidToSettings_flag();
+	virtual void PID_value_up();
+	virtual void PID_value_dn();
+	virtual void setPID_value();
+
 protected:
+	uint8_t pid_val_default = 0;
 };
 
 #endif // SETUP_PIDVIEW_HPP

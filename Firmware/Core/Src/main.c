@@ -49,6 +49,7 @@ DMA_HandleTypeDef hdma_spi1_tx;
 
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart1;
 
@@ -66,6 +67,7 @@ static void MX_CRC_Init(void);
 static void MX_SPI2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_TIM4_Init(void);
 /* USER CODE BEGIN PFP */
 // Define structs
 Thermocouple thermocouple1;
@@ -82,16 +84,19 @@ OvenParameters ovenParameters = {
 		// device operating variables
 		.initEnd = 0,
 		.pageChageNo = 0,
-		.profileNoSelected = 1,
 		.profileSetupStep = 0,
 		.pidSetupStep = 0,
 		.tempNTC = 0.0f,
 		.tempThermo = 0.0f,
+		.PID_trig = 0,
 
 		// retentive variables
+		.Kp = 3.96f,
+		.Ki = 0.078f,
+		.Kd = 49.5f,
 		.profileNoSelected = 1,
 		.lastUsedMode = 1,
-		.dualProbes = 0,
+		.dualProbes = 1,
 		.dualSSRs = 0,
 		.units = 0,
 		.AUX1 = 0,
@@ -126,8 +131,8 @@ ReflowProfiles reflowProfiles = {
 
 // Default values for drying
 DryPreset dryPreset = {
-		.dryTemp = 60,
-		.dryTime = 15
+		.dryTemp = 100,
+		.dryTime = 60
 };
 
 // Default values for error codes
@@ -137,11 +142,6 @@ OvenErrorCodes ovenErrorCodes = {
 		.NTCErr = 0,
 		.thermoCouple1Err = 0,
 		.thermoCouple2Err = 0
-};
-
-// Default values for PID
-PID pid = {
-		// all values are defined from function
 };
 
 
@@ -169,7 +169,10 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 
-  PIDInit();
+	// PID parameters
+	PID pid;
+	PIDInit(&pid);
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -197,6 +200,7 @@ int main(void)
   MX_SPI2_Init();
   MX_TIM3_Init();
   MX_TIM2_Init();
+  MX_TIM4_Init();
   MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
 
@@ -208,8 +212,6 @@ int main(void)
   HAL_GPIO_WritePin(TERMO2_CS_GPIO_Port, TERMO2_CS_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(AUX_OUT1_GPIO_Port, AUX_OUT1_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(AUX_OUT2_GPIO_Port, AUX_OUT2_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(SSR1_GPIO_Port, SSR1_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(SSR2_GPIO_Port, SSR2_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(DISPL_LED_GPIO_Port, DISPL_LED_Pin, GPIO_PIN_SET);
 
   Displ_Init(Displ_Orientat_90);			// initialize display controller - set orientation parameter as per TouchGFX setup
@@ -299,7 +301,7 @@ int main(void)
 
 			  if (ovenParameters.dualProbes == 0)
 			  {
-				  for (int i = 0; i < tickInSec; i++)
+				  for (uint8_t i = 0; i < tickInSec; i++)
 				  {
 					  pid.tempAVGThermo1 += tempAVG1[i];
 				  }
@@ -309,7 +311,7 @@ int main(void)
 
 			  if (ovenParameters.dualProbes == 1)
 			  {
-				  for (int i = 0; i < tickInSec; i++)
+				  for (uint8_t i = 0; i < tickInSec; i++)
 				  {
 					  pid.tempAVGThermo1 += tempAVG1[i];
 					  pid.tempAVGThermo2 += tempAVG2[i];
@@ -320,7 +322,7 @@ int main(void)
 			  }
 
 			  // Clear array
-			  for (int i = 0; i < tickInSec; i++)
+			  for (uint8_t i = 0; i < tickInSec; i++)
 			  {
 				  tempAVG1[i] = 0;
 				  tempAVG2[i] = 0;
@@ -355,6 +357,19 @@ int main(void)
 		  }
 
 		  cntTempArray ++;
+
+		  // Print data on serial port
+		  if (UART_EN == 1)
+		  {
+			  // Print data
+			  char message[50] = {'\0'};
+			  sprintf((char *)message, "Probe1 = %.2f\r\n", ovenParameters.tempThermo); // added tick in settings to allow float serial data
+			  HAL_UART_Transmit(&huart1, (uint8_t*)message, strlen((char*)message), 100);
+		  }
+
+
+		  // RESET TICK TIMER - timer callback declared in z_displ_ILI9XXX.h file
+		  ovenParameters.actionTick = 0;
 
 	  }
 
@@ -433,6 +448,12 @@ int main(void)
 			  HAL_GPIO_WritePin(INHIBIT_GPIO_Port, INHIBIT_Pin, GPIO_PIN_SET); // Enable inhibit
 			  ovenParameters.initEnd = 1;
 
+			  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2); // enable output for SSR1
+			  TIM4->CCR2 = 0;
+
+			  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1); // enable output for SSR2
+			  TIM4->CCR1 = 0;
+
 			  // continue in reflow mode
 			  if (ovenParameters.lastUsedMode == 0)
 			  {
@@ -450,8 +471,6 @@ int main(void)
 				  // change screen
 				  ovenParameters.pageChageNo = 2; // Dry
 			  }
-
-			  ovenParameters.startStop = 1; // BRIŠI!!!!!
 
 		  }
 
@@ -494,10 +513,10 @@ int main(void)
 
 		  if (endOfCycle == 1) ovenParameters.startStop = 0; // end of drying
 
-		  if (pid.PID_trig == 1)
+		  if (ovenParameters.PID_trig == 1)
 		  {
-			  TIM4->CCR2 = PIDcalculation(&dryPreset.dryTemp); // set SSR1 Duty (Timer 4 channel 2)
-			  pid.PID_trig = 0; // reset pid calculate flag
+			  TIM4->CCR2 =  PIDcalculation(&pid ,&dryPreset.dryTemp); // set SSR1 Duty (Timer 4 channel 2)
+			  ovenParameters.PID_trig = 0; // reset pid calculate flag
 		  }
 
 		  break;
@@ -506,9 +525,6 @@ int main(void)
 		  break;
 
 	  }
-
-	  // RESET TIMER - timer callback declared in z_displ_ILI9XXX.h file
-	  ovenParameters.actionTick = 0;
 
   }
   /* USER CODE END 3 */
@@ -752,6 +768,69 @@ static void MX_TIM3_Init(void)
 }
 
 /**
+  * @brief TIM4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM4_Init(void)
+{
+
+  /* USER CODE BEGIN TIM4_Init 0 */
+
+  /* USER CODE END TIM4_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM4_Init 1 */
+
+  /* USER CODE END TIM4_Init 1 */
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 4999;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 19999;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_LOW;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM4_Init 2 */
+
+  /* USER CODE END TIM4_Init 2 */
+  HAL_TIM_MspPostInit(&htim4);
+
+}
+
+/**
   * @brief USART1 Initialization Function
   * @param None
   * @retval None
@@ -767,7 +846,7 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 115200;
+  huart1.Init.BaudRate = 9600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
@@ -827,8 +906,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, DISPL_LED_Pin|DISPL_DC_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, DISPL_RST_Pin|AUX_OUT2_Pin|AUX_OUT1_Pin|SSR2_Pin
-                          |SSR1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, DISPL_RST_Pin|AUX_OUT2_Pin|AUX_OUT1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, DISPL_CS_Pin|TERMO1_CS_Pin|TERMO2_CS_Pin, GPIO_PIN_SET);
@@ -886,10 +964,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(AN_3V3_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : TERMO1_CS_Pin TERMO2_CS_Pin AUX_OUT2_Pin AUX_OUT1_Pin
-                           SSR2_Pin SSR1_Pin */
-  GPIO_InitStruct.Pin = TERMO1_CS_Pin|TERMO2_CS_Pin|AUX_OUT2_Pin|AUX_OUT1_Pin
-                          |SSR2_Pin|SSR1_Pin;
+  /*Configure GPIO pins : TERMO1_CS_Pin TERMO2_CS_Pin AUX_OUT2_Pin AUX_OUT1_Pin */
+  GPIO_InitStruct.Pin = TERMO1_CS_Pin|TERMO2_CS_Pin|AUX_OUT2_Pin|AUX_OUT1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -910,67 +986,67 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void PIDInit()
+void PIDInit(PID *pid)
 {
-	pid.Kp = 1.0f;
-	pid.Ki = 1.0f;
-	pid.Kd = 1.0f;
-	pid.N = 5;
-	pid.Ts = 0.2;
-	pid.tempAVGThermo1 = 0.0f;
-	pid.tempAVGThermo2 = 0.0f;
-	pid.PID_trig = 0;
-	pid.e0 = 0;
-	pid.e1 = 0;
-	pid.e2 = 0;
-	pid.tempDelta = 0.2f;
-	pid.outputMax = 100;
-	pid.outputMin = 0;
+	pid->N = 5;
+	pid->Ts = 0.2;
+	pid->tempAVGThermo1 = 0.0f;
+	pid->tempAVGThermo2 = 0.0f;
+	pid->e0 = 0;
+	pid->e1 = 0;
+	pid->e2 = 0;
+	pid->tempDelta = 0.2f;
+	pid->outputMax = 100;
+	pid->outputMin = 0;
 
-	pid.output = 0;
-	pid.A0 = pid.Kp + pid.Ki * pid.Ts;
-	pid.A1 = -pid.Kp;
-	pid.A0d = pid.Kd / pid.Ts;
-	pid.A1d = -2.0 * pid.Kd / pid.Ts;
-	pid.A2d = pid.Kd / pid.Ts;
-	pid.tau = pid.Kd / (pid.Kp * pid.N); // IIR filter time constant
-	pid.alpha = pid.Ts / (2 * pid.tau);
-	pid.d0 = 0;
-	pid.d1 = 0;
-	pid.fd0 = 0;
-	pid.fd1 = 0;
+	pid->output = 0;
+	pid->A0 = ovenParameters.Kp + ovenParameters.Ki * pid->Ts;
+	pid->A1 = -ovenParameters.Kp;
+	pid->A0d = ovenParameters.Kd / pid->Ts;
+	pid->A1d = -2.0 * ovenParameters.Kd / pid->Ts;
+	pid->A2d = ovenParameters.Kd / pid->Ts;
+	pid->tau = ovenParameters.Kd / (ovenParameters.Kp * pid->N); // IIR filter time constant
+	pid->alpha = pid->Ts / (2 * pid->tau);
+	pid->d0 = 0;
+	pid->d1 = 0;
+	pid->fd0 = 0;
+	pid->fd1 = 0;
 }
 
-uint8_t PIDcalculation(uint8_t* setPoint)
+// PID with IIR
+uint32_t PIDcalculation(PID *pid, uint8_t* setPoint)
 {
 	// Implemented only with one thermocouple
-	pid.e2 = pid.e1;
-	pid.e1 = pid.e0;
-	pid.e0 = *setPoint - pid.tempAVGThermo1;
+	pid->e2 = pid->e1;
+	pid->e1 = pid->e0;
+	pid->e0 = *setPoint - pid->tempAVGThermo1;
 
 	// PI
-	pid.output = pid.output + pid.A0 * pid.e0 + pid.A1 * pid.e1;
+	pid->output = pid->output + pid->A0 * pid->e0 + pid->A1 * pid->e1;
 
 	// Filtered D
-	pid.d1 = pid.d0;
-	pid.d0 = pid.A0d * pid.e0 + pid.A1d * pid.e1 + pid.A2d * pid.e2;
-	pid.fd1 = pid.fd0;
-	pid.fd0 = ((pid.alpha)/(pid.alpha + 1)) * (pid.d0 + pid.d1) - ((pid.alpha - 1) / (pid.alpha + 1)) * pid.fd1;
+	pid->d1 = pid->d0;
+	pid->d0 = pid->A0d * pid->e0 + pid->A1d * pid->e1 + pid->A2d * pid->e2;
+	pid->fd1 = pid->fd0;
+	pid->fd0 = ((pid->alpha)/(pid->alpha + 1)) * (pid->d0 + pid->d1) - ((pid->alpha - 1) / (pid->alpha + 1)) * pid->fd1;
 
 	// End output
-	pid.output = pid.output + pid.fd0;
+	pid->output = pid->output + pid->fd0;
 
 	// Limit output value
-	if (pid.output >= pid.outputMax)
+	if (pid->output >= pid->outputMax)
 	{
-		pid.output = pid.outputMax;
+		pid->output = pid->outputMax;
 	}
-	else if (pid.output <= pid.outputMin)
+	else if (pid->output <= pid->outputMin)
 	{
-		pid.output = pid.outputMax;
+		pid->output = pid->outputMax;
 	}
 
-	return pid.output;
+	// Duty cycle to CCR2
+	// 2^16 = 65536 / 100 = 655.36
+
+	return (uint32_t)(pid->output * 655);
 }
 
 /* USER CODE END 4 */

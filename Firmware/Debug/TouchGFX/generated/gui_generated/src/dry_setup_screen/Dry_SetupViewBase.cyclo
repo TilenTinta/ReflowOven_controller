@@ -102,7 +102,8 @@
 ../TouchGFX/generated/gui_generated/include/gui_generated/dry_setup_screen/Dry_SetupViewBase.hpp:33:18:virtual void Dry_SetupViewBase::TempDn()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/dry_setup_screen/Dry_SetupViewBase.hpp:37:18:virtual void Dry_SetupViewBase::TimeUp()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/dry_setup_screen/Dry_SetupViewBase.hpp:41:18:virtual void Dry_SetupViewBase::TimeDn()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/dry_setup_screen/Dry_SetupViewBase.hpp:47:26:FrontendApplication& Dry_SetupViewBase::application()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/dry_setup_screen/Dry_SetupViewBase.hpp:45:18:virtual void Dry_SetupViewBase::SavePreset()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/dry_setup_screen/Dry_SetupViewBase.hpp:51:26:FrontendApplication& Dry_SetupViewBase::application()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:touchgfx::View<Dry_SetupPresenter>::~View()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:virtual touchgfx::View<Dry_SetupPresenter>::~View()	1
 ../TouchGFX/generated/gui_generated/src/dry_setup_screen/Dry_SetupViewBase.cpp:10:1:Dry_SetupViewBase::Dry_SetupViewBase()	1

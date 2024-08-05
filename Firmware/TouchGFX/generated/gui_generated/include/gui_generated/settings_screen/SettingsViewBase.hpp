@@ -25,6 +25,18 @@ public:
     /*
      * Virtual Action Handlers
      */
+    virtual void SettingsToPid_P_flag()
+    {
+        // Override and implement this function in Settings
+    }
+    virtual void SettingsToPid_I_flag()
+    {
+        // Override and implement this function in Settings
+    }
+    virtual void SettingsToPid_D_flag()
+    {
+        // Override and implement this function in Settings
+    }
     virtual void ProbesNoSelect()
     {
         // Override and implement this function in Settings

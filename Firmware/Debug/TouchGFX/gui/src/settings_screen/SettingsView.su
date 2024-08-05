@@ -1,14 +1,19 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp:142:14:touchgfx::BitmapId touchgfx::Bitmap::getId() const	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	16	static
-../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:28:18:virtual void SettingsViewBase::ProbesNoSelect()	16	static
-../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:32:18:virtual void SettingsViewBase::SSRNoSelect()	16	static
-../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:36:18:virtual void SettingsViewBase::CFSelect()	16	static
-../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:40:18:virtual void SettingsViewBase::outputAUX1()	16	static
-../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:44:18:virtual void SettingsViewBase::outputAUX2()	16	static
-../TouchGFX/gui/include/gui/settings_screen/SettingsView.hpp:11:13:SettingsView::~SettingsView()	16	static
-../TouchGFX/gui/include/gui/settings_screen/SettingsView.hpp:11:13:virtual SettingsView::~SettingsView()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ToggleButton.hpp:58:10:bool touchgfx::ToggleButton::getState() const	24	static
+../TouchGFX/gui/include/gui/settings_screen/SettingsView.hpp:12:13:SettingsView::~SettingsView()	16	static
+../TouchGFX/gui/include/gui/settings_screen/SettingsView.hpp:12:13:virtual SettingsView::~SettingsView()	16	static
 ../TouchGFX/gui/src/settings_screen/SettingsView.cpp:3:1:SettingsView::SettingsView()	16	static
 ../TouchGFX/gui/src/settings_screen/SettingsView.cpp:8:6:virtual void SettingsView::setupScreen()	16	static
-../TouchGFX/gui/src/settings_screen/SettingsView.cpp:13:6:virtual void SettingsView::tearDownScreen()	16	static
+../TouchGFX/gui/src/settings_screen/SettingsView.cpp:73:6:virtual void SettingsView::tearDownScreen()	16	static
+../TouchGFX/gui/src/settings_screen/SettingsView.cpp:79:6:virtual void SettingsView::ProbesNoSelect()	16	static
+../TouchGFX/gui/src/settings_screen/SettingsView.cpp:92:6:virtual void SettingsView::SSRNoSelect()	16	static
+../TouchGFX/gui/src/settings_screen/SettingsView.cpp:105:6:virtual void SettingsView::CFSelect()	16	static
+../TouchGFX/gui/src/settings_screen/SettingsView.cpp:118:6:virtual void SettingsView::outputAUX1()	16	static
+../TouchGFX/gui/src/settings_screen/SettingsView.cpp:131:6:virtual void SettingsView::outputAUX2()	16	static
+../TouchGFX/gui/src/settings_screen/SettingsView.cpp:144:6:virtual void SettingsView::SettingsToPid_P_flag()	16	static
+../TouchGFX/gui/src/settings_screen/SettingsView.cpp:150:6:virtual void SettingsView::SettingsToPid_I_flag()	16	static
+../TouchGFX/gui/src/settings_screen/SettingsView.cpp:156:6:virtual void SettingsView::SettingsToPid_D_flag()	16	static

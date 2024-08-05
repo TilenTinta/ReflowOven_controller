@@ -14,3 +14,9 @@ void Reflow_SetupView::tearDownScreen()
 {
     Reflow_SetupViewBase::tearDownScreen();
 }
+
+// select current profile and save what is used
+void Reflow_SetupView::selectCurrProfile()
+{
+	ovenParameters.lastUsedMode = 0;
+}

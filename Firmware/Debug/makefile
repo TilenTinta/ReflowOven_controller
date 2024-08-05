@@ -153,7 +153,7 @@ main-build: ReflowOven_firmware.elf secondary-outputs
 
 # Tool invocations
 ReflowOven_firmware.elf ReflowOven_firmware.map: $(OBJS) $(USER_OBJS) C:\DATA\Projects\Reflow_oven\ReflowOven_controller\Firmware\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "ReflowOven_firmware.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\DATA\Projects\Reflow_oven\ReflowOven_controller\Firmware\STM32F411CEUX_FLASH.ld" -Wl,-Map="ReflowOven_firmware.map" -Wl,--gc-sections -static -L"C:\DATA\Projects\Reflow_oven\ReflowOven_controller\Firmware\Middlewares\ST\touchgfx\lib\core\cortex_m4f\gcc" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+	arm-none-eabi-g++ -o "ReflowOven_firmware.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\DATA\Projects\Reflow_oven\ReflowOven_controller\Firmware\STM32F411CEUX_FLASH.ld" -Wl,-Map="ReflowOven_firmware.map" -Wl,--gc-sections -static -L"C:\DATA\Projects\Reflow_oven\ReflowOven_controller\Firmware\Middlewares\ST\touchgfx\lib\core\cortex_m4f\gcc" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

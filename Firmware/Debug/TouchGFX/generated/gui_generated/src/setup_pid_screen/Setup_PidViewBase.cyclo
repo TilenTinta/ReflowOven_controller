@@ -1,4 +1,6 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:78:5:touchgfx::colortype::colortype()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:91:5:touchgfx::colortype::colortype(uint32_t)	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:114:5:touchgfx::colortype::operator uint32_t() const	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:127:5:touchgfx::Rect::Rect()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:140:5:touchgfx::Rect::Rect(int16_t, int16_t, int16_t, int16_t)	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp:132:5:touchgfx::Bitmap::Bitmap(touchgfx::BitmapId)	1
@@ -25,6 +27,9 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:625:10:void touchgfx::Drawable::resetDrawChainCache()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:703:18:virtual void touchgfx::Drawable::setupDrawChain(const touchgfx::Rect&, touchgfx::Drawable**)	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp:45:18:virtual void touchgfx::Widget::getLastChild(int16_t, int16_t, touchgfx::Drawable**)	4
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:110:17:static touchgfx::HAL* touchgfx::HAL::getInstance()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:268:17:static touchgfx::LCD& touchgfx::HAL::lcd()	3
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:1101:10:touchgfx::LCD* touchgfx::HAL::getAuxiliaryLCD()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:46:13:touchgfx::Screen::~Screen()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:46:13:virtual touchgfx::Screen::~Screen()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:93:18:virtual void touchgfx::Screen::setupScreen()	1
@@ -74,20 +79,43 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:79:10:void touchgfx::TextAreaWithOneWildcard::setWildcard1(const UnicodeChar*)	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:84:41:virtual const UnicodeChar* touchgfx::TextAreaWithOneWildcard::getWildcard1() const	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:98:10:void touchgfx::TextAreaWithOneWildcard::setWildcard(const UnicodeChar*)	1
-../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:26:18:virtual void Setup_PidViewBase::PID_P_value_up()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:30:18:virtual void Setup_PidViewBase::PID_P_value_dn()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:34:18:virtual void Setup_PidViewBase::setPID_P_value()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:40:26:FrontendApplication& Setup_PidViewBase::application()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainter.hpp:44:5:touchgfx::AbstractPainter::AbstractPainter()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainter.hpp:50:13:touchgfx::AbstractPainter::~AbstractPainter()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainter.hpp:50:13:virtual touchgfx::AbstractPainter::~AbstractPainter()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainter.hpp:61:34:virtual touchgfx::HAL::RenderingMethod touchgfx::AbstractPainter::getRenderingMethod() const	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainter.hpp:78:18:virtual bool touchgfx::AbstractPainter::setup(const touchgfx::Rect&) const	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainter.hpp:90:18:virtual void touchgfx::AbstractPainter::tearDown() const	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CWRUtil.hpp:70:18:touchgfx::CWRUtil::Q5::Q5(int)	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CWRUtil.hpp:93:9:touchgfx::CWRUtil::Q5::operator int() const	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CanvasWidget.hpp:48:10:void touchgfx::CanvasWidget::setPainter(const touchgfx::AbstractPainter&)	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Line.hpp:262:10:void touchgfx::Line::setLineWidth(touchgfx::CWRUtil::Q5)	2
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp:43:5:touchgfx::AbstractPainterColor::AbstractPainterColor(touchgfx::colortype)	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp:49:13:touchgfx::AbstractPainterColor::~AbstractPainterColor()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp:49:13:virtual touchgfx::AbstractPainterColor::~AbstractPainterColor()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp:58:18:virtual void touchgfx::AbstractPainterColor::setColor(touchgfx::colortype)	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB565.hpp:41:5:touchgfx::AbstractPainterRGB565::AbstractPainterRGB565()	2
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB565.hpp:34:7:touchgfx::AbstractPainterRGB565::~AbstractPainterRGB565()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB565.hpp:34:7:virtual touchgfx::AbstractPainterRGB565::~AbstractPainterRGB565()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB565.hpp:42:5:touchgfx::PainterRGB565::PainterRGB565(touchgfx::colortype)	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB565.hpp:47:18:virtual void touchgfx::PainterRGB565::setColor(touchgfx::colortype)	1
+../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:28:18:virtual void Setup_PidViewBase::PidToSettings_flag()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:32:18:virtual void Setup_PidViewBase::PID_value_up()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:36:18:virtual void Setup_PidViewBase::PID_value_dn()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:40:18:virtual void Setup_PidViewBase::setPID_value()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:46:26:FrontendApplication& Setup_PidViewBase::application()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:touchgfx::View<Setup_PidPresenter>::~View()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:virtual touchgfx::View<Setup_PidPresenter>::~View()	1
-../TouchGFX/generated/gui_generated/src/setup_pid_screen/Setup_PidViewBase.cpp:9:1:Setup_PidViewBase::Setup_PidViewBase()	1
-../TouchGFX/generated/gui_generated/src/setup_pid_screen/Setup_PidViewBase.cpp:63:1:Setup_PidViewBase::~Setup_PidViewBase()	1
-../TouchGFX/generated/gui_generated/src/setup_pid_screen/Setup_PidViewBase.cpp:63:1:virtual Setup_PidViewBase::~Setup_PidViewBase()	1
-../TouchGFX/generated/gui_generated/src/setup_pid_screen/Setup_PidViewBase.cpp:68:6:virtual void Setup_PidViewBase::setupScreen()	1
-../TouchGFX/generated/gui_generated/src/setup_pid_screen/Setup_PidViewBase.cpp:73:6:void Setup_PidViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	5
+../TouchGFX/generated/gui_generated/src/setup_pid_screen/Setup_PidViewBase.cpp:10:1:Setup_PidViewBase::Setup_PidViewBase()	1
+../TouchGFX/generated/gui_generated/src/setup_pid_screen/Setup_PidViewBase.cpp:77:1:Setup_PidViewBase::~Setup_PidViewBase()	1
+../TouchGFX/generated/gui_generated/src/setup_pid_screen/Setup_PidViewBase.cpp:77:1:virtual Setup_PidViewBase::~Setup_PidViewBase()	1
+../TouchGFX/generated/gui_generated/src/setup_pid_screen/Setup_PidViewBase.cpp:82:6:virtual void Setup_PidViewBase::setupScreen()	1
+../TouchGFX/generated/gui_generated/src/setup_pid_screen/Setup_PidViewBase.cpp:87:6:void Setup_PidViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	5
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:39:5:touchgfx::View<T>::View() [with T = Setup_PidPresenter]	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:134:7:constexpr touchgfx::GenericCallback<const touchgfx::AbstractButton&>::GenericCallback()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:373:5:touchgfx::Callback<dest_type, T1, void, void>::Callback(dest_type*, void (dest_type::*)(T1)) [with dest_type = Setup_PidViewBase; T1 = const touchgfx::AbstractButton&]	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Line.hpp:95:10:void touchgfx::Line::setStart(T, T) [with T = int]	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Line.hpp:171:10:void touchgfx::Line::setEnd(T, T) [with T = int]	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Line.hpp:248:10:void touchgfx::Line::setLineWidth(T) [with T = int]	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:138:13:touchgfx::GenericCallback<T1, void, void>::~GenericCallback() [with T1 = const touchgfx::AbstractButton&]	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:138:13:touchgfx::GenericCallback<T1, void, void>::~GenericCallback() [with T1 = const touchgfx::AbstractButton&]	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:357:8:touchgfx::Callback<Setup_PidViewBase, const touchgfx::AbstractButton&>::~Callback()	1
@@ -106,5 +134,11 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:38:7:virtual touchgfx::ButtonWithLabel::~ButtonWithLabel()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithIcon.hpp:35:7:touchgfx::ButtonWithIcon::~ButtonWithIcon()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithIcon.hpp:35:7:virtual touchgfx::ButtonWithIcon::~ButtonWithIcon()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CanvasWidget.hpp:33:7:touchgfx::CanvasWidget::~CanvasWidget()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CanvasWidget.hpp:33:7:virtual touchgfx::CanvasWidget::~CanvasWidget()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Line.hpp:50:7:touchgfx::Line::~Line()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Line.hpp:50:7:virtual touchgfx::Line::~Line()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB565.hpp:34:7:touchgfx::PainterRGB565::~PainterRGB565()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB565.hpp:34:7:virtual touchgfx::PainterRGB565::~PainterRGB565()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:386:18:void touchgfx::Callback<dest_type, T1, void, void>::execute(T1) [with dest_type = Setup_PidViewBase; T1 = const touchgfx::AbstractButton&]	2
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:396:18:bool touchgfx::Callback<dest_type, T1, void, void>::isValid() const [with dest_type = Setup_PidViewBase; T1 = const touchgfx::AbstractButton&]	5

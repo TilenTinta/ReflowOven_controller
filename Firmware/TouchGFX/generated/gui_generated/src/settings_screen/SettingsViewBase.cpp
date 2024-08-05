@@ -181,13 +181,21 @@ void SettingsViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src
     }
     if (&src == &btnSetPidP)
     {
-        //SettingsToPid_P
+        //SettingsToPid_P_flag
+        //When btnSetPidP clicked call virtual function
+        //Call SettingsToPid_P_flag
+        SettingsToPid_P_flag();
+        //SettingsToPidP
         //When btnSetPidP clicked change screen to Setup_Pid
         //Go to Setup_Pid with no screen transition
         application().gotoSetup_PidScreenNoTransition();
     }
     if (&src == &btnSetPidI)
     {
+        //SettingsToPid_I_flag
+        //When btnSetPidI clicked call virtual function
+        //Call SettingsToPid_I_flag
+        SettingsToPid_I_flag();
         //SettingsToPid_I
         //When btnSetPidI clicked change screen to Setup_Pid
         //Go to Setup_Pid with no screen transition
@@ -195,6 +203,10 @@ void SettingsViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src
     }
     if (&src == &btnSetPidD)
     {
+        //SettingsToPid_D_flag
+        //When btnSetPidD clicked call virtual function
+        //Call SettingsToPid_D_flag
+        SettingsToPid_D_flag();
         //SettingsToPid_D
         //When btnSetPidD clicked change screen to Setup_Pid
         //Go to Setup_Pid with no screen transition

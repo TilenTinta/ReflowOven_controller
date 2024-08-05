@@ -31,6 +31,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stdio.h"
+
 #include "fonts.h"
 #include "z_displ_ILI9XXX.h"
 #include "z_touch_XPT2046.h"
@@ -53,6 +55,8 @@ extern "C" {
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
@@ -119,6 +123,7 @@ void Error_Handler(void);
 #define SSR_NO					1 // Number of solid state relays that will be used
 #define AUX_NO					0 // Number of AUX ports that will be used
 #define BUZZER_EN				0 // Enable buzzer
+#define UART_EN					1 // Enable uart port (just data sending...)
 
 
 /////////// Do not change whats follows ///////////
@@ -158,6 +163,7 @@ typedef struct {
 	uint8_t initEnd;			// End of initialization rutine
 	uint8_t pageChageNo;		// number of changed page: 0 - startup, 1 - reflow, 2 - dry, 3 - error
 	uint8_t actionTick;			// trigger to read and data refresh
+	uint8_t PID_trig;			// flag to triger pid calculation
 
 	// Device time value
 	uint8_t cntTimerTick;		// timer triggers counter
@@ -166,6 +172,9 @@ typedef struct {
 	uint8_t cntHour;			// hours conter
 
 	// Device settings
+	float Kp;					// PID P value
+	float Ki;					// PID I value
+	float Kd;					// PID D value
 	uint8_t lastUsedMode;		// mode that was last used, 0 - reflow, 1 - dry
 	uint8_t dualProbes; 		// 0 - disable, 1 - enable
 	uint8_t dualSSRs; 			// 0 - disable, 1 - enable
@@ -185,23 +194,23 @@ extern OvenParameters ovenParameters;
 typedef struct {
 
 	// Reflow profile 1
-	uint8_t profile1Temp[5];
+	uint16_t profile1Temp[5];
 	uint16_t profile1Time[5];
 
 	// Reflow profile 2
-	uint8_t profile2Temp[5];
+	uint16_t profile2Temp[5];
 	uint16_t profile2Time[5];
 
 	// Reflow profile 3
-	uint8_t profile3Temp[5];
+	uint16_t profile3Temp[5];
 	uint16_t profile3Time[5];
 
 	// Reflow profile 4
-	uint8_t profile4Temp[5];
+	uint16_t profile4Temp[5];
 	uint16_t profile4Time[5];
 
 	// Reflow profile 5
-	uint8_t profile5Temp[5];
+	uint16_t profile5Temp[5];
 	uint16_t profile5Time[5];
 
 } ReflowProfiles;
@@ -213,8 +222,8 @@ extern ReflowProfiles reflowProfiles;
 typedef struct {
 
 	// Values used for drying mode
-	uint8_t dryTemp;
-	uint32_t dryTime;
+	uint8_t dryTemp; 	// degrees
+	uint16_t dryTime;	// minutes
 
 } DryPreset;
 
@@ -238,17 +247,13 @@ extern OvenErrorCodes ovenErrorCodes;
 /*** Structure of PID values ***/
 typedef struct {
 
-	float Kp;					// PID P value
-	float Ki;					// PID I value
-	float Kd;					// PID D value
 	uint8_t N;					// PID filtering value
 	float Ts;					// PID sample time
 
 	float tempAVGThermo1;		// Average temp 1
 	float tempAVGThermo2;		// Average temp 2
-	uint8_t PID_trig;			// flag to triger pid calculation
 	uint8_t tempDelta;			// value of change between each setpoint
-	uint8_t *SetPoint;			// current temperature set point
+	//uint8_t *SetPoint;			// current temperature set point
 	float e0;					// error k
 	float e1;					// error k-1
 	float e2;					// error k-2
@@ -270,11 +275,10 @@ typedef struct {
 
 } PID;
 
-extern PID pid;
 
 // Functions
-void PIDInit();
-uint8_t PIDcalculation(uint8_t* setPoint);
+void PIDInit(PID *pid);
+uint32_t PIDcalculation(PID *pid, uint8_t* setPoint);
 
 /* USER CODE END Private defines */
 

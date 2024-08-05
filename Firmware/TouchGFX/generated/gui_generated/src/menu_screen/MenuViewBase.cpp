@@ -64,10 +64,10 @@ void MenuViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
 {
     if (&src == &btnBack)
     {
-        //MenuToMainScreen
-        //When btnBack clicked change screen to Home_Reflow
-        //Go to Home_Reflow with no screen transition
-        application().gotoHome_ReflowScreenNoTransition();
+        //BackToCurUse
+        //When btnBack clicked call virtual function
+        //Call BackToCurUse
+        BackToCurUse();
     }
     if (&src == &btnReflowSetup)
     {

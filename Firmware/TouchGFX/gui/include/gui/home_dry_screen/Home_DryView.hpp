@@ -14,6 +14,9 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 
+    virtual void StartDrying();
+    virtual void StopDrying();
+
     virtual void setTEMP (float temperatureProbe); 	// virtual function - temperature
     virtual void setTIMELEFT (int time);			// virtual function - time left
 

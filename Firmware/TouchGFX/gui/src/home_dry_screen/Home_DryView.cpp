@@ -48,3 +48,15 @@ void Home_DryView::setTIMELEFT(int time)
 	Unicode::snprintf(txtTimeMinLeftBuffer, TXTTIMEMINLEFT_SIZE, "%d", minutes);
 	txtTimeMinLeft.invalidate();
 }
+
+// Start drying cycle
+void Home_DryView::StartDrying()
+{
+	ovenParameters.startStop = 1;
+}
+
+// Stop drying cycle
+void Home_DryView::StopDrying()
+{
+	ovenParameters.startStop = 0;
+}

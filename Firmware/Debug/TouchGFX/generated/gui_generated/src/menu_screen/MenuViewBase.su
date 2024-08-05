@@ -49,7 +49,8 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:77:10:void touchgfx::ButtonWithLabel::setLabelColor(touchgfx::colortype)	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:94:10:void touchgfx::ButtonWithLabel::setLabelColorPressed(touchgfx::colortype)	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:132:10:void touchgfx::ButtonWithLabel::updateTextPosition()	56	static
-../TouchGFX/generated/gui_generated/include/gui_generated/menu_screen/MenuViewBase.hpp:22:26:FrontendApplication& MenuViewBase::application()	16	static
+../TouchGFX/generated/gui_generated/include/gui_generated/menu_screen/MenuViewBase.hpp:24:18:virtual void MenuViewBase::BackToCurUse()	16	static
+../TouchGFX/generated/gui_generated/include/gui_generated/menu_screen/MenuViewBase.hpp:30:26:FrontendApplication& MenuViewBase::application()	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:touchgfx::View<MenuPresenter>::~View()	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:virtual touchgfx::View<MenuPresenter>::~View()	16	static
 ../TouchGFX/generated/gui_generated/src/menu_screen/MenuViewBase.cpp:9:1:MenuViewBase::MenuViewBase()	176	static

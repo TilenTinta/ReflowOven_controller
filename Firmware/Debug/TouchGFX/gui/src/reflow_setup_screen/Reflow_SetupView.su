@@ -9,9 +9,9 @@
 ../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:45:18:virtual void Reflow_SetupViewBase::nextProfile()	16	static
 ../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:49:18:virtual void Reflow_SetupViewBase::prevProfile()	16	static
 ../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:53:18:virtual void Reflow_SetupViewBase::selectRamp1()	16	static
-../TouchGFX/generated/gui_generated/include/gui_generated/reflow_setup_screen/Reflow_SetupViewBase.hpp:57:18:virtual void Reflow_SetupViewBase::selectCurrProfile()	16	static
 ../TouchGFX/gui/include/gui/reflow_setup_screen/Reflow_SetupView.hpp:11:13:Reflow_SetupView::~Reflow_SetupView()	16	static
 ../TouchGFX/gui/include/gui/reflow_setup_screen/Reflow_SetupView.hpp:11:13:virtual Reflow_SetupView::~Reflow_SetupView()	16	static
 ../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:3:1:Reflow_SetupView::Reflow_SetupView()	16	static
 ../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:8:6:virtual void Reflow_SetupView::setupScreen()	16	static
 ../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:13:6:virtual void Reflow_SetupView::tearDownScreen()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:19:6:virtual void Reflow_SetupView::selectCurrProfile()	16	static

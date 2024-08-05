@@ -12,6 +12,8 @@
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 #include <touchgfx/widgets/ButtonWithIcon.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/canvas/Line.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 
 class Setup_PidViewBase : public touchgfx::View<Setup_PidPresenter>
 {
@@ -23,15 +25,19 @@ public:
     /*
      * Virtual Action Handlers
      */
-    virtual void PID_P_value_up()
+    virtual void PidToSettings_flag()
     {
         // Override and implement this function in Setup_Pid
     }
-    virtual void PID_P_value_dn()
+    virtual void PID_value_up()
     {
         // Override and implement this function in Setup_Pid
     }
-    virtual void setPID_P_value()
+    virtual void PID_value_dn()
+    {
+        // Override and implement this function in Setup_Pid
+    }
+    virtual void setPID_value()
     {
         // Override and implement this function in Setup_Pid
     }
@@ -48,18 +54,28 @@ protected:
     touchgfx::Image image1;
     touchgfx::ButtonWithLabel btnSet;
     touchgfx::ButtonWithLabel btnBack;
-    touchgfx::ButtonWithIcon btnPID_P_UP;
-    touchgfx::ButtonWithIcon btnPID_P_DN;
-    touchgfx::TextAreaWithOneWildcard txtPID_P;
-    touchgfx::TextAreaWithOneWildcard txt;
+    touchgfx::ButtonWithIcon btnPID_UP;
+    touchgfx::ButtonWithIcon btnPID_DN;
+    touchgfx::TextAreaWithOneWildcard txtPID_val;
+    touchgfx::TextAreaWithOneWildcard txtPID_lbl;
+    touchgfx::Line line1_1;
+    touchgfx::PainterRGB565 line1_1Painter;
 
     /*
      * Wildcard Buffers
      */
-    static const uint16_t TXTPID_P_SIZE = 4;
-    touchgfx::Unicode::UnicodeChar txtPID_PBuffer[TXTPID_P_SIZE];
+    static const uint16_t TXTPID_VAL_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar txtPID_valBuffer[TXTPID_VAL_SIZE];
+    static const uint16_t TXTPID_LBL_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar txtPID_lblBuffer[TXTPID_LBL_SIZE];
 
 private:
+
+    /*
+     * Canvas Buffer Size
+     */
+    static const uint32_t CANVAS_BUFFER_SIZE = 4800;
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
     /*
      * Callback Declarations

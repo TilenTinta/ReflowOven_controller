@@ -42,6 +42,10 @@ public:
     {
         // Override and implement this function in Dry_Setup
     }
+    virtual void SavePreset()
+    {
+        // Override and implement this function in Dry_Setup
+    }
 
 protected:
     FrontendApplication& application() {

@@ -1525,15 +1525,14 @@
         ],
         "Interactions": [
           {
-            "InteractionName": "MenuToMainScreen",
+            "InteractionName": "BackToCurUse",
             "Trigger": {
               "Type": "TriggerClicked",
               "TriggerComponent": "btnBack"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Home_Reflow"
+              "Type": "ActionCustom",
+              "FunctionName": "BackToCurUse"
             }
           },
           {
@@ -1935,39 +1934,36 @@
             }
           },
           {
-            "InteractionName": "SettingsToPid_P",
+            "InteractionName": "SettingsToPid_P_flag",
             "Trigger": {
               "Type": "TriggerClicked",
               "TriggerComponent": "btnSetPidP"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Setup_Pid"
+              "Type": "ActionCustom",
+              "FunctionName": "SettingsToPid_P_flag"
             }
           },
           {
-            "InteractionName": "SettingsToPid_I",
+            "InteractionName": "SettingsToPid_I_flag",
             "Trigger": {
               "Type": "TriggerClicked",
               "TriggerComponent": "btnSetPidI"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Setup_Pid"
+              "Type": "ActionCustom",
+              "FunctionName": "SettingsToPid_I_flag"
             }
           },
           {
-            "InteractionName": "SettingsToPid_D",
+            "InteractionName": "SettingsToPid_D_flag",
             "Trigger": {
               "Type": "TriggerClicked",
               "TriggerComponent": "btnSetPidD"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Setup_Pid"
+              "Type": "ActionCustom",
+              "FunctionName": "SettingsToPid_D_flag"
             }
           },
           {
@@ -2024,11 +2020,48 @@
               "Type": "ActionCustom",
               "FunctionName": "outputAUX2"
             }
+          },
+          {
+            "InteractionName": "SettingsToPidP",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnSetPidP"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Setup_Pid"
+            }
+          },
+          {
+            "InteractionName": "SettingsToPid_I",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnSetPidI"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Setup_Pid"
+            }
+          },
+          {
+            "InteractionName": "SettingsToPid_D",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnSetPidD"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Setup_Pid"
+            }
           }
         ]
       },
       {
         "Name": "Setup_Pid",
+        "CanvasBufferSize": 4800,
         "Components": [
           {
             "Type": "Image",
@@ -2075,7 +2108,7 @@
           },
           {
             "Type": "ButtonWithIcon",
-            "Name": "btnPID_P_UP",
+            "Name": "btnPID_UP",
             "X": 59,
             "Y": 271,
             "Width": 60,
@@ -2091,7 +2124,7 @@
           },
           {
             "Type": "ButtonWithIcon",
-            "Name": "btnPID_P_DN",
+            "Name": "btnPID_DN",
             "X": 196,
             "Y": 271,
             "Width": 60,
@@ -2107,7 +2140,7 @@
           },
           {
             "Type": "TextArea",
-            "Name": "txtPID_P",
+            "Name": "txtPID_val",
             "X": 89,
             "Y": 151,
             "Width": 137,
@@ -2127,7 +2160,7 @@
           },
           {
             "Type": "TextArea",
-            "Name": "txt",
+            "Name": "txtPID_lbl",
             "X": 81,
             "Y": 64,
             "Width": 159,
@@ -2139,12 +2172,79 @@
               "Green": 255,
               "Blue": 255
             },
-            "Wildcard1": {}
+            "Wildcard1": {
+              "TextId": "__SingleUse_JFYZ",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "Line",
+            "Name": "line1_1",
+            "X": 16,
+            "Y": 220,
+            "Width": 288,
+            "Height": 20,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 280.0,
+            "EndY": 5.0,
+            "LineWidth": 4.0,
+            "LineEndingStyle": "Square"
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "Pid_PtoSettings",
+            "InteractionName": "PidToSettings_flag",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnBack"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "PidToSettings_flag"
+            }
+          },
+          {
+            "InteractionName": "PID_value_up",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnPID_UP"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "PID_value_up"
+            }
+          },
+          {
+            "InteractionName": "PID_value_dn",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnPID_DN"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "PID_value_dn"
+            }
+          },
+          {
+            "InteractionName": "setPID_value",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnSet"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "setPID_value"
+            }
+          },
+          {
+            "InteractionName": "PidToSettings",
             "Trigger": {
               "Type": "TriggerClicked",
               "TriggerComponent": "btnBack"
@@ -2153,39 +2253,6 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "Settings"
-            }
-          },
-          {
-            "InteractionName": "P_up",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "btnPID_P_UP"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "PID_P_value_up"
-            }
-          },
-          {
-            "InteractionName": "P_dn",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "btnPID_P_DN"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "PID_P_value_dn"
-            }
-          },
-          {
-            "InteractionName": "setPID_P_value",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "btnSet"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "setPID_P_value"
             }
           }
         ]
@@ -2506,18 +2573,6 @@
             }
           },
           {
-            "InteractionName": "SelectDry",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "btnSet"
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Home_Dry"
-            }
-          },
-          {
             "InteractionName": "TempUp",
             "Trigger": {
               "Type": "TriggerClicked",
@@ -2559,6 +2614,29 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "TimeDn"
+            }
+          },
+          {
+            "InteractionName": "SavePreset",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnSet"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "SavePreset"
+            }
+          },
+          {
+            "InteractionName": "SetDry",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnSet"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Home_Dry"
             }
           }
         ]

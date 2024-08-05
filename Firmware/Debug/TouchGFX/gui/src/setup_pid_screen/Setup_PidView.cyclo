@@ -1,12 +1,15 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp:404:25:static touchgfx::Unicode::UnicodeChar* touchgfx::Unicode::snprintfFloat(touchgfx::Unicode::UnicodeChar*, uint16_t, const char*, float)	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	1
-../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:26:18:virtual void Setup_PidViewBase::PID_P_value_up()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:30:18:virtual void Setup_PidViewBase::PID_P_value_dn()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:34:18:virtual void Setup_PidViewBase::setPID_P_value()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/setup_pid_screen/Setup_PidViewBase.hpp:46:26:FrontendApplication& Setup_PidViewBase::application()	1
 ../TouchGFX/gui/include/gui/setup_pid_screen/Setup_PidView.hpp:11:13:Setup_PidView::~Setup_PidView()	1
 ../TouchGFX/gui/include/gui/setup_pid_screen/Setup_PidView.hpp:11:13:virtual Setup_PidView::~Setup_PidView()	1
 ../TouchGFX/gui/src/setup_pid_screen/Setup_PidView.cpp:3:1:Setup_PidView::Setup_PidView()	1
-../TouchGFX/gui/src/setup_pid_screen/Setup_PidView.cpp:8:6:virtual void Setup_PidView::setupScreen()	1
-../TouchGFX/gui/src/setup_pid_screen/Setup_PidView.cpp:13:6:virtual void Setup_PidView::tearDownScreen()	1
+../TouchGFX/gui/src/setup_pid_screen/Setup_PidView.cpp:8:6:virtual void Setup_PidView::setupScreen()	5
+../TouchGFX/gui/src/setup_pid_screen/Setup_PidView.cpp:42:6:virtual void Setup_PidView::tearDownScreen()	1
+../TouchGFX/gui/src/setup_pid_screen/Setup_PidView.cpp:48:6:virtual void Setup_PidView::PID_value_up()	7
+../TouchGFX/gui/src/setup_pid_screen/Setup_PidView.cpp:80:6:virtual void Setup_PidView::PID_value_dn()	7
+../TouchGFX/gui/src/setup_pid_screen/Setup_PidView.cpp:113:6:virtual void Setup_PidView::PidToSettings_flag()	4
+../TouchGFX/gui/src/setup_pid_screen/Setup_PidView.cpp:142:6:virtual void Setup_PidView::setPID_value()	1

@@ -2,8 +2,10 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	16	static
+../TouchGFX/generated/gui_generated/include/gui_generated/menu_screen/MenuViewBase.hpp:30:26:FrontendApplication& MenuViewBase::application()	16	static
 ../TouchGFX/gui/include/gui/menu_screen/MenuView.hpp:11:13:MenuView::~MenuView()	16	static
 ../TouchGFX/gui/include/gui/menu_screen/MenuView.hpp:11:13:virtual MenuView::~MenuView()	16	static
 ../TouchGFX/gui/src/menu_screen/MenuView.cpp:3:1:MenuView::MenuView()	16	static
 ../TouchGFX/gui/src/menu_screen/MenuView.cpp:8:6:virtual void MenuView::setupScreen()	16	static
 ../TouchGFX/gui/src/menu_screen/MenuView.cpp:13:6:virtual void MenuView::tearDownScreen()	16	static
+../TouchGFX/gui/src/menu_screen/MenuView.cpp:19:6:virtual void MenuView::BackToCurUse()	16	static

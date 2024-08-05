@@ -6,6 +6,9 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_JFYZ" Alignment="Left" TypographyId="Typography2">
+        <Translation Language="GB">val</Translation>
+      </Text>
       <Text Id="__SingleUse_OKEP" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">val</Translation>
       </Text>
@@ -327,7 +330,7 @@
       <Text Id="__SingleUse_TYNP" Alignment="Center" TypographyId="Typography1">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_Y32V" Alignment="Center" TypographyId="Custom1">
+      <Text Id="__SingleUse_Y32V" Alignment="Center" TypographyId="Typography2">
         <Translation Language="GB">PID - &lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_YO4Y" Alignment="Center" TypographyId="Default">

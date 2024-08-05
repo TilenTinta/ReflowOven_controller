@@ -1214,7 +1214,7 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim)
 			{
 			  ovenParameters.cntTimerTick = 0;
 			  ovenParameters.cntSecond ++;
-			  pid.PID_trig = 1; // triger pid calculation
+			  ovenParameters.PID_trig = 1; // triger pid calculation
 			}
 
 			// Increase ticks

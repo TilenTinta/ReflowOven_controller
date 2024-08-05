@@ -158,13 +158,6 @@ void Dry_SetupViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& sr
         //Go to Menu with no screen transition
         application().gotoMenuScreenNoTransition();
     }
-    if (&src == &btnSet)
-    {
-        //SelectDry
-        //When btnSet clicked change screen to Home_Dry
-        //Go to Home_Dry with no screen transition
-        application().gotoHome_DryScreenNoTransition();
-    }
     if (&src == &btnTemp_UP)
     {
         //TempUp
@@ -192,5 +185,16 @@ void Dry_SetupViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& sr
         //When btnTime_DN clicked call virtual function
         //Call TimeDn
         TimeDn();
+    }
+    if (&src == &btnSet)
+    {
+        //SavePreset
+        //When btnSet clicked call virtual function
+        //Call SavePreset
+        SavePreset();
+        //SetDry
+        //When btnSet clicked change screen to Home_Dry
+        //Go to Home_Dry with no screen transition
+        application().gotoHome_DryScreenNoTransition();
     }
 }
