@@ -10,11 +10,11 @@ void SettingsView::setupScreen()
 	// set current used values - dual probes
 	if (ovenParameters.dualProbes == 1)
 	{
-		toggleBtnProbes.forceState(1);
+		toggleBtnProbes.forceState(true);
 	}
 	else
 	{
-		toggleBtnProbes.forceState(0);
+		toggleBtnProbes.forceState(false);
 	}
 
 	toggleBtnProbes.invalidate();
@@ -91,7 +91,7 @@ void SettingsView::ProbesNoSelect()
 // Select the number of SSRs used in oven
 void SettingsView::SSRNoSelect()
 {
-	if (toggleBtnSSR.getState() == 0)
+	if (toggleBtnSSR.getState() == 1)
 	{
 		ovenParameters.dualSSRs = 1;
 	}
@@ -104,7 +104,7 @@ void SettingsView::SSRNoSelect()
 // selected units (C / F) TODO: not implemented yet
 void SettingsView::CFSelect()
 {
-	if (toggleBtnCF.getState() == 0)
+	if (toggleBtnCF.getState() == 1)
 	{
 		ovenParameters.units = 1;
 	}
@@ -117,7 +117,7 @@ void SettingsView::CFSelect()
 // Enabling use of AUX1 output
 void SettingsView::outputAUX1()
 {
-	if (toggleBtnAUX1.getState() == 0)
+	if (toggleBtnAUX1.getState() == 1)
 	{
 		ovenParameters.AUX1 = 1;
 	}
@@ -130,7 +130,7 @@ void SettingsView::outputAUX1()
 // Enabling use of AUX1 output
 void SettingsView::outputAUX2()
 {
-	if (toggleBtnAUX2.getState() == 0)
+	if (toggleBtnAUX2.getState() == 1)
 	{
 		ovenParameters.AUX2 = 1;
 	}
@@ -156,6 +156,11 @@ void SettingsView::SettingsToPid_I_flag()
 void SettingsView::SettingsToPid_D_flag()
 {
 	ovenParameters.pidSetupStep = 3;
+}
+
+void SettingsView::SaveSettings()
+{
+	ovenParameters.saveFlash = 1;
 }
 
 

@@ -57,6 +57,10 @@ public:
     {
         // Override and implement this function in Settings
     }
+    virtual void SaveSettings()
+    {
+        // Override and implement this function in Settings
+    }
 
 protected:
     FrontendApplication& application() {

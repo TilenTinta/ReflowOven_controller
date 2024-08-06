@@ -80,7 +80,7 @@ protected:
     touchgfx::TextArea txt_1_1_1_1_1_2_1_1;
     touchgfx::TextArea txt_1_1_1_1_1_1;
     touchgfx::Box box1;
-    touchgfx::Graph<100> GraphReflow;
+    touchgfx::Graph<400> GraphReflow;
     touchgfx::GraphElementGridY GraphReflowMajorYAxisGrid;
     touchgfx::GraphLabelsX GraphReflowMajorXAxisLabel;
     touchgfx::GraphLabelsY GraphReflowMajorYAxisLabel;

@@ -22,6 +22,7 @@ public:
 	virtual void SettingsToPid_P_flag();
 	virtual void SettingsToPid_I_flag();
 	virtual void SettingsToPid_D_flag();
+	virtual void SaveSettings();
 
 protected:
 };

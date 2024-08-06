@@ -32,6 +32,7 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
+#include "math.h"
 
 #include "fonts.h"
 #include "z_displ_ILI9XXX.h"
@@ -119,28 +120,32 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 
 /*/////////// CHANGE HERE ///////////*/
-#define PROBE_NO				1 // Number of thermalprobes that will be used
-#define SSR_NO					1 // Number of solid state relays that will be used
-#define AUX_NO					0 // Number of AUX ports that will be used
-#define BUZZER_EN				0 // Enable buzzer
-#define UART_EN					1 // Enable uart port (just data sending...)
+//#define DUAL_PROBE			// Enable second thermo probe
+//#define DUAL_SSR				// Enable second SSR
+//#define AUX1_EN				// Enable AUX1 port
+//#define AUX2_EN				// Enable AUX2 port
+#define BUZZER_EN				// Enable buzzer
+#define THERMALRUNAWAY_EN		// Enable thermal runaway protection
+
+#define UART_EN					// Enable uart port (just data sending...)
+//#define PID_CAL					// Disable the SSRs to drive them witw external source to get data for PID tuning
 
 
 /////////// Do not change whats follows ///////////
 #define tickInSec				5
 #define secInMin 				60
 #define minInH 					60
+#define FLASH_START_ADDR		2090000
 
 #define STATE_INIT				0		// Starting state
 #define STATE_ERROR				1		// If fault is detected - block the device
 #define STATE_REFLOW			2		// Reflow mode
 #define STATE_DRY				3		// Drying mode
 
-#define THERMALRUNAWAY_ON_OFF	1
 #define RUNAWAY_TEMP			1		// thermal runaway temperature delta
 #define RUNAWAY_TIME			5		// thermal runaway time delta
 
-#define MIN_BUCK_VOLTAGE		3		// Minimum allowed buck output voltage
+#define MIN_BUCK_VOLTAGE		3.1		// Minimum allowed buck output voltage
 #define MIN_IN_VOLTAGE			10		// Minimum allowed input voltage
 #define R1_3V3					6800	// R1 of voltage divider for 12V
 #define R2_3V3					1000	// R2 of voltage divider for 12V
@@ -164,6 +169,14 @@ typedef struct {
 	uint8_t pageChageNo;		// number of changed page: 0 - startup, 1 - reflow, 2 - dry, 3 - error
 	uint8_t actionTick;			// trigger to read and data refresh
 	uint8_t PID_trig;			// flag to triger pid calculation
+	uint8_t reflowSetupStep; 	// selected reflow step in profile setup, 0 - default meni
+	uint8_t pidSetupStep;		// selected pid setting, 0 - default meni, 1 - P, 2 - I, 3 - D
+	uint8_t saveFlash;			// trigger saving to flash routine
+	uint16_t totalReflowTime;	// max time for reflow cycle
+	uint16_t endTimeStage;		// end time of current stage
+	uint8_t reflowStage;		// number of current stage of reflow
+	uint8_t tempSPDelta;		// temperature delta used to set next set point
+	uint8_t setpointCal;		// flag to calculate new tempSPDelta
 
 	// Device time value
 	uint8_t cntTimerTick;		// timer triggers counter
@@ -171,19 +184,17 @@ typedef struct {
 	uint8_t cntMinute;			// minutes counter
 	uint8_t cntHour;			// hours conter
 
-	// Device settings
+	// Device settings - retentive
 	float Kp;					// PID P value
 	float Ki;					// PID I value
 	float Kd;					// PID D value
 	uint8_t lastUsedMode;		// mode that was last used, 0 - reflow, 1 - dry
+	uint8_t profileNoSelected; 	// current selected reflow profile
 	uint8_t dualProbes; 		// 0 - disable, 1 - enable
 	uint8_t dualSSRs; 			// 0 - disable, 1 - enable
 	uint8_t units; 				// 0 - C, 1 - F
 	uint8_t AUX1; 				// 0 - disable, 1 - enable
 	uint8_t AUX2; 				// 0 - disable, 1 - enable
-	uint8_t profileNoSelected; 	// current selected reflow profile
-	uint8_t reflowSetupStep; 	// selected reflow step in profile setup, 0 - default meni
-	uint8_t pidSetupStep;		// selected pid setting, 0 - default meni, 1 - P, 2 - I, 3 - D
 
 } OvenParameters;
 
@@ -191,6 +202,7 @@ extern OvenParameters ovenParameters;
 
 
 /*** Structure of reflow profiles ***/
+// - retentive
 typedef struct {
 
 	// Reflow profile 1
@@ -219,6 +231,7 @@ extern ReflowProfiles reflowProfiles;
 
 
 /*** Structure of drying settings ***/
+// - retentive
 typedef struct {
 
 	// Values used for drying mode
@@ -279,6 +292,8 @@ typedef struct {
 // Functions
 void PIDInit(PID *pid);
 uint32_t PIDcalculation(PID *pid, uint8_t* setPoint);
+void WriteVarToFlash();
+void ReadVarFromFlash();
 
 /* USER CODE END Private defines */
 

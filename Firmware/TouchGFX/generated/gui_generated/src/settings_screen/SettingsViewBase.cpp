@@ -99,6 +99,7 @@ SettingsViewBase::SettingsViewBase() :
     btnSave.setLabelText(touchgfx::TypedText(T___SINGLEUSE_GHJK));
     btnSave.setLabelColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     btnSave.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    btnSave.setAction(buttonCallback);
     add(btnSave);
 
     btnSetPidP.setXY(173, 278);
@@ -246,5 +247,12 @@ void SettingsViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src
         //When toggleBtnAUX2 clicked call virtual function
         //Call outputAUX2
         outputAUX2();
+    }
+    if (&src == &btnSave)
+    {
+        //SaveSettings
+        //When btnSave clicked call virtual function
+        //Call SaveSettings
+        SaveSettings();
     }
 }

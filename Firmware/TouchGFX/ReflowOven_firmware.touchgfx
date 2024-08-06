@@ -852,8 +852,8 @@
             "Width": 291,
             "Height": 194,
             "DataSeed": 1122024401,
-            "NumberOfValues": 100,
-            "MaxX": 100.0,
+            "NumberOfValues": 400,
+            "MaxX": 400.0,
             "PrecisionX": "1",
             "MaxY": 260.0,
             "PrecisionY": "1",
@@ -906,14 +906,14 @@
             },
             "YAxisLabel": {
               "Type": "GraphLabel",
-              "Interval": 20.0,
+              "Interval": 26.0,
               "DecimalSeparator": "Point",
               "TextColor": {
-                "Red": 250,
-                "Green": 250,
-                "Blue": 250
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
               },
-              "TextId": "__SingleUse_R5Q8",
+              "TextId": "__SingleUse_YUSI",
               "TextRotation": "0",
               "Position": "Left"
             }
@@ -2055,6 +2055,17 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "Setup_Pid"
+            }
+          },
+          {
+            "InteractionName": "SaveSettings",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnSave"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "SaveSettings"
             }
           }
         ]

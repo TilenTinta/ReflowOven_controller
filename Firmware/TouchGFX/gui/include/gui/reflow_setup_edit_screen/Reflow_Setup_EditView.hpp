@@ -21,6 +21,8 @@ public:
 
 protected:
     uint16_t time = 0;
+    uint16_t timePrev = 0;
+    uint16_t timeNext = 0;
     uint16_t temp = 0;
 };
 

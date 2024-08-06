@@ -17,3 +17,4 @@
 ../TouchGFX/gui/src/settings_screen/SettingsView.cpp:144:6:virtual void SettingsView::SettingsToPid_P_flag()	16	static
 ../TouchGFX/gui/src/settings_screen/SettingsView.cpp:150:6:virtual void SettingsView::SettingsToPid_I_flag()	16	static
 ../TouchGFX/gui/src/settings_screen/SettingsView.cpp:156:6:virtual void SettingsView::SettingsToPid_D_flag()	16	static
+../TouchGFX/gui/src/settings_screen/SettingsView.cpp:161:6:virtual void SettingsView::SaveSettings()	16	static

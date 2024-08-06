@@ -88,17 +88,18 @@
 ../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:48:18:virtual void SettingsViewBase::CFSelect()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:52:18:virtual void SettingsViewBase::outputAUX1()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:56:18:virtual void SettingsViewBase::outputAUX2()	1
-../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:62:26:FrontendApplication& SettingsViewBase::application()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:60:18:virtual void SettingsViewBase::SaveSettings()	1
+../TouchGFX/generated/gui_generated/include/gui_generated/settings_screen/SettingsViewBase.hpp:66:26:FrontendApplication& SettingsViewBase::application()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:touchgfx::View<SettingsPresenter>::~View()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:virtual touchgfx::View<SettingsPresenter>::~View()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:31:7:touchgfx::Button::~Button()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:31:7:virtual touchgfx::Button::~Button()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ToggleButton.hpp:32:7:touchgfx::ToggleButton::ToggleButton()	1
 ../TouchGFX/generated/gui_generated/src/settings_screen/SettingsViewBase.cpp:10:1:SettingsViewBase::SettingsViewBase()	1
-../TouchGFX/generated/gui_generated/src/settings_screen/SettingsViewBase.cpp:163:1:SettingsViewBase::~SettingsViewBase()	1
-../TouchGFX/generated/gui_generated/src/settings_screen/SettingsViewBase.cpp:163:1:virtual SettingsViewBase::~SettingsViewBase()	1
-../TouchGFX/generated/gui_generated/src/settings_screen/SettingsViewBase.cpp:168:6:virtual void SettingsViewBase::setupScreen()	1
-../TouchGFX/generated/gui_generated/src/settings_screen/SettingsViewBase.cpp:173:6:void SettingsViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	10
+../TouchGFX/generated/gui_generated/src/settings_screen/SettingsViewBase.cpp:164:1:SettingsViewBase::~SettingsViewBase()	1
+../TouchGFX/generated/gui_generated/src/settings_screen/SettingsViewBase.cpp:164:1:virtual SettingsViewBase::~SettingsViewBase()	1
+../TouchGFX/generated/gui_generated/src/settings_screen/SettingsViewBase.cpp:169:6:virtual void SettingsViewBase::setupScreen()	1
+../TouchGFX/generated/gui_generated/src/settings_screen/SettingsViewBase.cpp:174:6:void SettingsViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	11
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:39:5:touchgfx::View<T>::View() [with T = SettingsPresenter]	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:134:7:constexpr touchgfx::GenericCallback<const touchgfx::AbstractButton&>::GenericCallback()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:373:5:touchgfx::Callback<dest_type, T1, void, void>::Callback(dest_type*, void (dest_type::*)(T1)) [with dest_type = SettingsViewBase; T1 = const touchgfx::AbstractButton&]	1

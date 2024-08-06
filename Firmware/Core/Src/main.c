@@ -89,6 +89,12 @@ OvenParameters ovenParameters = {
 		.tempNTC = 0.0f,
 		.tempThermo = 0.0f,
 		.PID_trig = 0,
+		.saveFlash = 0,
+		.reflowStage = 0,
+		.tempSPDelta = 0,
+		.setpointCal = 0,
+		.totalReflowTime = 0,
+		.endTimeStage = 0,
 
 		// retentive variables
 		.Kp = 10.0f,	// 3.96
@@ -96,7 +102,10 @@ OvenParameters ovenParameters = {
 		.Kd = 4.5f,		// 49.5
 		.profileNoSelected = 1,
 		.lastUsedMode = 1,
-		.dualProbes = 1,
+
+		// TODO ?
+		// variables changes on define parameters in main.h
+		.dualProbes = 0,
 		.dualSSRs = 0,
 		.units = 0,
 		.AUX1 = 0,
@@ -156,7 +165,7 @@ float tempAVG1[5] = {};			// values of temp from thermocouple 1 in one second to
 float tempAVG2[5] = {};			// values of temp from thermocouple 2 in one second to calculate average value
 uint8_t cntTempArray = 0;		// counter for temperature array
 uint8_t endOfCycle = 0;			// flag to indicate the end of drying or reflow
-uint16_t* reflowTimeSeconds;	// time of entire reflow cycle
+uint16_t startingTemp = 0; 		// used to set setpoints
 
 /* USER CODE END 0 */
 
@@ -223,22 +232,6 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  /*
-  // CLEAR, WRITE AND READ FROM FLASH
-  if (!Flash_Init()){
-	  while(1){}
-  }
-
-  //Flash_ChipErase();
-  uint8_t msg[20];
-  strcpy((char*)msg, "test message");
-
-  Flash_Write(0	, msg, 12);
-
-  strcpy((char*)msg, "            ");
-
-  Flash_Read(0, msg, 12);
-  */
 
   while (1)
   {
@@ -280,7 +273,7 @@ int main(void)
 			  }
 			  else if (deviceState == STATE_REFLOW)
 			  {
-				  uint32_t timeDryEst = *reflowTimeSeconds - (ovenParameters.cntMinute * 60 + ovenParameters.cntSecond);
+				  uint32_t timeDryEst = ovenParameters.totalReflowTime - (ovenParameters.cntMinute * 60 + ovenParameters.cntSecond);
 				  if (timeDryEst == 0) endOfCycle = 1;
 			  }
 
@@ -377,13 +370,12 @@ int main(void)
 		  cntTempArray ++;
 
 		  // Print data on serial port
-		  if (UART_EN == 1)
-		  {
+			#ifdef UART_EN
 			  // Print data
 			  char message[50] = {'\0'};
 			  sprintf((char *)message, "Probe1 = %.2f\r\n", ovenParameters.tempThermo); // added tick in settings to allow float serial data
 			  HAL_UART_Transmit(&huart1, (uint8_t*)message, strlen((char*)message), 100);
-		  }
+			#endif
 
 
 		  // RESET TICK TIMER - timer callback declared in z_displ_ILI9XXX.h file
@@ -391,6 +383,12 @@ int main(void)
 
 	  }
 
+
+	  // Save variables to flash
+	  if (ovenParameters.saveFlash == 1)
+	  {
+		  WriteVarToFlash();
+	  }
 
 
 	  ///////////// STATE MACHINE /////////////
@@ -401,6 +399,28 @@ int main(void)
 		  uint8_t err = 0; // error counter
 
 		  HAL_Delay(1000); // wait 1 second for all devices to power on
+
+			#ifdef DUAL_PROBE
+		  	  ovenParameters.dualProbes = 1;
+			#endif
+
+			#ifdef DUAL_SSR
+		  	  ovenParameters.dualSSRs = 1;
+			#endif
+
+			#ifdef AUX1_EN
+		  	  ovenParameters.AUX1 = 1;
+			#endif
+
+			#ifdef AUX2_EN
+		  	  ovenParameters.AUX2 = 1;
+			#endif
+
+		  	// FLASH
+		  if (!Flash_Init())
+		  {
+			while(1){}
+		  }
 
 		  // TODO:
 		  // ... read
@@ -423,10 +443,8 @@ int main(void)
 
 		  // Check thermocouples //
 		  // Probe 1
-		  if (PROBE_NO == 1)
+		  if (ovenParameters.dualProbes == 0)
 		  {
-			  ovenParameters.dualProbes = 0;
-
 			  CheckThermocouple(&thermocouple1, &hspi2, TERMO1_CS_GPIO_Port, TERMO1_CS_Pin);
 			  if (thermocouple1.fault == 1)
 			  {
@@ -436,10 +454,8 @@ int main(void)
 		  }
 
 		  // Probe 2
-		  if (PROBE_NO == 2)
+		  if (ovenParameters.dualProbes == 1)
 		  {
-			  ovenParameters.dualProbes = 1;
-
 			  CheckThermocouple(&thermocouple1, &hspi2, TERMO1_CS_GPIO_Port, TERMO1_CS_Pin);
 			  if (thermocouple1.fault == 1)
 			  {
@@ -482,11 +498,13 @@ int main(void)
 			  HAL_GPIO_WritePin(INHIBIT_GPIO_Port, INHIBIT_Pin, GPIO_PIN_SET); // Enable inhibit
 			  ovenParameters.initEnd = 1;
 
-			  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2); // enable output for SSR1
-			  TIM4->CCR2 = 0;
+			#ifndef PID_CAL
+				  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2); // enable output for SSR1
+				  TIM4->CCR2 = 0;
 
-			  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1); // enable output for SSR2
-			  TIM4->CCR1 = 0;
+				  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1); // enable output for SSR2
+				  TIM4->CCR1 = 0;
+			#endif
 
 			  // continue in reflow mode
 			  if (ovenParameters.lastUsedMode == 0)
@@ -516,6 +534,7 @@ int main(void)
 
 	  case STATE_REFLOW:
 
+		  // End of reflow profile
 		  if (endOfCycle == 1)
 		  {
 			  ovenParameters.startStop = 0; // end of reflow
@@ -523,33 +542,132 @@ int main(void)
 			  endOfCycle = 0;
 		  }
 
+		  // Get current time of reflow in seconds
+		  uint8_t timeSeconds = ovenParameters.cntMinute * 60 + ovenParameters.cntSecond;
+
+		  // Calculate delta to use as setpoint, trigered every stage change (5 times)
+		  if (ovenParameters.setpointCal == 0)
+		  {
+
+			  uint16_t startTime = 0;
+			  uint16_t reflowTimeDelta = 0;
+			  uint16_t startTemp = round(ovenParameters.tempThermo);
+			  uint16_t endTime = 0;
+
+			  // set end time of current stage
+			  switch(ovenParameters.profileNoSelected)
+			  {
+				  case 1:
+					  // Get entire time of profile
+					  ovenParameters.totalReflowTime = reflowProfiles.profile1Time[4];
+
+					  // get time delta between two stages
+					  if (ovenParameters.reflowStage != 0) startTime = reflowProfiles.profile1Time[ovenParameters.reflowStage - 1];
+					  endTime = reflowProfiles.profile1Time[ovenParameters.reflowStage];
+					  ovenParameters.endTimeStage = endTime;
+					  reflowTimeDelta = endTime - startTime;
+
+					  // get temp delta to set setpoint
+					  if (ovenParameters.reflowStage != 0) startTemp = reflowProfiles.profile1Temp[ovenParameters.reflowStage - 1];
+					  ovenParameters.tempSPDelta = round((reflowProfiles.profile1Temp[ovenParameters.reflowStage] - startTemp) / reflowTimeDelta);
+
+					  // set starting temp
+					  if (ovenParameters.reflowStage == 0) startingTemp = round(ovenParameters.tempThermo);
+
+					  break;
+
+				  case 2:
+					  // Get entire time of profile
+					  ovenParameters.totalReflowTime = reflowProfiles.profile2Time[4];
+
+					  // get time delta between two stages
+					  if (ovenParameters.reflowStage != 0) startTime = reflowProfiles.profile2Time[ovenParameters.reflowStage - 1];
+					  endTime = reflowProfiles.profile2Time[ovenParameters.reflowStage];
+					  ovenParameters.endTimeStage = endTime;
+					  reflowTimeDelta = endTime - startTime;
+
+					  // get temp delta to set setpoint
+					  if (ovenParameters.reflowStage != 0) startTemp = reflowProfiles.profile2Temp[ovenParameters.reflowStage - 1];
+					  ovenParameters.tempSPDelta = round((reflowProfiles.profile2Temp[ovenParameters.reflowStage] - startTemp) / reflowTimeDelta);
+
+					  // set starting temp
+					  if (ovenParameters.reflowStage == 0) startingTemp = round(ovenParameters.tempThermo);
+
+					  break;
+
+				  case 3:
+					  // Get entire time of profile
+					  ovenParameters.totalReflowTime = reflowProfiles.profile3Time[4];
+
+					  // get time delta between two stages
+					  if (ovenParameters.reflowStage != 0) startTime = reflowProfiles.profile3Time[ovenParameters.reflowStage - 1];
+					  endTime = reflowProfiles.profile3Time[ovenParameters.reflowStage];
+					  ovenParameters.endTimeStage = endTime;
+					  reflowTimeDelta = endTime - startTime;
+
+					  // get temp delta to set setpoint
+					  if (ovenParameters.reflowStage != 0) startTemp = reflowProfiles.profile3Temp[ovenParameters.reflowStage - 1];
+					  ovenParameters.tempSPDelta = round((reflowProfiles.profile3Temp[ovenParameters.reflowStage] - startTemp) / reflowTimeDelta);
+
+					  // set starting temp
+					  if (ovenParameters.reflowStage == 0) startingTemp = round(ovenParameters.tempThermo);
+
+					  break;
+
+				  case 4:
+					  // Get entire time of profile
+					  ovenParameters.totalReflowTime = reflowProfiles.profile4Time[4];
+
+					  // get time delta between two stages
+					  if (ovenParameters.reflowStage != 0) startTime = reflowProfiles.profile4Time[ovenParameters.reflowStage - 1];
+					  endTime = reflowProfiles.profile4Time[ovenParameters.reflowStage];
+					  ovenParameters.endTimeStage = endTime;
+					  reflowTimeDelta = endTime - startTime;
+
+					  // get temp delta to set setpoint
+					  if (ovenParameters.reflowStage != 0) startTemp = reflowProfiles.profile4Temp[ovenParameters.reflowStage - 1];
+					  ovenParameters.tempSPDelta = round((reflowProfiles.profile4Temp[ovenParameters.reflowStage] - startTemp) / reflowTimeDelta);
+
+					  // set starting temp
+					  if (ovenParameters.reflowStage == 0) startingTemp = round(ovenParameters.tempThermo);
+
+					  break;
+
+				  case 5:
+					  // Get entire time of profile
+					  ovenParameters.totalReflowTime = reflowProfiles.profile5Time[4];
+
+					  // get time delta between two stages
+					  if (ovenParameters.reflowStage != 0) startTime = reflowProfiles.profile5Time[ovenParameters.reflowStage - 1];
+					  endTime = reflowProfiles.profile5Time[ovenParameters.reflowStage];
+					  ovenParameters.endTimeStage = endTime;
+					  reflowTimeDelta = endTime - startTime;
+
+					  // get temp delta to set setpoint
+					  if (ovenParameters.reflowStage != 0) startTemp = reflowProfiles.profile5Temp[ovenParameters.reflowStage - 1];
+					  ovenParameters.tempSPDelta = round((reflowProfiles.profile5Temp[ovenParameters.reflowStage] - startTemp) / reflowTimeDelta);
+
+					  // set starting temp
+					  if (ovenParameters.reflowStage == 0) startingTemp = round(ovenParameters.tempThermo);
+
+					  break;
+			  }
+
+			  ovenParameters.setpointCal = 1;
+		  }
+
+		  // PID calculation
 		  if (ovenParameters.PID_trig == 1)
 		  {
-			  TIM4->CCR2 =  PIDcalculation(&pid ,&dryPreset.dryTemp); // set SSR1 Duty (Timer 4 channel 2)
+			  TIM4->CCR2 =  PIDcalculation(&pid, startingTemp += ovenParameters.tempSPDelta); // set SSR1 Duty (Timer 4 channel 2)
 			  ovenParameters.PID_trig = 0; // reset pid calculate flag
 		  }
 
-		  switch(ovenParameters.profileNoSelected)
+		  // Detect time to end current stage of reflow
+		  if (timeSeconds == ovenParameters.endTimeStage)
 		  {
-			  case 1:
-				  reflowTimeSeconds = &reflowProfiles.profile1Time[4];
-				  break;
-
-			  case 2:
-				  reflowTimeSeconds = &reflowProfiles.profile2Time[4];
-				  break;
-
-			  case 3:
-				  reflowTimeSeconds = &reflowProfiles.profile3Time[4];
-				  break;
-
-			  case 4:
-				  reflowTimeSeconds = &reflowProfiles.profile4Time[4];
-				  break;
-
-			  case 5:
-				  reflowTimeSeconds = &reflowProfiles.profile5Time[4];
-				  break;
+			ovenParameters.setpointCal = 1; // trigger recalculation of parameters
+			ovenParameters.reflowStage ++;	// move to next stage
 		  }
 
 		  break;
@@ -565,7 +683,7 @@ int main(void)
 
 		  if (ovenParameters.PID_trig == 1)
 		  {
-			  TIM4->CCR2 =  PIDcalculation(&pid ,&dryPreset.dryTemp); // set SSR1 Duty (Timer 4 channel 2)
+			  TIM4->CCR2 =  PIDcalculation(&pid, &dryPreset.dryTemp); // set SSR1 Duty (Timer 4 channel 2)
 			  ovenParameters.PID_trig = 0; // reset pid calculate flag
 		  }
 
@@ -1121,6 +1239,54 @@ uint32_t PIDcalculation(PID *pid, uint8_t* setPoint)
 	// 2^16 = 65536 / 100 = 655.36
 
 	return (uint32_t)(pid->output * 655);
+}
+
+
+// Write variables to external flash
+void WriteVarToFlash()
+{
+	// Buffer for saving data
+	uint8_t dataToSave[50] = {0};
+
+	// Prepare data to be saved
+	/*
+	memcpy(dataToSave, &ovenParameters.profileNoSelected, sizeof(uint8_t));
+	memcpy(dataToSave + sizeof(uint8_t), &ovenParameters.lastUsedMode, sizeof(uint8_t));
+	uint8_t intOffset = 2 * sizeof(uint8_t);
+	memcpy(dataToSave + intOffset + 0 * sizeof(float), &ovenParameters.Kp, sizeof(float));
+	memcpy(dataToSave + intOffset + 1 * sizeof(float), &ovenParameters.Ki, sizeof(float));
+	memcpy(dataToSave + intOffset + 2 * sizeof(float), &ovenParameters.Kd, sizeof(float));
+	*/
+
+	Flash_Write(FLASH_START_ADDR, &ovenParameters.profileNoSelected, sizeof(uint8_t)); // start address, data, lenght
+	Flash_Write(FLASH_START_ADDR + sizeof(uint8_t), &ovenParameters.lastUsedMode, sizeof(uint8_t));
+
+	uint8_t data1 = 0;
+	uint8_t data2 = 0;
+
+	Flash_Read(FLASH_START_ADDR, &data1, sizeof(uint8_t));
+	Flash_Read(FLASH_START_ADDR + sizeof(uint8_t), &data2, sizeof(uint8_t));
+
+	//float Kptest = 0;
+	//float Kitest = 0;
+
+	//memcpy(&Kptest, dataToSave + 0 * sizeof(float), sizeof(float));
+	//memcpy(&Kitest, dataToSave + 1 * sizeof(float), sizeof(float));
+
+
+	ovenParameters.saveFlash = 0;
+}
+
+// Read variables from external flash
+void ReadVarFromFlash()
+{
+	  uint8_t msg[20];
+
+	  strcpy((char*)msg, "            ");
+
+	  Flash_Read(0, msg, 12);
+
+	  ovenParameters.saveFlash = 0;
 }
 
 /* USER CODE END 4 */
