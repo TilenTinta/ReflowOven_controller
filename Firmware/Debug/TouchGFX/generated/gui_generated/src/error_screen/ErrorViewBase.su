@@ -74,11 +74,11 @@
 ../TouchGFX/generated/gui_generated/include/gui_generated/error_screen/ErrorViewBase.hpp:24:26:FrontendApplication& ErrorViewBase::application()	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:touchgfx::View<ErrorPresenter>::~View()	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:virtual touchgfx::View<ErrorPresenter>::~View()	16	static
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:9:1:ErrorViewBase::ErrorViewBase()	360	static
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:75:1:ErrorViewBase::~ErrorViewBase()	16	static
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:75:1:virtual ErrorViewBase::~ErrorViewBase()	16	static
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:80:6:virtual void ErrorViewBase::setupScreen()	16	static
-../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:85:6:void ErrorViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	16	static
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:9:1:ErrorViewBase::ErrorViewBase()	448	static
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:91:1:ErrorViewBase::~ErrorViewBase()	16	static
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:91:1:virtual ErrorViewBase::~ErrorViewBase()	16	static
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:96:6:virtual void ErrorViewBase::setupScreen()	16	static
+../TouchGFX/generated/gui_generated/src/error_screen/ErrorViewBase.cpp:101:6:void ErrorViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:39:5:touchgfx::View<T>::View() [with T = ErrorPresenter]	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:134:7:constexpr touchgfx::GenericCallback<const touchgfx::AbstractButton&>::GenericCallback()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:373:5:touchgfx::Callback<dest_type, T1, void, void>::Callback(dest_type*, void (dest_type::*)(T1)) [with dest_type = ErrorViewBase; T1 = const touchgfx::AbstractButton&]	24	static

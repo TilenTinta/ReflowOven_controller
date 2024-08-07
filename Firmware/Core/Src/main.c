@@ -305,6 +305,13 @@ int main(void)
 
 				  pid.tempAVGThermo1 = pid.tempAVGThermo1 / tickInSec;
 				  ovenParameters.tempThermoAvg = pid.tempAVGThermo1;
+
+				  // Over temperature protection
+				  if (ovenParameters.tempThermoAvg >= OVERTEMP_ERR)
+				  {
+					  ovenErrorCodes.overTemp ++;
+					  ovenParameters.deviceState == STATE_ERROR;
+				  }
 			  }
 
 			  if (ovenParameters.dualProbes == 1)
@@ -319,6 +326,13 @@ int main(void)
 				  pid.tempAVGThermo2 = pid.tempAVGThermo2 / tickInSec;
 
 				  ovenParameters.tempThermoAvg = (pid.tempAVGThermo1 + pid.tempAVGThermo2) / 2;
+
+				  // Over temperature protection
+				  if (ovenParameters.tempThermoAvg >= OVERTEMP_ERR)
+				  {
+					  ovenErrorCodes.overTemp ++;
+					  ovenParameters.deviceState == STATE_ERROR;
+				  }
 			  }
 
 			  // Clear array
@@ -1289,7 +1303,7 @@ uint32_t PIDcalculation(PID *pid, uint16_t* setPoint)
 	return (uint32_t)(pid->output * 655);
 }
 
-
+// TODO: write and read from flash, thermal runaway, over temperature
 // Write variables to external flash
 void WriteVarToFlash()
 {

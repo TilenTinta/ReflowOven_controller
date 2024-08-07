@@ -63,6 +63,29 @@ void ErrorView::setupScreen()
 		Unicode::snprintf(txtErrNTCBuffer, TXTERRNTC_SIZE, "OK");
 	}
 	txtErrNTC.invalidate();
+
+	// Over temperature protection
+	if (ovenErrorCodes.overTemp == 1)
+	{
+		Unicode::snprintf(txtErrOverTBuffer, TXTERROVERT_SIZE, "NOK");
+	}
+	else
+	{
+		Unicode::snprintf(txtErrOverTBuffer, TXTERROVERT_SIZE, "OK");
+	}
+	txtErrOverT.invalidate();
+
+	// Thermal runaway
+	if (ovenErrorCodes.thermalRunaway == 1)
+	{
+		Unicode::snprintf(txtErrTrnwyBuffer, TXTERRTRNWY_SIZE, "NOK");
+	}
+	else
+	{
+		Unicode::snprintf(txtErrTrnwyBuffer, TXTERRTRNWY_SIZE, "OK");
+	}
+	txtErrTrnwy.invalidate();
+
     ErrorViewBase::setupScreen();
 }
 

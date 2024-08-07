@@ -31,6 +31,8 @@ protected:
     touchgfx::Box __background;
     touchgfx::Image image1;
     touchgfx::TextAreaWithOneWildcard txtErrNTC;
+    touchgfx::TextAreaWithOneWildcard txtErrTrnwy;
+    touchgfx::TextAreaWithOneWildcard txtErrOverT;
     touchgfx::TextAreaWithOneWildcard txtErrADC12V;
     touchgfx::TextAreaWithOneWildcard txtErrADC3V3;
     touchgfx::TextAreaWithOneWildcard txtErrTC1;
@@ -43,6 +45,10 @@ protected:
      */
     static const uint16_t TXTERRNTC_SIZE = 8;
     touchgfx::Unicode::UnicodeChar txtErrNTCBuffer[TXTERRNTC_SIZE];
+    static const uint16_t TXTERRTRNWY_SIZE = 8;
+    touchgfx::Unicode::UnicodeChar txtErrTrnwyBuffer[TXTERRTRNWY_SIZE];
+    static const uint16_t TXTERROVERT_SIZE = 8;
+    touchgfx::Unicode::UnicodeChar txtErrOverTBuffer[TXTERROVERT_SIZE];
     static const uint16_t TXTERRADC12V_SIZE = 10;
     touchgfx::Unicode::UnicodeChar txtErrADC12VBuffer[TXTERRADC12V_SIZE];
     static const uint16_t TXTERRADC3V3_SIZE = 8;

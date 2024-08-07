@@ -142,8 +142,9 @@ void Error_Handler(void);
 #define STATE_REFLOW			2		// Reflow mode
 #define STATE_DRY				3		// Drying mode
 
-#define RUNAWAY_TEMP			1		// thermal runaway temperature delta
-#define RUNAWAY_TIME			5		// thermal runaway time delta
+#define RUNAWAY_TEMP			5		// thermal runaway temperature delta
+#define RUNAWAY_TIME			20		// thermal runaway time delta
+#define OVERTEMP_ERR			270		// Max alowed temperature
 
 #define MIN_BUCK_VOLTAGE		3.1		// Minimum allowed buck output voltage
 #define MIN_IN_VOLTAGE			10		// Minimum allowed input voltage
@@ -254,6 +255,8 @@ typedef struct {
 	uint8_t NTCErr;
 	uint8_t ADC3V3;
 	uint8_t ADC12V;
+	uint8_t thermalRunaway;
+	uint8_t overTemp;
 
 } OvenErrorCodes;
 

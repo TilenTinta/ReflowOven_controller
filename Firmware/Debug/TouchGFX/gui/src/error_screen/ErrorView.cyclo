@@ -5,5 +5,5 @@
 ../TouchGFX/gui/include/gui/error_screen/ErrorView.hpp:12:13:ErrorView::~ErrorView()	1
 ../TouchGFX/gui/include/gui/error_screen/ErrorView.hpp:12:13:virtual ErrorView::~ErrorView()	1
 ../TouchGFX/gui/src/error_screen/ErrorView.cpp:3:1:ErrorView::ErrorView()	1
-../TouchGFX/gui/src/error_screen/ErrorView.cpp:8:6:virtual void ErrorView::setupScreen()	6
-../TouchGFX/gui/src/error_screen/ErrorView.cpp:69:6:virtual void ErrorView::tearDownScreen()	1
+../TouchGFX/gui/src/error_screen/ErrorView.cpp:8:6:virtual void ErrorView::setupScreen()	8
+../TouchGFX/gui/src/error_screen/ErrorView.cpp:92:6:virtual void ErrorView::tearDownScreen()	1

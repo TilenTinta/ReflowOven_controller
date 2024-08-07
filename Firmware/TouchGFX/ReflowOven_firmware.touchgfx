@@ -147,6 +147,46 @@
           },
           {
             "Type": "TextArea",
+            "Name": "txtErrTrnwy",
+            "X": 16,
+            "Y": 225,
+            "Width": 254,
+            "Height": 28,
+            "TextId": "__SingleUse_RR6M",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_IF5B",
+              "UseBuffer": true,
+              "BufferSize": 8
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtErrOverT",
+            "X": 16,
+            "Y": 253,
+            "Width": 254,
+            "Height": 28,
+            "TextId": "__SingleUse_OF3V",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_2S2R",
+              "UseBuffer": true,
+              "BufferSize": 8
+            }
+          },
+          {
+            "Type": "TextArea",
             "Name": "txtErrADC12V",
             "X": 16,
             "Y": 85,

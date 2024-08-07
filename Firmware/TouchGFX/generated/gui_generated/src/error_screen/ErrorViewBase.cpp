@@ -25,6 +25,22 @@ ErrorViewBase::ErrorViewBase() :
     txtErrNTC.setTypedText(touchgfx::TypedText(T___SINGLEUSE_AMF1));
     add(txtErrNTC);
 
+    txtErrTrnwy.setPosition(16, 225, 254, 28);
+    txtErrTrnwy.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txtErrTrnwy.setLinespacing(0);
+    Unicode::snprintf(txtErrTrnwyBuffer, TXTERRTRNWY_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_IF5B).getText());
+    txtErrTrnwy.setWildcard(txtErrTrnwyBuffer);
+    txtErrTrnwy.setTypedText(touchgfx::TypedText(T___SINGLEUSE_RR6M));
+    add(txtErrTrnwy);
+
+    txtErrOverT.setPosition(16, 253, 254, 28);
+    txtErrOverT.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    txtErrOverT.setLinespacing(0);
+    Unicode::snprintf(txtErrOverTBuffer, TXTERROVERT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_2S2R).getText());
+    txtErrOverT.setWildcard(txtErrOverTBuffer);
+    txtErrOverT.setTypedText(touchgfx::TypedText(T___SINGLEUSE_OF3V));
+    add(txtErrOverT);
+
     txtErrADC12V.setPosition(16, 85, 254, 28);
     txtErrADC12V.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txtErrADC12V.setLinespacing(0);

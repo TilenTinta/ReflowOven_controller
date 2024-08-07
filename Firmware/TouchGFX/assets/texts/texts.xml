@@ -6,6 +6,18 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_2S2R" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_OF3V" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">Over temp.: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_IF5B" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">val</Translation>
+      </Text>
+      <Text Id="__SingleUse_RR6M" Alignment="Left" TypographyId="Typography3">
+        <Translation Language="GB">Thermal runaway: &lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_2WUC" Alignment="Left" TypographyId="Typography4">
         <Translation Language="GB">&lt;&gt;</Translation>
       </Text>
