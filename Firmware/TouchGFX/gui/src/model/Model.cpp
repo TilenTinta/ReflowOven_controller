@@ -22,10 +22,17 @@ void Model::tick()
 
 	page = ovenParameters.pageChageNo; // number of next page
 
+	if(boxNo != ovenParameters.reflowStage && ovenParameters.startStop == 1) boxNo = ovenParameters.reflowStage; // change the highlited temp and time on reflow home screen
+	if (ovenParameters.startStop == 0) boxNo = 5;
+
+	point = ovenParameters.tempThermoAvg;
+
 	#endif
 
 		modelListener -> setTEMP(temperatureProbe); 	// send data to listener
 		modelListener -> setTIME(timeSecReflow); 		// send data to listener
 		modelListener -> setPAGE(page);					// send data to listener
 		modelListener -> setTIMELEFT(timeMinDry);		// send data to listener
+		modelListener -> setHIGHLIGHT(boxNo);			// send data to listener
+		modelListener -> setPLOTPOINT(point);			// send data to listener
 }

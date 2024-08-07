@@ -7,12 +7,12 @@
 ../TouchGFX/gui/include/gui/reflow_setup_screen/Reflow_SetupView.hpp:11:13:virtual Reflow_SetupView::~Reflow_SetupView()	16	static
 ../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:3:1:Reflow_SetupView::Reflow_SetupView()	16	static
 ../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:8:6:virtual void Reflow_SetupView::setupScreen()	16	static
-../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:13:6:virtual void Reflow_SetupView::tearDownScreen()	16	static
-../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:19:6:virtual void Reflow_SetupView::nextProfile()	16	static
-../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:35:6:virtual void Reflow_SetupView::prevProfile()	16	static
-../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:51:6:virtual void Reflow_SetupView::selectRamp1()	16	static
-../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:58:6:virtual void Reflow_SetupView::selectSoak()	16	static
-../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:65:6:virtual void Reflow_SetupView::selectRamp2()	16	static
-../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:72:6:virtual void Reflow_SetupView::selectReflow()	16	static
-../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:79:6:virtual void Reflow_SetupView::selectCooling()	16	static
-../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:86:6:virtual void Reflow_SetupView::selectCurrProfile()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:16:6:virtual void Reflow_SetupView::tearDownScreen()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:22:6:virtual void Reflow_SetupView::nextProfile()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:38:6:virtual void Reflow_SetupView::prevProfile()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:54:6:virtual void Reflow_SetupView::selectRamp1()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:61:6:virtual void Reflow_SetupView::selectSoak()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:68:6:virtual void Reflow_SetupView::selectRamp2()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:75:6:virtual void Reflow_SetupView::selectReflow()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:82:6:virtual void Reflow_SetupView::selectCooling()	16	static
+../TouchGFX/gui/src/reflow_setup_screen/Reflow_SetupView.cpp:89:6:virtual void Reflow_SetupView::selectCurrProfile()	16	static

@@ -13,10 +13,19 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 
+    virtual void StartReflow();
+	virtual void StopReflow();
+
+	virtual void DrawPlot();
+
     virtual void setTEMP (float temperatureProbe); 	// virtual function - temperature
     virtual void setTIME (int timeSeconds); 		// virtual function - time
+    virtual void setHIGHLIGHT (int boxNo); 			// virtual function - highlight
+    virtual void setPLOTPOINT (int point); 			// virtual function - set plot point
 
 protected:
+    uint16_t* timePlotArr;
+    uint16_t* tempPlotArr;
 };
 
 #endif // HOME_REFLOWVIEW_HPP

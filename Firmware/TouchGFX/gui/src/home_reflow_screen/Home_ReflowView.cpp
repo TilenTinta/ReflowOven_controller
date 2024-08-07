@@ -36,6 +36,9 @@ void Home_ReflowView::setupScreen()
 		Unicode::snprintf(txtCoolingTimeSetBuffer, TXTCOOLINGTIMESET_SIZE, "%d", reflowProfiles.profile1Time[4]);
 		txtCoolingTempSet.invalidate();
 
+		timePlotArr = &reflowProfiles.profile1Time[0];
+		tempPlotArr = &reflowProfiles.profile1Temp[0];
+
 		break;
 	case 2:
 		// Ramp 1
@@ -63,6 +66,10 @@ void Home_ReflowView::setupScreen()
 		txtCoolingTempSet.invalidate();
 		Unicode::snprintf(txtCoolingTimeSetBuffer, TXTCOOLINGTIMESET_SIZE, "%d", reflowProfiles.profile2Time[4]);
 		txtCoolingTempSet.invalidate();
+
+		timePlotArr = &reflowProfiles.profile2Time[0];
+		tempPlotArr = &reflowProfiles.profile2Temp[0];
+
 		break;
 	case 3:
 		// Ramp 1
@@ -90,6 +97,10 @@ void Home_ReflowView::setupScreen()
 		txtCoolingTempSet.invalidate();
 		Unicode::snprintf(txtCoolingTimeSetBuffer, TXTCOOLINGTIMESET_SIZE, "%d", reflowProfiles.profile3Time[4]);
 		txtCoolingTempSet.invalidate();
+
+		timePlotArr = &reflowProfiles.profile3Time[0];
+		tempPlotArr = &reflowProfiles.profile3Temp[0];
+
 		break;
 	case 4:
 		// Ramp 1
@@ -117,6 +128,10 @@ void Home_ReflowView::setupScreen()
 		txtCoolingTempSet.invalidate();
 		Unicode::snprintf(txtCoolingTimeSetBuffer, TXTCOOLINGTIMESET_SIZE, "%d", reflowProfiles.profile4Time[4]);
 		txtCoolingTempSet.invalidate();
+
+		timePlotArr = &reflowProfiles.profile4Time[0];
+		tempPlotArr = &reflowProfiles.profile4Temp[0];
+
 		break;
 	case 5:
 		// Ramp 1
@@ -144,10 +159,42 @@ void Home_ReflowView::setupScreen()
 		txtCoolingTempSet.invalidate();
 		Unicode::snprintf(txtCoolingTimeSetBuffer, TXTCOOLINGTIMESET_SIZE, "%d", reflowProfiles.profile5Time[4]);
 		txtCoolingTempSet.invalidate();
+
+		timePlotArr = &reflowProfiles.profile5Time[0];
+		tempPlotArr = &reflowProfiles.profile5Temp[0];
+
 		break;
 	default:
 		break;
 	}
+
+	/*
+	// remove all highlight boxes
+	highlight1.setVisible(false);
+	highlight1.invalidate();
+	highlight2.setVisible(false);
+	highlight2.invalidate();
+	highlight3.setVisible(false);
+	highlight3.invalidate();
+	highlight4.setVisible(false);
+	highlight4.invalidate();
+	highlight5.setVisible(false);
+	highlight5.invalidate()
+	 */
+
+	Unicode::snprintf(txtRamp1Buffer, TXTRAMP1_SIZE, " ");
+	txtRamp1.invalidate();
+	Unicode::snprintf(txtSoakBuffer, TXTSOAK_SIZE, " ");
+	txtSoak.invalidate();
+	Unicode::snprintf(txtRamp2Buffer, TXTRAMP2_SIZE, " ");
+	txtRamp2.invalidate();
+	Unicode::snprintf(txtReflowBuffer, TXTREFLOW_SIZE, " ");
+	txtReflow.invalidate();
+	Unicode::snprintf(txtCoolingBuffer, TXTCOOLING_SIZE, " ");
+	txtCooling.invalidate();
+
+	// Draw all the points of selected profile
+	DrawPlot();
 
     Home_ReflowViewBase::setupScreen();
 }
@@ -172,7 +219,132 @@ void Home_ReflowView::setTIME(int timeSeconds)
 	txtCurrentTimeSet.invalidate();
 }
 
+void Home_ReflowView::setHIGHLIGHT(int boxNo)
+{
+	switch(boxNo)
+	{
+	case 0:
+		Unicode::snprintf(txtRamp1Buffer, TXTRAMP1_SIZE, "*");
+		txtRamp1.invalidate();
+		Unicode::snprintf(txtSoakBuffer, TXTSOAK_SIZE, " ");
+		txtSoak.invalidate();
+		Unicode::snprintf(txtRamp2Buffer, TXTRAMP2_SIZE, " ");
+		txtRamp2.invalidate();
+		Unicode::snprintf(txtReflowBuffer, TXTREFLOW_SIZE, " ");
+		txtReflow.invalidate();
+		Unicode::snprintf(txtCoolingBuffer, TXTCOOLING_SIZE, " ");
+		txtCooling.invalidate();
+		break;
 
+	case 1:
+		Unicode::snprintf(txtRamp1Buffer, TXTRAMP1_SIZE, " ");
+		txtRamp1.invalidate();
+		Unicode::snprintf(txtSoakBuffer, TXTSOAK_SIZE, "*");
+		txtSoak.invalidate();
+		Unicode::snprintf(txtRamp2Buffer, TXTRAMP2_SIZE, " ");
+		txtRamp2.invalidate();
+		Unicode::snprintf(txtReflowBuffer, TXTREFLOW_SIZE, " ");
+		txtReflow.invalidate();
+		Unicode::snprintf(txtCoolingBuffer, TXTCOOLING_SIZE, " ");
+		txtCooling.invalidate();
+		break;
+
+	case 2:
+		Unicode::snprintf(txtRamp1Buffer, TXTRAMP1_SIZE, " ");
+		txtRamp1.invalidate();
+		Unicode::snprintf(txtSoakBuffer, TXTSOAK_SIZE, " ");
+		txtSoak.invalidate();
+		Unicode::snprintf(txtRamp2Buffer, TXTRAMP2_SIZE, "*");
+		txtRamp2.invalidate();
+		Unicode::snprintf(txtReflowBuffer, TXTREFLOW_SIZE, " ");
+		txtReflow.invalidate();
+		Unicode::snprintf(txtCoolingBuffer, TXTCOOLING_SIZE, " ");
+		txtCooling.invalidate();
+		break;
+
+	case 3:
+		Unicode::snprintf(txtRamp1Buffer, TXTRAMP1_SIZE, " ");
+		txtRamp1.invalidate();
+		Unicode::snprintf(txtSoakBuffer, TXTSOAK_SIZE, " ");
+		txtSoak.invalidate();
+		Unicode::snprintf(txtRamp2Buffer, TXTRAMP2_SIZE, " ");
+		txtRamp2.invalidate();
+		Unicode::snprintf(txtReflowBuffer, TXTREFLOW_SIZE, "*");
+		txtReflow.invalidate();
+		Unicode::snprintf(txtCoolingBuffer, TXTCOOLING_SIZE, " ");
+		txtCooling.invalidate();
+		break;
+
+	case 4:
+		Unicode::snprintf(txtRamp1Buffer, TXTRAMP1_SIZE, " ");
+		txtRamp1.invalidate();
+		Unicode::snprintf(txtSoakBuffer, TXTSOAK_SIZE, " ");
+		txtSoak.invalidate();
+		Unicode::snprintf(txtRamp2Buffer, TXTRAMP2_SIZE, " ");
+		txtRamp2.invalidate();
+		Unicode::snprintf(txtReflowBuffer, TXTREFLOW_SIZE, " ");
+		txtReflow.invalidate();
+		Unicode::snprintf(txtCoolingBuffer, TXTCOOLING_SIZE, "*");
+		txtCooling.invalidate();
+		break;
+
+	case 5:
+		Unicode::snprintf(txtRamp1Buffer, TXTRAMP1_SIZE, " ");
+		txtRamp1.invalidate();
+		Unicode::snprintf(txtSoakBuffer, TXTSOAK_SIZE, " ");
+		txtSoak.invalidate();
+		Unicode::snprintf(txtRamp2Buffer, TXTRAMP2_SIZE, " ");
+		txtRamp2.invalidate();
+		Unicode::snprintf(txtReflowBuffer, TXTREFLOW_SIZE, " ");
+		txtReflow.invalidate();
+		Unicode::snprintf(txtCoolingBuffer, TXTCOOLING_SIZE, " ");
+		txtCooling.invalidate();
+		break;
+
+	default:
+		Unicode::snprintf(txtRamp1Buffer, TXTRAMP1_SIZE, " ");
+		txtRamp1.invalidate();
+		Unicode::snprintf(txtSoakBuffer, TXTSOAK_SIZE, " ");
+		txtSoak.invalidate();
+		Unicode::snprintf(txtRamp2Buffer, TXTRAMP2_SIZE, " ");
+		txtRamp2.invalidate();
+		Unicode::snprintf(txtReflowBuffer, TXTREFLOW_SIZE, " ");
+		txtReflow.invalidate();
+		Unicode::snprintf(txtCoolingBuffer, TXTCOOLING_SIZE, " ");
+		txtCooling.invalidate();
+		break;
+	}
+}
+
+void Home_ReflowView::StartReflow()
+{
+	ovenParameters.startStop = 1;
+	GraphReflow2.clear();
+}
+
+void Home_ReflowView::StopReflow()
+{
+	ovenParameters.startStop = 0;
+}
+
+void Home_ReflowView::DrawPlot()
+{
+	GraphReflow1.addDataPoint(0, 20);
+	GraphReflow1.addDataPoint(1, *tempPlotArr);
+	GraphReflow1.addDataPoint(2, *(tempPlotArr + 1));
+	GraphReflow1.addDataPoint(3, *(tempPlotArr + 2));
+	GraphReflow1.addDataPoint(4, *(tempPlotArr + 3));
+	GraphReflow1.addDataPoint(5, 20);
+}
+
+void Home_ReflowView::setPLOTPOINT(int point)
+{
+	if (ovenParameters.startStop == 1 && ovenParameters.addPoint == 1)
+	{
+		GraphReflow2.addDataPoint(point);
+		ovenParameters.addPoint = 0;
+	}
+}
 
 
 

@@ -10,6 +10,8 @@
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:18:virtual void ModelListener::setTIME(int)	1
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:21:18:virtual void ModelListener::setPAGE(int)	1
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:22:18:virtual void ModelListener::setTIMELEFT(int)	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:23:18:virtual void ModelListener::setHIGHLIGHT(int)	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:24:18:virtual void ModelListener::setPLOTPOINT(int)	1
 ../TouchGFX/gui/include/gui/home_reflow_screen/Home_ReflowPresenter.hpp:28:13:Home_ReflowPresenter::~Home_ReflowPresenter()	1
 ../TouchGFX/gui/include/gui/home_reflow_screen/Home_ReflowPresenter.hpp:28:13:virtual Home_ReflowPresenter::~Home_ReflowPresenter()	1
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowPresenter.cpp:4:1:Home_ReflowPresenter::Home_ReflowPresenter(Home_ReflowView&)	1
@@ -17,3 +19,5 @@
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowPresenter.cpp:15:6:virtual void Home_ReflowPresenter::deactivate()	1
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowPresenter.cpp:21:6:virtual void Home_ReflowPresenter::setTEMP(float)	1
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowPresenter.cpp:28:6:virtual void Home_ReflowPresenter::setTIME(int)	1
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowPresenter.cpp:34:6:virtual void Home_ReflowPresenter::setHIGHLIGHT(int)	1
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowPresenter.cpp:40:6:virtual void Home_ReflowPresenter::setPLOTPOINT(int)	1

@@ -29,6 +29,8 @@ public:
 
     virtual void setTEMP (float temperatureProbe); 	// virtual function - temperature
     virtual void setTIME (int timeSeconds);		 	// virtual function - time
+    virtual void setHIGHLIGHT (int boxNo); 			// virtual function - highlight
+    virtual void setPLOTPOINT (int point); 			// virtual function - set plot point
 
 private:
     Home_ReflowPresenter();

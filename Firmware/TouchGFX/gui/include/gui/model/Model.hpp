@@ -21,6 +21,8 @@ protected:
     int timeSecReflow; 			// time in seconds for reflow page
     int timeMinDry; 			// time in minutes for dry page
     int page;					// value of page
+    int boxNo;					// highlighted box in reflow cycle
+    int point;					// temperature point on reflow plot
 };
 
 #endif // MODEL_HPP

@@ -7,7 +7,7 @@
 ../TouchGFX/gui/src/dry_setup_screen/Dry_SetupView.cpp:3:1:Dry_SetupView::Dry_SetupView()	1
 ../TouchGFX/gui/src/dry_setup_screen/Dry_SetupView.cpp:8:6:virtual void Dry_SetupView::setupScreen()	1
 ../TouchGFX/gui/src/dry_setup_screen/Dry_SetupView.cpp:25:6:virtual void Dry_SetupView::tearDownScreen()	1
-../TouchGFX/gui/src/dry_setup_screen/Dry_SetupView.cpp:32:6:virtual void Dry_SetupView::TempUp()	1
+../TouchGFX/gui/src/dry_setup_screen/Dry_SetupView.cpp:32:6:virtual void Dry_SetupView::TempUp()	2
 ../TouchGFX/gui/src/dry_setup_screen/Dry_SetupView.cpp:41:6:virtual void Dry_SetupView::TempDn()	2
 ../TouchGFX/gui/src/dry_setup_screen/Dry_SetupView.cpp:50:6:virtual void Dry_SetupView::TimeUp()	2
 ../TouchGFX/gui/src/dry_setup_screen/Dry_SetupView.cpp:64:6:virtual void Dry_SetupView::TimeDn()	2

@@ -16,6 +16,7 @@
 #include <touchgfx/widgets/graph/Graph.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/graph/GraphLabels.hpp>
+#include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 
 class Home_ReflowViewBase : public touchgfx::View<Home_ReflowPresenter>
@@ -59,7 +60,7 @@ protected:
     touchgfx::TextArea textArea1_1_1_1_1_1_1;
     touchgfx::Line line1;
     touchgfx::PainterRGB565 line1Painter;
-    touchgfx::TextArea txt_1_1_1_1_1;
+    touchgfx::TextAreaWithOneWildcard txtRamp1;
     touchgfx::TextAreaWithOneWildcard txtRamp1TempSet;
     touchgfx::TextAreaWithOneWildcard txtRamp1TimeSet;
     touchgfx::TextArea textArea1_1_3;
@@ -75,19 +76,21 @@ protected:
     touchgfx::TextAreaWithOneWildcard txtReflowTimeSet;
     touchgfx::TextAreaWithOneWildcard txtCoolingTempSet;
     touchgfx::TextAreaWithOneWildcard txtCoolingTimeSet;
-    touchgfx::TextArea txt_1_1_1_1_1_2;
-    touchgfx::TextArea txt_1_1_1_1_1_2_1;
-    touchgfx::TextArea txt_1_1_1_1_1_2_1_1;
-    touchgfx::TextArea txt_1_1_1_1_1_1;
+    touchgfx::TextAreaWithOneWildcard txtRamp2;
+    touchgfx::TextAreaWithOneWildcard txtReflow;
+    touchgfx::TextAreaWithOneWildcard txtCooling;
+    touchgfx::TextAreaWithOneWildcard txtSoak;
     touchgfx::Box box1;
-    touchgfx::Graph<400> GraphReflow;
-    touchgfx::GraphElementGridY GraphReflowMajorYAxisGrid;
-    touchgfx::GraphLabelsX GraphReflowMajorXAxisLabel;
-    touchgfx::GraphLabelsY GraphReflowMajorYAxisLabel;
-    touchgfx::GraphElementLine GraphReflowLine2;
-    touchgfx::PainterRGB565 GraphReflowLine2Painter;
-    touchgfx::GraphElementLine GraphReflowLine1;
-    touchgfx::PainterRGB565 GraphReflowLine1Painter;
+    touchgfx::Graph<6> GraphReflow1;
+    touchgfx::GraphElementGridY GraphReflow1MinorYAxisGrid;
+    touchgfx::GraphElementGridY GraphReflow1MajorYAxisGrid;
+    touchgfx::GraphLabelsY GraphReflow1MajorYAxisLabel;
+    touchgfx::GraphElementLine GraphReflow1Line1;
+    touchgfx::PainterRGB565 GraphReflow1Line1Painter;
+    touchgfx::GraphWrapAndClear<450> GraphReflow2;
+    touchgfx::GraphLabelsX GraphReflow2MajorXAxisLabel;
+    touchgfx::GraphElementLine GraphReflow2Line1;
+    touchgfx::PainterRGB565 GraphReflow2Line1Painter;
     touchgfx::ButtonWithLabel btnReflowMenu;
     touchgfx::ButtonWithLabel btnStopStop;
     touchgfx::ButtonWithLabel btnReflowStart;
@@ -95,6 +98,8 @@ protected:
     /*
      * Wildcard Buffers
      */
+    static const uint16_t TXTRAMP1_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar txtRamp1Buffer[TXTRAMP1_SIZE];
     static const uint16_t TXTRAMP1TEMPSET_SIZE = 4;
     touchgfx::Unicode::UnicodeChar txtRamp1TempSetBuffer[TXTRAMP1TEMPSET_SIZE];
     static const uint16_t TXTRAMP1TIMESET_SIZE = 4;
@@ -119,6 +124,14 @@ protected:
     touchgfx::Unicode::UnicodeChar txtCoolingTempSetBuffer[TXTCOOLINGTEMPSET_SIZE];
     static const uint16_t TXTCOOLINGTIMESET_SIZE = 4;
     touchgfx::Unicode::UnicodeChar txtCoolingTimeSetBuffer[TXTCOOLINGTIMESET_SIZE];
+    static const uint16_t TXTRAMP2_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar txtRamp2Buffer[TXTRAMP2_SIZE];
+    static const uint16_t TXTREFLOW_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar txtReflowBuffer[TXTREFLOW_SIZE];
+    static const uint16_t TXTCOOLING_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar txtCoolingBuffer[TXTCOOLING_SIZE];
+    static const uint16_t TXTSOAK_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar txtSoakBuffer[TXTSOAK_SIZE];
 
 private:
 

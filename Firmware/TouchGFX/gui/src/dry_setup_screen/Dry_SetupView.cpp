@@ -81,5 +81,6 @@ void Dry_SetupView::SavePreset()
 	// ...
 
 	ovenParameters.lastUsedMode = 1;
+	ovenParameters.deviceState = STATE_DRY;
 
 }

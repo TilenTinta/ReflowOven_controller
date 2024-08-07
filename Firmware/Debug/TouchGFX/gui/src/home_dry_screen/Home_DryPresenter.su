@@ -10,6 +10,8 @@
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:18:virtual void ModelListener::setTIME(int)	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:21:18:virtual void ModelListener::setPAGE(int)	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:22:18:virtual void ModelListener::setTIMELEFT(int)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:23:18:virtual void ModelListener::setHIGHLIGHT(int)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:24:18:virtual void ModelListener::setPLOTPOINT(int)	16	static
 ../TouchGFX/gui/include/gui/home_dry_screen/Home_DryPresenter.hpp:28:13:Home_DryPresenter::~Home_DryPresenter()	16	static
 ../TouchGFX/gui/include/gui/home_dry_screen/Home_DryPresenter.hpp:28:13:virtual Home_DryPresenter::~Home_DryPresenter()	16	static
 ../TouchGFX/gui/src/home_dry_screen/Home_DryPresenter.cpp:4:1:Home_DryPresenter::Home_DryPresenter(Home_DryView&)	16	static

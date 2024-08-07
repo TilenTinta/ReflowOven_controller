@@ -10,6 +10,8 @@
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:18:virtual void ModelListener::setTIME(int)	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:21:18:virtual void ModelListener::setPAGE(int)	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:22:18:virtual void ModelListener::setTIMELEFT(int)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:23:18:virtual void ModelListener::setHIGHLIGHT(int)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:24:18:virtual void ModelListener::setPLOTPOINT(int)	16	static
 ../TouchGFX/gui/include/gui/startup_screen/StartUpPresenter.hpp:28:13:StartUpPresenter::~StartUpPresenter()	16	static
 ../TouchGFX/gui/include/gui/startup_screen/StartUpPresenter.hpp:28:13:virtual StartUpPresenter::~StartUpPresenter()	16	static
 ../TouchGFX/gui/src/startup_screen/StartUpPresenter.cpp:4:1:StartUpPresenter::StartUpPresenter(StartUpView&)	16	static

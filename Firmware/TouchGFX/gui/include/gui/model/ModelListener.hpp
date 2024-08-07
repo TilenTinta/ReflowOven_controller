@@ -20,7 +20,8 @@ public:
     virtual void setTIME (int timeSeconds) {};		 	// virtual function - time
     virtual void setPAGE (int page) {};		 			// virtual function - time
     virtual void setTIMELEFT (int time) {};		 		// virtual function - time
-
+    virtual void setHIGHLIGHT (int boxNo) {}; 			// virtual function - highlight
+    virtual void setPLOTPOINT (int point) {};			// virtual function - plot point
 
 protected:
     Model* model;

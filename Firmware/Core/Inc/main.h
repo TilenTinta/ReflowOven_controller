@@ -163,7 +163,9 @@ typedef struct {
 
 	// Device values
 	float tempThermo;			// Temperature from thermocouple (display)
+	float tempThermoAvg;		// Average temperature
 	float tempNTC;				// Temperature from NTC on PCB
+	uint8_t deviceState;		// State machine variable
 	uint8_t startStop;			// start/stop variable
 	uint8_t initEnd;			// End of initialization rutine
 	uint8_t pageChageNo;		// number of changed page: 0 - startup, 1 - reflow, 2 - dry, 3 - error
@@ -175,8 +177,9 @@ typedef struct {
 	uint16_t totalReflowTime;	// max time for reflow cycle
 	uint16_t endTimeStage;		// end time of current stage
 	uint8_t reflowStage;		// number of current stage of reflow
-	uint8_t tempSPDelta;		// temperature delta used to set next set point
+	int8_t tempSPDelta;			// temperature delta used to set next set point
 	uint8_t setpointCal;		// flag to calculate new tempSPDelta
+	uint8_t addPoint;			// flag to add new point in plot
 
 	// Device time value
 	uint8_t cntTimerTick;		// timer triggers counter
@@ -235,7 +238,7 @@ extern ReflowProfiles reflowProfiles;
 typedef struct {
 
 	// Values used for drying mode
-	uint8_t dryTemp; 	// degrees
+	uint16_t dryTemp; 	// degrees
 	uint16_t dryTime;	// minutes
 
 } DryPreset;
@@ -291,7 +294,7 @@ typedef struct {
 
 // Functions
 void PIDInit(PID *pid);
-uint32_t PIDcalculation(PID *pid, uint8_t* setPoint);
+uint32_t PIDcalculation(PID *pid, uint16_t* setPoint);
 void WriteVarToFlash();
 void ReadVarFromFlash();
 

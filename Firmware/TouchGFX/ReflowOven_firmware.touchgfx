@@ -465,10 +465,9 @@
           },
           {
             "Type": "TextArea",
-            "Name": "txt_1_1_1_1_1",
-            "X": 14,
+            "Name": "txtRamp1",
             "Y": 260,
-            "Width": 86,
+            "Width": 101,
             "Height": 24,
             "TextId": "__SingleUse_Y4M8",
             "TextRotation": "0",
@@ -477,7 +476,11 @@
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true
+            "Wildcard1": {
+              "TextId": "__SingleUse_YHSH",
+              "UseBuffer": true,
+              "BufferSize": 4
+            }
           },
           {
             "Type": "TextArea",
@@ -769,10 +772,9 @@
           },
           {
             "Type": "TextArea",
-            "Name": "txt_1_1_1_1_1_2",
-            "X": 14,
+            "Name": "txtRamp2",
             "Y": 320,
-            "Width": 86,
+            "Width": 101,
             "Height": 24,
             "TextId": "__SingleUse_4SCU",
             "TextRotation": "0",
@@ -781,14 +783,18 @@
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true
+            "Wildcard1": {
+              "TextId": "__SingleUse_WJQ5",
+              "UseBuffer": true,
+              "BufferSize": 4
+            }
           },
           {
             "Type": "TextArea",
-            "Name": "txt_1_1_1_1_1_2_1",
-            "X": 25,
+            "Name": "txtReflow",
+            "X": 7,
             "Y": 350,
-            "Width": 75,
+            "Width": 94,
             "Height": 24,
             "TextId": "__SingleUse_ULB0",
             "TextRotation": "0",
@@ -797,14 +803,18 @@
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true
+            "Wildcard1": {
+              "TextId": "__SingleUse_TNMW",
+              "UseBuffer": true,
+              "BufferSize": 4
+            }
           },
           {
             "Type": "TextArea",
-            "Name": "txt_1_1_1_1_1_2_1_1",
-            "X": 18,
+            "Name": "txtCooling",
+            "X": 7,
             "Y": 380,
-            "Width": 82,
+            "Width": 94,
             "Height": 24,
             "TextId": "__SingleUse_DDBL",
             "TextRotation": "0",
@@ -813,14 +823,18 @@
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true
+            "Wildcard1": {
+              "TextId": "__SingleUse_26IY",
+              "UseBuffer": true,
+              "BufferSize": 4
+            }
           },
           {
             "Type": "TextArea",
-            "Name": "txt_1_1_1_1_1_1",
-            "X": 41,
+            "Name": "txtSoak",
+            "X": 26,
             "Y": 290,
-            "Width": 59,
+            "Width": 75,
             "Height": 24,
             "TextId": "__SingleUse_CHGK",
             "TextRotation": "0",
@@ -829,14 +843,18 @@
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true
+            "Wildcard1": {
+              "TextId": "__SingleUse_2F93",
+              "UseBuffer": true,
+              "BufferSize": 4
+            }
           },
           {
             "Type": "Box",
             "Name": "box1",
-            "X": 13,
+            "X": 7,
             "Y": 13,
-            "Width": 291,
+            "Width": 306,
             "Height": 194,
             "Color": {
               "Red": 35,
@@ -846,19 +864,21 @@
           },
           {
             "Type": "StaticGraph",
-            "Name": "GraphReflow",
-            "X": 13,
+            "Name": "GraphReflow1",
+            "X": 7,
             "Y": 13,
-            "Width": 291,
+            "Width": 306,
             "Height": 194,
             "DataSeed": 1122024401,
-            "NumberOfValues": 400,
-            "MaxX": 400.0,
+            "NumberOfValues": 6,
+            "MaxX": 5.0,
             "PrecisionX": "1",
             "MaxY": 260.0,
             "PrecisionY": "1",
             "XAxisScale": 1.0,
-            "InsertRandomValues": true,
+            "LabelSizeBottom": 10,
+            "LabelSizeLeft": 14,
+            "PaddingTop": 6,
             "GraphDrawers": [
               {
                 "Type": "LineDrawer",
@@ -868,16 +888,6 @@
                   "Red": 254,
                   "Green": 189,
                   "Blue": 23
-                }
-              },
-              {
-                "Type": "LineDrawer",
-                "LineWidth": 2,
-                "FileNameImage": "",
-                "Color": {
-                  "Red": 20,
-                  "Green": 151,
-                  "Blue": 197
                 }
               }
             ],
@@ -891,31 +901,71 @@
               "Interval": 26.0,
               "LineWidth": 1
             },
-            "XAxisLabel": {
-              "Type": "GraphLabel",
-              "Interval": 20.0,
-              "DecimalSeparator": "Point",
-              "TextColor": {
-                "Red": 255,
-                "Green": 255,
-                "Blue": 255
+            "MinorYAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
               },
-              "TextId": "__SingleUse_9X79",
-              "TextRotation": "0",
-              "Position": "Bottom"
+              "Interval": 13.0,
+              "LineWidth": 1,
+              "Alpha": 98
             },
             "YAxisLabel": {
               "Type": "GraphLabel",
               "Interval": 26.0,
               "DecimalSeparator": "Point",
               "TextColor": {
-                "Red": 20,
-                "Green": 151,
-                "Blue": 197
+                "Red": 255,
+                "Green": 255,
+                "Blue": 255
               },
-              "TextId": "__SingleUse_YUSI",
+              "TextId": "__SingleUse_8N29",
               "TextRotation": "0",
               "Position": "Left"
+            }
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "GraphReflow2",
+            "X": 7,
+            "Y": 13,
+            "Width": 306,
+            "Height": 194,
+            "DataSeed": 2028649103,
+            "NumberOfValues": 450,
+            "MaxY": 260.0,
+            "Precision": "1",
+            "LastIndex": 449,
+            "XAxisScale": 1.0,
+            "LabelSizeBottom": 10,
+            "LabelSizeLeft": 14,
+            "GraphType": "GraphWrapClear",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "FileNameImage": "",
+                "Color": {
+                  "Red": 20,
+                  "Green": 151,
+                  "Blue": 197
+                }
+              }
+            ],
+            "XAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 50.0,
+              "DecimalSeparator": "Point",
+              "TextColor": {
+                "Red": 255,
+                "Green": 255,
+                "Blue": 255
+              },
+              "TextId": "__SingleUse_2WUC",
+              "TextRotation": "0",
+              "Position": "Bottom"
             }
           },
           {

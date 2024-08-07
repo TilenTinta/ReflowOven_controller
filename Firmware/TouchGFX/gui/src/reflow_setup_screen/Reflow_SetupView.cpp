@@ -7,6 +7,9 @@ Reflow_SetupView::Reflow_SetupView()
 
 void Reflow_SetupView::setupScreen()
 {
+	profileNo = ovenParameters.profileNoSelected;
+	Unicode::snprintf(txtProfileBuffer, TXTPROFILE_SIZE, "%d", profileNo);
+	txtProfile.invalidate();
     Reflow_SetupViewBase::setupScreen();
 }
 
@@ -87,4 +90,6 @@ void Reflow_SetupView::selectCurrProfile()
 {
 	ovenParameters.lastUsedMode = 0;
 	ovenParameters.profileNoSelected = profileNo;
+	ovenParameters.deviceState = STATE_REFLOW;
+	application().gotoHome_ReflowScreenNoTransition();
 }

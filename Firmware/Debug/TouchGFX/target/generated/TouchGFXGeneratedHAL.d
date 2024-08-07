@@ -123,6 +123,7 @@ TouchGFX/target/generated/TouchGFXGeneratedHAL.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Canvas.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphLabels.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp \
  ../TouchGFX/gui/include/gui/home_dry_screen/Home_DryView.hpp \
  ../TouchGFX/generated/gui_generated/include/gui_generated/home_dry_screen/Home_DryViewBase.hpp \
  ../TouchGFX/gui/include/gui/home_dry_screen/Home_DryPresenter.hpp \
@@ -277,6 +278,7 @@ C:/DATA/Projects/Reflow_oven/ReflowOven_controller/Firmware/Core/Inc/FLASH/z_fla
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Canvas.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphLabels.hpp:
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp:
 ../TouchGFX/gui/include/gui/home_dry_screen/Home_DryView.hpp:
 ../TouchGFX/generated/gui_generated/include/gui_generated/home_dry_screen/Home_DryViewBase.hpp:
 ../TouchGFX/gui/include/gui/home_dry_screen/Home_DryPresenter.hpp:

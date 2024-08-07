@@ -2,7 +2,7 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:171:17:static void touchgfx::TypedText::registerTexts(const touchgfx::Texts*)	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/FontManager.hpp:43:13:touchgfx::FontProvider::~FontProvider()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/FontManager.hpp:43:13:virtual touchgfx::FontProvider::~FontProvider()	1
-../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp:42:17:static void ApplicationFontProvider::setFlashReader(touchgfx::FlashDataReader*)	1
+../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp:44:17:static void ApplicationFontProvider::setFlashReader(touchgfx::FlashDataReader*)	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPHeap.hpp:48:5:touchgfx::MVPHeap::MVPHeap(touchgfx::AbstractPartition&, touchgfx::AbstractPartition&, touchgfx::AbstractPartition&, touchgfx::MVPApplication&)	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPHeap.hpp:60:13:touchgfx::MVPHeap::~MVPHeap()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPHeap.hpp:60:13:virtual touchgfx::MVPHeap::~MVPHeap()	1
@@ -84,8 +84,8 @@
 ../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:virtual touchgfx::Partition<touchgfx::meta::TypeList<Reflow_Setup_EditPresenter, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
 ../TouchGFX/target/TouchGFXHAL.hpp:36:7:TouchGFXHAL::~TouchGFXHAL()	1
 ../TouchGFX/target/TouchGFXHAL.hpp:36:7:virtual TouchGFXHAL::~TouchGFXHAL()	1
-../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp:37:7:ApplicationFontProvider::~ApplicationFontProvider()	1
-../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp:37:7:virtual ApplicationFontProvider::~ApplicationFontProvider()	1
+../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp:39:7:ApplicationFontProvider::~ApplicationFontProvider()	1
+../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp:39:7:virtual ApplicationFontProvider::~ApplicationFontProvider()	1
 ../Middlewares/ST/touchgfx/framework/include/platform/driver/lcd/LCD16bppSerialFlash.hpp:38:7:touchgfx::LCD16bppSerialFlash::~LCD16bppSerialFlash()	1
 ../Middlewares/ST/touchgfx/framework/include/platform/driver/lcd/LCD16bppSerialFlash.hpp:38:7:virtual touchgfx::LCD16bppSerialFlash::~LCD16bppSerialFlash()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/DMA.hpp:87:7:touchgfx::LockFreeDMA_Queue::~LockFreeDMA_Queue()	1

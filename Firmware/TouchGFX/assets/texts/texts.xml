@@ -6,11 +6,26 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_YUSI" Alignment="Right" TypographyId="Default">
+      <Text Id="__SingleUse_2WUC" Alignment="Left" TypographyId="Typography4">
         <Translation Language="GB">&lt;&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_9X79" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Time</Translation>
+      <Text Id="__SingleUse_8N29" Alignment="Right" TypographyId="Typography4">
+        <Translation Language="GB">&lt;&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_26IY" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">*</Translation>
+      </Text>
+      <Text Id="__SingleUse_TNMW" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">*</Translation>
+      </Text>
+      <Text Id="__SingleUse_WJQ5" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">*</Translation>
+      </Text>
+      <Text Id="__SingleUse_2F93" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">*</Translation>
+      </Text>
+      <Text Id="__SingleUse_YHSH" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">*</Translation>
       </Text>
       <Text Id="__SingleUse_JFYZ" Alignment="Left" TypographyId="Typography2">
         <Translation Language="GB">val</Translation>
@@ -150,20 +165,20 @@
       <Text Id="__SingleUse_388Q" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">°C</Translation>
       </Text>
-      <Text Id="__SingleUse_Y4M8" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Ramp 1:</Translation>
+      <Text Id="__SingleUse_Y4M8" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;Ramp 1:</Translation>
       </Text>
-      <Text Id="__SingleUse_4SCU" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Ramp 2:</Translation>
+      <Text Id="__SingleUse_4SCU" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;Ramp 2:</Translation>
       </Text>
-      <Text Id="__SingleUse_ULB0" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Reflow:</Translation>
+      <Text Id="__SingleUse_ULB0" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;Reflow:</Translation>
       </Text>
-      <Text Id="__SingleUse_DDBL" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Cooling:</Translation>
+      <Text Id="__SingleUse_DDBL" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;Cooling:</Translation>
       </Text>
-      <Text Id="__SingleUse_CHGK" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">Soak:</Translation>
+      <Text Id="__SingleUse_CHGK" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;Soak:</Translation>
       </Text>
       <Text Id="__SingleUse_9KHO" Alignment="Center" TypographyId="Typography1">
         <Translation Language="GB">&lt;value&gt;</Translation>
@@ -444,12 +459,13 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters=",." WidgetWildcardCharacters="-., 0123456789" WildcardCharacterRanges="0-9" />
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters=",." WildcardCharacterRanges="0-9" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Custom1" Font="verdana.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Typography1" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters=".," WildcardCharacterRanges="0-9" />
     <Typography Id="Typography2" Font="verdana.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="., " WildcardCharacterRanges="0-9,A-Z,a-z" />
     <Typography Id="Typography3" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="., " WildcardCharacterRanges="0-9,A-Z,a-z" />
+    <Typography Id="Typography4" Font="verdana.ttf" Size="7" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="-., 0123456789" />
   </Typographies>
 </TextDatabase>

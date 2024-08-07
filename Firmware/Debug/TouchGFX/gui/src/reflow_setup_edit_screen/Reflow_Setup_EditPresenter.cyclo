@@ -10,6 +10,8 @@
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:18:virtual void ModelListener::setTIME(int)	1
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:21:18:virtual void ModelListener::setPAGE(int)	1
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:22:18:virtual void ModelListener::setTIMELEFT(int)	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:23:18:virtual void ModelListener::setHIGHLIGHT(int)	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:24:18:virtual void ModelListener::setPLOTPOINT(int)	1
 ../TouchGFX/gui/include/gui/reflow_setup_edit_screen/Reflow_Setup_EditPresenter.hpp:28:13:Reflow_Setup_EditPresenter::~Reflow_Setup_EditPresenter()	1
 ../TouchGFX/gui/include/gui/reflow_setup_edit_screen/Reflow_Setup_EditPresenter.hpp:28:13:virtual Reflow_Setup_EditPresenter::~Reflow_Setup_EditPresenter()	1
 ../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditPresenter.cpp:4:1:Reflow_Setup_EditPresenter::Reflow_Setup_EditPresenter(Reflow_Setup_EditView&)	1
