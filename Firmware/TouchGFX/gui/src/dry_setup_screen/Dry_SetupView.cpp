@@ -77,10 +77,8 @@ void Dry_SetupView::TimeDn()
 // Save values
 void Dry_SetupView::SavePreset()
 {
-	// TODO: save to flash
-	// ...
-
 	ovenParameters.lastUsedMode = 1;
 	ovenParameters.deviceState = STATE_DRY;
+	ovenParameters.saveFlash = 1;
 
 }

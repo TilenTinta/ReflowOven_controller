@@ -330,6 +330,7 @@ void Home_ReflowView::StopReflow()
 
 void Home_ReflowView::DrawPlot()
 {
+	// Target graph is a bit shifted if the profile is less than 450 sec
 	GraphReflow1.addDataPoint(0, 20);
 	GraphReflow1.addDataPoint(1, *tempPlotArr);
 	GraphReflow1.addDataPoint(2, *(tempPlotArr + 1));

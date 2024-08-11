@@ -143,7 +143,7 @@ void Setup_PidView::setPID_value()
 {
 	application().gotoSettingsScreenNoTransition();
 	ovenParameters.pidSetupStep = 0;
-	// Seted pid value is saved (not in flash)
+	// Setted pid value is saved (not in flash)
 }
 
 

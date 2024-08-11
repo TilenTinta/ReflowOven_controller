@@ -22,7 +22,6 @@ public:
     virtual void prevProfile();
     virtual void selectCurrProfile();
 protected:
-    uint8_t profileNo = 0;
 };
 
 #endif // REFLOW_SETUPVIEW_HPP

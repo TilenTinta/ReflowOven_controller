@@ -98,6 +98,7 @@ OvenParameters ovenParameters = {
 		.endTimeStage = 0,
 		.tempThermoAvg = 0,
 		.addPoint = 0,
+		.profileNoEdit = 0,
 
 		// retentive variables
 		.Kp = 10.0f,	// 3.96
@@ -180,6 +181,8 @@ uint16_t rnwyTempOld = 0;		// previous temp value for detecting thermal runaways
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
+	// TODO: Celsius -> Fahrenheit
 
 	// PID parameters
 	PID pid;
@@ -453,7 +456,8 @@ int main(void)
 	  case STATE_INIT:
 		  //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		  uint8_t err = 0; // error counter
+		  uint8_t err = 0; // error
+		  uint8_t erase = 0;
 
 		  // FLASH
 		  if (!Flash_Init())
@@ -461,11 +465,15 @@ int main(void)
 			while(1){}
 		  }
 
-		  // Read all variables that are saved in flash
-		  //ReadVarFromFlash();
-
 		  // Detect if these is the first boot after firmware uploading (var .firstBoot is from flash)
-		  if (ovenParameters.firstBoot == 0)
+		#ifndef KEEP_FLASH_DATA
+		  erase = 1;
+		#endif
+
+		  // Read all variables that are saved in flash
+		  ReadVarFromFlash(erase);
+
+		  if (ovenParameters.firstBoot == 1)
 		  {
 			#ifdef DUAL_PROBE
 		  	  ovenParameters.dualProbes = 1;
@@ -484,11 +492,14 @@ int main(void)
 			#endif
 
 		  	  // Detect first boot and save the default variables
-		  	  ovenParameters.firstBoot = 1;
-		  	  //WriteVarToFlash();
+		  	  ovenParameters.firstBoot = 0;
+		  	  WriteVarToFlash();
 		  }
 
 		  HAL_Delay(1000); // wait 1 second for all devices to power on
+
+		  // Set variables to starting values
+		  ovenParameters.profileNoEdit = ovenParameters.profileNoSelected;
 
 
 		  // TODO:
@@ -1347,12 +1358,12 @@ uint32_t PIDcalculation(PID *pid, float* setPoint)
 	return (uint32_t)(round(pid->output) * 655);
 }
 
-// TODO: write and read from flash
+
 // Write variables to external flash
 void WriteVarToFlash()
 {
 	// Buffer for saving data
-	uint8_t dataToSave[20] = {0};
+	uint8_t dataToSave[200] = {0};
 
 	// Offset for shifting data in buffer
 	uint32_t offset = 0;
@@ -1369,6 +1380,26 @@ void WriteVarToFlash()
 	memcpy(dataToSave + offset, &ovenParameters.lastUsedMode, sizeof(ovenParameters.lastUsedMode));
 	offset += sizeof(ovenParameters.lastUsedMode);
 
+	// Save dualProbes
+	memcpy(dataToSave + offset, &ovenParameters.dualProbes, sizeof(ovenParameters.dualProbes));
+	offset += sizeof(ovenParameters.dualProbes);
+
+	// Save dualSSRs
+	memcpy(dataToSave + offset, &ovenParameters.dualSSRs, sizeof(ovenParameters.dualSSRs));
+	offset += sizeof(ovenParameters.dualSSRs);
+
+	// Save units
+	memcpy(dataToSave + offset, &ovenParameters.units, sizeof(ovenParameters.units));
+	offset += sizeof(ovenParameters.units);
+
+	// Save AUX1
+	memcpy(dataToSave + offset, &ovenParameters.AUX1, sizeof(ovenParameters.AUX1));
+	offset += sizeof(ovenParameters.AUX1);
+
+	// Save AUX2
+	memcpy(dataToSave + offset, &ovenParameters.AUX2, sizeof(ovenParameters.AUX2));
+	offset += sizeof(ovenParameters.AUX2);
+
 	// Save Kp
 	memcpy(dataToSave + offset, &ovenParameters.Kp, sizeof(ovenParameters.Kp));
 	offset += sizeof(ovenParameters.Kp);
@@ -1381,41 +1412,184 @@ void WriteVarToFlash()
 	memcpy(dataToSave + offset, &ovenParameters.Kd, sizeof(ovenParameters.Kd));
 	offset += sizeof(ovenParameters.Kd);
 
-	Flash_Write(FLASH_START_ADDR, dataToSave, sizeof(dataToSave));
+	// Save Drying settings
+	memcpy(dataToSave + offset, &dryPreset.dryTemp, sizeof(dryPreset.dryTemp));
+	offset += sizeof(dryPreset.dryTemp);
+
+	memcpy(dataToSave + offset, &dryPreset.dryTime, sizeof(dryPreset.dryTime));
+	offset += sizeof(dryPreset.dryTime);
+
+	// Save Reflow profile 1
+	for (int i = 0; i < 5; i++)
+	{
+		memcpy(dataToSave + offset, &reflowProfiles.profile1Temp[i], sizeof(reflowProfiles.profile1Temp[i]));
+		offset += sizeof(reflowProfiles.profile1Temp[i]);
+
+		memcpy(dataToSave + offset, &reflowProfiles.profile1Time[i], sizeof(reflowProfiles.profile1Time[i]));
+		offset += sizeof(reflowProfiles.profile1Time[i]);
+	}
+
+	// Save Reflow profile 2
+	for (int i = 0; i < 5; i++)
+	{
+		memcpy(dataToSave + offset, &reflowProfiles.profile2Temp[i], sizeof(reflowProfiles.profile2Temp[i]));
+		offset += sizeof(reflowProfiles.profile2Temp[i]);
+
+		memcpy(dataToSave + offset, &reflowProfiles.profile2Time[i], sizeof(reflowProfiles.profile2Time[i]));
+		offset += sizeof(reflowProfiles.profile2Time[i]);
+	}
+
+	// Save Reflow profile 3
+	for (int i = 0; i < 5; i++)
+	{
+		memcpy(dataToSave + offset, &reflowProfiles.profile3Temp[i], sizeof(reflowProfiles.profile3Temp[i]));
+		offset += sizeof(reflowProfiles.profile3Temp[i]);
+
+		memcpy(dataToSave + offset, &reflowProfiles.profile3Time[i], sizeof(reflowProfiles.profile3Time[i]));
+		offset += sizeof(reflowProfiles.profile3Time[i]);
+	}
+
+	// Save Reflow profile 4
+	for (int i = 0; i < 5; i++)
+	{
+		memcpy(dataToSave + offset, &reflowProfiles.profile4Temp[i], sizeof(reflowProfiles.profile4Temp[i]));
+		offset += sizeof(reflowProfiles.profile4Temp[i]);
+
+		memcpy(dataToSave + offset, &reflowProfiles.profile4Time[i], sizeof(reflowProfiles.profile4Time[i]));
+		offset += sizeof(reflowProfiles.profile4Time[i]);
+	}
+
+	// Save Reflow profile 5
+	for (int i = 0; i < 5; i++)
+	{
+		memcpy(dataToSave + offset, &reflowProfiles.profile5Temp[i], sizeof(reflowProfiles.profile5Temp[i]));
+		offset += sizeof(reflowProfiles.profile5Temp[i]);
+
+		memcpy(dataToSave + offset, &reflowProfiles.profile5Time[i], sizeof(reflowProfiles.profile5Time[i]));
+		offset += sizeof(reflowProfiles.profile5Time[i]);
+	}
+
+	// Erase area where data will be saved
+	Flash_SErase4k(FLASH_START_ADDR);
+
+	Flash_Write(FLASH_START_ADDR, dataToSave, offset);
 
 	ovenParameters.saveFlash = 0;
-
-	//ReadVarFromFlash(); // briši
 }
 
+
 // Read variables from external flash
-void ReadVarFromFlash()
+void ReadVarFromFlash(uint8_t erase)
 {
-	uint8_t dataRead[20] = {0};
+	uint8_t dataRead[200] = {0};
 
 	Flash_Read(FLASH_START_ADDR, dataRead, sizeof(dataRead));
 
 	uint32_t offset = 0;
 
-	// Read profileNoSelected
-	memcpy(&ovenParameters.profileNoSelected, dataRead + offset, sizeof(ovenParameters.profileNoSelected));
-	offset += sizeof(ovenParameters.profileNoSelected);
+	// Read firstBoot
+	memcpy(&ovenParameters.firstBoot, dataRead + offset, sizeof(ovenParameters.firstBoot));
+	offset += sizeof(ovenParameters.firstBoot);
 
-	// Read lastUsedMode
-	memcpy(&ovenParameters.lastUsedMode, dataRead + offset, sizeof(ovenParameters.lastUsedMode));
-	offset += sizeof(ovenParameters.lastUsedMode);
+	if (erase != 1)
+	{
+		// Read profileNoSelected
+		memcpy(&ovenParameters.profileNoSelected, dataRead + offset, sizeof(ovenParameters.profileNoSelected));
+		offset += sizeof(ovenParameters.profileNoSelected);
 
-	// Read Kp
-	memcpy(&ovenParameters.Kp, dataRead + offset, sizeof(ovenParameters.Kp));
-	offset += sizeof(ovenParameters.Kp);
+		// Read lastUsedMode
+		memcpy(&ovenParameters.lastUsedMode, dataRead + offset, sizeof(ovenParameters.lastUsedMode));
+		offset += sizeof(ovenParameters.lastUsedMode);
 
-	// Read Ki
-	memcpy(&ovenParameters.Ki, dataRead + offset, sizeof(ovenParameters.Ki));
-	offset += sizeof(ovenParameters.Ki);
+		// Read dualProbes
+		memcpy(&ovenParameters.dualProbes, dataRead + offset, sizeof(ovenParameters.dualProbes));
+		offset += sizeof(ovenParameters.dualProbes);
 
-	// Read Kd
-	memcpy(&ovenParameters.Kd, dataRead + offset, sizeof(ovenParameters.Kd));
-	offset += sizeof(ovenParameters.Kd);
+		// Read dualSSRs
+		memcpy(&ovenParameters.dualSSRs, dataRead + offset, sizeof(ovenParameters.dualSSRs));
+		offset += sizeof(ovenParameters.dualSSRs);
+
+		// Read units
+		memcpy(&ovenParameters.units, dataRead + offset, sizeof(ovenParameters.units));
+		offset += sizeof(ovenParameters.units);
+
+		// Read AUX1
+		memcpy(&ovenParameters.AUX1,  dataRead + offset, sizeof(ovenParameters.AUX1));
+		offset += sizeof(ovenParameters.AUX1);
+
+		// Read AUX2
+		memcpy(&ovenParameters.AUX2, dataRead + offset, sizeof(ovenParameters.AUX2));
+		offset += sizeof(ovenParameters.AUX2);
+
+		// Read Kp
+		memcpy(&ovenParameters.Kp, dataRead + offset, sizeof(ovenParameters.Kp));
+		offset += sizeof(ovenParameters.Kp);
+
+		// Read Ki
+		memcpy(&ovenParameters.Ki, dataRead + offset, sizeof(ovenParameters.Ki));
+		offset += sizeof(ovenParameters.Ki);
+
+		// Read Kd
+		memcpy(&ovenParameters.Kd, dataRead + offset, sizeof(ovenParameters.Kd));
+		offset += sizeof(ovenParameters.Kd);
+
+		// Read Drying settings
+		memcpy(&dryPreset.dryTemp, dataRead + offset, sizeof(dryPreset.dryTemp));
+		offset += sizeof(dryPreset.dryTemp);
+
+		memcpy(&dryPreset.dryTime, dataRead + offset, sizeof(dryPreset.dryTime));
+		offset += sizeof(dryPreset.dryTime);
+
+		// Read Reflow profile 1
+		for (int i = 0; i < 5; i++)
+		{
+			memcpy(&reflowProfiles.profile1Temp[i], dataRead + offset, sizeof(reflowProfiles.profile1Temp[i]));
+			offset += sizeof(reflowProfiles.profile1Temp[i]);
+
+			memcpy(&reflowProfiles.profile1Time[i], dataRead + offset, sizeof(reflowProfiles.profile1Time[i]));
+			offset += sizeof(reflowProfiles.profile1Time[i]);
+		}
+
+		// Read Reflow profile 2
+		for (int i = 0; i < 5; i++)
+		{
+			memcpy(&reflowProfiles.profile2Temp[i], dataRead + offset, sizeof(reflowProfiles.profile2Temp[i]));
+			offset += sizeof(reflowProfiles.profile2Temp[i]);
+
+			memcpy(&reflowProfiles.profile2Time[i], dataRead + offset, sizeof(reflowProfiles.profile2Time[i]));
+			offset += sizeof(reflowProfiles.profile2Time[i]);
+		}
+
+		// Read Reflow profile 3
+		for (int i = 0; i < 5; i++)
+		{
+			memcpy(&reflowProfiles.profile3Temp[i], dataRead + offset, sizeof(reflowProfiles.profile3Temp[i]));
+			offset += sizeof(reflowProfiles.profile3Temp[i]);
+
+			memcpy( &reflowProfiles.profile3Time[i], dataRead + offset, sizeof(reflowProfiles.profile3Time[i]));
+			offset += sizeof(reflowProfiles.profile3Time[i]);
+		}
+
+		// Read Reflow profile 4
+		for (int i = 0; i < 5; i++)
+		{
+			memcpy(&reflowProfiles.profile4Temp[i], dataRead + offset, sizeof(reflowProfiles.profile4Temp[i]));
+			offset += sizeof(reflowProfiles.profile4Temp[i]);
+
+			memcpy(&reflowProfiles.profile4Time[i], dataRead + offset, sizeof(reflowProfiles.profile4Time[i]));
+			offset += sizeof(reflowProfiles.profile4Time[i]);
+		}
+
+		// Read Reflow profile 5
+		for (int i = 0; i < 5; i++)
+		{
+			memcpy(&reflowProfiles.profile5Temp[i], dataRead + offset, sizeof(reflowProfiles.profile5Temp[i]));
+			offset += sizeof(reflowProfiles.profile5Temp[i]);
+
+			memcpy(&reflowProfiles.profile5Time[i], dataRead + offset, sizeof(reflowProfiles.profile5Time[i]));
+			offset += sizeof(reflowProfiles.profile5Time[i]);
+		}
+	}
 }
 
 /* USER CODE END 4 */

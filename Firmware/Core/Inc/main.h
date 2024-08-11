@@ -128,14 +128,15 @@ void Error_Handler(void);
 #define THERMAL_RUNAWAY_EN		// Enable thermal runaway protection
 
 #define UART_EN					// Enable uart port (just data sending...)
-//#define PID_CAL					// Disable the SSRs to drive them witw external source to get data for PID tuning
+//#define PID_CAL				// Disable the SSRs to drive them witw external source to get data for PID tuning
 
+#define KEEP_FLASH_DATA			// when firmware is reuploaded do you want to reset data in flash (profiles, settings...)
 
 /////////// Do not change whats follows ///////////
 #define tickInSec				5
 #define secInMin 				60
 #define minInH 					60
-#define FLASH_START_ADDR		2090000
+#define FLASH_START_ADDR		2048000
 
 #define STATE_INIT				0		// Starting state
 #define STATE_ERROR				1		// If fault is detected - block the device
@@ -155,8 +156,6 @@ void Error_Handler(void);
 #define R1_NTC					10000	// NTC resistance
 #define R2_NTC					10000	// NTC R2 resistance
 #define NTC_MAX_TEMP			80		// Max allowed temperature in elektronics compartment
-
-#define KEEP_FLASH_DATA			0		// when firmware is reuploaded do you want to reset data in flash (profiles, settings...)
 
 
 /*** Structure of device settings ***/
@@ -181,6 +180,7 @@ typedef struct {
 	float tempSPDelta;			// temperature delta used to set next set point
 	uint8_t setpointCal;		// flag to calculate new tempSPDelta
 	uint8_t addPoint;			// flag to add new point in plot
+	uint8_t profileNoEdit;		// current profile in editing
 
 	// Device time value
 	uint8_t cntTimerTick;		// timer triggers counter
@@ -192,6 +192,7 @@ typedef struct {
 	float Kp;					// PID P value
 	float Ki;					// PID I value
 	float Kd;					// PID D value
+	uint8_t firstBoot;			// 0 - first boot, 1 - all other boots
 	uint8_t lastUsedMode;		// mode that was last used, 0 - reflow, 1 - dry
 	uint8_t profileNoSelected; 	// current selected reflow profile
 	uint8_t dualProbes; 		// 0 - disable, 1 - enable
@@ -199,7 +200,7 @@ typedef struct {
 	uint8_t units; 				// 0 - C, 1 - F
 	uint8_t AUX1; 				// 0 - disable, 1 - enable
 	uint8_t AUX2; 				// 0 - disable, 1 - enable
-	uint8_t firstBoot;			// 0 - first boot, 1 - all other boots
+
 
 } OvenParameters;
 
@@ -240,7 +241,7 @@ extern ReflowProfiles reflowProfiles;
 typedef struct {
 
 	// Values used for drying mode
-	uint16_t dryTemp; 		// degrees
+	uint16_t dryTemp; 	// degrees
 	uint16_t dryTime;	// minutes
 
 } DryPreset;
@@ -300,7 +301,7 @@ typedef struct {
 void PIDInit(PID *pid);
 uint32_t PIDcalculation(PID *pid, float* setPoint);
 void WriteVarToFlash();
-void ReadVarFromFlash();
+void ReadVarFromFlash(uint8_t erase);
 
 /* USER CODE END Private defines */
 

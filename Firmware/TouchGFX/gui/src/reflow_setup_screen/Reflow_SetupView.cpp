@@ -7,8 +7,8 @@ Reflow_SetupView::Reflow_SetupView()
 
 void Reflow_SetupView::setupScreen()
 {
-	profileNo = ovenParameters.profileNoSelected;
-	Unicode::snprintf(txtProfileBuffer, TXTPROFILE_SIZE, "%d", profileNo);
+	ovenParameters.reflowSetupStep = 0;
+	Unicode::snprintf(txtProfileBuffer, TXTPROFILE_SIZE, "%d", ovenParameters.profileNoEdit);
 	txtProfile.invalidate();
     Reflow_SetupViewBase::setupScreen();
 }
@@ -21,32 +21,32 @@ void Reflow_SetupView::tearDownScreen()
 // Next profile
 void Reflow_SetupView::nextProfile()
 {
-	if (profileNo < 5)
+	if (ovenParameters.profileNoEdit < 5)
 	{
-		profileNo ++;
+		ovenParameters.profileNoEdit ++;
 	}
 	else
 	{
-		profileNo = 1;
+		ovenParameters.profileNoEdit = 1;
 	}
 
-	 Unicode::snprintf(txtProfileBuffer, TXTPROFILE_SIZE, "%d", profileNo);
+	 Unicode::snprintf(txtProfileBuffer, TXTPROFILE_SIZE, "%d", ovenParameters.profileNoEdit);
 	 txtProfile.invalidate();
 }
 
 // Previous profile
 void Reflow_SetupView::prevProfile()
 {
-	if (profileNo > 1)
+	if (ovenParameters.profileNoEdit > 1)
 	{
-		profileNo --;
+		ovenParameters.profileNoEdit --;
 	}
 	else
 	{
-		profileNo = 5;
+		ovenParameters.profileNoEdit = 5;
 	}
 
-	Unicode::snprintf(txtProfileBuffer, TXTPROFILE_SIZE, "%d", profileNo);
+	Unicode::snprintf(txtProfileBuffer, TXTPROFILE_SIZE, "%d", ovenParameters.profileNoEdit);
 	txtProfile.invalidate();
 }
 
@@ -89,7 +89,8 @@ void Reflow_SetupView::selectCooling()
 void Reflow_SetupView::selectCurrProfile()
 {
 	ovenParameters.lastUsedMode = 0;
-	ovenParameters.profileNoSelected = profileNo;
+	ovenParameters.profileNoSelected = ovenParameters.profileNoEdit;
 	ovenParameters.deviceState = STATE_REFLOW;
+	ovenParameters.saveFlash = 1;
 	application().gotoHome_ReflowScreenNoTransition();
 }

@@ -7,9 +7,9 @@
 ../TouchGFX/gui/include/gui/reflow_setup_edit_screen/Reflow_Setup_EditView.hpp:11:13:virtual Reflow_Setup_EditView::~Reflow_Setup_EditView()	16	static
 ../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:3:1:Reflow_Setup_EditView::Reflow_Setup_EditView()	16	static
 ../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:8:6:virtual void Reflow_Setup_EditView::setupScreen()	16	static
-../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:107:6:virtual void Reflow_Setup_EditView::tearDownScreen()	16	static
-../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:113:6:virtual void Reflow_Setup_EditView::tempUp()	16	static
-../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:121:6:virtual void Reflow_Setup_EditView::tempDn()	16	static
-../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:129:6:virtual void Reflow_Setup_EditView::timeUp()	16	static
-../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:137:6:virtual void Reflow_Setup_EditView::timeDn()	16	static
-../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:145:6:virtual void Reflow_Setup_EditView::saveSetValue()	16	static
+../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:112:6:virtual void Reflow_Setup_EditView::tearDownScreen()	16	static
+../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:118:6:virtual void Reflow_Setup_EditView::tempUp()	16	static
+../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:126:6:virtual void Reflow_Setup_EditView::tempDn()	16	static
+../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:134:6:virtual void Reflow_Setup_EditView::timeUp()	16	static
+../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:142:6:virtual void Reflow_Setup_EditView::timeDn()	16	static
+../TouchGFX/gui/src/reflow_setup_edit_screen/Reflow_Setup_EditView.cpp:150:6:virtual void Reflow_Setup_EditView::saveSetValue()	16	static
