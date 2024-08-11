@@ -12,6 +12,6 @@
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:215:6:virtual void Home_ReflowView::setTIME(int)	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:222:6:virtual void Home_ReflowView::setHIGHLIGHT(int)	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:319:6:virtual void Home_ReflowView::StartReflow()	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:325:6:virtual void Home_ReflowView::StopReflow()	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:330:6:virtual void Home_ReflowView::DrawPlot()	288	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:340:6:virtual void Home_ReflowView::setPLOTPOINT(int)	40	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:324:6:virtual void Home_ReflowView::StopReflow()	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:331:6:virtual void Home_ReflowView::DrawPlot()	288	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:341:6:virtual void Home_ReflowView::setPLOTPOINT(int)	40	static

@@ -319,12 +319,13 @@ void Home_ReflowView::setHIGHLIGHT(int boxNo)
 void Home_ReflowView::StartReflow()
 {
 	ovenParameters.startStop = 1;
-	GraphReflow2.clear();
 }
 
 void Home_ReflowView::StopReflow()
 {
 	ovenParameters.startStop = 0;
+	GraphReflow2.clear();
+	GraphReflow2.invalidate();
 }
 
 void Home_ReflowView::DrawPlot()

@@ -106,13 +106,12 @@ OvenParameters ovenParameters = {
 		.profileNoSelected = 2,
 		.lastUsedMode = 0,
 
-		// TODO ?
-		// variables changes on define parameters in main.h
 		.dualProbes = 0,
 		.dualSSRs = 0,
 		.units = 0,
 		.AUX1 = 0,
 		.AUX2 = 0,
+		.firstBoot = 0,
 
 		// device runing variables
 		.startStop = 0,
@@ -167,8 +166,10 @@ float tempAVG1[5] = {};			// values of temp from thermocouple 1 in one second to
 float tempAVG2[5] = {};			// values of temp from thermocouple 2 in one second to calculate average value
 uint8_t cntTempArray = 0;		// counter for temperature array
 uint8_t endOfCycle = 0;			// flag to indicate the end of drying or reflow
-uint16_t startingTemp = 0; 		// used to set setpoints
+float startingTemp = 0; 		// used to set setpoints
 uint16_t endTemp = 0;			// temperature expected at the end of each step
+uint8_t thermalRnwyCnt = 0;		// counter for thermal runaway time - one tick is one second
+uint16_t rnwyTempOld = 0;		// previous temp value for detecting thermal runaways
 
 /* USER CODE END 0 */
 
@@ -260,6 +261,40 @@ int main(void)
 			  {
 				  ovenParameters.cntSecond = 0;
 				  ovenParameters.cntMinute ++;
+
+
+				// THERMAL RUNAWAY LOGIC //
+				/* if the device has enabled one or both SSRs and
+				 * the temperature doesn't reach setted delta temerature
+				 * the error is triggered
+				*/
+				#ifdef THERMAL_RUNAWAY_EN
+				  rnwyTempOld = ovenParameters.tempThermoAvg;
+
+				  if (ovenParameters.dualSSRs == 0)				 // The value can be adjusted
+				  {
+					  if (TIM4->CCR2 > 5000)
+					  {
+						  thermalRnwyCnt = ((rnwyTempOld - ovenParameters.tempThermoAvg) < RUNAWAY_TEMP) ? (thermalRnwyCnt + 1) : 0;
+					  }
+				  }
+				  else
+				  {
+					  if (TIM4->CCR2 > 5000 || TIM4->CCR1 > 5000) // The value can be adjusted
+					  {
+						  thermalRnwyCnt = ((rnwyTempOld - ovenParameters.tempThermoAvg) < RUNAWAY_TEMP) ? (thermalRnwyCnt + 1) : 0;
+					  }
+				  }
+
+				  // trigger the thermal runaway error
+				  if (thermalRnwyCnt >= RUNAWAY_TIME)
+				  {
+					  ovenErrorCodes.thermalRunaway ++;
+					  ovenParameters.deviceState = STATE_ERROR;
+				  }
+
+				  rnwyTempOld = ovenParameters.tempThermoAvg;	 // save current temp as old temp
+				#endif
 			  }
 
 			  // Minutes to hours
@@ -310,7 +345,8 @@ int main(void)
 				  if (ovenParameters.tempThermoAvg >= OVERTEMP_ERR)
 				  {
 					  ovenErrorCodes.overTemp ++;
-					  ovenParameters.deviceState == STATE_ERROR;
+					  ovenParameters.startStop = 0;
+					  ovenParameters.deviceState = STATE_ERROR;
 				  }
 			  }
 
@@ -331,7 +367,8 @@ int main(void)
 				  if (ovenParameters.tempThermoAvg >= OVERTEMP_ERR)
 				  {
 					  ovenErrorCodes.overTemp ++;
-					  ovenParameters.deviceState == STATE_ERROR;
+					  ovenParameters.startStop = 0;
+					  ovenParameters.deviceState = STATE_ERROR;
 				  }
 			  }
 
@@ -397,7 +434,6 @@ int main(void)
 			  HAL_UART_Transmit(&huart1, (uint8_t*)message, strlen((char*)message), 100);
 			#endif
 
-
 		  // RESET TICK TIMER - timer callback declared in z_displ_ILI9XXX.h file
 		  ovenParameters.actionTick = 0;
 
@@ -419,8 +455,18 @@ int main(void)
 
 		  uint8_t err = 0; // error counter
 
-		  HAL_Delay(1000); // wait 1 second for all devices to power on
+		  // FLASH
+		  if (!Flash_Init())
+		  {
+			while(1){}
+		  }
 
+		  // Read all variables that are saved in flash
+		  //ReadVarFromFlash();
+
+		  // Detect if these is the first boot after firmware uploading (var .firstBoot is from flash)
+		  if (ovenParameters.firstBoot == 0)
+		  {
 			#ifdef DUAL_PROBE
 		  	  ovenParameters.dualProbes = 1;
 			#endif
@@ -437,15 +483,17 @@ int main(void)
 		  	  ovenParameters.AUX2 = 1;
 			#endif
 
-		  	// FLASH
-		  if (!Flash_Init())
-		  {
-			while(1){}
+		  	  // Detect first boot and save the default variables
+		  	  ovenParameters.firstBoot = 1;
+		  	  //WriteVarToFlash();
 		  }
+
+		  HAL_Delay(1000); // wait 1 second for all devices to power on
+
 
 		  // TODO:
 		  // ... read
-		  AN_V_12V = 12; // DELETE
+		  AN_V_12V = 12;  // DELETE
 		  AN_V_3V3 = 3.3; // DELETE
 		  // Check input voltage //
 		  if (AN_V_12V < MIN_IN_VOLTAGE)
@@ -512,12 +560,13 @@ int main(void)
 
 			 ovenParameters.initEnd = 1;
 			 // change screen
-			 ovenParameters.pageChageNo = 3; // Error
+			 ovenParameters.pageChageNo = 3; 			// Error
 		  }
 		  else
 		  {
 			  HAL_GPIO_WritePin(INHIBIT_GPIO_Port, INHIBIT_Pin, GPIO_PIN_SET); // Enable inhibit
 			  ovenParameters.initEnd = 1;
+			  rnwyTempOld = ovenParameters.tempThermo; 		// set start/default temp value
 
 			#ifndef PID_CAL
 				  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2); // enable output for SSR1
@@ -533,7 +582,7 @@ int main(void)
 				  HAL_Delay(2000);
 				  // change screen
 				  ovenParameters.deviceState = STATE_REFLOW;
-				  ovenParameters.pageChageNo = 1; // Reflow
+				  ovenParameters.pageChageNo = 1; 			// Reflow
 			  }
 
 			  // continue in drying mode
@@ -542,7 +591,7 @@ int main(void)
 				  HAL_Delay(2000);
 				  // change screen
 				  ovenParameters.deviceState = STATE_DRY;
-				  ovenParameters.pageChageNo = 2; // Dry
+				  ovenParameters.pageChageNo = 2; 			// Dry
 			  }
 		  }
 
@@ -594,9 +643,8 @@ int main(void)
 
 					  // get temp delta to set setpoint
 					  if (ovenParameters.reflowStage != 0) startTemp = reflowProfiles.profile1Temp[ovenParameters.reflowStage - 1];
-					  tempdelta = ((float)reflowProfiles.profile1Temp[ovenParameters.reflowStage] - (float)startTemp);
-					  if (tempdelta > 0) ovenParameters.tempSPDelta = ceilf(tempdelta / (float)reflowTimeDelta);
-					  if (tempdelta < 0) ovenParameters.tempSPDelta = floorf(tempdelta / (float)reflowTimeDelta);
+					  tempdelta = reflowProfiles.profile1Temp[ovenParameters.reflowStage] - startTemp;
+					  ovenParameters.tempSPDelta = tempdelta / (float)reflowTimeDelta;
 
 					  // get stage end temp
 					  endTemp = reflowProfiles.profile1Temp[ovenParameters.reflowStage];
@@ -618,9 +666,8 @@ int main(void)
 
 					  // get temp delta to set setpoint
 					  if (ovenParameters.reflowStage != 0) startTemp = reflowProfiles.profile2Temp[ovenParameters.reflowStage - 1];
-					  tempdelta = ((float)reflowProfiles.profile2Temp[ovenParameters.reflowStage] - (float)startTemp);
-					  if (tempdelta > 0) ovenParameters.tempSPDelta = ceilf(tempdelta / (float)reflowTimeDelta);
-					  if (tempdelta < 0) ovenParameters.tempSPDelta = floorf(tempdelta / (float)reflowTimeDelta);
+					  tempdelta = reflowProfiles.profile2Temp[ovenParameters.reflowStage] - startTemp;
+					  ovenParameters.tempSPDelta = (tempdelta / (float)reflowTimeDelta);
 
 					  // get stage end temp
 					  endTemp = reflowProfiles.profile2Temp[ovenParameters.reflowStage];
@@ -642,9 +689,8 @@ int main(void)
 
 					  // get temp delta to set setpoint
 					  if (ovenParameters.reflowStage != 0) startTemp = reflowProfiles.profile3Temp[ovenParameters.reflowStage - 1];
-					  tempdelta = ((float)reflowProfiles.profile3Temp[ovenParameters.reflowStage] - (float)startTemp);
-					  if (tempdelta > 0) ovenParameters.tempSPDelta = ceilf(tempdelta / (float)reflowTimeDelta);
-					  if (tempdelta < 0) ovenParameters.tempSPDelta = floorf(tempdelta / (float)reflowTimeDelta);
+					  tempdelta = reflowProfiles.profile3Temp[ovenParameters.reflowStage] - startTemp;
+					  ovenParameters.tempSPDelta = (tempdelta / (float)reflowTimeDelta);
 
 					  // get stage end temp
 					  endTemp = reflowProfiles.profile3Temp[ovenParameters.reflowStage];
@@ -666,9 +712,8 @@ int main(void)
 
 					  // get temp delta to set setpoint
 					  if (ovenParameters.reflowStage != 0) startTemp = reflowProfiles.profile4Temp[ovenParameters.reflowStage - 1];
-					  tempdelta = ((float)reflowProfiles.profile4Temp[ovenParameters.reflowStage] - (float)startTemp);
-					  if (tempdelta > 0) ovenParameters.tempSPDelta = ceilf(tempdelta / (float)reflowTimeDelta);
-					  if (tempdelta < 0) ovenParameters.tempSPDelta = floorf(tempdelta / (float)reflowTimeDelta);
+					  tempdelta = reflowProfiles.profile4Temp[ovenParameters.reflowStage] - startTemp;
+					  ovenParameters.tempSPDelta = (tempdelta / (float)reflowTimeDelta);
 
 					  // get stage end temp
 					  endTemp = reflowProfiles.profile4Temp[ovenParameters.reflowStage];
@@ -690,9 +735,8 @@ int main(void)
 
 					  // get temp delta to set setpoint
 					  if (ovenParameters.reflowStage != 0) startTemp = reflowProfiles.profile5Temp[ovenParameters.reflowStage - 1];
-					  tempdelta = ((float)reflowProfiles.profile5Temp[ovenParameters.reflowStage] - (float)startTemp);
-					  if (tempdelta > 0) ovenParameters.tempSPDelta = ceilf(tempdelta / (float)reflowTimeDelta);
-					  if (tempdelta < 0) ovenParameters.tempSPDelta = floorf(tempdelta / (float)reflowTimeDelta);
+					  tempdelta = reflowProfiles.profile5Temp[ovenParameters.reflowStage] - startTemp;
+					  ovenParameters.tempSPDelta = (tempdelta / (float)reflowTimeDelta);
 
 					  // get stage end temp
 					  endTemp = reflowProfiles.profile5Temp[ovenParameters.reflowStage];
@@ -707,11 +751,10 @@ int main(void)
 		  }
 
 		  // PID calculation
-		  // TODO: repair how the next set point will be calculated to get more precise ramp following
 		  if (ovenParameters.PID_trig == 1)
 		  {
 			  // increase setpoint
-			  if (startingTemp < endTemp && ovenParameters.reflowStage != 4) startingTemp = round(startingTemp) + ovenParameters.tempSPDelta;
+			  if (startingTemp < endTemp && ovenParameters.reflowStage != 4) startingTemp = startingTemp + ovenParameters.tempSPDelta;
 
 			  // cooling
 			  if (startingTemp > endTemp && ovenParameters.reflowStage == 4) startingTemp = 0; // Turn OFF heater
@@ -737,14 +780,15 @@ int main(void)
 		  if (endOfCycle == 1)
 		  {
 			  TIM4->CCR2;
-			  ovenParameters.startStop = 0; // end of drying
+			  ovenParameters.startStop = 0; 							// end of drying
 			  endOfCycle = 0;
 		  }
 
 		  if (ovenParameters.PID_trig == 1)
 		  {
-			  TIM4->CCR2 =  PIDcalculation(&pid, &dryPreset.dryTemp); // set SSR1 Duty (Timer 4 channel 2)
-			  ovenParameters.PID_trig = 0; // reset pid calculate flag
+			  float dryTempPresset = (float)dryPreset.dryTemp;
+			  TIM4->CCR2 =  PIDcalculation(&pid, &dryTempPresset); 	// set SSR1 Duty (Timer 4 channel 2)
+			  ovenParameters.PID_trig = 0; 								// reset pid calculate flag
 		  }
 
 		  break;
@@ -1246,7 +1290,7 @@ void PIDInit(PID *pid)
 }
 
 
-uint32_t PIDcalculation(PID *pid, uint16_t* setPoint)
+uint32_t PIDcalculation(PID *pid, float* setPoint)
 {
 
 	// PID with IIR //
@@ -1300,55 +1344,78 @@ uint32_t PIDcalculation(PID *pid, uint16_t* setPoint)
 	// Duty cycle to CCR2
 	// 2^16 = 65536 / 100 = 655.36
 
-	return (uint32_t)(pid->output * 655);
+	return (uint32_t)(round(pid->output) * 655);
 }
 
-// TODO: write and read from flash, thermal runaway, over temperature
+// TODO: write and read from flash
 // Write variables to external flash
 void WriteVarToFlash()
 {
 	// Buffer for saving data
-	uint8_t dataToSave[50] = {0};
+	uint8_t dataToSave[20] = {0};
 
-	// Prepare data to be saved
-	/*
-	memcpy(dataToSave, &ovenParameters.profileNoSelected, sizeof(uint8_t));
-	memcpy(dataToSave + sizeof(uint8_t), &ovenParameters.lastUsedMode, sizeof(uint8_t));
-	uint8_t intOffset = 2 * sizeof(uint8_t);
-	memcpy(dataToSave + intOffset + 0 * sizeof(float), &ovenParameters.Kp, sizeof(float));
-	memcpy(dataToSave + intOffset + 1 * sizeof(float), &ovenParameters.Ki, sizeof(float));
-	memcpy(dataToSave + intOffset + 2 * sizeof(float), &ovenParameters.Kd, sizeof(float));
-	*/
+	// Offset for shifting data in buffer
+	uint32_t offset = 0;
 
-	Flash_Write(FLASH_START_ADDR, &ovenParameters.profileNoSelected, sizeof(uint8_t)); // start address, data, lenght
-	Flash_Write(FLASH_START_ADDR + sizeof(uint8_t), &ovenParameters.lastUsedMode, sizeof(uint8_t));
+	// Save firstBoot
+	memcpy(dataToSave + offset, &ovenParameters.firstBoot, sizeof(ovenParameters.firstBoot));
+	offset += sizeof(ovenParameters.firstBoot);
 
-	uint8_t data1 = 0;
-	uint8_t data2 = 0;
+	// Save profileNoSelected
+	memcpy(dataToSave + offset, &ovenParameters.profileNoSelected, sizeof(ovenParameters.profileNoSelected));
+	offset += sizeof(ovenParameters.profileNoSelected);
 
-	Flash_Read(FLASH_START_ADDR, &data1, sizeof(uint8_t));
-	Flash_Read(FLASH_START_ADDR + sizeof(uint8_t), &data2, sizeof(uint8_t));
+	// Save lastUsedMode
+	memcpy(dataToSave + offset, &ovenParameters.lastUsedMode, sizeof(ovenParameters.lastUsedMode));
+	offset += sizeof(ovenParameters.lastUsedMode);
 
-	//float Kptest = 0;
-	//float Kitest = 0;
+	// Save Kp
+	memcpy(dataToSave + offset, &ovenParameters.Kp, sizeof(ovenParameters.Kp));
+	offset += sizeof(ovenParameters.Kp);
 
-	//memcpy(&Kptest, dataToSave + 0 * sizeof(float), sizeof(float));
-	//memcpy(&Kitest, dataToSave + 1 * sizeof(float), sizeof(float));
+	// Save Ki
+	memcpy(dataToSave + offset, &ovenParameters.Ki, sizeof(ovenParameters.Ki));
+	offset += sizeof(ovenParameters.Ki);
 
+	// Save Kd
+	memcpy(dataToSave + offset, &ovenParameters.Kd, sizeof(ovenParameters.Kd));
+	offset += sizeof(ovenParameters.Kd);
+
+	Flash_Write(FLASH_START_ADDR, dataToSave, sizeof(dataToSave));
 
 	ovenParameters.saveFlash = 0;
+
+	//ReadVarFromFlash(); // briši
 }
 
 // Read variables from external flash
 void ReadVarFromFlash()
 {
-	  uint8_t msg[20];
+	uint8_t dataRead[20] = {0};
 
-	  strcpy((char*)msg, "            ");
+	Flash_Read(FLASH_START_ADDR, dataRead, sizeof(dataRead));
 
-	  Flash_Read(0, msg, 12);
+	uint32_t offset = 0;
 
-	  ovenParameters.saveFlash = 0;
+	// Read profileNoSelected
+	memcpy(&ovenParameters.profileNoSelected, dataRead + offset, sizeof(ovenParameters.profileNoSelected));
+	offset += sizeof(ovenParameters.profileNoSelected);
+
+	// Read lastUsedMode
+	memcpy(&ovenParameters.lastUsedMode, dataRead + offset, sizeof(ovenParameters.lastUsedMode));
+	offset += sizeof(ovenParameters.lastUsedMode);
+
+	// Read Kp
+	memcpy(&ovenParameters.Kp, dataRead + offset, sizeof(ovenParameters.Kp));
+	offset += sizeof(ovenParameters.Kp);
+
+	// Read Ki
+	memcpy(&ovenParameters.Ki, dataRead + offset, sizeof(ovenParameters.Ki));
+	offset += sizeof(ovenParameters.Ki);
+
+	// Read Kd
+	memcpy(&ovenParameters.Kd, dataRead + offset, sizeof(ovenParameters.Kd));
+	offset += sizeof(ovenParameters.Kd);
 }
 
 /* USER CODE END 4 */

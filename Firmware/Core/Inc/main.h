@@ -125,7 +125,7 @@ void Error_Handler(void);
 //#define AUX1_EN				// Enable AUX1 port
 //#define AUX2_EN				// Enable AUX2 port
 #define BUZZER_EN				// Enable buzzer
-#define THERMALRUNAWAY_EN		// Enable thermal runaway protection
+#define THERMAL_RUNAWAY_EN		// Enable thermal runaway protection
 
 #define UART_EN					// Enable uart port (just data sending...)
 //#define PID_CAL					// Disable the SSRs to drive them witw external source to get data for PID tuning
@@ -142,7 +142,7 @@ void Error_Handler(void);
 #define STATE_REFLOW			2		// Reflow mode
 #define STATE_DRY				3		// Drying mode
 
-#define RUNAWAY_TEMP			5		// thermal runaway temperature delta
+#define RUNAWAY_TEMP			10		// thermal runaway temperature delta
 #define RUNAWAY_TIME			20		// thermal runaway time delta
 #define OVERTEMP_ERR			270		// Max alowed temperature
 
@@ -178,7 +178,7 @@ typedef struct {
 	uint16_t totalReflowTime;	// max time for reflow cycle
 	uint16_t endTimeStage;		// end time of current stage
 	uint8_t reflowStage;		// number of current stage of reflow
-	int8_t tempSPDelta;			// temperature delta used to set next set point
+	float tempSPDelta;			// temperature delta used to set next set point
 	uint8_t setpointCal;		// flag to calculate new tempSPDelta
 	uint8_t addPoint;			// flag to add new point in plot
 
@@ -199,6 +199,7 @@ typedef struct {
 	uint8_t units; 				// 0 - C, 1 - F
 	uint8_t AUX1; 				// 0 - disable, 1 - enable
 	uint8_t AUX2; 				// 0 - disable, 1 - enable
+	uint8_t firstBoot;			// 0 - first boot, 1 - all other boots
 
 } OvenParameters;
 
@@ -239,7 +240,7 @@ extern ReflowProfiles reflowProfiles;
 typedef struct {
 
 	// Values used for drying mode
-	uint16_t dryTemp; 	// degrees
+	uint16_t dryTemp; 		// degrees
 	uint16_t dryTime;	// minutes
 
 } DryPreset;
@@ -297,7 +298,7 @@ typedef struct {
 
 // Functions
 void PIDInit(PID *pid);
-uint32_t PIDcalculation(PID *pid, uint16_t* setPoint);
+uint32_t PIDcalculation(PID *pid, float* setPoint);
 void WriteVarToFlash();
 void ReadVarFromFlash();
 
