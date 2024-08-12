@@ -18,7 +18,7 @@ PCB features are:
 - Buzzer for sound signals
 - MCU used: STM32F411CEU6
 
-![alt text](https://github.com/TilenTinta/ReflowOven_controller/PCB/Pictures/3D_View2.PNG)
+![alt text](https://github.com/TilenTinta/ReflowOven_controller/blob/main/PCB/Pictures/3D_View2.PNG)
 
-![alt text](https://github.com/TilenTinta/ReflowOven_controller/PCB/Pictures/3D_View1.PNG)
+![alt text](https://github.com/TilenTinta/ReflowOven_controller/blob/main/PCB/Pictures/3D_View1.PNG)
 
