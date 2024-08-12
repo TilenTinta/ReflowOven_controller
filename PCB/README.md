@@ -1,8 +1,8 @@
 # PCB
 PCB is two layer board with components on only one side (connector for the LCD is the only part on other side). 
 It is the same size and the holes are in the same position as LCD. With 3D printed spacer can be connected together.
-LCD used in these build is 3.5 inch TFT LCD Display Module (320x480) with SPI Interface and Touch Screen - ILI9488 v2
-PCB features are:
+LCD used in these build is 3.5 inch TFT LCD Display Module (320x480) with SPI Interface and Touch Screen - ILI9488 v2<br />
+PCB features are:<br />
 - Safety switch for 12V
 - measuring of voltage on input and buck output
 - measuring of PCB temperature with NTC for overtemperature protection
