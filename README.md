@@ -8,6 +8,7 @@ Oven options:<br />
 <br />
 Oven used in these build is cheap (40€) 9l toaster oven with two heating elements (quartz heating tube) - BROCK TO9001B.<br />
 One of concerns was that it will not be able to heat up quich enough but becouse the heating chaimber is small it can heats up quick enough<br />
-SSR is used for controlling heating elements and 12V 4A PSU to power the entire electronics.<br />
+SSR is used for controlling heating elements and 12V 4A PSU to power the entire electronics.
+<br />
 
 ![alt text](https://github.com/TilenTinta/ReflowOven_controller/blob/main/Pictures/IMG_20240811_171814.jpg)
