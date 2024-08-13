@@ -1,3 +1,2 @@
 # External Loader
-The external loader is necessary part of program that allows CubeIDE to upload data to external flash chip. If different flash is used the program
-must be modified to fit the recomendation of new chip. Otherwise the program must be included in main program.
+The external loader is necessary part of program. It allows CubeIDE to upload data (GUI and fonts) to external flash chip. If you use different flash the program must be modified to fit the recomendation of new chip. Program must be included in main program / IDE.

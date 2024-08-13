@@ -4,19 +4,19 @@ It is the same size and the holes are in the same position as LCD. With 3D print
 LCD used in these build is 3.5 inch TFT LCD Display Module (320x480) with SPI Interface and Touch Screen - ILI9488 v2<br />
 PCB features are:<br />
 - Safety switch for 12V
-- measuring of voltage on input and buck output
-- measuring of PCB temperature with NTC for overtemperature protection
-- input is fuse protected and reverse polarity protected
-- max. input voltage is 23V
-- AUX1 and AUX2 can handle up to 45V (can't be achived becouse of PCB input voltage limit) and 500mA
-- supports connection of two solid state relays that are PWM driven with input voltage
-- supports up to two K-type thermocouple (MAX31855)
+- Voltage measuring: input and buck output
+- PCB temperature: NTC for overtemperature protection
+- input protection: fuse and reverse polarity protected
+- max. input voltage: 23V
+- AUX1 and AUX2 can handle up to 45V (can't be achived becouse of PCB input voltage limit), 500mA
+- up to two solid state relays - PWM amplitude is the same as input voltage
+- up to two K-type thermocouple (MAX31855)
 - for calibration and monitoring is available raw USART output and USB output (CH340G)
-- all GUI and fonts are saved on external 2MB flash (W25Q16JVSNIQ)
-- PCB supports USB OTG but in case of enabling that function the core clock must be changed and with that all timers parameters
-- SWO (jtag) is available for programing 
-- Buzzer for sound signals
-- MCU used: STM32F411CEU6
+- supports USB OTG - in case of enabling that function the core clock must be changed and with that all timers parameters
+- external 2MB flash (W25Q16JVSNIQ) for all GUI and fonts
+- SWD for programming 
+- Buzzer
+- MCU: STM32F411CEU6
 
 ![alt text](https://github.com/TilenTinta/ReflowOven_controller/blob/main/PCB/Pictures/3D_View2.PNG)
 
