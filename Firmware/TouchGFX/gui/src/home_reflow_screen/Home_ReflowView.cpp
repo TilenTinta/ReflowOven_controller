@@ -216,6 +216,17 @@ void Home_ReflowView::setTEMP(float temperatureProbe)
 	// Show temperature on display
 	Unicode::snprintfFloat(txtCurrentTempSetBuffer, TXTCURRENTTEMPSET_SIZE, "%.2f", float(temperatureProbe));
 	txtCurrentTempSet.invalidate();
+
+	// Set state of START/STOP button to it's right state (to be triggered at the end of reflow)
+	if (ovenParameters.startStop != startStopOld)
+	{
+		btnReflowStart.setVisible(!ovenParameters.startStop);
+		btnReflowStart.invalidate();
+		btnReflowStop.setVisible(ovenParameters.startStop);
+		btnReflowStop.invalidate();
+
+		startStopOld = ovenParameters.startStop ;
+	}
 }
 
 void Home_ReflowView::setTIME(int timeSeconds)
@@ -325,10 +336,10 @@ void Home_ReflowView::setHIGHLIGHT(int boxNo)
 void Home_ReflowView::StartReflow()
 {
 	ovenParameters.startStop = 1;
-	btnReflowStart.setVisible(0);
-	btnReflowStart.invalidate();
-	btnReflowStop.setVisible(1);
-	btnReflowStop.invalidate();
+//	btnReflowStart.setVisible(0);
+//	btnReflowStart.invalidate();
+//	btnReflowStop.setVisible(1);
+//	btnReflowStop.invalidate();
 }
 
 void Home_ReflowView::StopReflow()
@@ -337,10 +348,10 @@ void Home_ReflowView::StopReflow()
 	ovenParameters.reflowStage = 0;
 	GraphReflow2.clear();
 	GraphReflow2.invalidate();
-	btnReflowStart.setVisible(1);
-	btnReflowStart.invalidate();
-	btnReflowStop.setVisible(0);
-	btnReflowStop.invalidate();
+//	btnReflowStart.setVisible(1);
+//	btnReflowStart.invalidate();
+//	btnReflowStop.setVisible(0);
+//	btnReflowStop.invalidate();
 }
 
 void Home_ReflowView::DrawPlot()

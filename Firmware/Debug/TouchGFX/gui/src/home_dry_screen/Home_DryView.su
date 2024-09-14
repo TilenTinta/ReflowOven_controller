@@ -11,6 +11,6 @@
 ../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:33:6:virtual void Home_DryView::tearDownScreen()	16	static
 ../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:40:6:virtual void Home_DryView::setTEMP(float)	16	static
 C:\ST\STM32CubeIDE_1.10.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235\tools\bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/cmath:272:5:constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::floor(_Tp) [with _Tp = int]	16	static
-../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:47:6:virtual void Home_DryView::setTIMELEFT(int)	24	static
-../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:59:6:virtual void Home_DryView::StartDrying()	16	static
-../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:69:6:virtual void Home_DryView::StopDrying()	16	static
+../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:58:6:virtual void Home_DryView::setTIMELEFT(int)	24	static
+../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:70:6:virtual void Home_DryView::StartDrying()	16	static
+../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:80:6:virtual void Home_DryView::StopDrying()	16	static

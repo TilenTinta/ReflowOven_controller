@@ -41,6 +41,17 @@ void Home_DryView::setTEMP(float temperatureProbe)
 {
 	Unicode::snprintfFloat(txtCurTempBuffer, TXTCURTEMP_SIZE, "%.2f", temperatureProbe);
 	txtCurTemp.invalidate();
+
+	// Set state of START/STOP button to it's right state (to be triggered at the end of drying)
+	if (ovenParameters.startStop != startStopOld)
+	{
+		btnDryStart.setVisible(!ovenParameters.startStop);
+		btnDryStart.invalidate();
+		btnDryStop.setVisible(ovenParameters.startStop);
+		btnDryStop.invalidate();
+
+		startStopOld = ovenParameters.startStop ;
+	}
 }
 
 // Live set value - time left
@@ -59,18 +70,18 @@ void Home_DryView::setTIMELEFT(int time)
 void Home_DryView::StartDrying()
 {
 	ovenParameters.startStop = 1;
-	btnDryStart.setVisible(0);
-	btnDryStart.invalidate();
-	btnDryStop.setVisible(1);
-	btnDryStop.invalidate();
+//	btnDryStart.setVisible(0);
+//	btnDryStart.invalidate();
+//	btnDryStop.setVisible(1);
+//	btnDryStop.invalidate();
 }
 
 // Stop drying cycle
 void Home_DryView::StopDrying()
 {
 	ovenParameters.startStop = 0;
-	btnDryStart.setVisible(1);
-	btnDryStart.invalidate();
-	btnDryStop.setVisible(0);
-	btnDryStop.invalidate();
+//	btnDryStart.setVisible(1);
+//	btnDryStart.invalidate();
+//	btnDryStop.setVisible(0);
+//	btnDryStop.invalidate();
 }

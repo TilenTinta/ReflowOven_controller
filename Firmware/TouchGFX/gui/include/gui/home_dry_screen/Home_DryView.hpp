@@ -21,6 +21,7 @@ public:
     virtual void setTIMELEFT (int time);			// virtual function - time left
 
 protected:
+    uint8_t startStopOld = 0;
 };
 
 #endif // HOME_DRYVIEW_HPP

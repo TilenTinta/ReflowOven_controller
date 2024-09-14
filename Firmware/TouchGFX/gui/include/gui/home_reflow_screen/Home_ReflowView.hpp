@@ -26,6 +26,7 @@ public:
 protected:
     uint16_t* timePlotArr;
     uint16_t* tempPlotArr;
+    uint8_t startStopOld = 0;
 };
 
 #endif // HOME_REFLOWVIEW_HPP
