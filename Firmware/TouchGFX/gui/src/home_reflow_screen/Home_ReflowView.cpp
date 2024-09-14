@@ -197,9 +197,9 @@ void Home_ReflowView::setupScreen()
 	DrawPlot();
 
 	// Button START / STOP
-	btnReflowStart.setVisible(1);
+	btnReflowStart.setVisible(!ovenParameters.startStop);
 	btnReflowStart.invalidate();
-	btnReflowStop.setVisible(0);
+	btnReflowStop.setVisible(ovenParameters.startStop);
 	btnReflowStop.invalidate();
 
     Home_ReflowViewBase::setupScreen();
@@ -334,6 +334,7 @@ void Home_ReflowView::StartReflow()
 void Home_ReflowView::StopReflow()
 {
 	ovenParameters.startStop = 0;
+	ovenParameters.reflowStage = 0;
 	GraphReflow2.clear();
 	GraphReflow2.invalidate();
 	btnReflowStart.setVisible(1);

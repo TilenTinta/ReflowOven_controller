@@ -22,9 +22,9 @@ void Home_DryView::setupScreen()
 	txtDryTimeMinSet.invalidate();
 
 	// Button START / STOP
-	btnDryStart.setVisible(1);
+	btnDryStart.setVisible(!ovenParameters.startStop);
 	btnDryStart.invalidate();
-	btnDryStop.setVisible(0);
+	btnDryStop.setVisible(ovenParameters.startStop);
 	btnDryStop.invalidate();
 
     Home_DryViewBase::setupScreen();

@@ -14,5 +14,5 @@
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:228:6:virtual void Home_ReflowView::setHIGHLIGHT(int)	7
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:325:6:virtual void Home_ReflowView::StartReflow()	1
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:334:6:virtual void Home_ReflowView::StopReflow()	1
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:345:6:virtual void Home_ReflowView::DrawPlot()	1
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:357:6:virtual void Home_ReflowView::setPLOTPOINT(int)	3
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:346:6:virtual void Home_ReflowView::DrawPlot()	1
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:358:6:virtual void Home_ReflowView::setPLOTPOINT(int)	3
