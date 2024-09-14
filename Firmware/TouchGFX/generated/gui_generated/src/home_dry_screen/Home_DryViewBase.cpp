@@ -93,7 +93,7 @@ Home_DryViewBase::Home_DryViewBase() :
     line1.setLineEndingStyle(touchgfx::Line::SQUARE_CAP_ENDING);
     add(line1);
 
-    line1_1.setPosition(17, 69, 288, 20);
+    line1_1.setPosition(17, 68, 288, 20);
     line1_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     line1_1.setPainter(line1_1Painter);
     line1_1.setStart(5, 5);

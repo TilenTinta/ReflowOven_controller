@@ -1,0 +1,14 @@
+../Core/Src/Loader_Src.c:41:6:LOC_SPI_Init	1
+../Core/Src/Loader_Src.c:53:6:LOC_Delay	2
+../Core/Src/Loader_Src.c:64:10:HAL_GetTick	1
+../Core/Src/Loader_Src.c:69:6:HAL_Delay	1
+../Core/Src/Loader_Src.c:74:19:HAL_InitTick	1
+../Core/Src/Loader_Src.c:80:6:LOC_LedOn	1
+../Core/Src/Loader_Src.c:87:6:LOC_LedOff	1
+../Core/Src/Loader_Src.c:95:5:Init	1
+../Core/Src/Loader_Src.c:147:5:Read	1
+../Core/Src/Loader_Src.c:171:5:Write	1
+../Core/Src/Loader_Src.c:194:5:MassErase	1
+../Core/Src/Loader_Src.c:217:5:SectorErase	2
+../Core/Src/Loader_Src.c:247:10:CheckSum	9
+../Core/Src/Loader_Src.c:306:10:Verify	5

@@ -171,7 +171,7 @@ typedef struct {
 	uint8_t pageChageNo;		// number of changed page: 0 - startup, 1 - reflow, 2 - dry, 3 - error
 	uint8_t actionTick;			// trigger to read and data refresh
 	uint8_t PID_trig;			// flag to triger pid calculation
-	uint8_t reflowSetupStep; 	// selected reflow step in profile setup, 0 - default meni
+	uint8_t reflowSetupStep; 	// selected reflow step in profile setup, 0 - default meni, 1 - 5 are setup screen values
 	uint8_t pidSetupStep;		// selected pid setting, 0 - default meni, 1 - P, 2 - I, 3 - D
 	uint8_t saveFlash;			// trigger saving to flash routine
 	uint16_t totalReflowTime;	// max time for reflow cycle

@@ -17,8 +17,8 @@ void Reflow_Setup_EditView::setupScreen()
 		txtTime.invalidate();
 		time = reflowProfiles.profile1Time[ovenParameters.reflowSetupStep - 1];
 
-		timePrev = (ovenParameters.reflowSetupStep == 0) ? 0 : reflowProfiles.profile1Time[ovenParameters.reflowSetupStep - 2];
-		timeNext = (ovenParameters.reflowSetupStep == 4) ? 65500 : reflowProfiles.profile1Time[ovenParameters.reflowSetupStep];
+		timePrev = (ovenParameters.reflowSetupStep == 1) ? 0 : reflowProfiles.profile1Time[ovenParameters.reflowSetupStep - 2];
+		timeNext = (ovenParameters.reflowSetupStep == 5) ? 600 : reflowProfiles.profile1Time[ovenParameters.reflowSetupStep];
 		break;
 
 	case 2:
@@ -29,8 +29,8 @@ void Reflow_Setup_EditView::setupScreen()
 		txtTime.invalidate();
 		time = reflowProfiles.profile2Time[ovenParameters.reflowSetupStep - 1];
 
-		timePrev = (ovenParameters.reflowSetupStep == 0) ? 0 : reflowProfiles.profile2Time[ovenParameters.reflowSetupStep - 2];
-		timeNext = (ovenParameters.reflowSetupStep == 4) ? 65500 : reflowProfiles.profile2Time[ovenParameters.reflowSetupStep];
+		timePrev = (ovenParameters.reflowSetupStep == 1) ? 0 : reflowProfiles.profile2Time[ovenParameters.reflowSetupStep - 2];
+		timeNext = (ovenParameters.reflowSetupStep == 5) ? 600 : reflowProfiles.profile2Time[ovenParameters.reflowSetupStep];
 		break;
 
 	case 3:
@@ -41,8 +41,8 @@ void Reflow_Setup_EditView::setupScreen()
 		txtTime.invalidate();
 		time = reflowProfiles.profile3Time[ovenParameters.reflowSetupStep - 1];
 
-		timePrev = (ovenParameters.reflowSetupStep == 0) ? 0 : reflowProfiles.profile3Time[ovenParameters.reflowSetupStep - 2];
-		timeNext = (ovenParameters.reflowSetupStep == 4) ? 65500 : reflowProfiles.profile3Time[ovenParameters.reflowSetupStep];
+		timePrev = (ovenParameters.reflowSetupStep == 1) ? 0 : reflowProfiles.profile3Time[ovenParameters.reflowSetupStep - 2];
+		timeNext = (ovenParameters.reflowSetupStep == 5) ? 600 : reflowProfiles.profile3Time[ovenParameters.reflowSetupStep];
 		break;
 
 	case 4:
@@ -53,8 +53,8 @@ void Reflow_Setup_EditView::setupScreen()
 		txtTime.invalidate();
 		time = reflowProfiles.profile4Time[ovenParameters.reflowSetupStep - 1];
 
-		timePrev = (ovenParameters.reflowSetupStep == 0) ? 0 : reflowProfiles.profile4Time[ovenParameters.reflowSetupStep - 2];
-		timeNext = (ovenParameters.reflowSetupStep == 4) ? 65500 : reflowProfiles.profile4Time[ovenParameters.reflowSetupStep];
+		timePrev = (ovenParameters.reflowSetupStep == 1) ? 0 : reflowProfiles.profile4Time[ovenParameters.reflowSetupStep - 2];
+		timeNext = (ovenParameters.reflowSetupStep == 5) ? 600 : reflowProfiles.profile4Time[ovenParameters.reflowSetupStep];
 		break;
 
 	case 5:
@@ -65,8 +65,8 @@ void Reflow_Setup_EditView::setupScreen()
 		txtTime.invalidate();
 		time = reflowProfiles.profile5Time[ovenParameters.reflowSetupStep - 1];
 
-		timePrev = (ovenParameters.reflowSetupStep == 0) ? 0 : reflowProfiles.profile5Time[ovenParameters.reflowSetupStep - 2];
-		timeNext = (ovenParameters.reflowSetupStep == 4) ? 65500 : reflowProfiles.profile5Time[ovenParameters.reflowSetupStep];
+		timePrev = (ovenParameters.reflowSetupStep == 1) ? 0 : reflowProfiles.profile5Time[ovenParameters.reflowSetupStep - 2];
+		timeNext = (ovenParameters.reflowSetupStep == 5) ? 600 : reflowProfiles.profile5Time[ovenParameters.reflowSetupStep];
 		break;
 
 	default:
@@ -125,7 +125,7 @@ void Reflow_Setup_EditView::tempUp()
 // Decrease temperature
 void Reflow_Setup_EditView::tempDn()
 {
-	if (temp > 1) temp --;
+	if (temp >= 1) temp --;
 	Unicode::snprintf(txtTempBuffer, TXTTEMP_SIZE, "%d", temp);
 	txtTemp.invalidate();
 }
