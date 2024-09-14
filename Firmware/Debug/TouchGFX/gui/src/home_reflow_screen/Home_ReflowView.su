@@ -1,3 +1,4 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:515:10:void touchgfx::Drawable::setVisible(bool)	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp:404:25:static touchgfx::Unicode::UnicodeChar* touchgfx::Unicode::snprintfFloat(touchgfx::Unicode::UnicodeChar*, uint16_t, const char*, float)	24	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	16	static
@@ -7,11 +8,11 @@
 ../TouchGFX/gui/include/gui/home_reflow_screen/Home_ReflowView.hpp:12:13:virtual Home_ReflowView::~Home_ReflowView()	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:3:1:Home_ReflowView::Home_ReflowView()	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:8:6:virtual void Home_ReflowView::setupScreen()	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:202:6:virtual void Home_ReflowView::tearDownScreen()	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:208:6:virtual void Home_ReflowView::setTEMP(float)	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:215:6:virtual void Home_ReflowView::setTIME(int)	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:222:6:virtual void Home_ReflowView::setHIGHLIGHT(int)	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:319:6:virtual void Home_ReflowView::StartReflow()	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:324:6:virtual void Home_ReflowView::StopReflow()	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:331:6:virtual void Home_ReflowView::DrawPlot()	288	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:342:6:virtual void Home_ReflowView::setPLOTPOINT(int)	40	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:208:6:virtual void Home_ReflowView::tearDownScreen()	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:214:6:virtual void Home_ReflowView::setTEMP(float)	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:221:6:virtual void Home_ReflowView::setTIME(int)	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:228:6:virtual void Home_ReflowView::setHIGHLIGHT(int)	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:325:6:virtual void Home_ReflowView::StartReflow()	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:334:6:virtual void Home_ReflowView::StopReflow()	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:345:6:virtual void Home_ReflowView::DrawPlot()	336	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:357:6:virtual void Home_ReflowView::setPLOTPOINT(int)	40	static

@@ -152,7 +152,7 @@ Home_DryViewBase::Home_DryViewBase() :
     textArea1_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XLJP));
     add(textArea1_1_1);
 
-    btnDryMenu.setXY(213, 423);
+    btnDryMenu.setXY(186, 423);
     btnDryMenu.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
     btnDryMenu.setLabelText(touchgfx::TypedText(T___SINGLEUSE_FZEQ));
     btnDryMenu.setLabelColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -160,15 +160,15 @@ Home_DryViewBase::Home_DryViewBase() :
     btnDryMenu.setAction(buttonCallback);
     add(btnDryMenu);
 
-    btnDryStop.setXY(110, 423);
+    btnDryStop.setXY(38, 423);
     btnDryStop.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
     btnDryStop.setLabelText(touchgfx::TypedText(T___SINGLEUSE_OR7I));
-    btnDryStop.setLabelColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    btnDryStop.setLabelColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     btnDryStop.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
     btnDryStop.setAction(buttonCallback);
     add(btnDryStop);
 
-    btnDryStart.setXY(7, 423);
+    btnDryStart.setXY(38, 423);
     btnDryStart.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
     btnDryStart.setLabelText(touchgfx::TypedText(T___SINGLEUSE_23R0));
     btnDryStart.setLabelColor(touchgfx::Color::getColorFromRGB(0, 0, 0));

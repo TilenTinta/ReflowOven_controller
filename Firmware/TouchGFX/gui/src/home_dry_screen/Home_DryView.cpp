@@ -21,6 +21,12 @@ void Home_DryView::setupScreen()
 	Unicode::snprintf(txtDryTimeMinSetBuffer, TXTDRYTIMEMINSET_SIZE, "%d", minutes);
 	txtDryTimeMinSet.invalidate();
 
+	// Button START / STOP
+	btnDryStart.setVisible(1);
+	btnDryStart.invalidate();
+	btnDryStop.setVisible(0);
+	btnDryStop.invalidate();
+
     Home_DryViewBase::setupScreen();
 }
 
@@ -53,10 +59,18 @@ void Home_DryView::setTIMELEFT(int time)
 void Home_DryView::StartDrying()
 {
 	ovenParameters.startStop = 1;
+	btnDryStart.setVisible(0);
+	btnDryStart.invalidate();
+	btnDryStop.setVisible(1);
+	btnDryStop.invalidate();
 }
 
 // Stop drying cycle
 void Home_DryView::StopDrying()
 {
 	ovenParameters.startStop = 0;
+	btnDryStart.setVisible(1);
+	btnDryStart.invalidate();
+	btnDryStop.setVisible(0);
+	btnDryStop.invalidate();
 }

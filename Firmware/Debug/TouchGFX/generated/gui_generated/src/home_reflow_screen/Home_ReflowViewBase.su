@@ -232,7 +232,7 @@
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:39:5:touchgfx::View<T>::View() [with T = Home_ReflowPresenter]	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp:29:7:touchgfx::GraphData::~GraphData()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp:29:7:virtual touchgfx::GraphData::~GraphData()	16	static
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp:57:5:touchgfx::Graph<CAPACITY>::Graph() [with short int CAPACITY = 6]	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp:57:5:touchgfx::Graph<CAPACITY>::Graph() [with short int CAPACITY = 450]	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp:31:7:touchgfx::GraphWrapAndClearData::~GraphWrapAndClearData()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp:31:7:virtual touchgfx::GraphWrapAndClearData::~GraphWrapAndClearData()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp:69:5:touchgfx::GraphWrapAndClear<CAPACITY>::GraphWrapAndClear() [with short int CAPACITY = 450]	16	static
@@ -247,8 +247,8 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:357:8:virtual touchgfx::Callback<Home_ReflowViewBase, const touchgfx::AbstractButton&>::~Callback()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp:66:7:touchgfx::GraphWrapAndClear<450>::~GraphWrapAndClear()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp:66:7:virtual touchgfx::GraphWrapAndClear<450>::~GraphWrapAndClear()	16	static
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp:54:7:touchgfx::Graph<6>::~Graph()	16	static
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp:54:7:virtual touchgfx::Graph<6>::~Graph()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp:54:7:touchgfx::Graph<450>::~Graph()	16	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/Graph.hpp:54:7:virtual touchgfx::Graph<450>::~Graph()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:618:7:touchgfx::GraphElementGridY::~GraphElementGridY()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:618:7:virtual touchgfx::GraphElementGridY::~GraphElementGridY()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:62:7:touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	16	static

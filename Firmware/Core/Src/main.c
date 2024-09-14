@@ -125,8 +125,8 @@ OvenParameters ovenParameters = {
 
 // Default values for profiles
 ReflowProfiles reflowProfiles = {
-		.profile1Temp = {150, 180, 255, 255, 0},
-		.profile1Time = {100, 160, 200, 215, 300},
+		.profile1Temp = {160, 160, 250, 250, 20},
+		.profile1Time = {100, 130, 250, 260, 400},
 
 		.profile2Temp = {100, 150, 183, 183, 0},
 		.profile2Time = {100, 220, 280, 340, 400},

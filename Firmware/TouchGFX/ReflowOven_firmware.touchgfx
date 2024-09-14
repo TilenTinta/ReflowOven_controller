@@ -910,8 +910,8 @@
             "Width": 306,
             "Height": 194,
             "DataSeed": 1122024401,
-            "NumberOfValues": 6,
-            "MaxX": 5.0,
+            "NumberOfValues": 450,
+            "MaxX": 450.0,
             "PrecisionX": "1",
             "MaxY": 260.0,
             "PrecisionY": "1",
@@ -1011,7 +1011,7 @@
           {
             "Type": "ButtonWithLabel",
             "Name": "btnReflowMenu",
-            "X": 213,
+            "X": 178,
             "Y": 423,
             "Width": 100,
             "Height": 36,
@@ -1028,14 +1028,17 @@
           },
           {
             "Type": "ButtonWithLabel",
-            "Name": "btnStopStop",
-            "X": 110,
+            "Name": "btnReflowStop",
+            "X": 36,
             "Y": 423,
             "Width": 100,
             "Height": 36,
             "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
             "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png",
             "TextId": "__SingleUse_JAFQ",
+            "ReleasedColor": {
+              "Red": 255
+            },
             "PressedColor": {
               "Red": 255,
               "Green": 255,
@@ -1047,7 +1050,7 @@
           {
             "Type": "ButtonWithLabel",
             "Name": "btnReflowStart",
-            "X": 7,
+            "X": 36,
             "Y": 423,
             "Width": 100,
             "Height": 36,
@@ -1079,7 +1082,7 @@
             "InteractionName": "StopReflow",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "btnStopStop"
+              "TriggerComponent": "btnReflowStop"
             },
             "Action": {
               "Type": "ActionCustom",
@@ -1444,7 +1447,7 @@
           {
             "Type": "ButtonWithLabel",
             "Name": "btnDryMenu",
-            "X": 213,
+            "X": 186,
             "Y": 423,
             "Width": 100,
             "Height": 36,
@@ -1462,13 +1465,16 @@
           {
             "Type": "ButtonWithLabel",
             "Name": "btnDryStop",
-            "X": 110,
+            "X": 38,
             "Y": 423,
             "Width": 100,
             "Height": 36,
             "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
             "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png",
             "TextId": "__SingleUse_OR7I",
+            "ReleasedColor": {
+              "Red": 255
+            },
             "PressedColor": {
               "Red": 255,
               "Green": 255,
@@ -1480,7 +1486,7 @@
           {
             "Type": "ButtonWithLabel",
             "Name": "btnDryStart",
-            "X": 7,
+            "X": 38,
             "Y": 423,
             "Width": 100,
             "Height": 36,

@@ -1,3 +1,4 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:515:10:void touchgfx::Drawable::setVisible(bool)	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp:404:25:static touchgfx::Unicode::UnicodeChar* touchgfx::Unicode::snprintfFloat(touchgfx::Unicode::UnicodeChar*, uint16_t, const char*, float)	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	1
@@ -7,9 +8,9 @@
 ../TouchGFX/gui/include/gui/home_dry_screen/Home_DryView.hpp:13:13:virtual Home_DryView::~Home_DryView()	1
 ../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:3:1:Home_DryView::Home_DryView()	1
 ../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:8:6:virtual void Home_DryView::setupScreen()	1
-../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:27:6:virtual void Home_DryView::tearDownScreen()	1
-../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:34:6:virtual void Home_DryView::setTEMP(float)	1
+../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:33:6:virtual void Home_DryView::tearDownScreen()	1
+../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:40:6:virtual void Home_DryView::setTEMP(float)	1
 C:\ST\STM32CubeIDE_1.10.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235\tools\bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/cmath:272:5:constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::floor(_Tp) [with _Tp = int]	1
-../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:41:6:virtual void Home_DryView::setTIMELEFT(int)	1
-../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:53:6:virtual void Home_DryView::StartDrying()	1
-../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:59:6:virtual void Home_DryView::StopDrying()	1
+../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:47:6:virtual void Home_DryView::setTIMELEFT(int)	1
+../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:59:6:virtual void Home_DryView::StartDrying()	1
+../TouchGFX/gui/src/home_dry_screen/Home_DryView.cpp:69:6:virtual void Home_DryView::StopDrying()	1

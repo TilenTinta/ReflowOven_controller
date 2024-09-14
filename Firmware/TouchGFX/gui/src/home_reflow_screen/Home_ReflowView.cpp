@@ -196,6 +196,12 @@ void Home_ReflowView::setupScreen()
 	// Draw all the points of selected profile
 	DrawPlot();
 
+	// Button START / STOP
+	btnReflowStart.setVisible(1);
+	btnReflowStart.invalidate();
+	btnReflowStop.setVisible(0);
+	btnReflowStop.invalidate();
+
     Home_ReflowViewBase::setupScreen();
 }
 
@@ -319,6 +325,10 @@ void Home_ReflowView::setHIGHLIGHT(int boxNo)
 void Home_ReflowView::StartReflow()
 {
 	ovenParameters.startStop = 1;
+	btnReflowStart.setVisible(0);
+	btnReflowStart.invalidate();
+	btnReflowStop.setVisible(1);
+	btnReflowStop.invalidate();
 }
 
 void Home_ReflowView::StopReflow()
@@ -326,17 +336,22 @@ void Home_ReflowView::StopReflow()
 	ovenParameters.startStop = 0;
 	GraphReflow2.clear();
 	GraphReflow2.invalidate();
+	btnReflowStart.setVisible(1);
+	btnReflowStart.invalidate();
+	btnReflowStop.setVisible(0);
+	btnReflowStop.invalidate();
 }
 
 void Home_ReflowView::DrawPlot()
 {
 	// Target graph is a bit shifted if the profile is less than 450 sec
 	GraphReflow1.addDataPoint(0, 20);
-	GraphReflow1.addDataPoint(1, *tempPlotArr);
-	GraphReflow1.addDataPoint(2, *(tempPlotArr + 1));
-	GraphReflow1.addDataPoint(3, *(tempPlotArr + 2));
-	GraphReflow1.addDataPoint(4, *(tempPlotArr + 3));
-	GraphReflow1.addDataPoint(5, 20);
+	GraphReflow1.addDataPoint(*timePlotArr, *tempPlotArr);
+	GraphReflow1.addDataPoint(*(timePlotArr + 1), *(tempPlotArr + 1));
+	GraphReflow1.addDataPoint(*(timePlotArr + 2), *(tempPlotArr + 2));
+	GraphReflow1.addDataPoint(*(timePlotArr + 3), *(tempPlotArr + 3));
+	GraphReflow1.addDataPoint(*(timePlotArr + 4), *(tempPlotArr + 4));
+	GraphReflow1.addDataPoint(450, 20);
 }
 
 void Home_ReflowView::setPLOTPOINT(int point)

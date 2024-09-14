@@ -252,7 +252,7 @@ Home_ReflowViewBase::Home_ReflowViewBase() :
     GraphReflow1.setScaleY(1);
     GraphReflow1.setGraphAreaMargin(0, 14, 0, 10);
     GraphReflow1.setGraphAreaPadding(6, 0, 0, 0);
-    GraphReflow1.setGraphRangeX(0, 5);
+    GraphReflow1.setGraphRangeX(0, 450);
     GraphReflow1.setGraphRangeY(0, 260);
     GraphReflow1MinorYAxisGrid.setColor(touchgfx::Color::getColorFromRGB(20, 151, 197));
     GraphReflow1MinorYAxisGrid.setInterval(13);
@@ -300,7 +300,7 @@ Home_ReflowViewBase::Home_ReflowViewBase() :
 
     add(GraphReflow2);
 
-    btnReflowMenu.setXY(213, 423);
+    btnReflowMenu.setXY(178, 423);
     btnReflowMenu.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
     btnReflowMenu.setLabelText(touchgfx::TypedText(T___SINGLEUSE_NZ0E));
     btnReflowMenu.setLabelColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -308,15 +308,15 @@ Home_ReflowViewBase::Home_ReflowViewBase() :
     btnReflowMenu.setAction(buttonCallback);
     add(btnReflowMenu);
 
-    btnStopStop.setXY(110, 423);
-    btnStopStop.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
-    btnStopStop.setLabelText(touchgfx::TypedText(T___SINGLEUSE_JAFQ));
-    btnStopStop.setLabelColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    btnStopStop.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    btnStopStop.setAction(buttonCallback);
-    add(btnStopStop);
+    btnReflowStop.setXY(36, 423);
+    btnReflowStop.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
+    btnReflowStop.setLabelText(touchgfx::TypedText(T___SINGLEUSE_JAFQ));
+    btnReflowStop.setLabelColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    btnReflowStop.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    btnReflowStop.setAction(buttonCallback);
+    add(btnReflowStop);
 
-    btnReflowStart.setXY(7, 423);
+    btnReflowStart.setXY(36, 423);
     btnReflowStart.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
     btnReflowStart.setLabelText(touchgfx::TypedText(T___SINGLEUSE_PMI7));
     btnReflowStart.setLabelColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -344,10 +344,10 @@ void Home_ReflowViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& 
         //Call StartReflow
         StartReflow();
     }
-    if (&src == &btnStopStop)
+    if (&src == &btnReflowStop)
     {
         //StopReflow
-        //When btnStopStop clicked call virtual function
+        //When btnReflowStop clicked call virtual function
         //Call StopReflow
         StopReflow();
     }

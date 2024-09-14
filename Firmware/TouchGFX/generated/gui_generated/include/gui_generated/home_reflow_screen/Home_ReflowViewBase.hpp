@@ -81,7 +81,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard txtCooling;
     touchgfx::TextAreaWithOneWildcard txtSoak;
     touchgfx::Box box1;
-    touchgfx::Graph<6> GraphReflow1;
+    touchgfx::Graph<450> GraphReflow1;
     touchgfx::GraphElementGridY GraphReflow1MinorYAxisGrid;
     touchgfx::GraphElementGridY GraphReflow1MajorYAxisGrid;
     touchgfx::GraphLabelsY GraphReflow1MajorYAxisLabel;
@@ -92,7 +92,7 @@ protected:
     touchgfx::GraphElementLine GraphReflow2Line1;
     touchgfx::PainterRGB565 GraphReflow2Line1Painter;
     touchgfx::ButtonWithLabel btnReflowMenu;
-    touchgfx::ButtonWithLabel btnStopStop;
+    touchgfx::ButtonWithLabel btnReflowStop;
     touchgfx::ButtonWithLabel btnReflowStart;
 
     /*
