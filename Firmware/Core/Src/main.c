@@ -93,9 +93,9 @@ OvenParameters ovenParameters = {
 		.saveFlash = 0,
 		.reflowStage = 0,
 		.tempSPDelta = 0,
-		.setpointCal = 0,
+		.setpointCal = 1,
 		.totalReflowTime = 0,
-		.endTimeStage = 0,
+		.endTimeStage = 1,
 		.tempThermoAvg = 0,
 		.addPoint = 0,
 		.profileNoEdit = 0,
@@ -310,12 +310,12 @@ int main(void)
 			  if (ovenParameters.deviceState == STATE_DRY)
 			  {
 				  uint32_t timeDryEst = dryPreset.dryTime - (ovenParameters.cntHour * 60 + ovenParameters.cntMinute);
-				  if (timeDryEst == 0) endOfCycle = 1;
+				  if (timeDryEst == 0 && ovenParameters.startStop == 1 && (ovenParameters.cntHour != 0 || ovenParameters.cntMinute != 0)) endOfCycle = 1;
 			  }
 			  else if (ovenParameters.deviceState == STATE_REFLOW)
 			  {
 				  uint32_t timeReflowEst = ovenParameters.totalReflowTime - (ovenParameters.cntMinute * 60 + ovenParameters.cntSecond);
-				  if (timeReflowEst == 0) endOfCycle = 1;
+				  if (timeReflowEst == 0 && ovenParameters.startStop == 1 && ovenParameters.totalReflowTime != 0) endOfCycle = 1;
 			  }
 
 		  }
@@ -620,8 +620,10 @@ int main(void)
 		  if (endOfCycle == 1)
 		  {
 			  ovenParameters.startStop = 0; // end of reflow
-			  TIM4->CCR2;
+			  TIM4->CCR2 = 0;
 			  endOfCycle = 0;
+			  ovenParameters.reflowStage = 0;
+			  ovenParameters.setpointCal = 1;
 			  HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
 			  HAL_Delay(50);
 			  HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
@@ -638,6 +640,7 @@ int main(void)
 			  uint16_t startTemp = round(ovenParameters.tempThermo); // can be used even these value
 			  uint16_t endTime = 0;
 			  int16_t tempdelta = 0;
+			  ovenParameters.tempSPDelta = 0;
 
 			  // set end time of current stage
 			  switch(ovenParameters.profileNoSelected)
@@ -661,7 +664,7 @@ int main(void)
 					  endTemp = reflowProfiles.profile1Temp[ovenParameters.reflowStage];
 
 					  // set starting temp
-					  if (ovenParameters.reflowStage == 0) startingTemp = round(ovenParameters.tempThermo);
+					  startingTemp = round(ovenParameters.tempThermo);
 
 					  break;
 
@@ -684,7 +687,7 @@ int main(void)
 					  endTemp = reflowProfiles.profile2Temp[ovenParameters.reflowStage];
 
 					  // set starting temp
-					  if (ovenParameters.reflowStage == 0) startingTemp = round(ovenParameters.tempThermo);
+					  startingTemp = round(ovenParameters.tempThermo);
 
 					  break;
 
@@ -707,7 +710,7 @@ int main(void)
 					  endTemp = reflowProfiles.profile3Temp[ovenParameters.reflowStage];
 
 					  // set starting temp
-					  if (ovenParameters.reflowStage == 0) startingTemp = round(ovenParameters.tempThermo);
+					  startingTemp = round(ovenParameters.tempThermo);
 
 					  break;
 
@@ -730,7 +733,7 @@ int main(void)
 					  endTemp = reflowProfiles.profile4Temp[ovenParameters.reflowStage];
 
 					  // set starting temp
-					  if (ovenParameters.reflowStage == 0) startingTemp = round(ovenParameters.tempThermo);
+					  startingTemp = round(ovenParameters.tempThermo);
 
 					  break;
 
@@ -753,7 +756,7 @@ int main(void)
 					  endTemp = reflowProfiles.profile5Temp[ovenParameters.reflowStage];
 
 					  // set starting temp
-					  if (ovenParameters.reflowStage == 0) startingTemp = round(ovenParameters.tempThermo);
+					  startingTemp = round(ovenParameters.tempThermo);
 
 					  break;
 			  }
@@ -777,7 +780,7 @@ int main(void)
 		  }
 
 		  // Detect time to end current stage of reflow
-		  if (timeSeconds == ovenParameters.endTimeStage)
+		  if (timeSeconds == ovenParameters.endTimeStage && ovenParameters.reflowStage != 4)
 		  {
 			ovenParameters.setpointCal = 0; // trigger recalculation of parameters
 			ovenParameters.reflowStage ++;	// move to next stage
@@ -790,8 +793,8 @@ int main(void)
 
 		  if (endOfCycle == 1)
 		  {
-			  TIM4->CCR2;
-			  ovenParameters.startStop = 0; 							// end of drying
+			  TIM4->CCR2 = 0;
+			  ovenParameters.startStop = 0; 						// end of drying
 			  endOfCycle = 0;
 		  }
 
@@ -799,7 +802,7 @@ int main(void)
 		  {
 			  float dryTempPresset = (float)dryPreset.dryTemp;
 			  TIM4->CCR2 =  PIDcalculation(&pid, &dryTempPresset); 	// set SSR1 Duty (Timer 4 channel 2)
-			  ovenParameters.PID_trig = 0; 								// reset pid calculate flag
+			  ovenParameters.PID_trig = 0; 							// reset pid calculate flag
 		  }
 
 		  break;

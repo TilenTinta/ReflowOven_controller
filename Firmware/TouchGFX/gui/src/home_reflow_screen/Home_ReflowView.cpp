@@ -336,10 +336,8 @@ void Home_ReflowView::setHIGHLIGHT(int boxNo)
 void Home_ReflowView::StartReflow()
 {
 	ovenParameters.startStop = 1;
-//	btnReflowStart.setVisible(0);
-//	btnReflowStart.invalidate();
-//	btnReflowStop.setVisible(1);
-//	btnReflowStop.invalidate();
+	ovenParameters.setpointCal = 0;
+	ovenParameters.reflowStage = 0;
 }
 
 void Home_ReflowView::StopReflow()
@@ -348,15 +346,12 @@ void Home_ReflowView::StopReflow()
 	ovenParameters.reflowStage = 0;
 	GraphReflow2.clear();
 	GraphReflow2.invalidate();
-//	btnReflowStart.setVisible(1);
-//	btnReflowStart.invalidate();
-//	btnReflowStop.setVisible(0);
-//	btnReflowStop.invalidate();
+//	GraphReflow1.clear();
+//	GraphReflow1.invalidate();
 }
 
 void Home_ReflowView::DrawPlot()
 {
-	// Target graph is a bit shifted if the profile is less than 450 sec
 	GraphReflow1.addDataPoint(0, 20);
 	GraphReflow1.addDataPoint(*timePlotArr, *tempPlotArr);
 	GraphReflow1.addDataPoint(*(timePlotArr + 1), *(tempPlotArr + 1));
@@ -372,6 +367,8 @@ void Home_ReflowView::setPLOTPOINT(int point)
 	{
 		GraphReflow2.addDataPoint(point);
 		ovenParameters.addPoint = 0;
+		GraphReflow2.clear();
+		GraphReflow2.invalidate();
 	}
 }
 
