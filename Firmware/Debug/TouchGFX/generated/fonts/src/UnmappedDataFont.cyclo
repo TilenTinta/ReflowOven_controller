@@ -13,10 +13,16 @@
 ../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp:49:39:static touchgfx::FlashDataReader* ApplicationFontProvider::getFlashReader()	1
 ../TouchGFX/generated/fonts/include/fonts/UnmappedDataFont.hpp:90:29:virtual const uint16_t* touchgfx::UnmappedDataFont::getGSUBTable() const	1
 ../TouchGFX/generated/fonts/include/fonts/UnmappedDataFont.hpp:100:45:virtual const touchgfx::FontContextualFormsTable* touchgfx::UnmappedDataFont::getContextualFormsTable() const	1
-../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:12:1:touchgfx::UnmappedDataFont::UnmappedDataFont(const touchgfx::GlyphNode*, const uint16_t*, uint16_t, uint16_t, uint16_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, const uint8_t* const*, const touchgfx::KerningNode*, touchgfx::Unicode::UnicodeChar, touchgfx::Unicode::UnicodeChar, const uint16_t*, const touchgfx::FontContextualFormsTable*)	1
-../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:24:18:virtual const touchgfx::GlyphNode* touchgfx::UnmappedDataFont::getGlyph(touchgfx::Unicode::UnicodeChar, const uint8_t*&, uint8_t&) const	3
-../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:44:16:virtual const uint8_t* touchgfx::UnmappedDataFont::getPixelData(const touchgfx::GlyphNode*) const	1
-../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:50:8:virtual int8_t touchgfx::UnmappedDataFont::getKerning(touchgfx::Unicode::UnicodeChar, const touchgfx::GlyphNode*) const	6
-../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:72:5:int touchgfx::UnmappedDataFont::lookupUnicode(uint16_t) const	14
+../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:13:1:touchgfx::UnmappedDataFont::UnmappedDataFont(const touchgfx::GlyphNode*, const uint16_t*, uint16_t, uint16_t, uint16_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, const uint8_t* const*, const touchgfx::KerningNode*, touchgfx::Unicode::UnicodeChar, touchgfx::Unicode::UnicodeChar, const uint16_t*, const touchgfx::FontContextualFormsTable*)	1
+../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:25:18:virtual const touchgfx::GlyphNode* touchgfx::UnmappedDataFont::getGlyph(touchgfx::Unicode::UnicodeChar, const uint8_t*&, uint8_t&) const	3
+../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:45:16:virtual const uint8_t* touchgfx::UnmappedDataFont::getPixelData(const touchgfx::GlyphNode*) const	1
+../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:51:8:virtual int8_t touchgfx::UnmappedDataFont::getKerning(touchgfx::Unicode::UnicodeChar, const touchgfx::GlyphNode*) const	6
+../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:73:5:int touchgfx::UnmappedDataFont::lookupUnicode(uint16_t) const	14
 ../TouchGFX/generated/fonts/include/fonts/UnmappedDataFont.hpp:19:7:touchgfx::UnmappedDataFont::~UnmappedDataFont()	1
 ../TouchGFX/generated/fonts/include/fonts/UnmappedDataFont.hpp:19:7:virtual touchgfx::UnmappedDataFont::~UnmappedDataFont()	1
+../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:154:1:touchgfx::CompressedUnmappedDataFont::CompressedUnmappedDataFont(const touchgfx::GlyphNode*, const uint16_t*, uint16_t, uint16_t, uint16_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, const uint8_t* const*, const touchgfx::KerningNode*, touchgfx::Unicode::UnicodeChar, touchgfx::Unicode::UnicodeChar, const uint16_t*, const touchgfx::FontContextualFormsTable*)	1
+../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:159:18:virtual const touchgfx::GlyphNode* touchgfx::CompressedUnmappedDataFont::getGlyph(touchgfx::Unicode::UnicodeChar) const	4
+../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:186:18:virtual const touchgfx::GlyphNode* touchgfx::CompressedUnmappedDataFont::getGlyph(touchgfx::Unicode::UnicodeChar, const uint8_t*&, uint8_t&) const	7
+../TouchGFX/generated/fonts/src/UnmappedDataFont.cpp:232:16:virtual const uint8_t* touchgfx::CompressedUnmappedDataFont::getPixelData(const touchgfx::GlyphNode*) const	1
+../TouchGFX/generated/fonts/include/fonts/UnmappedDataFont.hpp:125:7:touchgfx::CompressedUnmappedDataFont::~CompressedUnmappedDataFont()	1
+../TouchGFX/generated/fonts/include/fonts/UnmappedDataFont.hpp:125:7:virtual touchgfx::CompressedUnmappedDataFont::~CompressedUnmappedDataFont()	1

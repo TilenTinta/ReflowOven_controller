@@ -1,5 +1,5 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:515:10:void touchgfx::Drawable::setVisible(bool)	16	static
-../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp:404:25:static touchgfx::Unicode::UnicodeChar* touchgfx::Unicode::snprintfFloat(touchgfx::Unicode::UnicodeChar*, uint16_t, const char*, float)	24	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp:404:25:static touchgfx::Unicode::UnicodeChar* touchgfx::Unicode::snprintfFloat(UnicodeChar*, uint16_t, const char*, float)	24	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	16	static
@@ -13,6 +13,6 @@
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:232:6:virtual void Home_ReflowView::setTIME(int)	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:239:6:virtual void Home_ReflowView::setHIGHLIGHT(int)	16	static
 ../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:336:6:virtual void Home_ReflowView::StartReflow()	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:343:6:virtual void Home_ReflowView::StopReflow()	16	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:353:6:virtual void Home_ReflowView::DrawPlot()	336	static
-../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:364:6:virtual void Home_ReflowView::setPLOTPOINT(int)	40	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:351:6:virtual void Home_ReflowView::StopReflow()	16	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:359:6:virtual void Home_ReflowView::DrawPlot()	336	static
+../TouchGFX/gui/src/home_reflow_screen/Home_ReflowView.cpp:370:6:virtual void Home_ReflowView::setPLOTPOINT(int)	40	static

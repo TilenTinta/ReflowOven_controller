@@ -981,7 +981,7 @@
             "XAxisScale": 1.0,
             "LabelSizeBottom": 10,
             "LabelSizeLeft": 14,
-            "GraphType": "GraphWrapClear",
+            "GraphType": "GraphWrapOverwrite",
             "GraphDrawers": [
               {
                 "Type": "LineDrawer",
@@ -3564,5 +3564,5 @@
     "OptionalComponents": [],
     "AdditionalFeatures": []
   },
-  "Version": "4.23.2"
+  "Version": "4.25.0"
 }

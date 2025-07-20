@@ -1,0 +1,12 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:115:17:static touchgfx::HAL* touchgfx::HAL::getInstance()	4	static
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:290:10:void touchgfx::HAL::lockUnlockFrameBuffer()	16	static
+../TouchGFX/generated/fonts/src/CompressedFontCache.cpp:21:5:touchgfx::{anonymous}::NibReader::NibReader(const uint8_t*)	16	static
+../TouchGFX/generated/fonts/src/CompressedFontCache.cpp:28:13:uint8_t touchgfx::{anonymous}::NibReader::getNext()	24	static
+../TouchGFX/generated/fonts/src/CompressedFontCache.cpp:45:5:touchgfx::{anonymous}::NibWriter::NibWriter(uint8_t*, int)	24	static
+../TouchGFX/generated/fonts/src/CompressedFontCache.cpp:51:10:void touchgfx::{anonymous}::NibWriter::put(uint8_t)	16	static
+../TouchGFX/generated/fonts/src/CompressedFontCache.cpp:63:10:bool touchgfx::{anonymous}::NibWriter::eof()	16	static
+../TouchGFX/generated/fonts/src/CompressedFontCache.cpp:67:10:static uint8_t* touchgfx::CompressedFontCache::decompressGlyph(uint8_t*, const touchgfx::GlyphNode*, const uint8_t*)	80	static
+../TouchGFX/generated/fonts/src/CompressedFontCache.cpp:122:6:static void touchgfx::CompressedFontCache::clearCache()	8	static
+../TouchGFX/generated/fonts/src/CompressedFontCache.cpp:131:6:static void touchgfx::CompressedFontCache::unableToCache(const touchgfx::GlyphNode*, int)	16	static
+../TouchGFX/generated/fonts/src/CompressedFontCache.cpp:136:16:static const uint8_t* touchgfx::CompressedFontCache::hasCachedGlyph(const touchgfx::GlyphNode*)	24	static
+../TouchGFX/generated/fonts/src/CompressedFontCache.cpp:151:16:static const uint8_t* touchgfx::CompressedFontCache::cacheGlyph(const touchgfx::GlyphNode*, const uint8_t*)	48	static

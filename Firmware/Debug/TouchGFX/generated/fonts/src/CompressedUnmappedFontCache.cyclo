@@ -1,0 +1,14 @@
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:115:17:static touchgfx::HAL* touchgfx::HAL::getInstance()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:290:10:void touchgfx::HAL::lockUnlockFrameBuffer()	1
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:21:5:touchgfx::{anonymous}::NibUnmapReader::NibUnmapReader(const uint8_t*, touchgfx::FlashDataReader*)	1
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:35:13:uint8_t touchgfx::{anonymous}::NibUnmapReader::getNext()	3
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:63:5:touchgfx::{anonymous}::NibWriter::NibWriter(uint8_t*, int)	1
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:69:10:void touchgfx::{anonymous}::NibWriter::put(uint8_t)	2
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:81:10:bool touchgfx::{anonymous}::NibWriter::eof()	1
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:85:10:static uint8_t* touchgfx::CompressedUnmappedFontCache::decompressGlyph(uint8_t*, const touchgfx::GlyphNode*, const uint8_t*, touchgfx::FlashDataReader*)	10
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:137:6:static void touchgfx::CompressedUnmappedFontCache::clearCache()	1
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:146:6:static void touchgfx::CompressedUnmappedFontCache::unableToCache(const touchgfx::GlyphNode*, int)	1
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:151:18:static const touchgfx::GlyphNode* touchgfx::CompressedUnmappedFontCache::hasCachedGlyphNode(const touchgfx::GlyphNode*)	3
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:166:18:static const touchgfx::GlyphNode* touchgfx::CompressedUnmappedFontCache::hasCachedGlyphData(const touchgfx::GlyphNode*, const uint8_t*&)	3
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:183:12:static touchgfx::GlyphNode* touchgfx::CompressedUnmappedFontCache::cacheGlyphNode(const touchgfx::GlyphNode*)	2
+../TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.cpp:200:16:static const uint8_t* touchgfx::CompressedUnmappedFontCache::cacheGlyphData(const touchgfx::GlyphNode*, const uint8_t*, touchgfx::FlashDataReader*)	6

@@ -338,6 +338,14 @@ void Home_ReflowView::StartReflow()
 	ovenParameters.startStop = 1;
 	ovenParameters.setpointCal = 0;
 	ovenParameters.reflowStage = 0;
+
+
+	GraphReflow2.clear();
+	DrawPlot();
+	//GraphReflow2.setGraphRangeX(0, 450);   // Show ticks immediately
+	GraphReflow2.invalidate();
+
+
 }
 
 void Home_ReflowView::StopReflow()
@@ -346,8 +354,6 @@ void Home_ReflowView::StopReflow()
 	ovenParameters.reflowStage = 0;
 	GraphReflow2.clear();
 	GraphReflow2.invalidate();
-//	GraphReflow1.clear();
-//	GraphReflow1.invalidate();
 }
 
 void Home_ReflowView::DrawPlot()
@@ -367,8 +373,6 @@ void Home_ReflowView::setPLOTPOINT(int point)
 	{
 		GraphReflow2.addDataPoint(point);
 		ovenParameters.addPoint = 0;
-		GraphReflow2.clear();
-		GraphReflow2.invalidate();
 	}
 }
 

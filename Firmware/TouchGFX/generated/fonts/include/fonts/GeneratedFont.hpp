@@ -210,6 +210,18 @@ private:
         arabicTable = &contextualForms;
     }
 };
+
+
+class CompressedMappedFont : public GeneratedFont
+{
+public:
+    CompressedMappedFont(const GlyphNode* glyphs, uint16_t numGlyphs, uint16_t height, uint16_t baseline, uint8_t pixAboveTop, uint8_t pixBelowBottom, uint8_t bitsPerPixel, uint8_t byteAlignRow, uint8_t maxLeft, uint8_t maxRight, const uint8_t* const* glyphDataInternalFlash, const KerningNode* kerningList, const Unicode::UnicodeChar fallbackChar, const Unicode::UnicodeChar ellipsisChar, const uint16_t* const gsubData, const FontContextualFormsTable* formsTable);
+
+    using GeneratedFont::getGlyph;
+    virtual const GlyphNode* getGlyph(Unicode::UnicodeChar unicode) const;
+    virtual const uint8_t* getPixelData(const GlyphNode* glyph) const;
+};
+
 } // namespace touchgfx
 
 #endif // TOUCHGFX_GENERATEDFONT_HPP

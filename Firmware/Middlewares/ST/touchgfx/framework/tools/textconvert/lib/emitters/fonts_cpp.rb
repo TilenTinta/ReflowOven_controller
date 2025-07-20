@@ -1,7 +1,7 @@
-# Copyright (c) 2018(-2024) STMicroelectronics.
+# Copyright (c) 2018(-2025) STMicroelectronics.
 # All rights reserved.
 #
-# This file is part of the TouchGFX 4.23.2 distribution.
+# This file is part of the TouchGFX 4.25.0 distribution.
 #
 # This software is licensed under terms that can be found in the LICENSE file in
 # the root directory of this software component.
@@ -13,7 +13,7 @@ class FontsCpp
     @@font_convert = font_convert
   end
 
-  def initialize(text_entries, typographies, languages, output_directory, font_asset_path, autohint_setting, data_format, generate_binary_fonts, generate_font_format, korean_fusion_fonts)
+  def initialize(text_entries, typographies, languages, output_directory, font_asset_path, autohint_setting, data_format, generate_binary_fonts, generate_font_format, korean_fusion_fonts, compressed_font_cache_size)
     @typographies = typographies
     @languages = languages
     @output_directory = output_directory
@@ -23,12 +23,13 @@ class FontsCpp
     @generate_binary_fonts = generate_binary_fonts
     @generate_font_format = generate_font_format
     @korean_fusion_fonts = korean_fusion_fonts
+    @compressed_font_cache_size = compressed_font_cache_size
   end
   def run
     context_tables_is_generated = {}
 
     #find unique typographies, but ignore all vector typographies
-    unique_typographies = @typographies.select{|t| not t.is_vector}.map{ |t| Typography.new("", t.font_file, t.font_size, t.bpp, t.is_vector, t.fallback_character, t.ellipsis_character) }.uniq
+    unique_typographies = @typographies.select{|t| not t.is_vector}.map{ |t| Typography.new("", t.font_file, t.font_size, t.bpp, t.is_vector, t.is_compressed, t.fallback_character, t.ellipsis_character) }.uniq
 
     #remove old unused Table, Kerning, Font files for non-vector typographies
     #1. Create a list of font names
@@ -65,6 +66,11 @@ class FontsCpp
         FileUtils.rm(cache_file)
       end
     end
+    Dir["#{local_path}/CompressedFontBuffer_*.cache"].each do |cache_file|
+      if font_names.none? {|font_name| cache_file == "#{local_path}/CompressedFontBuffer_#{font_name}.cache" }
+        FileUtils.rm(cache_file)
+      end
+    end
 
     generate_contextual_table = false
     unique_typographies.sort_by { |t| sprintf("%s %04d %d",t.font_file,t.font_size,t.bpp) }.each do |typography|
@@ -77,6 +83,7 @@ class FontsCpp
       ellipsis_char ||= 0
       autohint = @autohint_setting == "no" ? "-nah" : @autohint_setting == "force" ? "-fah" : ""
       byte_align = @data_format.match("A#{typography.bpp}") ? "-ba" : ""
+      compression = typography.is_compressed ? "-z" : ""
       #generate contextual forms table for font if not already done
       generate_contextual_table = context_tables_is_generated[typography.cpp_name] ? "no" : "yes"
       context_tables_is_generated[typography.cpp_name] = true #set done for next font with this name
@@ -111,6 +118,7 @@ class FontsCpp
 -bf #{@generate_binary_fonts} \
 -ff #{@generate_font_format} \
 -ffu #{fusion} \
+#{compression} \
 #{autohint} \
 #{byte_align}"
       output = `#{cmd}`.force_encoding('iso-8859-1')
@@ -124,8 +132,30 @@ class FontsCpp
       end
     end
 
+
+    #loop through generated/fonts/cache/CompressedFontBuffer_verdana_140_4bpp.cache files, find the max numbers
+    @max_size = 0
+    @max_font = ""
+    local_path = "#{@output_directory}/cache".gsub('\\','/')
+    Dir["#{local_path}/CompressedFontBuffer_*.cache"].each do |cache_file|
+      match = /CompressedFontBuffer_(.*).cache/.match(cache_file)
+      font_name = match[1]
+      value = File.read(cache_file)
+      buffer_size = value.to_i
+      if buffer_size > @max_size
+        @max_size = buffer_size
+        @max_font = font_name
+      end
+    end
+
+    if @max_size > @compressed_font_cache_size
+      fail "\nERROR: Compressed Font Cache Size is too small. Font #{@max_font} requires a cache of minimum #{@max_size} bytes.\n\n"
+    end
+
+    ############# VECTOR FONTS NOW #############
+
     #find unique vector typographies, but only vector typographies
-    unique_typographies = @typographies.select{|t| t.is_vector}.map{ |t| Typography.new("", t.font_file, t.font_size, t.bpp, t.is_vector, t.fallback_character, t.ellipsis_character) }.uniq
+    unique_typographies = @typographies.select{|t| t.is_vector}.map{ |t| Typography.new("", t.font_file, t.font_size, t.bpp, t.is_vector, t.is_compressed, t.fallback_character, t.ellipsis_character) }.uniq
     did_generate_vector_font_contour_table = {} #true if we have generated the vector font contour for this ttf
 
     #remove old unused Table, Kerning, Font files for vector typographies
@@ -164,7 +194,6 @@ class FontsCpp
         FileUtils.rm(cache_file)
       end
     end
-    local_path = "#{@output_directory}/cache".gsub('\\','/')
     Dir["#{local_path}/Vector_Font_*_buffer.cache"].each do |cache_file|
       if font_names.none? {|font_name| cache_file == "#{local_path}/Vector_Font_#{font_name}_buffer.cache" }
         FileUtils.rm(cache_file)

@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2024) STMicroelectronics.
+* Copyright (c) 2018(-2025) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.23.2 distribution.
+* This file is part of the TouchGFX 4.25.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -218,6 +218,9 @@ bool Canvas::render(uint8_t customAlpha)
     case Bitmap::BW_RLE:
     case Bitmap::A4:
     case Bitmap::CUSTOM:
+    case Bitmap::COMPRESSED_RGB565:
+    case Bitmap::COMPRESSED_RGB888:
+    case Bitmap::COMPRESSED_ARGB8888:
         assert(false && "Unsupported bit depth");
     }
     const bool result = rasterizer.render(canvasPainter, framebuffer, stride, xAdjust, alpha);

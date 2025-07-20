@@ -48,10 +48,12 @@ FrontendApplicationBase::FrontendApplicationBase(Model& m, FrontendHeap& heap)
 #ifndef SIMULATOR
     reinterpret_cast<touchgfx::LCD16bppSerialFlash&>(touchgfx::HAL::lcd()).enableTextureMapperAll();
     reinterpret_cast<touchgfx::LCD16bppSerialFlash&>(touchgfx::HAL::lcd()).enableDecompressorL8_All();
+    reinterpret_cast<touchgfx::LCD16bppSerialFlash&>(touchgfx::HAL::lcd()).enableDecompressorRGB();
 #endif
 #ifdef SIMULATOR
     reinterpret_cast<touchgfx::LCD16bpp&>(touchgfx::HAL::lcd()).enableTextureMapperAll();
     reinterpret_cast<touchgfx::LCD16bpp&>(touchgfx::HAL::lcd()).enableDecompressorL8_All();
+    reinterpret_cast<touchgfx::LCD16bpp&>(touchgfx::HAL::lcd()).enableDecompressorRGB();
 #endif
 }
 

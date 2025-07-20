@@ -7,6 +7,7 @@ TouchGFX/generated/fonts/src/UnmappedDataFont.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/FontManager.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp \
+ ../TouchGFX/generated/fonts/include/fonts/CompressedUnmappedFontCache.hpp \
  ../TouchGFX/generated/fonts/include/fonts/UnmappedDataFont.hpp
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FlashDataReader.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:
@@ -15,4 +16,5 @@ TouchGFX/generated/fonts/src/UnmappedDataFont.o: \
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/FontManager.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp:
+../TouchGFX/generated/fonts/include/fonts/CompressedUnmappedFontCache.hpp:
 ../TouchGFX/generated/fonts/include/fonts/UnmappedDataFont.hpp:

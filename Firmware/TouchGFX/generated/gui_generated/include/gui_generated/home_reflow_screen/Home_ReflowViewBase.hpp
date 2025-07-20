@@ -16,7 +16,7 @@
 #include <touchgfx/widgets/graph/Graph.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/graph/GraphLabels.hpp>
-#include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
+#include <touchgfx/widgets/graph/GraphWrapAndOverwrite.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 
 class Home_ReflowViewBase : public touchgfx::View<Home_ReflowPresenter>
@@ -87,7 +87,7 @@ protected:
     touchgfx::GraphLabelsY GraphReflow1MajorYAxisLabel;
     touchgfx::GraphElementLine GraphReflow1Line1;
     touchgfx::PainterRGB565 GraphReflow1Line1Painter;
-    touchgfx::GraphWrapAndClear<450> GraphReflow2;
+    touchgfx::GraphWrapAndOverwrite<450> GraphReflow2;
     touchgfx::GraphLabelsX GraphReflow2MajorXAxisLabel;
     touchgfx::GraphElementLine GraphReflow2Line1;
     touchgfx::PainterRGB565 GraphReflow2Line1Painter;

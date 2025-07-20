@@ -35,6 +35,8 @@
 "./TouchGFX/App/app_touchgfx.o"
 "./TouchGFX/generated/fonts/src/ApplicationFontProvider.o"
 "./TouchGFX/generated/fonts/src/CachedFont.o"
+"./TouchGFX/generated/fonts/src/CompressedFontCache.o"
+"./TouchGFX/generated/fonts/src/CompressedUnmappedFontCache.o"
 "./TouchGFX/generated/fonts/src/FontCache.o"
 "./TouchGFX/generated/fonts/src/Font_verdana_10_4bpp_0.o"
 "./TouchGFX/generated/fonts/src/Font_verdana_20_4bpp_0.o"

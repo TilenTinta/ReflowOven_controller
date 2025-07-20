@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (13.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -38,42 +38,6 @@ RM := rm -rf
 -include TouchGFX/generated/gui_generated/src/dry_setup_screen/subdir.mk
 -include TouchGFX/generated/gui_generated/src/common/subdir.mk
 -include TouchGFX/generated/fonts/src/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/touchgfx/framework/source/platform/hal/simulator/sdl2/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/touchgfx/framework/source/platform/driver/touch/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/simulator/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/startup_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/setup_pid_p_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/setup_pid_i_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/setup_pid_d_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/settings_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/reflow_setup_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/reflow_setup_edit_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/model/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/menu_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/home_reflow_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/home_dry_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/error_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/dry_setup_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/gui/src/common/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/texts/src/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/simulator/src/video/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/simulator/src/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/images/src/__generated/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/images/src/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/startup_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/setup_pid_p_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/setup_pid_i_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/setup_pid_d_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/settings_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/reflow_setup_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/reflow_setup_edit_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/menu_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/home_reflow_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/home_dry_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/error_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/dry_setup_screen/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/common/subdir.mk
--include TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/subdir.mk
 -include TouchGFX/App/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk

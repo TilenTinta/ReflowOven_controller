@@ -2,13 +2,13 @@
   ******************************************************************************
   * File Name          : app_touchgfx.h
   ******************************************************************************
-  * This file was created by TouchGFX Generator 4.23.2. This file is only
+  * This file was created by TouchGFX Generator 4.25.0. This file is only
   * generated once! Delete this file from your project and re-generate code
   * using STM32CubeMX or change this file manually to update it.
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 STMicroelectronics.
+  * Copyright (c) 2025 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file

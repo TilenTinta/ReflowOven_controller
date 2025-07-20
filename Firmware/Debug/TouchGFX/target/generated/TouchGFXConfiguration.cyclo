@@ -30,15 +30,17 @@
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Gestures.hpp:36:9:touchgfx::Gestures::DragState::DragState()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Gestures.hpp:60:5:touchgfx::Gestures::Gestures()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:55:5:touchgfx::HAL::HAL(touchgfx::DMA_Interface&, touchgfx::LCD&, touchgfx::TouchController&, uint16_t, uint16_t)	1
-../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:101:13:touchgfx::HAL::~HAL()	1
-../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:101:13:virtual touchgfx::HAL::~HAL()	1
-../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:638:18:virtual void touchgfx::HAL::backPorchExited()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:106:13:touchgfx::HAL::~HAL()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:106:13:virtual touchgfx::HAL::~HAL()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:683:18:virtual void touchgfx::HAL::backPorchExited()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Application.hpp:41:7:touchgfx::Application::~Application()	1
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Application.hpp:41:7:virtual touchgfx::Application::~Application()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:59:18:virtual void touchgfx::MVPApplication::handlePendingScreenTransition()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:73:10:void touchgfx::MVPApplication::evaluatePendingScreenTransition()	4
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:43:7:touchgfx::MVPApplication::~MVPApplication()	1
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:43:7:virtual touchgfx::MVPApplication::~MVPApplication()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:424:8:touchgfx::Callback<FrontendApplicationBase>::~Callback()	1
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:424:8:virtual touchgfx::Callback<FrontendApplicationBase>::~Callback()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:16:13:FrontendApplicationBase::~FrontendApplicationBase()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:16:13:virtual FrontendApplicationBase::~FrontendApplicationBase()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:18:18:virtual void FrontendApplicationBase::changeToStartScreen()	1
@@ -47,10 +49,18 @@
 ../TouchGFX/gui/include/gui/common/FrontendApplication.hpp:16:18:virtual void FrontendApplication::handleTickEvent()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendHeapBase.hpp:110:18:virtual void FrontendHeapBase::gotoStartScreen(FrontendApplication&)	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendHeapBase.hpp:115:5:FrontendHeapBase::FrontendHeapBase(touchgfx::AbstractPartition&, touchgfx::AbstractPartition&, touchgfx::AbstractPartition&, FrontendApplication&)	1
-../TouchGFX/gui/include/gui/common/FrontendHeap.hpp:56:29:void __tcf_0()	1
-../TouchGFX/gui/include/gui/common/FrontendHeap.hpp:54:26:static FrontendHeap& FrontendHeap::getInstance()	3
 ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendHeapBase.hpp:50:7:FrontendHeapBase::~FrontendHeapBase()	1
 ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendHeapBase.hpp:50:7:virtual FrontendHeapBase::~FrontendHeapBase()	1
+../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:touchgfx::Partition<touchgfx::meta::TypeList<Reflow_Setup_EditPresenter, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
+../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:virtual touchgfx::Partition<touchgfx::meta::TypeList<Reflow_Setup_EditPresenter, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
+../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:touchgfx::Partition<touchgfx::meta::TypeList<Home_ReflowView, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
+../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:virtual touchgfx::Partition<touchgfx::meta::TypeList<Home_ReflowView, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
+../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:touchgfx::Partition<touchgfx::meta::TypeList<touchgfx::NoTransition, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
+../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:virtual touchgfx::Partition<touchgfx::meta::TypeList<touchgfx::NoTransition, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
+../TouchGFX/gui/include/gui/common/FrontendHeap.hpp:6:7:FrontendHeap::~FrontendHeap()	1
+../TouchGFX/gui/include/gui/common/FrontendHeap.hpp:6:7:virtual FrontendHeap::~FrontendHeap()	1
+../TouchGFX/gui/include/gui/common/FrontendHeap.hpp:56:29:void __tcf_0()	1
+../TouchGFX/gui/include/gui/common/FrontendHeap.hpp:54:26:static FrontendHeap& FrontendHeap::getInstance()	3
 ../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:touchgfx::Partition<touchgfx::meta::TypeList<Reflow_Setup_EditPresenter, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::Partition()	1
 ../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:touchgfx::Partition<touchgfx::meta::TypeList<Home_ReflowView, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::Partition()	1
 ../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:touchgfx::Partition<touchgfx::meta::TypeList<touchgfx::NoTransition, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::Partition()	1
@@ -64,7 +74,7 @@
 ../TouchGFX/target/TouchGFXDataReader.hpp:39:13:TouchGFXDataReader::~TouchGFXDataReader()	1
 ../TouchGFX/target/TouchGFXDataReader.hpp:39:13:virtual TouchGFXDataReader::~TouchGFXDataReader()	1
 ../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:47:5:TouchGFXGeneratedHAL::TouchGFXGeneratedHAL(touchgfx::DMA_Interface&, touchgfx::LCD&, touchgfx::TouchController&, uint16_t, uint16_t)	1
-../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:136:18:virtual void TouchGFXGeneratedHAL::setDataReader(touchgfx::FlashDataReader*)	1
+../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:134:18:virtual void TouchGFXGeneratedHAL::setDataReader(touchgfx::FlashDataReader*)	1
 ../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:31:7:TouchGFXGeneratedHAL::~TouchGFXGeneratedHAL()	1
 ../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:31:7:virtual TouchGFXGeneratedHAL::~TouchGFXGeneratedHAL()	1
 ../TouchGFX/target/TouchGFXHAL.hpp:52:5:TouchGFXHAL::TouchGFXHAL(touchgfx::DMA_Interface&, touchgfx::LCD&, touchgfx::TouchController&, uint16_t, uint16_t)	1
@@ -74,14 +84,7 @@
 ../TouchGFX/target/generated/TouchGFXConfiguration.cpp:43:6:void touchgfx_init()	1
 ../TouchGFX/target/generated/TouchGFXConfiguration.cpp:70:6:void touchgfx_components_init()	1
 ../TouchGFX/target/generated/TouchGFXConfiguration.cpp:74:6:void touchgfx_taskEntry()	2
-../TouchGFX/gui/include/gui/common/FrontendHeap.hpp:6:7:FrontendHeap::~FrontendHeap()	1
-../TouchGFX/gui/include/gui/common/FrontendHeap.hpp:6:7:virtual FrontendHeap::~FrontendHeap()	1
-../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:touchgfx::Partition<touchgfx::meta::TypeList<touchgfx::NoTransition, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
-../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:virtual touchgfx::Partition<touchgfx::meta::TypeList<touchgfx::NoTransition, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
-../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:touchgfx::Partition<touchgfx::meta::TypeList<Home_ReflowView, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
-../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:virtual touchgfx::Partition<touchgfx::meta::TypeList<Home_ReflowView, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
-../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:touchgfx::Partition<touchgfx::meta::TypeList<Reflow_Setup_EditPresenter, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
-../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:42:7:virtual touchgfx::Partition<touchgfx::meta::TypeList<Reflow_Setup_EditPresenter, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >, 1>::~Partition()	1
+../TouchGFX/target/generated/TouchGFXConfiguration.cpp:85:1:void __static_initialization_and_destruction_0()	1
 ../TouchGFX/target/TouchGFXHAL.hpp:36:7:TouchGFXHAL::~TouchGFXHAL()	1
 ../TouchGFX/target/TouchGFXHAL.hpp:36:7:virtual TouchGFXHAL::~TouchGFXHAL()	1
 ../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp:39:7:ApplicationFontProvider::~ApplicationFontProvider()	1
@@ -94,9 +97,7 @@
 ../TouchGFX/target/generated/STM32DMA.hpp:31:7:virtual STM32DMA::~STM32DMA()	1
 ../TouchGFX/target/STM32TouchController.hpp:38:7:STM32TouchController::~STM32TouchController()	1
 ../TouchGFX/target/STM32TouchController.hpp:38:7:virtual STM32TouchController::~STM32TouchController()	1
-../TouchGFX/target/generated/TouchGFXConfiguration.cpp:85:1:void __static_initialization_and_destruction_0(int, int)	5
-../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:424:8:touchgfx::Callback<FrontendApplicationBase>::~Callback()	1
-../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:424:8:virtual touchgfx::Callback<FrontendApplicationBase>::~Callback()	1
+../TouchGFX/target/generated/TouchGFXConfiguration.cpp:85:1:void __static_initialization_and_destruction_1()	1
 ../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:58:22:uint16_t touchgfx::Partition<ListOfTypes, NUMBER_OF_ELEMENTS>::capacity() const [with ListOfTypes = touchgfx::meta::TypeList<touchgfx::NoTransition, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >; short unsigned int NUMBER_OF_ELEMENTS = 1]	1
 ../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:63:22:uint32_t touchgfx::Partition<ListOfTypes, NUMBER_OF_ELEMENTS>::element_size() [with ListOfTypes = touchgfx::meta::TypeList<touchgfx::NoTransition, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >; short unsigned int NUMBER_OF_ELEMENTS = 1]	1
 ../Middlewares/ST/touchgfx/framework/include/common/Partition.hpp:69:19:void* touchgfx::Partition<ListOfTypes, NUMBER_OF_ELEMENTS>::element(uint16_t) [with ListOfTypes = touchgfx::meta::TypeList<touchgfx::NoTransition, touchgfx::meta::TypeList<touchgfx::meta::Nil, touchgfx::meta::Nil> >; short unsigned int NUMBER_OF_ELEMENTS = 1]	1

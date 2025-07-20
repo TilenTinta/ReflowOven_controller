@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2024) STMicroelectronics.
+* Copyright (c) 2018(-2025) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.23.2 distribution.
+* This file is part of the TouchGFX 4.25.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -119,10 +119,11 @@ void SVGImage::draw(const Rect& invalidatedArea) const
         // Skip entire shape if bounding box does not cover invalidatedArea
         // Find bounding box including stroke width
         const float strokeWidthHalf = shape->strokeWidth / 2.0f;
-        const float bb_xMin = shape->boundingbox[0] - strokeWidthHalf;
-        const float bb_yMin = shape->boundingbox[1] - strokeWidthHalf;
-        const float bb_xMax = shape->boundingbox[2] + strokeWidthHalf;
-        const float bb_yMax = shape->boundingbox[3] + strokeWidthHalf;
+        const float strokeMiterLengthHalf = shape->strokeLineJoin == VG_STROKE_LINEJOIN_MITER ? (shape->strokeWidth * shape->strokeMiterLimit) / 2.0f - strokeWidthHalf : 0.0f;
+        const float bb_xMin = shape->boundingbox[0] - strokeWidthHalf - strokeMiterLengthHalf;
+        const float bb_yMin = shape->boundingbox[1] - strokeWidthHalf - strokeMiterLengthHalf;
+        const float bb_xMax = shape->boundingbox[2] + strokeWidthHalf + strokeMiterLengthHalf;
+        const float bb_yMax = shape->boundingbox[3] + strokeWidthHalf + strokeMiterLengthHalf;
         // Transform bounding box corners
         const Matrix3x3::Point p1 = shapeMatrix.affineTransform(bb_xMin, bb_yMin);
         const Matrix3x3::Point p2 = shapeMatrix.affineTransform(bb_xMin, bb_yMax);

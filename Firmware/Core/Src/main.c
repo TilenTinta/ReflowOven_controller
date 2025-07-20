@@ -125,19 +125,19 @@ OvenParameters ovenParameters = {
 
 // Default values for profiles
 ReflowProfiles reflowProfiles = {
-		.profile1Temp = {160, 160, 250, 250, 20},
-		.profile1Time = {100, 130, 250, 260, 400},
+		.profile1Temp = {150, 160, 210, 210, 20},
+		.profile1Time = {120, 140, 390, 400, 450},
 
-		.profile2Temp = {100, 150, 183, 183, 0},
+		.profile2Temp = {100, 150, 183, 183, 20},
 		.profile2Time = {100, 220, 280, 340, 400},
 
-		.profile3Temp = {100, 150, 183, 183, 0},
+		.profile3Temp = {100, 150, 183, 183, 20},
 		.profile3Time = {100, 220, 280, 340, 400},
 
-		.profile4Temp = {100, 150, 183, 183, 0},
+		.profile4Temp = {100, 150, 183, 183, 20},
 		.profile4Time = {100, 220, 280, 340, 400},
 
-		.profile5Temp = {100, 150, 183, 183, 0},
+		.profile5Temp = {100, 150, 183, 183, 20},
 		.profile5Time = {100, 220, 280, 340, 400}
 };
 
@@ -180,6 +180,7 @@ uint16_t rnwyTempOld = 0;		// previous temp value for detecting thermal runaways
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 
 	// TODO: Celsius -> Fahrenheit
@@ -1175,8 +1176,8 @@ static void MX_DMA_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-/* USER CODE BEGIN MX_GPIO_Init_1 */
-/* USER CODE END MX_GPIO_Init_1 */
+  /* USER CODE BEGIN MX_GPIO_Init_1 */
+  /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -1269,8 +1270,8 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
-/* USER CODE BEGIN MX_GPIO_Init_2 */
-/* USER CODE END MX_GPIO_Init_2 */
+  /* USER CODE BEGIN MX_GPIO_Init_2 */
+  /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */

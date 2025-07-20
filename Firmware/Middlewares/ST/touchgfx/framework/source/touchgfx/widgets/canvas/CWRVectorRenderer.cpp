@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2024) STMicroelectronics.
+* Copyright (c) 2018(-2025) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.23.2 distribution.
+* This file is part of the TouchGFX 4.25.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -11,6 +11,7 @@
 *******************************************************************************/
 
 #include <math.h>
+#include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 #include <touchgfx/widgets/canvas/CWRVectorRenderer.hpp>
 
 namespace touchgfx
@@ -54,23 +55,78 @@ void CWRVectorRenderer::drawPath(const uint8_t* cmds, uint32_t nCmds, const floa
         return;
     }
 
-    const int16_t bottom = area.bottom();
-    while (area.y < bottom)
+    switch (HAL::DISPLAY_ROTATION)
     {
-        while (!drawPathArea(cmds, nCmds, points, nPoints, area))
+    case rotate0:
         {
-            if (area.height == 1)
+            const int16_t bottom = area.bottom();
+            while (area.y < bottom)
             {
-                // Failed on a single line
-                break;
+                while (!drawPathArea(cmds, nCmds, points, nPoints, area))
+                {
+                    if (area.height == 1)
+                    {
+                        // Failed on a single line
+                        break;
+                    }
+                    area.height = (area.height + 1) >> 1;
+#ifdef SIMULATOR
+                    if (CanvasWidgetRenderer::getWriteMemoryUsageReport())
+                    {
+                        if (area.height > 1)
+                        {
+                            touchgfx_printf("CWR will split draw into multiple draws due to limited memory.\n");
+                        }
+                        else
+                        {
+                            touchgfx_printf("CWR was unable to complete a draw operation due to limited memory.\n");
+                        }
+                    }
+#endif
+                }
+                area.y += area.height;
+                if (area.bottom() > bottom)
+                {
+                    area.height = bottom - area.y;
+                }
             }
-            area.height = (area.height + 1) >> 1; // Cannot become 0 as (2+1)>>1=1
         }
-        area.y += area.height;
-        if (area.bottom() > bottom)
+        break;
+    case rotate90:
         {
-            area.height = bottom - area.y;
+            const int16_t right = area.right();
+            while (area.x < right)
+            {
+                while (!drawPathArea(cmds, nCmds, points, nPoints, area))
+                {
+                    if (area.width == 1)
+                    {
+                        // Failed on a single line
+                        break;
+                    }
+                    area.width = (area.width + 1) >> 1;
+#ifdef SIMULATOR
+                    if (CanvasWidgetRenderer::getWriteMemoryUsageReport())
+                    {
+                        if (area.width > 1)
+                        {
+                            touchgfx_printf("CWR will split draw into multiple draws due to limited memory.\n");
+                        }
+                        else
+                        {
+                            touchgfx_printf("CWR was unable to complete a draw operation due to limited memory.\n");
+                        }
+                    }
+#endif
+                }
+                area.x += area.width;
+                if (area.right() > right)
+                {
+                    area.width = right - area.x;
+                }
+            }
         }
+        break;
     }
 }
 
@@ -440,6 +496,7 @@ void CWRVectorRenderer::setLinearGradient(float x0, float y0, float x1, float y1
     colorAlpha = 255;
 
     AbstractPainterLinearGradient& linearPainter = getLinearPainter();
+    linearPainter.setWidgetWidth(canvasAreaAbsolute.width);
     linearPainter.setGradientEndPoints(x0, y0, x1, y1, width, height, matrix);
     assert(palette && "A gradient palette is required by CWRVectorRenderer");
     linearPainter.setGradientTexture(palette, isSolid);
