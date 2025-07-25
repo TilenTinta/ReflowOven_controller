@@ -339,7 +339,6 @@ void Home_ReflowView::StartReflow()
 	ovenParameters.setpointCal = 0;
 	ovenParameters.reflowStage = 0;
 
-
 	GraphReflow2.clear();
 	DrawPlot();
 	//GraphReflow2.setGraphRangeX(0, 450);   // Show ticks immediately
