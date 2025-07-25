@@ -48,7 +48,7 @@ The LCD used in this build is a **3.5-inch TFT LCD Display Module (320x480) with
 
 ## 3D Models
 
-All parts are printed from **PC plastic** using an **FDM 3D printer**. Alternative plastics can be used, but they must withstand high temperatures. There are two different options for electronics assembly mounting_ 
+All parts are printed from **PC plastic** using an **FDM 3D printer**. Alternative plastics can be used, but they must withstand high temperatures. There are two different options for electronics assembly mounting:
 - Inside the oven as is in my case. For that you only need to print **Front_frame**
 
 - On the side of the oven. For that you need to print three parts with **external** at the end of model names. Base that screws to the frame has teeth that allows preset angles. For rigit mount use only screw and nut, but you can add a spring under screw head. That will allow setting the angle later.
